@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ModestTree;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +9,12 @@ public class RoadManager : MonoBehaviour
 {
     [SerializeField] private PointType[] _points;
 
+    [ShowInInspector]
     public Dictionary<Team, Queue<Transform>> RoadTemplateContainer { get; private set; }
+
+    private Transform parent1;
+
+    [ShowInInspector] public bool bool1 => true;
 
     private void OnValidate()
     {
@@ -28,6 +34,12 @@ public class RoadManager : MonoBehaviour
             RoadTemplateContainer[pointType.Team].Enqueue(pointType.transform);
         }
         
+    }
+    
+    [Button]
+    public void Show()
+    {
+        Debug.Log("1");
     }
 }
 

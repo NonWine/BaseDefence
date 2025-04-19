@@ -13,6 +13,7 @@ public abstract class BaseEnemy : TeamTarget , IUnitDamagable , ITickable
     [SerializeField] protected NavMeshAgent NavMesh;
     protected EnemyStateMachine EnemyStateMachine;
     protected EnemyRotation EnemyRotation;
+    
     public event Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }

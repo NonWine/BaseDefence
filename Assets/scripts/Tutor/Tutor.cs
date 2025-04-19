@@ -1,5 +1,13 @@
+using System;
 using UnityEngine;
 using Zenject;
+
+
+public class Tutor2 : MonoBehaviour
+{
+    private Tutor Tutor;
+    
+}
 
 public class Tutor : MonoBehaviour 
 {
@@ -8,8 +16,13 @@ public class Tutor : MonoBehaviour
     [Inject] private ScreenTouchController _screenTouchController;
     private int _haTutor;
     private float _timer;
-    
-    
+
+    public event Action OnDieEvent;
+    public event Action OnJumpEvent;
+
+
+    public Action OnDieCallback;
+
     
     
     private void Start()
@@ -24,9 +37,12 @@ public class Tutor : MonoBehaviour
             EndTutor();
     }
     
+    
+    
 
     private void OnDestroy()
     {
+      
         _screenTouchController.OnLeftSideTap -= LeftHold;
         _screenTouchController.OnRightSideTap -= RightHold;
     }
@@ -78,3 +94,4 @@ public class Tutor : MonoBehaviour
         }
     }
 }
+
