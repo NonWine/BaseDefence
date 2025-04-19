@@ -14,6 +14,11 @@ public class PlayerContainer : MonoBehaviour
     
     [field: SerializeField] public PlayerTrigger PlayerTrigger { get; private set; }
 
+    private void Awake()
+    {
+        _playerStats = new PlayerStats();
+    }
+
     public PlayerStateMachine PlayerStateMachine
     {
         get;

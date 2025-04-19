@@ -16,6 +16,7 @@ public class Player : MonoBehaviour , ITickable
     private PlayerRotating _playerRotating;
     public Transform ResourceStartPoint;
     
+    
     public PlayerStateMachine PlayerStateMachine => _playerStateMachine;
     
 
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour , ITickable
 
     public PlayerContainer PlayerContainer => _playerContainer;
     
-    private void Awake()
+    private void Start()
     {
         _gameСontroller.RegisterInTick(this);
         InitializeHandler();
@@ -53,7 +54,7 @@ public class Player : MonoBehaviour , ITickable
         
         var playerStates = new Dictionary<PlayerStateKey, PlayerState>
         {
-            // { PlayerStateKey.Idle, new PlayerIdleState(_playerStateMachine, _playerContainer) },
+            { PlayerStateKey.Idle, new PlayerIdleState(_playerStateMachine, _playerContainer) },
             // {
             //     PlayerStateKey.Farming, new FarmingState(_playerStateMachine, _playerContainer,_playerAnimator, _playerHandlersService.DefaultRadiusDamageHandler)
             // },

@@ -1,31 +1,17 @@
 ﻿using System;
+using Cinemachine;
 using UnityEngine;
 using Zenject;
 
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [Inject] private ScreenTouchController _screenTouchController;
-
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [Inject] private Player player;
+    
     private void Start()
     {
-        _screenTouchController.OnLeftSideTap += MoveLeft;
-        _screenTouchController.OnRightSideTap += MoveRight;
+        virtualCamera.Follow = player.transform;
     }
-
-    private void OnDestroy()
-    {
-        _screenTouchController.OnLeftSideTap -= MoveLeft;
-        _screenTouchController.OnRightSideTap -= MoveRight;
-    }
-
-    private void MoveRight()
-    {
-        transform.position += Vector3.back * (_speed * Time.deltaTime);
-    }
-
-    private void MoveLeft()
-    {
-        transform.position += Vector3.forward * (_speed * Time.deltaTime);
-    }
+    
 }

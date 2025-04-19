@@ -1,0 +1,41 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
+
+public class BootControllerInstaller : MonoInstaller
+{
+    [SerializeField] private Player _playerPrefab;
+    [SerializeField] private Joystick _joystick;
+    [SerializeField] private Transform playerSpawnPoint;
+    private PlayerContainer _playerContainer;
+
+        
+    public override void InstallBindings()
+    {
+        BindHandlers();
+        RegirsterPlayer();
+    }
+
+    private void BindHandlers()
+    {
+        Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
+        Container.Bind<StorageManager>().FromNew().AsSingle();
+        Container.BindInstance(_joystick).AsSingle().NonLazy();
+
+    }
+
+    private void RegirsterPlayer()
+    {
+       var player = Container.InstantiatePrefabForComponent<Player>(_playerPrefab);
+       player.transform.position = playerSpawnPoint.position;
+        
+        _playerContainer = _playerPrefab.PlayerContainer;
+        Container.BindInstance(_playerContainer).AsSingle().Lazy();
+        Container.BindInstance(player).AsSingle();
+    }
+
+ 
+    
+ 
+}
+

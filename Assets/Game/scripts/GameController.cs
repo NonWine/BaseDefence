@@ -6,7 +6,8 @@ using Zenject;
 
 public class GameController : MonoBehaviour
 {
-    private List<ITickable> _tickables;
+    
+    private List<ITickable> _tickables; 
     private DiContainer _diContainer;
 
     public void RegisterInTick(ITickable tickable)
@@ -20,6 +21,7 @@ public class GameController : MonoBehaviour
     private void Awake()
     {
         _tickables = new List<ITickable>();
+        
     }
 
     private void Update()

@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9919b91dffa6fa34fa7f69a1dd6f461c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
 --- !u!1 &6873282930760255664
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +453,19 @@ MonoBehaviour:
   - {fileID: 7162041537734317888}
   - {fileID: 5529048148956473581}
   - {fileID: 5362144992146491412}
+  bloodHitFx: []
+  fireArrow: []
+  explosionFx: []
+  frozenExplosiveFx: []
+  deadZombieFx: []
+  polzunBloodHitFx: []
+  polzunDeadZombieFx: []
+  mimicDeadFx: []
+  explosiveSmolaFx: []
+  explosiveBulletFx: []
+  bombFx: []
+  canistraExplosionFx: []
+  spawnItemFx: []
 --- !u!1001 &189690348463355093
 PrefabInstance:
   m_ObjectHideFlags: 0
