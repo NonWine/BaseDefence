@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3188314790232260737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3188314790232260736}
+  - component: {fileID: 3188314790232260751}
+  - component: {fileID: 3188314790232260750}
+  m_Layer: 0
+  m_Name: Shoker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3188314790232260736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188314790232260737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3188314790232260751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188314790232260737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ba3c08b8752034ba0e086eaa5160ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3827872552891066530, guid: 79eaf91c92a2aa443ad416d2792abb8f, type: 3}
+  _default: 0
+  maxRc: 3
+  _radius: 23
+--- !u!114 &3188314790232260750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3188314790232260737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eda1300c90b6c4a982884126e60006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCardDataOld: {fileID: 11400000, guid: eca4c83b43da0814e911932856200b53, type: 2}
+  _attributes:
+  - valueAttribute: 0
+    _value: 60
+    MultyplyForUpgrade: 2.94
+  - valueAttribute: 2
+    _value: 83.75
+    MultyplyForUpgrade: 3.9
+  - valueAttribute: 1
+    _value: 5
+    MultyplyForUpgrade: -0.33
+  - valueAttribute: 11
+    _value: 0
+    MultyplyForUpgrade: 1
+  _upgradeWeaponType:
+  - UpgradeAttribute: 11
+    WeaponCardDataOld: {fileID: 11400000, guid: 25f012ca1e2fab64bb0fdcd40aba2bd6, type: 2}
+  - UpgradeAttribute: 2
+    WeaponCardDataOld: {fileID: 11400000, guid: 6beda8d40fd951045ab93fb55e1020e1, type: 2}
+  - UpgradeAttribute: 1
+    WeaponCardDataOld: {fileID: 11400000, guid: 6c095badf33aa244db4bc93fba304fb9, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 068d3b39590e0a149b35746ff24ceb1e, type: 2}
+  - UpgradeAttribute: 11
+    WeaponCardDataOld: {fileID: 11400000, guid: a0ef7ce909b050448ab3cf9914a18e1b, type: 2}
+  - UpgradeAttribute: 1
+    WeaponCardDataOld: {fileID: 11400000, guid: fb4f6d721429b704f9879cd08325452b, type: 2}

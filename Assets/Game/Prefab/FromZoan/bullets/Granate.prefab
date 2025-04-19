@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &835688088311082496
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835688088311082497}
+  - component: {fileID: 835688088311082498}
+  - component: {fileID: 835688088311082499}
+  m_Layer: 0
+  m_Name: Granate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835688088311082497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835688088311082496}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835688088311082498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835688088311082496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36b8c7dc939dce94da74e12c31d000f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7780763529671439132, guid: aa92bbce913b8e14a9407c45aaaf788e, type: 3}
+  _default: 0
+--- !u!114 &835688088311082499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835688088311082496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eda1300c90b6c4a982884126e60006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCardDataOld: {fileID: 11400000, guid: c749dc48bfd6b014696e4b07fc442a36, type: 2}
+  _attributes:
+  - valueAttribute: 0
+    _value: 200
+    MultyplyForUpgrade: 150
+  - valueAttribute: 2
+    _value: 100
+    MultyplyForUpgrade: 1
+  - valueAttribute: 1
+    _value: 3
+    MultyplyForUpgrade: -0.25
+  - valueAttribute: 3
+    _value: 6
+    MultyplyForUpgrade: 4
+  _upgradeWeaponType:
+  - UpgradeAttribute: 2
+    WeaponCardDataOld: {fileID: 11400000, guid: e14d6caf4c48723408d25ff175a3f1b5, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 1e32bc0669bbd134a84e8eba78c163de, type: 2}
+  - UpgradeAttribute: 1
+    WeaponCardDataOld: {fileID: 11400000, guid: 4ed8d251873ba1444b1f624cb42d6c13, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 8d074495ede9a2d43b6e48d204bcad5b, type: 2}
+  - UpgradeAttribute: 1
+    WeaponCardDataOld: {fileID: 11400000, guid: 040e7453a392b304196ae3139685c498, type: 2}
+  - UpgradeAttribute: 3
+    WeaponCardDataOld: {fileID: 11400000, guid: 83077a1afd21f5542bba413d29ccf381, type: 2}

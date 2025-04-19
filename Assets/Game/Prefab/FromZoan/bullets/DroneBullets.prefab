@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2773460519440403957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2773460519440403956}
+  - component: {fileID: 2773460519440403947}
+  - component: {fileID: 2773460519440403946}
+  - component: {fileID: 2773460519440403945}
+  m_Layer: 0
+  m_Name: DroneBullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2773460519440403956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773460519440403957}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2773460519440403947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773460519440403957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162c42dcee7e3fd46a2b33c31c3592c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TeamUnitPrefab: {fileID: 3198968413671183214, guid: 42267888a2c66a54187f973dbab26d1f, type: 3}
+  SpawnPoint: {fileID: 0}
+  BulletPrfab: {fileID: 2773460519440403945}
+--- !u!114 &2773460519440403946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773460519440403957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eda1300c90b6c4a982884126e60006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCardDataOld: {fileID: 11400000, guid: e33b45c6b75b4b346b50b2750d46a214, type: 2}
+  _attributes:
+  - valueAttribute: 0
+    _value: 23.21
+    MultyplyForUpgrade: 1
+  - valueAttribute: 2
+    _value: 80
+    MultyplyForUpgrade: 1
+  - valueAttribute: 1
+    _value: 1
+    MultyplyForUpgrade: -0.25
+  - valueAttribute: 11
+    _value: 0
+    MultyplyForUpgrade: 1
+  - valueAttribute: 3
+    _value: 100
+    MultyplyForUpgrade: 1
+  - valueAttribute: 6
+    _value: 111
+    MultyplyForUpgrade: 1
+  _upgradeWeaponType:
+  - UpgradeAttribute: 11
+    WeaponCardDataOld: {fileID: 11400000, guid: 813f40f858b0da04e8cfdc07a85e5788, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 8438f360185b09a48bbfd4a959722b51, type: 2}
+  - UpgradeAttribute: 3
+    WeaponCardDataOld: {fileID: 11400000, guid: 4e54d64c5153e5145b6e2b5d89023325, type: 2}
+  - UpgradeAttribute: 3
+    WeaponCardDataOld: {fileID: 11400000, guid: 4e54d64c5153e5145b6e2b5d89023325, type: 2}
+  - UpgradeAttribute: 3
+    WeaponCardDataOld: {fileID: 11400000, guid: 4e54d64c5153e5145b6e2b5d89023325, type: 2}
+  - UpgradeAttribute: 3
+    WeaponCardDataOld: {fileID: 11400000, guid: 4e54d64c5153e5145b6e2b5d89023325, type: 2}
+--- !u!114 &2773460519440403945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773460519440403957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f22e6403ad914adca892deba1f35a6d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8579964752318869219, guid: 834b015b58479f3438f3a606b840d78f, type: 3}
+  _default: 0
+  maxCount: 4

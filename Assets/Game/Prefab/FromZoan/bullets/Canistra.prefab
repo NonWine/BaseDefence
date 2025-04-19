@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7909875119381968031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7909875119381968030}
+  - component: {fileID: 7909875119381968025}
+  - component: {fileID: 7909875119381968024}
+  m_Layer: 0
+  m_Name: Canistra
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7909875119381968030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909875119381968031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7909875119381968025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909875119381968031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feba23571b95af7489ef2d53ec45f895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 2663917786917557413, guid: 3999df48721febf43a1c143996fd27ae, type: 3}
+  _default: 0
+  points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _canistaPos: {fileID: 0}
+--- !u!114 &7909875119381968024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909875119381968031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eda1300c90b6c4a982884126e60006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCardDataOld: {fileID: 11400000, guid: a6c03cfd08529c142829d58d3fe9b5ba, type: 2}
+  _attributes:
+  - valueAttribute: 0
+    _value: 23
+    MultyplyForUpgrade: 1.45
+  - valueAttribute: 2
+    _value: 1
+    MultyplyForUpgrade: 1
+  - valueAttribute: 1
+    _value: 5
+    MultyplyForUpgrade: -0.26
+  - valueAttribute: 11
+    _value: 0
+    MultyplyForUpgrade: 1
+  - valueAttribute: 3
+    _value: 5
+    MultyplyForUpgrade: 1
+  - valueAttribute: 5
+    _value: 5
+    MultyplyForUpgrade: 1
+  - valueAttribute: 8
+    _value: 5
+    MultyplyForUpgrade: 1
+  _upgradeWeaponType:
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 50857ca785bd5ff4c92894fb5c18b471, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 594b7825f805f084fae5354d486dc680, type: 2}
+  - UpgradeAttribute: 1
+    WeaponCardDataOld: {fileID: 11400000, guid: 817f044cfac2b064194fba71cace5c9f, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 82479fdd4aa83c4488869954d0456cd5, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 879fdcb179c59f94bac17bf3feb6528c, type: 2}
+  - UpgradeAttribute: 11
+    WeaponCardDataOld: {fileID: 11400000, guid: c05ff75728210374eaa4937f2ae84663, type: 2}

@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7897154282790194025
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7897154282790194024}
+  - component: {fileID: 7897154282790194029}
+  - component: {fileID: 7897154282790194030}
+  - component: {fileID: 7897154282790194031}
+  m_Layer: 0
+  m_Name: SniperBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7897154282790194024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897154282790194025}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7897154282790194029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897154282790194025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1eda1300c90b6c4a982884126e60006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponCardDataOld: {fileID: 11400000, guid: 00f2eb1b12b754f4e8faf73c0454ac13, type: 2}
+  _attributes:
+  - valueAttribute: 0
+    _value: 50
+    MultyplyForUpgrade: 2
+  - valueAttribute: 3
+    _value: 100
+    MultyplyForUpgrade: 1
+  - valueAttribute: 1
+    _value: 1
+    MultyplyForUpgrade: -0.07
+  - valueAttribute: 2
+    _value: 100
+    MultyplyForUpgrade: 1
+  _upgradeWeaponType:
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 19d9ebeee40682c469344c9564802267, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 33ef9c64ee9d4c14c8d87916097dd1f7, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 2b6abece6aea1784f9a23eb22320156b, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 2760e27f9210b2c4d863e3add2603757, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 7817e76d848a1854fb742107421c17ee, type: 2}
+  - UpgradeAttribute: 0
+    WeaponCardDataOld: {fileID: 11400000, guid: 8243498d838c95841840bd00fa02fd68, type: 2}
+--- !u!114 &7897154282790194030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897154282790194025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc0ca324bfcf294b952bbb8db8825c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8579964752318869219, guid: 834b015b58479f3438f3a606b840d78f, type: 3}
+  _default: 0
+--- !u!114 &7897154282790194031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897154282790194025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c595cdea8d8e4268bef8e9c3a2bdc2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TeamUnitPrefab: {fileID: 6330018961919795783, guid: f825e274ff219a248950fabf89c0d3d8, type: 3}
+  SpawnPoint: {fileID: 0}
+  BulletPrfab: {fileID: 7897154282790194030}
