@@ -8,7 +8,6 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform playerSpawnPoint;
     private PlayerContainer _playerContainer;
-
         
     public override void InstallBindings()
     {
@@ -18,6 +17,7 @@ public class PlayerInstaller : MonoInstaller
 
     private void BindHandlers()
     {
+        Container.BindInterfacesAndSelfTo<PlayerMonitor>().FromNew().AsSingle();
         Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
         Container.Bind<StorageManager>().FromNew().AsSingle();
         Container.BindInstance(_joystick).AsSingle().NonLazy();

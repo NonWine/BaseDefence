@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-[System.Serializable]
-public class WaveData
+[CreateAssetMenu(menuName = "ScriptableObject/WaveData", fileName = "WaveData", order = 0)]
+public class WaveData : ScriptableObject
 {
-    public float Duration;
-    public float MinSpawnInterval;
-    public float MaxSpawnInterval;
-    public List<EnemyGroup> EnemyGroups;
+    [ProgressBar(1, 5)] public float MinSpawnInterval;
+    [ProgressBar(5, 10)] public float MaxSpawnInterval;
+    public List<EnemySpawnInfo> Enemies;
 }

@@ -1,22 +1,32 @@
-﻿using Sirenix.OdinInspector;
+﻿using System;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
 public class WaveManager : MonoBehaviour
 {
-   [SerializeField] private  WaveData _waveData;
-   [Inject] private  EnemySpawner _spawner;
+   [SerializeField] private  List<WaveData> wavesData;
+   [SerializeField] private  EnemySpawner _spawner;
+   [SerializeField] private float wavesDuration;
    [Inject] private  IPlayerMonitor _playerMonitor;
+   private int currentWaveIndex;
+   private float _waveTimer;
+   private bool _waveActive;
+   
+   public WaveData currentWave => wavesData[currentWaveIndex];
 
-    private float _waveTimer;
-    private bool _waveActive;
+   private void Awake()
+   {
+       
+   }
 
-    [Button]
+   [Button]
     public void StartWave()
     {
         _waveTimer = 0f;
         _waveActive = true;
-        _spawner.StartSpawning(_waveData);
+        _spawner.StartSpawning(currentWave);
     }
 
     public void Update()
@@ -29,11 +39,18 @@ public class WaveManager : MonoBehaviour
         if (_playerMonitor.AverageKillTime < 1.5f)
             _spawner.TemporarilyIncreaseSpawnRate();
 
-        if (_playerMonitor.AliveEnemies < 3)
-            _spawner.SpawnExtraGroup();
+    //    if (_playerMonitor.AliveEnemies < 3)
+      //      _spawner.SpawnExtraGroup();
 
-        if (_waveTimer >= _waveData.Duration)
+        if (_waveTimer >= wavesDuration)
             EndWave();
+    }
+
+    public void UpdateWave()
+    {
+        currentWaveIndex++;
+        if (currentWaveIndex == wavesData.Count)
+            currentWaveIndex = 0;
     }
 
     private void EndWave()

@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 using Zenject;
 
-public class EnemySpawner
+public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private RandomPointInBoxCollider randomPointInBoxCollider;
     [Inject] private EnemyFactory enemyFactory;
     private WaveData _currentWave;
     private float _spawnTimer;
@@ -52,13 +54,15 @@ public class EnemySpawner
 
     private void SpawnRandomGroup()
     {
-        var group = _currentWave.EnemyGroups[Random.Range(0, _currentWave.EnemyGroups.Count)];
-        foreach (var enemy in group.Enemies)
+        var group = _currentWave.Enemies[Random.Range(0, _currentWave.Enemies.Count)];
+        for (int i = 0; i < group.Count; i++)
         {
-            for (int i = 0; i < enemy.Count; i++)
+            if (group.SelectedEnemy is PoolAble poolAble)
             {
-                enemyFactory.Create(enemy.GetType());
+                var enemy = enemyFactory.Create(poolAble.Type);
+                enemy.GetComponent<NavMeshAgent>().Warp(randomPointInBoxCollider.GetRandomPointInBox());
                 CurrentEnemies++;
+                
             }
         }
     }

@@ -1,9 +1,28 @@
 ﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 [System.Serializable]
 public class EnemySpawnInfo
 {
-   [ShowInInspector] public BaseEnemy EnemyType;
+    public BaseEnemy SelectedEnemy;
     public int Count;
-    public float SpawnDelay;
+
+    
+    #region Editor
+
+        [ShowInInspector] [PreviewField] [HideLabel]
+        private GameObject Preview
+        {
+            get
+            {
+                if (SelectedEnemy != null)
+                    return SelectedEnemy.gameObject;
+                return GameObject;
+            }
+        }
+        private GameObject GameObject;
+    
+
+    #endregion
 }
+
