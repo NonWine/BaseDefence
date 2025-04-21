@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294d10a546b5495a8d39761a8276d121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitAgrRadius: {fileID: 4037474069149055977}
   <EnemyStatsConfig>k__BackingField: {fileID: 11400000, guid: 7e7e3fc62403f1c439399a453c08e066, type: 2}
   EnemyAnimator: {fileID: 3174049791366742737}
   HealthUI: {fileID: 7759677228618719792}
@@ -218,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 2.25
+      value: 6.34
       objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -279,15 +278,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0197203
+      value: 3.413
       objectReference: {fileID: 0}
     - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0197203
+      value: 3.413
       objectReference: {fileID: 0}
     - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.0197203
+      value: 3.413
       objectReference: {fileID: 0}
     - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -328,6 +327,10 @@ PrefabInstance:
     - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200124475551780609, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 634937816563483817, guid: 9499a8a288e91c04085760e020e3b6e2, type: 3}
@@ -397,7 +400,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8256279795314868012, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -407,14 +411,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6414289390274351273, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
   m_PrefabInstance: {fileID: 5373867464515962053}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4037474069149055977 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8256279795314868012, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
-  m_PrefabInstance: {fileID: 5373867464515962053}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2624664c5507c984cb85be5406e21283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
