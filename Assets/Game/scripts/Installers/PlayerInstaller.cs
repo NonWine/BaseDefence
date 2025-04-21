@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-public class BootControllerInstaller : MonoInstaller
+public class PlayerInstaller : MonoInstaller
 {
     [SerializeField] private Player _playerPrefab;
     [SerializeField] private Joystick _joystick;
@@ -33,9 +33,4 @@ public class BootControllerInstaller : MonoInstaller
         Container.BindInstance(_playerContainer).AsSingle().Lazy();
         Container.BindInstance(player).AsSingle();
     }
-
- 
-    
- 
 }
-
