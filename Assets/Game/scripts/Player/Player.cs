@@ -8,6 +8,7 @@ public class Player : MonoBehaviour , ITickable
     [SerializeField] private PlayerContainer _playerContainer;
     [SerializeField] private HealthUI _healthUI;
     [Inject] private GameController _gameСontroller;
+    [Inject] private EnemyFactory enemyFactory;
     private PlayerHandlersService _playerHandlersService;
     private OverlapSphereHandler _overlapSphereHandler;
     private PlayerController _playerController;

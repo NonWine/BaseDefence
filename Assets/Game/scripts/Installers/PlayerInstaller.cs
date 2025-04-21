@@ -7,6 +7,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private Player _playerPrefab;
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform playerSpawnPoint;
+    [SerializeField] private PlayerCombatManager playerCombatManager;
     private PlayerContainer _playerContainer;
         
     public override void InstallBindings()
@@ -17,6 +18,7 @@ public class PlayerInstaller : MonoInstaller
 
     private void BindHandlers()
     {
+        Container.BindInstance(playerCombatManager).AsSingle();
         Container.BindInterfacesAndSelfTo<PlayerMonitor>().FromNew().AsSingle();
         Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
         Container.Bind<StorageManager>().FromNew().AsSingle();

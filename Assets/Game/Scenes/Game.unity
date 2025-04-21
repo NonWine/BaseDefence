@@ -1713,6 +1713,53 @@ Transform:
   - {fileID: 156347886333528738}
   m_Father: {fileID: 33359131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1836437328
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836437329}
+  - component: {fileID: 1836437330}
+  m_Layer: 0
+  m_Name: playerCombatController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836437329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836437328}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1877071371}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836437330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836437328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c208594b353743f0940f99cb5a6f880b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHandlers:
+  - weaponInfoData: {fileID: 11400000, guid: 538e71cc0ee13204d934ce3a70ec174c, type: 2}
+    isLocked: 0
 --- !u!1 &1877071369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,6 +1814,7 @@ Transform:
   - {fileID: 1939340794}
   - {fileID: 112092161}
   - {fileID: 1709021708}
+  - {fileID: 1836437329}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1939340792
@@ -1882,6 +1930,7 @@ MonoBehaviour:
   _playerPrefab: {fileID: 4203139770830303457, guid: ae574995de3a175469e54efca9190429, type: 3}
   _joystick: {fileID: 593851025}
   playerSpawnPoint: {fileID: 771897995}
+  playerCombatManager: {fileID: 1836437330}
 --- !u!1 &2025777124
 GameObject:
   m_ObjectHideFlags: 0

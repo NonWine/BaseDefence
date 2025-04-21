@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu()]
+[CreateAssetMenu(menuName = "ScriptableObject/WeaponInfoData", fileName = "WeaponInfoData", order = 0)]
 public class WeaponInfoData : ScriptableObject
 {
     public Sprite image;
-    public SkillType SkillType;
-    public int MaxLevel = 6;
+    public BaseBullet baseBullet;
+    public int maxLevel = 6;
+    public int damage;
+    public float coolDown;
+    
 }
 
 public enum SkillType

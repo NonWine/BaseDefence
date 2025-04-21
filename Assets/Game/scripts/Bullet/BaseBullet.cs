@@ -20,6 +20,8 @@ public abstract class BaseBullet : PoolAble
         {
             return;
         }
+        
+        
 
         transform.position = Vector3.MoveTowards(transform.position, _target.position + Vector3.up, 10f * Time.deltaTime);
 
