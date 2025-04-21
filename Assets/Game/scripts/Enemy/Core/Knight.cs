@@ -7,19 +7,6 @@ public class Knight : BaseEnemy
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.CompareTag("BuildingBorder"))
-        {
-            if(UnitAgrRadius.CurrentAgredTransform == null)
-                return;
-            
-            if (UnitAgrRadius.CurrentAgredTransform.TryGetComponent(out IBuildingDamagable buildingDamagable))
-            {
-                if(buildingDamagable.Team != Team)
-                    EnemyStateMachine.ChangeState<AttackState>();
-                
-            }
-            
-        }
     }
     
 }

@@ -10,9 +10,9 @@ public class Archer : BaseEnemy
 
     protected override Dictionary<Type, IEnemyState> CreateStates()
     {
-        RangeAttack rangeAttackStat = new RangeAttack(this, _bulletFactory, UnitAgrRadius, _bulletPos);
+        RangeAttack rangeAttackStat = new RangeAttack(this, _bulletFactory, _bulletPos);
         var states = base.CreateStates();
-        states[typeof(AttackState)] = new AttackState(this, EnemyStateMachine, rangeAttackStat, EnemyAnimator, UnitAgrRadius, EnemyRotation);
+        states[typeof(AttackState)] = new AttackState(this, EnemyStateMachine, rangeAttackStat, EnemyAnimator, EnemyRotation);
         return states;
     }
 

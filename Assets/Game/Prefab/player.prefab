@@ -431,6 +431,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BasicMaleDefault
       objectReference: {fileID: 0}
+    - target: {fileID: 1762018173025169313, guid: 5811f4236f7f88b41b2a1da538566706, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 43170b1edce238d44b8f62f949cb006f, type: 2}
+    - target: {fileID: 1762018173025169313, guid: 5811f4236f7f88b41b2a1da538566706, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1762018173025169342, guid: 5811f4236f7f88b41b2a1da538566706, type: 3}
       propertyPath: m_LocalScale.x
       value: 3.413

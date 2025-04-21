@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
-public abstract class BaseEnemy : TeamTarget , IUnitDamagable , ITickable 
+public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable 
 {
     [field: SerializeField] public EnemyStatsConfig EnemyStatsConfig { get; private set; }
     [SerializeField] protected EnemyAnimator EnemyAnimator;
@@ -36,17 +36,10 @@ public abstract class BaseEnemy : TeamTarget , IUnitDamagable , ITickable
     {
         if(IsDeath)
             return;
-        
-        Point = UnitRoadTemplate.LastPoint;
         EnemyStateMachine.Update();
     }
     
 
-    public override void SetTeam(Team team)
-    {
-        base.SetTeam(team);
-        EnemyStateMachine.Initialize<IdleState>();
-    }
 
     public virtual async void GetDamage(int damage)
     {
@@ -69,9 +62,9 @@ public abstract class BaseEnemy : TeamTarget , IUnitDamagable , ITickable
     {
         return new Dictionary<Type, IEnemyState>
         {
-            { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, UnitAgrRadius,UnitRoadTemplate, NavMesh) },
-            { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator, UnitAgrRadius,EnemyRotation)},
-            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, UnitAgrRadius, EnemyAnimator, EnemyRotation) },
+            { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
+            { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation)},
+            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation) },
             { typeof(DieState), new DieState(this, EnemyStateMachine) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI) },
         };
@@ -84,21 +77,3 @@ public abstract class BaseEnemy : TeamTarget , IUnitDamagable , ITickable
 
     public void UnsetDeath() => IsDeath = false;
 }
-
-public abstract class TeamTarget : PoolAble
-{
-    public Team Team { get; private set; }
-
-    [Inject] protected UnitRoadTemplate UnitRoadTemplate;
-    [SerializeField] protected UnitAgrRadius UnitAgrRadius;
-
-    public virtual void SetTeam(Team team)
-    {
-        Team = team;
-        name = team.ToString() + this.GetType();
-        UnitAgrRadius.Team = team;
-        UnitRoadTemplate.SetRoad(Team);
-    }
-    
-}
-

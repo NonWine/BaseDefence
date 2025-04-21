@@ -1,10 +1,25 @@
 ﻿using UnityEngine;
 
-public interface IDamageable
+public interface IDamageable 
 {
-    void GetDamage(float damage);
+    void GetDamage(int damage);
 
-    bool isAlive { get; set; }
+    bool IsDeath { get; }
+}
+
+public interface IUnitDamagable : IDamageable
+{
     
-    Transform transform { get;  }
+}
+
+public interface IBuildingDamagable : IDamageable
+{
+    
+}
+
+
+
+public interface ITickable
+{
+    void Tick();
 }

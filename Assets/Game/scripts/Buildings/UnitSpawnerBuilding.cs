@@ -45,7 +45,6 @@ public abstract class UnitSpawnerBuilding : Building<UnitSpawnerConfig>
         var unit = _enemyFactory.Create(_buildingData.enemyType.GetType());
         unit.transform.position = transform.position;
         unit.transform.rotation =  Quaternion.LookRotation(-transform.forward, Vector3.up);
-        unit.SetTeam(Team);
         OnSpawnUnit?.Invoke(unit);
     }
     
