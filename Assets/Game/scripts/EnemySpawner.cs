@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     private float _currentInterval;
 
     private bool _spawningEnabled;
-
+    [SerializeField] int _maxEnemies;
 
 
     public int CurrentEnemies { get; private set; }
@@ -62,7 +62,11 @@ public class EnemySpawner : MonoBehaviour
                 var enemy = enemyFactory.Create(poolAble.Type);
                 enemy.GetComponent<NavMeshAgent>().Warp(randomPointInBoxCollider.GetRandomPointInBox());
                 CurrentEnemies++;
-                
+                if(CurrentEnemies >= _maxEnemies)
+                {
+                    StopSpawning();
+                    break;
+                }
             }
         }
     }
