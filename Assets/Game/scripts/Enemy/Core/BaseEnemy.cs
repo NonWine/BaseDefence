@@ -30,6 +30,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         HealthUI.SetHealth(CurrentHealth);
         EnemyStateMachine = new EnemyStateMachine(this);
         EnemyStateMachine.RegisterStates(CreateStates());
+        EnemyStateMachine.Initialize<MoveState>();
     }
 
     public void Tick()
