@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd5bbf1c29218945899c58a16e52f88, type: 3}
   m_Name: WeaponInfoData
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: e0d205e33f577419cb357631ec486da0, type: 3}
   baseBullet: {fileID: 5502827086564501286, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
   maxLevel: 6
   damage: 24

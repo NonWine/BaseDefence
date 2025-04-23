@@ -23,7 +23,7 @@ public class PlayerInstaller : MonoInstaller
         Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
         Container.Bind<StorageManager>().FromNew().AsSingle();
         Container.BindInstance(_joystick).AsSingle().NonLazy();
-
+        Container.Bind<PlayerGiveDamageHandler>().FromNew().AsSingle();
     }
 
     private void RegirsterPlayer()

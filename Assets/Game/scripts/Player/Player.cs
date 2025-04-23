@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
@@ -7,8 +8,10 @@ public class Player : MonoBehaviour , ITickable
 {
     [SerializeField] private PlayerContainer _playerContainer;
     [SerializeField] private HealthUI _healthUI;
+    [SerializeField] public Transform bulletStartPoint;
     [Inject] private GameController _gameСontroller;
-    [Inject] private EnemyFactory enemyFactory;
+    [ShowInInspector,ReadOnly] [Inject] private PlayerGiveDamageHandler _playerGiveDamageHandler;
+    [Inject] private DiContainer _diContainer;
     private PlayerHandlersService _playerHandlersService;
     private OverlapSphereHandler _overlapSphereHandler;
     private PlayerController _playerController;
@@ -60,9 +63,9 @@ public class Player : MonoBehaviour , ITickable
             //     PlayerStateKey.Farming, new FarmingState(_playerStateMachine, _playerContainer,_playerAnimator, _playerHandlersService.DefaultRadiusDamageHandler)
             // },
             //
-            //  {
-            //     PlayerStateKey.Attack, new PlayerAttackState(_playerStateMachine, _playerContainer,_playerAnimator,_playerRotating, _playerHandlersService.DefaultRadiusDamageHandler )
-            // }
+             {
+                PlayerStateKey.Attack, new PlayerAttackState(_playerStateMachine, _playerContainer,_playerAnimator,_playerRotating,  _playerGiveDamageHandler)
+            }
         };
         
         _playerStateMachine.RegisterStates(playerStates);
@@ -99,5 +102,11 @@ public class Player : MonoBehaviour , ITickable
     {
         if(_overlapSphereHandler != null)
             _overlapSphereHandler.OnDrawGizmos();
+    }
+
+    [Button]
+    public void ChangeToAttackState()
+    {
+        _playerStateMachine.ChangeState(PlayerStateKey.Attack);
     }
 }

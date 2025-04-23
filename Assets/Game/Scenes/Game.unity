@@ -1760,6 +1760,7 @@ MonoBehaviour:
   weaponHandlers:
   - weaponInfoData: {fileID: 11400000, guid: 538e71cc0ee13204d934ce3a70ec174c, type: 2}
     isLocked: 0
+    CurrentTimer: 0
 --- !u!1 &1877071369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1848,8 +1849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 1956450374}
   - {fileID: 1395559917}
+  - {fileID: 1956450374}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:

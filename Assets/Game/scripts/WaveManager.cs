@@ -18,7 +18,7 @@ public class WaveManager : MonoBehaviour
 
    private void Awake()
    {
-       
+       StartWave();
    }
 
    [Button]

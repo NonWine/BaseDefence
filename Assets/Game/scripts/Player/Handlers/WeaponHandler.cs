@@ -6,6 +6,12 @@ public class WeaponHandler
     private float coolDown;
     private int damage;
 
+    public float CurrentTimer;
+
+    public float CoolDown => coolDown;
+
+    public int Damage => damage;
+
     public void Init()
     {
         coolDown = weaponInfoData.coolDown;

@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2649876333158198362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7695885721974523533}
+  m_Layer: 0
+  m_Name: BulletStartPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7695885721974523533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649876333158198362}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.11, y: 2.19, z: 4.12}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6835917827310612658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3922983707491485356
 GameObject:
   m_ObjectHideFlags: 0
@@ -69,6 +100,7 @@ Transform:
   - {fileID: 3661227765358302881}
   - {fileID: 4889218936964893167}
   - {fileID: 91626074237386619}
+  - {fileID: 7695885721974523533}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &-5541318596171603067
@@ -158,6 +190,7 @@ MonoBehaviour:
   _player: {fileID: 4889218936964893168}
   _playerAnimatorEvent: {fileID: 1904836442866917661}
   <PlayerTrigger>k__BackingField: {fileID: 8421645836444998454}
+  <Player>k__BackingField: {fileID: 4203139770830303457}
 --- !u!114 &4203139770830303457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerContainer: {fileID: 6225447994784167255}
   _healthUI: {fileID: 6276359292316761294}
+  bulletStartPoint: {fileID: 7695885721974523533}
   ResourceStartPoint: {fileID: 3661227765358302881}
 --- !u!1 &8765444328292573050
 GameObject:
