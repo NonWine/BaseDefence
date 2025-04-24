@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void UpdateSpawner(float deltaTime)
     {
-        if(CurrentEnemies >= 5) return;
+        if(CurrentEnemies >= 20) return;
         if (!_spawningEnabled) return;
 
         _spawnTimer += deltaTime;
