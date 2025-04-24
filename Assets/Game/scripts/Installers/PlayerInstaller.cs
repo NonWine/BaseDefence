@@ -8,6 +8,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private Joystick _joystick;
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private PlayerCombatManager playerCombatManager;
+    [Inject] private GameController _gameController;
     private PlayerContainer _playerContainer;
         
     public override void InstallBindings()
@@ -30,9 +31,10 @@ public class PlayerInstaller : MonoInstaller
     {
        var player = Container.InstantiatePrefabForComponent<Player>(_playerPrefab);
        player.transform.position = playerSpawnPoint.position;
-        
-        _playerContainer = _playerPrefab.PlayerContainer;
+           _playerContainer = _playerPrefab.PlayerContainer;
+           player.Initialize();
         Container.BindInstance(_playerContainer).AsSingle().Lazy();
         Container.BindInstance(player).AsSingle();
+       _gameController.Player = player;
     }
 }

@@ -11,7 +11,6 @@ public class Player : MonoBehaviour , ITickable
     [SerializeField] public Transform bulletStartPoint;
     [Inject] private GameController _gameСontroller;
     [ShowInInspector,ReadOnly] [Inject] private PlayerGiveDamageHandler _playerGiveDamageHandler;
-    [Inject] private DiContainer _diContainer;
     private PlayerHandlersService _playerHandlersService;
     private OverlapSphereHandler _overlapSphereHandler;
     private PlayerController _playerController;
@@ -27,8 +26,8 @@ public class Player : MonoBehaviour , ITickable
     public PlayerController PlayerController => _playerController;
 
     public PlayerContainer PlayerContainer => _playerContainer;
-    
-    private void Start()
+
+    public void Initialize()
     {
         _gameСontroller.RegisterInTick(this);
         InitializeHandler();

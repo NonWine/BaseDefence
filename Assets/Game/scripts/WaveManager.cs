@@ -10,6 +10,7 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private  EnemySpawner _spawner;
    [SerializeField] private float wavesDuration;
    [Inject] private  IPlayerMonitor _playerMonitor;
+   [Inject] public Player _player;
    private int currentWaveIndex;
    private float _waveTimer;
    private bool _waveActive;
@@ -26,6 +27,7 @@ public class WaveManager : MonoBehaviour
     {
         _waveTimer = 0f;
         _waveActive = true;
+        _player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(currentWave);
     }
 
@@ -56,6 +58,7 @@ public class WaveManager : MonoBehaviour
     private void EndWave()
     {
         _waveActive = false;
+        _player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
         _spawner.StopSpawning();
         // Trigger end of wave events here
     }
