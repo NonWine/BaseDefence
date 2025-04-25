@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
-    
 
+    public event Action OnHPZero;
     public void SetHealth(float value)
     {
         _slider.maxValue = value;
@@ -27,6 +27,10 @@ public class HealthUI : MonoBehaviour
         {
             _slider.value = finalValue;
         });
+        if(finalValue <= 0)
+        {
+            OnHPZero?.Invoke();
+        }
     }
 }
 

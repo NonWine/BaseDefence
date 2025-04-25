@@ -19,7 +19,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public bool IsDeath { get; private set; }
 
     [field: SerializeField] public Transform Point;
-
+    [Inject] protected Target target;
     public int CurrentDamage { get;  set; }
 
     private void Awake()
@@ -64,7 +64,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         return new Dictionary<Type, IEnemyState>
         {
             { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
-            { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation)},
+            { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
             { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation) },
             { typeof(DieState), new DieState(this, EnemyStateMachine) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI) },
@@ -75,6 +75,9 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         EnemyStateMachine.ChangeState<ResetingState>();
     }
-
+    public void Attack()
+    {
+        EnemyStateMachine.ChangeState<AttackState>();
+    }
     public void UnsetDeath() => IsDeath = false;
 }

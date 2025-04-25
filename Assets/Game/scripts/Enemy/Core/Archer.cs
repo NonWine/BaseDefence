@@ -12,7 +12,7 @@ public class Archer : BaseEnemy
     {
         RangeAttack rangeAttackStat = new RangeAttack(this, _bulletFactory, _bulletPos);
         var states = base.CreateStates();
-        states[typeof(AttackState)] = new AttackState(this, EnemyStateMachine, rangeAttackStat, EnemyAnimator, EnemyRotation);
+        states[typeof(AttackState)] = new AttackState(this, EnemyStateMachine, rangeAttackStat, EnemyAnimator, EnemyRotation, target);
         return states;
     }
 
