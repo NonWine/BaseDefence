@@ -7,6 +7,8 @@ using Zenject;
 public class GameController : MonoBehaviour
 {
     
+    public Player Player { get; set; }
+    
     private List<ITickable> _tickables; 
     private DiContainer _diContainer;
 

@@ -4,18 +4,15 @@ public class PlayerAttackState : PlayerState
 {
     private PlayerAnimator _playerAnimator;
     private PlayerRotating _playerRotating;
-    private IDamageableHandler _damageableHandler;
-    private PlayerStats _playerStats => player.PlayerStats;
-    private Transform _currentTarget;
-    private float _timer;
+    private PlayerGiveDamageHandler _playerGiveDamageHandler;
     
     public PlayerAttackState( PlayerStateMachine stateMachine, PlayerContainer playerContainer
-        , PlayerAnimator playerAnimator, PlayerRotating playerRotating,
-        IDamageableHandler damageableHandler) : base( stateMachine, playerContainer)
+        , PlayerAnimator playerAnimator, PlayerRotating playerRotating, PlayerGiveDamageHandler playerGiveDamageHandler
+         ) : base( stateMachine, playerContainer)
     {
         _playerAnimator = playerAnimator;
-        _damageableHandler = damageableHandler;
         _playerRotating = playerRotating;
+        _playerGiveDamageHandler = playerGiveDamageHandler;
     }
 
     public override void Enter()
@@ -26,10 +23,9 @@ public class PlayerAttackState : PlayerState
 
     public override void LogicUpdate()
     {
-        Debug.Log(_currentTarget);
-        if(_currentTarget == null)
-            return;
-        _playerRotating.SetTargetRotate(_currentTarget);
+        _playerGiveDamageHandler.TryGetDamage(player.Player);
+        if(_playerGiveDamageHandler.CurrentAgredTarget != null)
+            _playerRotating.SetTargetRotate(_playerGiveDamageHandler.CurrentAgredTarget);
     }
     
 
@@ -39,9 +35,5 @@ public class PlayerAttackState : PlayerState
         _playerRotating.UnLockTarget();
         _playerAnimator.SetStateBehaviour(0);
     }
-
-    public void Dispose()
-    {
-        
-    }
+    
 }

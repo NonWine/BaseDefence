@@ -13,6 +13,9 @@ public class PlayerContainer : MonoBehaviour
     [Inject] private Joystick _joystick;
     
     [field: SerializeField] public PlayerTrigger PlayerTrigger { get; private set; }
+    
+    [field: SerializeField] public Player Player { get; private set; }
+
 
     private void Awake()
     {

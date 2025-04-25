@@ -8,6 +8,8 @@ public class EnemyFactory : PoolableFactory<Type,BaseEnemy>
 {
     private GameController _gameController;
 
+    public List<BaseEnemy> Enemies => _objectPool._inActiveUnits;
+
     public EnemyFactory(Dictionary<Type, BaseEnemy> prefabs, DiContainer container, 
         ObjectPoolTemplate<Type, BaseEnemy> objectPoolTemplate, GameController gameController)
         : base(prefabs, container, objectPoolTemplate)
@@ -23,17 +25,4 @@ public class EnemyFactory : PoolableFactory<Type,BaseEnemy>
         
         return unit;
     }
-}
-
-
-public class BulletFactory : PoolableFactory<Type,BaseBullet>
-{
-    public BulletFactory(Dictionary<Type, BaseBullet> prefabs, DiContainer container, ObjectPoolTemplate<Type, BaseBullet> objectPoolTemplate) 
-        : base(prefabs, container, objectPoolTemplate)
-    {
-        
-    }
-
-    
-
 }

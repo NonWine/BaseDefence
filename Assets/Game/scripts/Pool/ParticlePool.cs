@@ -9,7 +9,6 @@ public class ParticlePool : MonoBehaviour
     [SerializeField] private ParticleSystem[] _poofFx;
     [SerializeField] private ParticleSystem[] _bloodfFx;
     [SerializeField] private ParticleSystem[] _sparkleFx;
-    [SerializeField] private ParticleSystem[] bloodHitFx;
     [SerializeField] private ParticleSystem[] fireArrow;
     [SerializeField] private ParticleSystem[] explosionFx;
     [SerializeField] private ParticleSystem[] frozenExplosiveFx;
@@ -142,21 +141,13 @@ public class ParticlePool : MonoBehaviour
 
     public void PlayBlood(Vector3 pos)
     {
-        bloodHitFx[currentBlood].transform.position = pos;
-        bloodHitFx[currentBlood].Play();
+        _bloodfFx[currentBlood].transform.position = pos;
+        _bloodfFx[currentBlood].Play();
         currentBlood++;
-        if (currentBlood == bloodHitFx.Length)
+        if (currentBlood == _bloodfFx.Length)
             currentBlood = 0;
     }
-
-    public void PlayFireArrow(Vector3 pos)
-    {
-        fireArrow[currentFire].transform.position = pos;
-        fireArrow[currentFire].Play();
-        currentFire++;
-        if (currentFire == bloodHitFx.Length)
-            currentFire = 0;
-    }
+    
 
 
     private void Awake()

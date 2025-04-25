@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData
   m_EditorClassIdentifier: 
-  MinSpawnInterval: 1.0271167
+  MinSpawnInterval: 3.0198643
   MaxSpawnInterval: 5
   Enemies:
   - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}

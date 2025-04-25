@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26820ecc57d147f8a6f87512d6ac512a, type: 3}
+  m_Script: {fileID: 11500000, guid: ecd5bbf1c29218945899c58a16e52f88, type: 3}
   m_Name: Grenade
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: b18a74cd5ae04df458635fb7c356026a, type: 3}
-  MiniIcon: {fileID: 0}
-  SkillType: 0
-  title: Grenade
-  subTitle: Throw enemy
-  MaxLevel: 6
+  image: {fileID: 21300000, guid: e0d205e33f577419cb357631ec486da0, type: 3}
+  baseBullet: {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
+  maxLevel: 6
+  damage: 48
+  coolDown: 5.7

@@ -18,7 +18,7 @@ public class PlayerRotating : IRotateable
             if (_playerContainer.Direction != Vector3.zero)
                 _playerContainer.Body.rotation = Quaternion.Slerp(_playerContainer.Body.rotation,
                     Quaternion.LookRotation(_playerContainer.Direction),
-                    _playerContainer.PlayerStats.RotateSpeed * Time.deltaTime);
+                    20f * Time.deltaTime);
 
        
 
@@ -33,7 +33,7 @@ public class PlayerRotating : IRotateable
         _playerContainer.Body.rotation = Quaternion.Slerp(
             _playerContainer.Body.rotation,
             targetRotation,
-            _playerContainer.PlayerStats.RotateSpeed * Time.deltaTime
+            20 * Time.deltaTime
         );
     }
 

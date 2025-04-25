@@ -5,40 +5,43 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class BaseBullet : PoolAble
 {
-    private int _damage;
-    private Transform _target;
-    private float _timer;
+    protected int _damage;
+    protected Transform _target;
+    protected Rigidbody rigidbody;
+    protected bool isAlive;
     
     private void Start()
     {
         ResetPool();
     }
 
-    private void Update()
+    protected virtual void OnCollisionEnter(Collision other)
     {
-        if (_target == null) 
+        Debug.Log(other.gameObject.name);
+        if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
-            return;
-        }
-
-        transform.position = Vector3.MoveTowards(transform.position, _target.position + Vector3.up, 10f * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, _target.position) <= 1f)
-        {
-            if (_target.TryGetComponent(out IDamageable damageable))
-            {
-                damageable.GetDamage(_damage);
-                _target = null;
-            }
-            gameObject.SetActive(false);
+            damageable.GetDamage(_damage);
+            DestroyBullet();
         }
     }
     
- 
+
+
     public virtual void Init(int damage, Transform target)
     {
+        isAlive = true;
+        rigidbody = GetComponent<Rigidbody>();
         _target = target;
         _damage = damage;
+        rigidbody.velocity = (target.transform.position + (Vector3.up) - transform.position).normalized * 100f;
+     //   Invoke(nameof(DestroyBullet),5f);
+        
+    }
+
+    protected virtual void DestroyBullet()
+    {
+        isAlive = false;
+        gameObject.SetActive(false);
     }
 
     public override void ResetPool()
