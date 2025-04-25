@@ -30,9 +30,12 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         HealthUI.SetHealth(CurrentHealth);
         EnemyStateMachine = new EnemyStateMachine(this);
         EnemyStateMachine.RegisterStates(CreateStates());
-        EnemyStateMachine.Initialize<MoveState>();
+        EnemyStateMachine.Initialize<IdleState>();
     }
-
+    private void Start()
+    {
+        EnemyStateMachine.ChangeState<MoveState>();
+    }
     public void Tick()
     {
         if(IsDeath)
@@ -65,7 +68,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         {
             { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
-            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation) },
+            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target) },
             { typeof(DieState), new DieState(this, EnemyStateMachine) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI) },
         };

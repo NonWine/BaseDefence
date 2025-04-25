@@ -7,14 +7,17 @@ public class MoveState : EnemyBaseState
     private EnemyAnimator _enemyAnimator;
     private EnemyRotation _enemyRotation;
     private float _timer;
+    private Target _target;
+    private Vector3 _targetDirection;
     
     public MoveState(BaseEnemy enemy, EnemyStateMachine enemyStateMachine, NavMeshAgent agent,
-         EnemyAnimator enemyAnimator, EnemyRotation enemyRotation) 
+         EnemyAnimator enemyAnimator, EnemyRotation enemyRotation, Target target) 
         : base(enemy, enemyStateMachine)
     {
         _enemyAnimator = enemyAnimator;
         _enemyRotation = enemyRotation;
         _agent = agent;
+        _target = target;
     }
 
     public override void EnterState(BaseEnemy enemy)
@@ -22,12 +25,13 @@ public class MoveState : EnemyBaseState
         _enemyAnimator.SetRun();
         _agent.isStopped = false;
         _timer = float.MaxValue;
+        _targetDirection =-(enemy.transform.position -_target.randomPointInBoxCollider.GetRandomPointInBox()).normalized;
     }
 
     public override void UpdateState()
     {
-
-        _agent.Move(new Vector3(0, 0, -1) * 20 * Time.deltaTime);
+        _agent.Move(_targetDirection * 20 * Time.deltaTime);
+        //_agent.Move(new Vector3(0, 0, -1) * 20 * Time.deltaTime);
     }
 
     public override void ExitState()

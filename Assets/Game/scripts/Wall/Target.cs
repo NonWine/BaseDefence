@@ -7,7 +7,7 @@ public class Target : MonoBehaviour, IDamageable
     public bool IsDeath { get; private set; }
     [SerializeField] HealthUI _health;
     [SerializeField] int _maxHealth;
-
+    public RandomPointInBoxCollider randomPointInBoxCollider;
 
     private void Awake()
     {
