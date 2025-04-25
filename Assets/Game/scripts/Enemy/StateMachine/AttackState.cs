@@ -37,5 +37,6 @@ public  class AttackState : EnemyBaseState
 
     private void Attack()
     {
+        
     }
 }

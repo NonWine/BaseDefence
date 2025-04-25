@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -13,7 +14,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected NavMeshAgent NavMesh;
     protected EnemyStateMachine EnemyStateMachine;
     protected EnemyRotation EnemyRotation;
-    
+   [ShowInInspector] [Inject] private PlayerCombatManager s;
     public event Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }
