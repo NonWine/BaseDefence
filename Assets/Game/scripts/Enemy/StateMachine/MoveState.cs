@@ -31,7 +31,7 @@ public class MoveState : EnemyBaseState
     public override void UpdateState()
     {
         //_agent.Move(_targetDirection * 20 * Time.deltaTime);
-        _agent.Move(new Vector3(0, 0, -1) * 20 * Time.deltaTime);
+        _agent.Move(new Vector3(0, 0, -1) * 17 * Time.deltaTime);
     }
 
     public override void ExitState()
