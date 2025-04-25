@@ -25,13 +25,13 @@ public class MoveState : EnemyBaseState
         _enemyAnimator.SetRun();
         _agent.isStopped = false;
         _timer = float.MaxValue;
-        _targetDirection =-(enemy.transform.position -_target.randomPointInBoxCollider.GetRandomPointInBox()).normalized;
+        _targetDirection =(_target.randomPointInBoxCollider.GetRandomPointInBox() - enemy.transform.position).normalized;
     }
 
     public override void UpdateState()
     {
-        _agent.Move(_targetDirection * 20 * Time.deltaTime);
-        //_agent.Move(new Vector3(0, 0, -1) * 20 * Time.deltaTime);
+        //_agent.Move(_targetDirection * 20 * Time.deltaTime);
+        _agent.Move(new Vector3(0, 0, -1) * 20 * Time.deltaTime);
     }
 
     public override void ExitState()
