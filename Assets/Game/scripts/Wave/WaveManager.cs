@@ -13,7 +13,6 @@ public class WaveManager : MonoBehaviour
    [Inject] private  IPlayerMonitor _playerMonitor;
    [Inject] public Player _player;
    private int currentWaveIndex;
-   private float _waveTimer;
    private bool _waveActive;
    public int CurrentTime => waveTimer.CurrentTime;
    public WaveData currentWave => wavesData[currentWaveIndex];
@@ -34,32 +33,31 @@ public class WaveManager : MonoBehaviour
     [Button]
     public void StartWave()
     {
-        _waveTimer = 0f;
         _waveActive = true;
         _player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(currentWave);
+        waveTimer.StartTimer(currentWave.waveDuration);
     }
 
     public void Update()
     {
         if (!_waveActive) return;
 
-        _waveTimer += Time.deltaTime;
         _spawner.UpdateSpawner(Time.deltaTime);
 
 
     //    if (_playerMonitor.AliveEnemies < 3)
       //      _spawner.SpawnExtraGroup();
 
-        if (_waveTimer >= wavesDuration)
-            EndWave();
     }
 
     public void UpdateWave()
     {
+        EndWave();
         currentWaveIndex++;
         if (currentWaveIndex == wavesData.Count)
             currentWaveIndex = 0;
+        StartWave();
     }
 
     private void EndWave()

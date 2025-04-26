@@ -1924,6 +1924,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wavesData:
   - {fileID: 11400000, guid: e21b163b499c0b840a833aef841ad184, type: 2}
+  - {fileID: 11400000, guid: 96d62879bf3ae044e868cd8d354af65d, type: 2}
+  - {fileID: 11400000, guid: 1c4978a2a7fe6c04ab3651000d9b7250, type: 2}
   _spawner: {fileID: 1709021710}
   wavesDuration: 60
   waveTimer: {fileID: 1644825551}
@@ -1941,7 +1943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomPointInBoxCollider: {fileID: 70807080}
-  _maxEnemies: 10
+  _timeWhenStopSpawning: 0
 --- !u!1 &1716733514
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,5 +34,6 @@ public class WaveTimer : MonoBehaviour
             _timerText.text = "wave duration: " + CurrentTime + "s";
             yield return new WaitForSeconds(1f);
         }
+        OnEndTime?.Invoke();
     }
 }
