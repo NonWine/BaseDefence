@@ -37,13 +37,17 @@ public class EnemySpawner : MonoBehaviour
         if (!_spawningEnabled) return;
 
         _spawnTimer += deltaTime;
+        if(_spawnTimer >= 1f)
+        {
+            float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f -
+                ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
+            _currentInterval = (float)_currentWave.SpawnInterval / evaluatedCurve;
+        }
         if (_spawnTimer >= _currentInterval)
         {
             SpawnRandomGroup();
             _spawnTimer = 0;
-            float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f - 
-                ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
-            _currentInterval = (float)_currentWave.SpawnInterval/ evaluatedCurve;
+            
                 
         }
     }
