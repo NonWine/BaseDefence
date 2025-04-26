@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
    private int currentWaveIndex;
    private float _waveTimer;
    private bool _waveActive;
-   
+   public int CurrentTime => waveTimer.CurrentTime;
    public WaveData currentWave => wavesData[currentWaveIndex];
 
    private void Awake()
@@ -23,8 +23,15 @@ public class WaveManager : MonoBehaviour
        StartWave();
         waveTimer.StartTimer(currentWave.waveDuration);
    }
-
-   [Button]
+    private void OnEnable()
+    {
+        waveTimer.OnEndTime += UpdateWave;
+    }
+    private void OnDisable()
+    {
+        waveTimer.OnEndTime -= UpdateWave;
+    }
+    [Button]
     public void StartWave()
     {
         _waveTimer = 0f;
@@ -40,8 +47,6 @@ public class WaveManager : MonoBehaviour
         _waveTimer += Time.deltaTime;
         _spawner.UpdateSpawner(Time.deltaTime);
 
-        if (_playerMonitor.AverageKillTime < 1.5f)
-            _spawner.TemporarilyIncreaseSpawnRate();
 
     //    if (_playerMonitor.AliveEnemies < 3)
       //      _spawner.SpawnExtraGroup();

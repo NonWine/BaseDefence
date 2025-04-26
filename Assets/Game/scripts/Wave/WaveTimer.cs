@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +10,16 @@ public class WaveTimer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI _timerText;
     private IEnumerator _timerRoutine;
+    public event Action OnEndTime;
+
+    public int CurrentTime { get; private set; }
     private void Awake()
     {
         
     }
     public void StartTimer(int time)
     {
+        CurrentTime = time;
         if(_timerRoutine != null)
         {
             StopCoroutine(_timerRoutine);
@@ -24,9 +29,9 @@ public class WaveTimer : MonoBehaviour
     }
     private IEnumerator TimerRoutine(int time)
     {
-        for(int i = time; i >= 0; i--)
+        for(; CurrentTime >= 0; CurrentTime--)
         {
-            _timerText.text = "wave duration: " + i + "s";
+            _timerText.text = "wave duration: " + CurrentTime + "s";
             yield return new WaitForSeconds(1f);
         }
     }

@@ -17,7 +17,7 @@ public abstract class BaseBullet : PoolAble
 
     protected virtual void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
             damageable.GetDamage(_damage);

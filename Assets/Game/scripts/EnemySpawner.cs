@@ -5,13 +5,15 @@ using Zenject;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private RandomPointInBoxCollider randomPointInBoxCollider;
+    [SerializeField] private int _timeWhenStopSpawning;
     [Inject] private EnemyFactory enemyFactory;
+    [Inject] WaveManager waveManager;
     private WaveData _currentWave;
     private float _spawnTimer;
     private float _currentInterval;
 
     private bool _spawningEnabled;
-    [SerializeField] int _maxEnemies;
+
 
 
     public int CurrentEnemies { get; private set; }
@@ -19,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
     public void StartSpawning(WaveData wave)
     {
         _currentWave = wave;
-        _currentInterval = Random.Range(wave.MinSpawnInterval, wave.MaxSpawnInterval);
+        _currentInterval = wave.SpawnInterval;
+        
         _spawnTimer = 0;
         _spawningEnabled = true;
     }
@@ -31,7 +34,6 @@ public class EnemySpawner : MonoBehaviour
 
     public void UpdateSpawner(float deltaTime)
     {
-        if(CurrentEnemies >= 20) return;
         if (!_spawningEnabled) return;
 
         _spawnTimer += deltaTime;
@@ -39,14 +41,14 @@ public class EnemySpawner : MonoBehaviour
         {
             SpawnRandomGroup();
             _spawnTimer = 0;
-            _currentInterval = Random.Range(_currentWave.MinSpawnInterval, _currentWave.MaxSpawnInterval);
+            float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f - 
+                ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
+            _currentInterval = (float)_currentWave.SpawnInterval/ evaluatedCurve;
+                
         }
     }
 
-    public void TemporarilyIncreaseSpawnRate()
-    {
-        _currentInterval = Mathf.Max(_currentInterval * 0.5f, 0.5f);
-    }
+
 
     public void SpawnExtraGroup()
     {
@@ -63,7 +65,7 @@ public class EnemySpawner : MonoBehaviour
                 var enemy = enemyFactory.Create(poolAble.Type);
                 enemy.GetComponent<NavMeshAgent>().Warp(randomPointInBoxCollider.GetRandomPointInBox());
                 CurrentEnemies++;
-                if(CurrentEnemies >= _maxEnemies)
+                if( waveManager.CurrentTime <= _timeWhenStopSpawning)
                 {
                     StopSpawning();
                     break;

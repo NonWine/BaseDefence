@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/WaveData", fileName = "WaveData", order = 0)]
 public class WaveData : ScriptableObject
 {
-    [ProgressBar(1, 5)] public float MinSpawnInterval;
-    [ProgressBar(5, 10)] public float MaxSpawnInterval;
-    public int waveDuration;
+    [ProgressBar(1, 5)] public float SpawnInterval;
 
+    public int waveDuration;
+    public AnimationCurve intervalCurve;
     public List<EnemySpawnInfo> Enemies;
 
     

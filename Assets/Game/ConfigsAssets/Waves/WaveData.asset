@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MinSpawnInterval: 3.0198643
   MaxSpawnInterval: 5
+  waveDuration: 10
   Enemies:
   - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}
     Count: 3
