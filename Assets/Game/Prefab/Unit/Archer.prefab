@@ -88,6 +88,7 @@ MonoBehaviour:
   EnemyAnimator: {fileID: 1973257270325597216}
   HealthUI: {fileID: 4415695571097326384}
   NavMesh: {fileID: 2190577205141881727}
+  collider: {fileID: 4889825331461937912}
   Point: {fileID: 0}
   _bulletPos: {fileID: 6116911634499862243}
 --- !u!54 &1956916457294921616
@@ -587,11 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1.2
+      value: 1.85
       objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0.3
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_LocalPosition.x

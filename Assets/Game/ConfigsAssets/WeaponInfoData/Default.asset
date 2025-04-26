@@ -16,5 +16,5 @@ MonoBehaviour:
   WeaponName: 
   description: 
   baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
-  damage: 23
-  coolDown: 1
+  damage: 5
+  coolDown: 0.4

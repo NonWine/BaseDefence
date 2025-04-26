@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
@@ -9,7 +10,9 @@ public abstract class BaseBullet : PoolAble
     protected Transform _target;
     protected Rigidbody rigidbody;
     protected bool isAlive;
-    
+    protected IDamageable _damageable;
+    protected Vector3 savedDirection;
+    private float timer;
     private void Start()
     {
         ResetPool();
@@ -24,23 +27,47 @@ public abstract class BaseBullet : PoolAble
             DestroyBullet();
         }
     }
-    
+
+    private void Update()
+    {
+        if (isAlive)
+        {
+            var dir = _target.transform.position - transform.position;
+            rigidbody.rotation = Quaternion.LookRotation(dir.normalized);
+            rigidbody.velocity = dir.normalized * 100f;
+            savedDirection = dir;
+            
+            if (_damageable.IsDeath)
+            {
+                isAlive = false;
+                rigidbody.freezeRotation = true;
+                rigidbody.velocity = savedDirection.normalized * 100f;
+            }
+        }
+        else
+        {
+            timer += Time.deltaTime;
+            if(timer >= 2f)
+                DestroyBullet();
+        }
+
+    }
 
 
     public virtual void Init(int damage, Transform target)
     {
-        isAlive = true;
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.velocity = Vector3.zero;
+        timer = 0f;
         _target = target;
         _damage = damage;
-        rigidbody.velocity = (target.transform.position + (Vector3.up) - transform.position).normalized * 100f;
-     //   Invoke(nameof(DestroyBullet),5f);
-        
+        isAlive = true;
+        _damageable = target.GetComponent<IDamageable>();
+
     }
 
-    protected virtual void DestroyBullet()
+    protected virtual  void DestroyBullet()
     {
-        isAlive = false;
         gameObject.SetActive(false);
     }
 

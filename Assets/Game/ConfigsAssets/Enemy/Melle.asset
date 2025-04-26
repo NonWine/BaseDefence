@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Melle
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 20
-  _health: 80
+  _health: 15
   _moveSpeed: 3
   _roateSpeed: 58
   <TargetDistance>k__BackingField: 1.48

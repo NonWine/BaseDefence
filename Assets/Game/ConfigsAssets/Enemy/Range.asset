@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Range
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 21
-  _health: 62
+  _health: 8
   _moveSpeed: 3
   _roateSpeed: 58
   <TargetDistance>k__BackingField: 5.16

@@ -12,6 +12,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected EnemyAnimator EnemyAnimator;
     [SerializeField] protected HealthUI HealthUI;
     [SerializeField] protected NavMeshAgent NavMesh;
+    [SerializeField] protected Collider collider;
     protected EnemyStateMachine EnemyStateMachine;
     protected EnemyRotation EnemyRotation;
     
@@ -56,8 +57,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         if (CurrentHealth <= 0f)
         {
             IsDeath = true;
-            NavMesh.isStopped = true;
-            await UniTask.Delay(200);
+            collider.isTrigger = true;
+            if(NavMesh.isOnNavMesh)
+                NavMesh.isStopped = true;
+            NavMesh.velocity = Vector3.zero;
+            await UniTask.Delay(2500);
             EnemyStateMachine.ChangeState<DieState>();
             OnDie?.Invoke(this);
         }

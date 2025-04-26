@@ -7,4 +7,6 @@ public abstract class PoolAble : MonoBehaviour
     
     public abstract Type Type { get; }
     
+    
+    
 }
