@@ -9,6 +9,7 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private  List<WaveData> wavesData;
    [SerializeField] private  EnemySpawner _spawner;
    [SerializeField] private float wavesDuration;
+   [SerializeField] private WaveTimer waveTimer;
    [Inject] private  IPlayerMonitor _playerMonitor;
    [Inject] public Player _player;
    private int currentWaveIndex;
@@ -20,6 +21,7 @@ public class WaveManager : MonoBehaviour
    private void Awake()
    {
        StartWave();
+        waveTimer.StartTimer(currentWave.waveDuration);
    }
 
    [Button]
