@@ -16,5 +16,5 @@ MonoBehaviour:
   WeaponName: Grenade
   description: 
   baseBullet: {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
-  damage: 0
-  coolDown: 0
+  damage: 22
+  coolDown: 3

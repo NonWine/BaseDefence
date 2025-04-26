@@ -36,6 +36,8 @@ public class WeaponCardPanelView : MonoBehaviour
     
     private IEnumerator ShowViewCor()
     {
+        PanelView.gameObject.SetActive(true);
+        PanelView.transform.localScale = Vector3.zero;
         PanelView.transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
 
 
@@ -49,11 +51,15 @@ public class WeaponCardPanelView : MonoBehaviour
         for (var i = weaponManagerView.cardViews.Count - 1; i >= 0; i--)
         {
             weaponManagerView.cardViews[i].DestroyCard();
+            weaponManagerView.cardViews.RemoveAt(i);
         }
 
         yield return new WaitForSeconds(0.2f);
 
-        PanelView.transform.DOScale(0f, 0.25f);
+        PanelView.transform.DOScale(0f, 0.25f).OnComplete(() =>
+        {
+            PanelView.gameObject.SetActive(false);
+        });
     }
 
 }

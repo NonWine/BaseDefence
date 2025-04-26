@@ -5,7 +5,6 @@ public class MineController : StaticWeaponController
     [SerializeField] private Mine minePrefab;
     [SerializeField] private float coolDown;
     [SerializeField] private RandomPointInBoxCollider randomPointInBoxCollider;
-    private float timer;
 
     protected override void UnLockedUpdate()
     {
@@ -13,7 +12,7 @@ public class MineController : StaticWeaponController
         if (timer >= coolDown)
         {
             timer = 0f;
-            Instantiate(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity);
+         diContainer.InstantiatePrefabForComponent<Mine>(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity, null);
         }
     }
 }

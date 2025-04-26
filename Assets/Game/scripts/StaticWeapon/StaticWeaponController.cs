@@ -9,6 +9,7 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
     [SerializeField, ReadOnly] private bool isLocked = true;
     [Inject] private GameController gameController;
     [Inject] private WeaponManagerView weaponManagerView;
+    [Inject] protected DiContainer diContainer;
     protected float timer;
     
     public Action UnlockCallback;
