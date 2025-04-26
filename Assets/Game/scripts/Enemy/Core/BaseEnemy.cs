@@ -33,6 +33,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine = new EnemyStateMachine(this);
         EnemyStateMachine.RegisterStates(CreateStates());
         EnemyStateMachine.Initialize<IdleState>();
+        transform.eulerAngles = new Vector3(0f, 180f, 0f);
     }
     private void Start()
     {
@@ -61,6 +62,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             if(NavMesh.isOnNavMesh)
                 NavMesh.isStopped = true;
             NavMesh.velocity = Vector3.zero;
+            NavMesh.enabled = false;
+            HealthUI.gameObject.SetActive(false);
+            EnemyAnimator.SetIdle();
+            EnemyAnimator.SetDie();
+            EnemyAnimator.Animator.applyRootMotion = true;
             await UniTask.Delay(2500);
             EnemyStateMachine.ChangeState<DieState>();
             OnDie?.Invoke(this);
@@ -75,7 +81,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
             { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target) },
             { typeof(DieState), new DieState(this, EnemyStateMachine) },
-            { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI) },
+            { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, NavMesh, EnemyAnimator) },
         };
     }
     

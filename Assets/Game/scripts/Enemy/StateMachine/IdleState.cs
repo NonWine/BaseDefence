@@ -19,7 +19,10 @@ public class IdleState : EnemyBaseState
     
     public override void EnterState(BaseEnemy enemy)
     {
+        _enemyAnimator.Animator.applyRootMotion = false;
         _enemyAnimator.SetIdle();
+        _agent.enabled = false;
+        _agent.enabled = true;
         _agent.isStopped = false;
     }
 

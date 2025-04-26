@@ -36,7 +36,8 @@ public class MoveState : EnemyBaseState
 
     public override void ExitState()
     {
-        _agent.isStopped = true;
+        if(_agent.isOnNavMesh)
+            _agent.isStopped = true;
         _agent.velocity = Vector3.zero;
     }
 

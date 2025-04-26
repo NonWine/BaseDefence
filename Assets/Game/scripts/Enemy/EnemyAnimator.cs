@@ -3,6 +3,8 @@
 public class EnemyAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
+
+    public Animator Animator => _animator;
     public void SetAnimator(Animator animator) => _animator = animator;
 
     public AnimationEvent AnimationEvent => _animator.GetComponent<AnimationEvent>();
@@ -28,6 +30,11 @@ public class EnemyAnimator : MonoBehaviour
 
         _animator.SetInteger("State",0);
     }
-    
-    
+
+
+    public void SetDie()
+    {
+        _animator.SetInteger("State",3);
+
+    }
 }
