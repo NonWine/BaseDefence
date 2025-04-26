@@ -7,11 +7,11 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
-    [Inject] private Player player;
+    [Inject] private PlayerHandler player;
     
     private void Start()
     {
-        virtualCamera.Follow = player.transform;
+        virtualCamera.Follow = player.Player.transform;
     }
     
 }

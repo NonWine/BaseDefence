@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 
-public class MineController : MonoBehaviour
+public class MineController : StaticWeaponController
 {
     [SerializeField] private Mine minePrefab;
     [SerializeField] private float coolDown;
     [SerializeField] private RandomPointInBoxCollider randomPointInBoxCollider;
-    private float timer;
-    
-    private void Update()
+
+    protected override void UnLockedUpdate()
     {
         timer += Time.deltaTime;
         if (timer >= coolDown)
         {
             timer = 0f;
-            Instantiate(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity);
+         diContainer.InstantiatePrefabForComponent<Mine>(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity, null);
         }
     }
 }

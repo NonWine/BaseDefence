@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6127234577050355419}
   - component: {fileID: 6540884230972986551}
   - component: {fileID: 841096727904217653}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3772014894139316689}
   - component: {fileID: 4002657840909493255}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
