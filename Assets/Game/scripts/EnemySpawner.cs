@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     private WaveData _currentWave;
     private float _spawnTimer;
     private float _currentInterval;
-
+    private float _currentIntervalChangeTimer;
     private bool _spawningEnabled;
 
 
@@ -35,13 +35,16 @@ public class EnemySpawner : MonoBehaviour
     public void UpdateSpawner(float deltaTime)
     {
         if (!_spawningEnabled) return;
-
+        _currentIntervalChangeTimer += deltaTime;
         _spawnTimer += deltaTime;
-        if(_spawnTimer >= 1f)
+        if(_currentIntervalChangeTimer >= 1f)
         {
             float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f -
                 ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
+            Debug.Log("evaluatedCurve is " + evaluatedCurve);
             _currentInterval = (float)_currentWave.SpawnInterval / evaluatedCurve;
+            Debug.Log("current interval is " + _currentInterval);
+            _currentIntervalChangeTimer = 0;
         }
         if (_spawnTimer >= _currentInterval)
         {
