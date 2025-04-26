@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -13,10 +14,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _upgradePanel;
     [SerializeField] private TextMeshProUGUI _levelText;
     [SerializeField] private LineProgress lineProgress;
-    
     private bool isFinish;
     private bool isTutor;
     private int currentloopLevel;
+
+    public event Action OnLevelCompleteEvent;
     
     private void Awake()
     {
@@ -56,8 +58,7 @@ public class GameManager : MonoBehaviour
         isFinish = true;
         _gamePanel.SetActive(false);
         _winPanel.SetActive(true);
-        Invoke(nameof(PlayConfetti), 0.25f);
-        Invoke(nameof(NextLevel), 1.5f);
+        OnLevelCompleteEvent?.Invoke();
         
     }
 

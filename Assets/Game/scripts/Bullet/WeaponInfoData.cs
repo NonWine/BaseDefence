@@ -1,18 +1,13 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/WeaponInfoData", fileName = "WeaponInfoData", order = 0)]
 public class WeaponInfoData : ScriptableObject
 {
+    [TabGroup("General")] [PreviewField] [LabelText("Icon")]
     public Sprite image;
-    public BaseBullet baseBullet;
-    public int maxLevel = 6;
-    public int damage;
-    public float coolDown;
-    
-}
+    [TabGroup("General")]
+    public string WeaponName;
+    [TabGroup("General")]
+    public string description;
 
-public enum SkillType
-{
-    Active,
-    Passive
 }

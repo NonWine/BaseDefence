@@ -1,7 +1,7 @@
 ﻿[System.Serializable]
 public class WeaponHandler
 {
-    public WeaponInfoData weaponInfoData;
+    public DynamicWeapon weaponInfoData;
     public bool isLocked = true;
     private float coolDown;
     private int damage;

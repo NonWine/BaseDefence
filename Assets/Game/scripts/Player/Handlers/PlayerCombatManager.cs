@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCombatManager : MonoBehaviour
 {
+    
     [SerializeField] private List<WeaponHandler> weaponHandlers;
 
     private void Awake()
@@ -14,7 +16,15 @@ public class PlayerCombatManager : MonoBehaviour
         }
     }
 
-    public void UnlockWeapon(WeaponInfoData weaponInfoData)
+    private void SetWeapon(WeaponInfoData weaponInfoData)
+    {
+        if (weaponInfoData is DynamicWeapon dynamicWeapon)
+        {
+            UnlockWeapon(dynamicWeapon);
+        }
+    }
+
+    public void UnlockWeapon(DynamicWeapon weaponInfoData)
     {
         weaponHandlers.Find(x => x.weaponInfoData == weaponInfoData).isLocked = false;
     }

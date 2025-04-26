@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2688397594100980596}
   - component: {fileID: 3232706367954337098}
+  - component: {fileID: 1343714998706499621}
   m_Layer: 5
   m_Name: Spider
   m_TagString: Untagged
@@ -49,6 +50,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424000107479090130}
   m_CullTransparentMesh: 1
+--- !u!114 &1343714998706499621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424000107479090130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70ef9ecb064fdfe4c941db7682670162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  title: {fileID: 0}
+  description: {fileID: 0}
+  button: {fileID: 0}
 --- !u!1 &1940466460446981182
 GameObject:
   m_ObjectHideFlags: 0
