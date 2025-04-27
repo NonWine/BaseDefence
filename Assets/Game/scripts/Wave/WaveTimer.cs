@@ -13,6 +13,7 @@ public class WaveTimer : MonoBehaviour
     public event Action OnEndTime;
 
     public int CurrentTime { get; private set; }
+    
     private void Awake()
     {
         
@@ -29,11 +30,18 @@ public class WaveTimer : MonoBehaviour
     }
     private IEnumerator TimerRoutine(int time)
     {
-        for(; CurrentTime >= 0; CurrentTime--)
+        float timer = CurrentTime;
+        while (timer >= 0f)
         {
+            timer -= Time.deltaTime;
+            CurrentTime = Mathf.FloorToInt(timer);
             _timerText.text = "wave duration: " + CurrentTime + "s";
-            yield return new WaitForSeconds(1f);
+            yield return null;
         }
+
+        CurrentTime = 0;
+        _timerText.text = "wave duration: " + CurrentTime + "s";
+
         OnEndTime?.Invoke();
     }
 }

@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _timeWhenStopSpawning;
     [Inject] private EnemyFactory enemyFactory;
     [Inject] WaveManager waveManager;
+    [SerializeField] private float intervalSpeed = 7f; 
     private WaveDataConfig _currentWave;
     private float _spawnTimer;
     private float _currentInterval;
@@ -37,12 +38,12 @@ public class EnemySpawner : MonoBehaviour
         if (!_spawningEnabled) return;
         _currentIntervalChangeTimer += deltaTime;
         _spawnTimer += deltaTime;
-        if(_currentIntervalChangeTimer >= 1f)
+     //   if(_currentIntervalChangeTimer >= 1f)
         {
             float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f -
                 ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
             Debug.Log("evaluatedCurve is " + evaluatedCurve);
-            _currentInterval = (float)_currentWave.SpawnInterval / evaluatedCurve;
+            _currentInterval = (float)(_currentWave.SpawnInterval / evaluatedCurve) / intervalSpeed;
             Debug.Log("current interval is " + _currentInterval);
             _currentIntervalChangeTimer = 0;
         }

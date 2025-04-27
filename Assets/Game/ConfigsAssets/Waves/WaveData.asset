@@ -12,34 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData
   m_EditorClassIdentifier: 
-  SpawnInterval: 2.5204782
-  waveDuration: 10
+  SpawnInterval: 1.0302658
+  waveDuration: 60
   intervalCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 16.803896
-      outSlope: 16.803896
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.30637085
-      value: 6.148224
-      inSlope: -0.00022941572
-      outSlope: -0.00022941572
+      value: 0
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 1
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.20038313
+      value: 0.7089253
+      inSlope: 1.1460221
+      outSlope: 1.1460221
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6794425
-      value: 6.0855093
-      inSlope: -0.27422348
-      outSlope: -0.27422348
+      time: 0.35375768
+      value: 0.127352
+      inSlope: 1.9948109
+      outSlope: 1.9948109
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6639212
+      value: 0.8697444
+      inSlope: 0.9410335
+      outSlope: 0.9410335
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9419639
+      value: 0.23853928
+      inSlope: 2.3367875
+      outSlope: 2.3367875
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
@@ -47,11 +65,11 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: -15.864579
-      outSlope: -15.864579
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
