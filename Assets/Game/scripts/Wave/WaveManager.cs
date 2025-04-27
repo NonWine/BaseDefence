@@ -6,7 +6,7 @@ using Zenject;
 
 public class WaveManager : MonoBehaviour
 {
-   [SerializeField] private  List<WaveData> wavesData;
+   [SerializeField] private  List<WaveDataConfig> wavesData;
    [SerializeField] private  EnemySpawner _spawner;
    [SerializeField] private float wavesDuration;
    [SerializeField] private WaveTimer waveTimer;
@@ -15,12 +15,12 @@ public class WaveManager : MonoBehaviour
    private int currentWaveIndex;
    private bool _waveActive;
    public int CurrentTime => waveTimer.CurrentTime;
-   public WaveData currentWave => wavesData[currentWaveIndex];
+   public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
 
    private void Start()
    {
        StartWave();
-        waveTimer.StartTimer(currentWave.waveDuration);
+        waveTimer.StartTimer(CurrentWave.waveDuration);
    }
     private void OnEnable()
     {
@@ -35,8 +35,8 @@ public class WaveManager : MonoBehaviour
     {
         _waveActive = true;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
-        _spawner.StartSpawning(currentWave);
-        waveTimer.StartTimer(currentWave.waveDuration);
+        _spawner.StartSpawning(CurrentWave);
+        waveTimer.StartTimer(CurrentWave.waveDuration);
     }
 
     public void Update()

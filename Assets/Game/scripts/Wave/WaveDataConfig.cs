@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/WaveData", fileName = "WaveData", order = 0)]
-public class WaveData : ScriptableObject
+public class WaveDataConfig : ScriptableObject
 {
     [ProgressBar(1, 5)] public float SpawnInterval;
 

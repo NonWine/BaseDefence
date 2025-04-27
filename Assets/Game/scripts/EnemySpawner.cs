@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _timeWhenStopSpawning;
     [Inject] private EnemyFactory enemyFactory;
     [Inject] WaveManager waveManager;
-    private WaveData _currentWave;
+    private WaveDataConfig _currentWave;
     private float _spawnTimer;
     private float _currentInterval;
     private float _currentIntervalChangeTimer;
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int CurrentEnemies { get; private set; }
 
-    public void StartSpawning(WaveData wave)
+    public void StartSpawning(WaveDataConfig wave)
     {
         _currentWave = wave;
         _currentInterval = wave.SpawnInterval;
@@ -70,7 +70,17 @@ public class EnemySpawner : MonoBehaviour
             if (group.SelectedEnemy is PoolAble poolAble)
             {
                 var enemy = enemyFactory.Create(poolAble.Type);
-                enemy.GetComponent<NavMeshAgent>().Warp(randomPointInBoxCollider.GetRandomPointInBox());
+                enemy.GetComponent<NavMeshAgent>().enabled = true;
+                
+                Vector3 pos = randomPointInBoxCollider.GetRandomPointInBox();
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(pos, out hit, 5f, NavMesh.AllAreas))
+                {
+                    pos = hit.position;
+                }
+                enemy.GetComponent<NavMeshAgent>().Warp(pos + Vector3.up * enemy.GetComponent<NavMeshAgent>().baseOffset);
+                enemy.EnemyStateMachine.ChangeState<IdleState>();
+                enemy.transform.rotation = Quaternion.identity;
                 CurrentEnemies++;
                 if( waveManager.CurrentTime <= _timeWhenStopSpawning)
                 {

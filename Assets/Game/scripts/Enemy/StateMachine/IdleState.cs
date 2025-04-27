@@ -21,9 +21,8 @@ public class IdleState : EnemyBaseState
     {
         _enemyAnimator.Animator.applyRootMotion = false;
         _enemyAnimator.SetIdle();
-        _agent.enabled = false;
-        _agent.enabled = true;
-        _agent.isStopped = false;
+        _enemyAnimator.Animator.transform.localPosition = Vector3.zero;
+        _enemyAnimator.Animator.transform.rotation = Quaternion.identity;
     }
 
     public override void UpdateState()

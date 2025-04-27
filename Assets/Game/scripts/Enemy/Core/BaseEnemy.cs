@@ -13,7 +13,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected HealthUI HealthUI;
     [SerializeField] protected NavMeshAgent NavMesh;
     [SerializeField] protected Collider collider;
-    protected EnemyStateMachine EnemyStateMachine;
+    [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     protected EnemyRotation EnemyRotation;
     
     public event Action<BaseEnemy> OnDie;

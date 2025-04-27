@@ -489,7 +489,7 @@ Transform:
   m_GameObject: {fileID: 199058825}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.9, y: 0.08, z: 13.110001}
+  m_LocalPosition: {x: -18.9, y: -1.32, z: 13.110001}
   m_LocalScale: {x: 0.76135, y: 0.76135, z: 0.76135}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1714,7 +1714,7 @@ Transform:
   m_GameObject: {fileID: 1639570353}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.46, y: 0, z: 0}
+  m_LocalPosition: {x: 23.46, y: -0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1830,7 +1830,6 @@ MonoBehaviour:
   wavesData:
   - {fileID: 11400000, guid: e21b163b499c0b840a833aef841ad184, type: 2}
   - {fileID: 11400000, guid: 96d62879bf3ae044e868cd8d354af65d, type: 2}
-  - {fileID: 11400000, guid: 1c4978a2a7fe6c04ab3651000d9b7250, type: 2}
   _spawner: {fileID: 1709021710}
   wavesDuration: 60
   waveTimer: {fileID: 1644825551}
@@ -10443,11 +10442,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3146500669227623642, guid: 764d20279339865499a8b9568d819dd4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.51
+      value: -0.59
       objectReference: {fileID: 0}
     - target: {fileID: 3146500669227623642, guid: 764d20279339865499a8b9568d819dd4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3146500669227623642, guid: 764d20279339865499a8b9568d819dd4, type: 3}
       propertyPath: m_LocalPosition.z

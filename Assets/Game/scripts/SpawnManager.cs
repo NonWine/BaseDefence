@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using System.Collections;
 using System.Linq;
+using UnityEngine.AI;
 using Zenject;
 
 public class SpawnManager : MonoBehaviour
@@ -55,9 +56,19 @@ public class SpawnManager : MonoBehaviour
             spawnPoints = spawnPoints.ToList().OrderBy(x => Guid.NewGuid()).ToArray();
             BaseEnemy unit = waves[waveId].Mob[j].GetComponent<BaseEnemy>();
             var enemy = enemyFactory.Create(unit.GetType());
-            enemy.transform.position = point.position;
+            Vector3 pos = point.position;
+            pos.y = 4f;
+            enemy.GetComponent<NavMeshAgent>().enabled = true;
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(pos, out hit, 5f, NavMesh.AllAreas))
+            {
+                pos = hit.position;
+                
+            }
+
+            enemy.GetComponent<NavMeshAgent>().Warp(pos + Vector3.up * enemy.GetComponent<NavMeshAgent>().baseOffset);
+            enemy.EnemyStateMachine.ChangeState<IdleState>();
             enemy.transform.rotation = Quaternion.identity;
-            enemy.transform.parent = transform;
             generalCounts++;
         }
         OnSpawn?.Invoke();
