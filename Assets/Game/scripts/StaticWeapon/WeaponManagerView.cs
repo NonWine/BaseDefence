@@ -51,15 +51,16 @@ public class WeaponManagerView : MonoBehaviour
             
             Sequence sequence = DOTween.Sequence();
             sequence.Append(cardTransform.transform.DOScale(1f, 0.35f).SetEase(ease));
+            sequence.AppendInterval(0.15f);
             sequence.Append(cardTransform.DOAnchorPosX(newOffset, offsetSpeed).SetEase(Ease.OutQuart));
             
-            float delayBeetWeenCards = 0.3f;
+            float delayBeetWeenCards = 0.25f;
             if (i == 2)
-                delayBeetWeenCards = 0.5f;
+                delayBeetWeenCards = 0.45f;
             
             mainSequence.Insert(i * delayBeetWeenCards, sequence);
             mainSequence.AppendInterval(0.5f); 
-            ease = Ease.OutQuart;
+            //ease = Ease.OutQuart;
         }
 
         await UniTask.WaitUntil(mainSequence.IsComplete);
