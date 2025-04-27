@@ -70,15 +70,13 @@ public class EnemySpawner : MonoBehaviour
             if (group.SelectedEnemy is PoolAble poolAble)
             {
                 var enemy = enemyFactory.Create(poolAble.Type);
-                enemy.GetComponent<NavMeshAgent>().enabled = true;
-                
                 Vector3 pos = randomPointInBoxCollider.GetRandomPointInBox();
                 NavMeshHit hit;
                 if (NavMesh.SamplePosition(pos, out hit, 5f, NavMesh.AllAreas))
                 {
                     pos = hit.position;
                 }
-                enemy.GetComponent<NavMeshAgent>().Warp(pos + Vector3.up * enemy.GetComponent<NavMeshAgent>().baseOffset);
+                enemy.GetComponent<NavMeshAgent>().Warp(pos);
                 enemy.EnemyStateMachine.ChangeState<IdleState>();
                 enemy.transform.rotation = Quaternion.identity;
                 CurrentEnemies++;

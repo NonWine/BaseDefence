@@ -35,10 +35,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.Initialize<IdleState>();
         transform.eulerAngles = new Vector3(0f, 180f, 0f);
     }
-    private void Start()
-    {
-        EnemyStateMachine.ChangeState<MoveState>();
-    }
+    
     public void Tick()
     {
         if(IsDeath)

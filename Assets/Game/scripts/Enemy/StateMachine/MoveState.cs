@@ -23,6 +23,7 @@ public class MoveState : EnemyBaseState
     public override void EnterState(BaseEnemy enemy)
     {
         _enemyAnimator.SetRun();
+        _agent.Warp(enemy.transform.position + Vector3.up * _agent.baseOffset);
         _agent.isStopped = false;
         _timer = float.MaxValue;
         _targetDirection =(_target.randomPointInBoxCollider.GetRandomPointInBox() - enemy.transform.position).normalized;

@@ -22,14 +22,16 @@ public class WaveManager : MonoBehaviour
        StartWave();
         waveTimer.StartTimer(CurrentWave.waveDuration);
    }
+   
     private void OnEnable()
     {
-        waveTimer.OnEndTime += UpdateWave;
+        waveTimer.OnEndTime += EndWave;
     }
     private void OnDisable()
     {
-        waveTimer.OnEndTime -= UpdateWave;
+        waveTimer.OnEndTime -= EndWave;
     }
+    
     [Button]
     public void StartWave()
     {
@@ -53,7 +55,6 @@ public class WaveManager : MonoBehaviour
 
     public void UpdateWave()
     {
-        EndWave();
         currentWaveIndex++;
         if (currentWaveIndex == wavesData.Count)
             currentWaveIndex = 0;
@@ -63,7 +64,6 @@ public class WaveManager : MonoBehaviour
     private void EndWave()
     {
         _waveActive = false;
-        _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
         _spawner.StopSpawning();
         // Trigger end of wave events here
     }

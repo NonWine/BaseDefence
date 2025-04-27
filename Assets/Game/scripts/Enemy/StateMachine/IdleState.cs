@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -23,6 +24,8 @@ public class IdleState : EnemyBaseState
         _enemyAnimator.SetIdle();
         _enemyAnimator.Animator.transform.localPosition = Vector3.zero;
         _enemyAnimator.Animator.transform.rotation = Quaternion.identity;
+        enemy.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+        ToMoveState();
     }
 
     public override void UpdateState()
@@ -33,5 +36,11 @@ public class IdleState : EnemyBaseState
 
     public override void ExitState()
     {
+    }
+
+    private async void ToMoveState()
+    {
+        await UniTask.DelayFrame(5);
+        _enemyStateMachine.ChangeState<MoveState>();
     }
 }
