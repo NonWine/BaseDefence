@@ -59,7 +59,7 @@ public class WeaponManagerView : MonoBehaviour
                 delayBeetWeenCards = 0.45f;
             
             mainSequence.Insert(i * delayBeetWeenCards, sequence);
-            mainSequence.AppendInterval(0.5f); 
+            mainSequence.AppendInterval(0.5f * i); 
             //ease = Ease.OutQuart;
         }
 
