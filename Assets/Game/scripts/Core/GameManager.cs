@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -10,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem _confettiFx;
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _losePanel;
-    [SerializeField] private GameObject _winPanel;
+    [SerializeField] private LevelCompleteView _winPanel;
 
     
     private bool isFinish;
@@ -42,15 +43,17 @@ public class GameManager : MonoBehaviour
     }
     
     [Button]
-    public void GameWin()
+    public async void GameWin()
     {
        
         if (isFinish)
             return;
         isFinish = true;
         _gamePanel.SetActive(false);
-        _winPanel.SetActive(true);
+        PlayConfetti();
         OnLevelCompleteEvent?.Invoke();
+        await UniTask.Delay(2500);
+        _winPanel.Show();
     }
 
     public void RestartGame()

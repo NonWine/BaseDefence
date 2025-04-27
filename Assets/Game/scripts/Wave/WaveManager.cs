@@ -16,12 +16,7 @@ public class WaveManager : MonoBehaviour
    private bool _waveActive;
    public int CurrentTime => waveTimer.CurrentTime;
    public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
-
-   private void Start()
-   {
-       StartWave();
-        waveTimer.StartTimer(CurrentWave.waveDuration);
-   }
+   
    
     private void OnEnable()
     {
@@ -35,6 +30,7 @@ public class WaveManager : MonoBehaviour
     [Button]
     public void StartWave()
     {
+        waveTimer.StartTimer(CurrentWave.waveDuration);
         _waveActive = true;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(CurrentWave);

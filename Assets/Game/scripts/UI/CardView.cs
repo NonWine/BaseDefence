@@ -35,7 +35,7 @@ public class CardView : MonoBehaviour
 
     public void DestroyCard()
     {
-        transform.DOScale(0f, 0.25f).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOScale(0f, 0.15f).SetEase(Ease.Linear).OnComplete(() =>
         {
             Destroy(gameObject);
         });
