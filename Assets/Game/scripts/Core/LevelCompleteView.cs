@@ -4,41 +4,47 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Zenject;
 
 public class LevelCompleteView : MonoBehaviour
 {
     [SerializeField] private CanvasGroup winPanel;
     [SerializeField] private float fadeDuration = 0.25f;
-    [SerializeField] private WeaponCardPanelView weaponCardPanelView;
+    [Inject] private WeaponManagerView weaponManagerView;
 
     private void Awake()
     {
-        weaponCardPanelView.OnClickCardEvent += Hide;
+        weaponManagerView.OnGetWeaponEvent += Hide;
         
     }
 
     private void OnDestroy()
     {
-        weaponCardPanelView.OnClickCardEvent -= Hide;
+        weaponManagerView.OnGetWeaponEvent -= Hide;
 
     }
 
     [Button]
     public void Show() => StartCoroutine(ShowCor());
 
+    public void Hide(WeaponInfoData weaponInfoData) => StartCoroutine(HideCor());
+    
     private IEnumerator ShowCor()
     {
 
         winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack);
         winPanel.interactable = true;
-        yield return new WaitForSeconds(fadeDuration);
-        yield return new WaitForSeconds(0.5f);
-        weaponCardPanelView.ShowPanel();
+        //yield return new WaitForSeconds(fadeDuration);
+        weaponManagerView.CreateCards();
+        yield break;
     }
-    
-    [Button]
-    public void Hide()
+
+
+    private IEnumerator HideCor()
     {
+        yield return new WaitForSeconds(1f);
+        weaponManagerView.DestroyCards();
+        yield return new WaitForSeconds(0.2f);
         winPanel.DOFade(0f, fadeDuration).SetEase(Ease.Linear);
         winPanel.interactable = false;
         Debug.Log("Hide Level Complete Canvas");

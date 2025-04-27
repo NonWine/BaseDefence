@@ -71,9 +71,21 @@ public class WeaponManagerView : MonoBehaviour
     {
         for (var i = cardViews.Count - 1; i >= 0; i--)
         {
+            if(cardViews[i].IsSelected == false)
+                cardViews[i].GetComponent<CardSelectionView>().Deselect();
+            
             cardViews[i].OnClickedWeaponEvent -= GetWeapon; 
         }
         
         OnGetWeaponEvent?.Invoke(weaponInfoData);
+    }
+
+    public void DestroyCards()
+    {
+        for (var i = cardViews.Count - 1; i >= 0; i--)
+        {
+           cardViews[i].DestroyCard();
+        }
+        cardViews.Clear();
     }
 }

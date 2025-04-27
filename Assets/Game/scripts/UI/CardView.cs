@@ -10,6 +10,8 @@ public class CardView : MonoBehaviour
     [SerializeField] private TMP_Text title;
     [SerializeField] private TMP_Text description;
     [SerializeField] private Button button;
+    [SerializeField] private CardSelectionView cardSelectionView;
+    public bool IsSelected { get; private set; }
 
     public event Action<WeaponInfoData> OnClickedWeaponEvent; 
     
@@ -43,6 +45,8 @@ public class CardView : MonoBehaviour
 
     private void ClickEvent()
     {
+        IsSelected = true;
+        cardSelectionView.Select();
         OnClickedWeaponEvent?.Invoke(weaponInfoData);
     }
 }
