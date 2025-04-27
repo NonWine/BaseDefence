@@ -250,6 +250,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 49195548527677328}
   m_SourcePrefab: {fileID: 100100000, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+--- !u!96 &1441558268036760414 stripped
+TrailRenderer:
+  m_CorrespondingSourceObject: {fileID: 4002657840909493255, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+  m_PrefabInstance: {fileID: 2561771391691810649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7122004957018436283 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4709441691263423970, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
@@ -267,6 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9947ebd7b01340ab881f0cce6beccade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trailRenderer: {fileID: 1441558268036760414}
   radiusExplose: 5
   torqueForce: 120
   damageableMask:

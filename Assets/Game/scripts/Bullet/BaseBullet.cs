@@ -6,13 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public abstract class BaseBullet : PoolAble
 {
-    protected int _damage;
+    [SerializeField] private TrailRenderer trailRenderer;
     protected Transform _target;
     protected Rigidbody rigidbody;
-    protected bool isAlive;
     protected IDamageable _damageable;
     protected Vector3 savedDirection;
+    protected bool isAlive;
+    protected int _damage;
     private float timer;
+    
     private void Start()
     {
         ResetPool();
@@ -24,8 +26,10 @@ public abstract class BaseBullet : PoolAble
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
             damageable.GetDamage(_damage);
-            DestroyBullet();
         }
+
+        isAlive = false;
+        DestroyBullet();
     }
 
     private void Update()
@@ -56,18 +60,20 @@ public abstract class BaseBullet : PoolAble
 
     public virtual void Init(int damage, Transform target)
     {
+        trailRenderer.Clear();
         rigidbody = GetComponent<Rigidbody>();
+        rigidbody.isKinematic = false;
         rigidbody.velocity = Vector3.zero;
         timer = 0f;
         _target = target;
         _damage = damage;
         isAlive = true;
         _damageable = target.GetComponent<IDamageable>();
-
     }
 
     protected virtual  void DestroyBullet()
     {
+        rigidbody.isKinematic = true;
         gameObject.SetActive(false);
     }
 

@@ -93,5 +93,10 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         EnemyStateMachine.ChangeState<AttackState>();
     }
-    public void UnsetDeath() => IsDeath = false;
+
+    public void UnsetDeath()
+    {
+        collider.isTrigger = false;
+        IsDeath = false;
+    } 
 }
