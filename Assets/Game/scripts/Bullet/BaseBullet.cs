@@ -8,12 +8,13 @@ public abstract class BaseBullet : PoolAble
 {
     [SerializeField] private TrailRenderer trailRenderer;
     protected Transform _target;
+    //protected Vector3 _target;
     protected Rigidbody rigidbody;
     protected IDamageable _damageable;
     protected Vector3 savedDirection;
     protected bool isAlive;
     protected int _damage;
-    private float timer;
+    protected float timer;
     
     private void Start()
     {
@@ -23,8 +24,11 @@ public abstract class BaseBullet : PoolAble
     protected virtual void OnCollisionEnter(Collision other)
     {
         //Debug.Log(other.gameObject.name);
+        
+        
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
+            
             damageable.GetDamage(_damage);
         }
 
@@ -32,7 +36,7 @@ public abstract class BaseBullet : PoolAble
         DestroyBullet();
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (isAlive)
         {

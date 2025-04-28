@@ -42,9 +42,9 @@ public class EnemySpawner : MonoBehaviour
         {
             float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f -
                 ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
-            Debug.Log("evaluatedCurve is " + evaluatedCurve);
+
             _currentInterval = (float)(_currentWave.SpawnInterval / evaluatedCurve) / intervalSpeed;
-            Debug.Log("current interval is " + _currentInterval);
+
             _currentIntervalChangeTimer = 0;
         }
         if (_spawnTimer >= _currentInterval)
