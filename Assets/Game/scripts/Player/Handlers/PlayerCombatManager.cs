@@ -6,12 +6,12 @@ using Zenject;
 
 public class PlayerCombatManager : MonoBehaviour
 {
-    [Inject] private WeaponManagerView weaponManagerView;
+    [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [SerializeField] private List<WeaponHandler> weaponHandlers;
 
     private void Awake()
     {
-        weaponManagerView.OnGetWeaponEvent += SetWeapon;
+        _weaponCardManagerView.OnGetWeaponEvent += SetWeaponCard;
         foreach (var weaponHandler in weaponHandlers)
         {
             weaponHandler.Init();
@@ -20,10 +20,10 @@ public class PlayerCombatManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        weaponManagerView.OnGetWeaponEvent -= SetWeapon;
+        _weaponCardManagerView.OnGetWeaponEvent -= SetWeaponCard;
     }
 
-    private void SetWeapon(WeaponInfoData weaponInfoData)
+    private void SetWeaponCard(WeaponInfoData weaponInfoData)
     {
         if (weaponInfoData is DynamicWeapon dynamicWeapon)
         {

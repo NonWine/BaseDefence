@@ -10,6 +10,7 @@ public class CardSelectionView : MonoBehaviour
         public void Select()
     {
         Sequence sequence = DOTween.Sequence();
+        sequence.SetUpdate(true);
         sequence.Append(transform.DOScale(0.8f, 0.25f).SetEase(Ease.Linear));
         sequence.Append(transform.DOScale(1.2f, 0.35f).SetEase(Ease.OutBack));
         selectedObj.gameObject.SetActive(true);
@@ -18,6 +19,7 @@ public class CardSelectionView : MonoBehaviour
     public void Deselect()
     {
         Sequence sequence = DOTween.Sequence();
+        sequence.SetUpdate(true);
         sequence.Append(transform.DOScale(0.8f, 0.25f).SetEase(Ease.Linear));
         vfxSelection.gameObject.SetActive(false);
         unselectedObj.SetActive(true);

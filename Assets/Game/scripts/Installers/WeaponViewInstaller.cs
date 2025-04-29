@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class WeaponViewInstaller : MonoInstaller
 {
-    [SerializeField] private WeaponManagerView weaponManagerView;
+    [FormerlySerializedAs("weaponManagerView")] [SerializeField] private WeaponCardManagerView weaponCardManagerView;
     public override void InstallBindings()
     {
-        Container.BindInstance(weaponManagerView).AsSingle();
+        Container.BindInstance(weaponCardManagerView).AsSingle();
     }
 }
