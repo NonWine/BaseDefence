@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ceb0e5e9b48473fb5bd3eb263f8baeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startExperienceRequired: 100
+  startExperienceRequired: 30
   experienceGrowthMultiplier: 1.2
   xpHandlerView: {fileID: 1753094791}
   modificator: 1
@@ -2561,6 +2561,7 @@ MonoBehaviour:
   _joystick: {fileID: 593851025}
   playerCombatManager: {fileID: 1836437330}
   playerHandler: {fileID: 2040029519}
+  playerLevelController: {fileID: 703039803}
 --- !u!1 &2009996174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,6 +4442,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1396439251}
     m_Modifications:
+    - target: {fileID: 140794301765272088, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
+      propertyPath: _maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 272463735194696024, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
