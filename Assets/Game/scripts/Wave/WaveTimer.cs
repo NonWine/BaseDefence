@@ -8,7 +8,6 @@ using Zenject;
 
 public class WaveTimer : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI _timerText;
     private IEnumerator _timerRoutine;
     public event Action OnEndTime;
 
@@ -35,12 +34,10 @@ public class WaveTimer : MonoBehaviour
         {
             timer -= Time.deltaTime;
             CurrentTime = Mathf.FloorToInt(timer);
-            _timerText.text = "wave duration: " + CurrentTime + "s";
             yield return null;
         }
 
         CurrentTime = 0;
-        _timerText.text = "wave duration: " + CurrentTime + "s";
 
         OnEndTime?.Invoke();
     }

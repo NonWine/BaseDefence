@@ -16,4 +16,5 @@ MonoBehaviour:
   _health: 8
   _moveSpeed: 3
   _roateSpeed: 58
-  <TargetDistance>k__BackingField: 5.16
+  <CoinDrop>k__BackingField: 5
+  <EXPDrop>k__BackingField: 5

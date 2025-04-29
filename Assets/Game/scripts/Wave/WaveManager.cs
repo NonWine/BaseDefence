@@ -2,50 +2,58 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class WaveManager : MonoBehaviour
 {
    [SerializeField] private  List<WaveDataConfig> wavesData;
    [SerializeField] private  EnemySpawner _spawner;
-   [SerializeField] private float wavesDuration;
-   [SerializeField] private WaveTimer waveTimer;
+   [SerializeField] private WaveSliderView waveSliderView;
+   [SerializeField] private Button startWaveButton;
    [Inject] private  IPlayerMonitor _playerMonitor;
    [Inject] public PlayerHandler _player;
+   
    private int currentWaveIndex;
    private bool _waveActive;
-   public int CurrentTime => waveTimer.CurrentTime;
+   public float CurrentTime;
    public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
    
    
     private void OnEnable()
-    {
-        waveTimer.OnEndTime += EndWave;
+    {   
+        startWaveButton.onClick.AddListener(StartWave);
     }
     private void OnDisable()
     {
-        waveTimer.OnEndTime -= EndWave;
+        startWaveButton.onClick.RemoveListener(StartWave);
     }
     
     [Button]
     public void StartWave()
     {
-        waveTimer.StartTimer(CurrentWave.waveDuration);
+        CurrentTime = CurrentWave.waveDuration;
         _waveActive = true;
+        startWaveButton.interactable = false;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(CurrentWave);
-        waveTimer.StartTimer(CurrentWave.waveDuration);
+        waveSliderView.SetWaveData(CurrentWave.waveDuration);
     }
 
     public void Update()
     {
         if (!_waveActive) return;
 
+        waveSliderView.UpdateSlider(CurrentWave.waveDuration - CurrentTime);
         _spawner.UpdateSpawner(Time.deltaTime);
-
-
-    //    if (_playerMonitor.AliveEnemies < 3)
-      //      _spawner.SpawnExtraGroup();
+        if (CurrentTime <= 0f)
+        {
+            EndWave();
+        }
+        else
+        {
+            CurrentTime -= Time.deltaTime;
+        }
 
     }
 
@@ -54,11 +62,12 @@ public class WaveManager : MonoBehaviour
         currentWaveIndex++;
         if (currentWaveIndex == wavesData.Count)
             currentWaveIndex = 0;
-        StartWave();
     }
 
     private void EndWave()
     {
+        UpdateWave();
+        startWaveButton.interactable = true;
         _waveActive = false;
         _spawner.StopSpawning();
         // Trigger end of wave events here
