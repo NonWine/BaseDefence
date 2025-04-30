@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: e6eea4f7cbb9f46f79c0fe06180fa5b3, type: 3}
+    - target: {fileID: 8319205321539874871, guid: 6d04053ebc604d44b996170723bb8c55, type: 3}
+      propertyPath: generalType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8370474149853340104, guid: 6d04053ebc604d44b996170723bb8c55, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -373,6 +377,10 @@ PrefabInstance:
     - target: {fileID: 1646295122729387605, guid: 6d04053ebc604d44b996170723bb8c55, type: 3}
       propertyPath: m_Name
       value: 'ActiveAbility '
+      objectReference: {fileID: 0}
+    - target: {fileID: 1646295122729387605, guid: 6d04053ebc604d44b996170723bb8c55, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3437777376628377882, guid: 6d04053ebc604d44b996170723bb8c55, type: 3}
       propertyPath: m_AnchorMax.y

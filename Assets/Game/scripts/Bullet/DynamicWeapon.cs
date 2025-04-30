@@ -11,4 +11,11 @@ public class DynamicWeapon : WeaponInfoData
     public int damage;
     [TabGroup("BulletInfo")]
     public float coolDown;
+    
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        WeaponsGeneralType = WeaponsGeneralType.Active;
+    }
 }
