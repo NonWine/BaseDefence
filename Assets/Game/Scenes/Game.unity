@@ -1765,6 +1765,7 @@ MonoBehaviour:
   _baseBullets:
   - {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
   - {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
+  - {fileID: 2445264327033033408, guid: 3ead491cddff1aa4ea13b276bfc8a652, type: 3}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0

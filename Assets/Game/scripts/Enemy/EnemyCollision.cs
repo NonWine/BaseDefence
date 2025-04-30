@@ -13,4 +13,11 @@ public class EnemyCollision : MonoBehaviour
             _baseEnemy.Attack();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.TryGetComponent<Target>(out var target))
+        {
+            _baseEnemy.Attack();
+        }
+    }
 }
