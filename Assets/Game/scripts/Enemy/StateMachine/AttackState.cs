@@ -42,6 +42,6 @@ public  class AttackState : EnemyBaseState
         {
             return;
         }
-        _target.GetDamage(10);
+        _target.GetDamage(BaseEnemy.CurrentDamage);
     }
 }

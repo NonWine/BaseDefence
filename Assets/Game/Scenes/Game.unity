@@ -1116,7 +1116,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allWeapons:
-  - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
   - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
   - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
