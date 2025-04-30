@@ -21,7 +21,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }
 
-    [field: SerializeField] public Transform Point;
     [Inject] protected Target target;
     public int CurrentDamage { get;  set; }
 

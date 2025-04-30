@@ -860,9 +860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startExperienceRequired: 30
-  experienceGrowthMultiplier: 1.2
+  experienceGrowthMultiplier: 2.19
   xpHandlerView: {fileID: 1753094791}
-  modificator: 1.9668815
+  modificator: 1
   currentLevel: 1
   currentExperience: 0
   currentExperienceRequired: 0
@@ -12762,6 +12762,10 @@ PrefabInstance:
     - target: {fileID: 4359703447656448171, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377961245594902521, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6999893
       objectReference: {fileID: 0}
     - target: {fileID: 5233516631187129134, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
       propertyPath: m_AnchorMax.y
