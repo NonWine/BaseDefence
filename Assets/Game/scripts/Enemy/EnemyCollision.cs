@@ -12,5 +12,17 @@ public class EnemyCollision : MonoBehaviour
         {
             _baseEnemy.Attack();
         }
+        if(other.CompareTag("StinkyCloud"))
+        {
+            _baseEnemy.IsPoisoned = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("StinkyCloud"))
+        {
+            Debug.Log("exit stinky cloud");
+            _baseEnemy.IsPoisoned = false;
+        }
     }
 }

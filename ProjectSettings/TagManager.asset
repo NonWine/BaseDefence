@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BuildingBorder
   - Ground
+  - StinkyCloud
   layers:
   - Default
   - TransparentFX

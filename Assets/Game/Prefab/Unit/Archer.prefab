@@ -89,6 +89,8 @@ MonoBehaviour:
   HealthUI: {fileID: 4415695571097326384}
   NavMesh: {fileID: 2190577205141881727}
   collider: {fileID: 4889825331461937912}
+  _poisonedSpeedMultiplier: 3
+  _speed: 17
   Point: {fileID: 0}
   _bulletPos: {fileID: 6116911634499862243}
 --- !u!54 &1956916457294921616

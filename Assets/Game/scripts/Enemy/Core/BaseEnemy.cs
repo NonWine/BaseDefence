@@ -13,12 +13,39 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected HealthUI HealthUI;
     [SerializeField] protected NavMeshAgent NavMesh;
     [SerializeField] protected Collider collider;
+    [SerializeField] protected float _poisonedSpeedMultiplier;
+    [SerializeField] protected float _speed;
+    private bool isPoisoned = false;
+    
+    
+    
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     protected EnemyRotation EnemyRotation;
     
     public event Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }
+    public float Speed { get { return _speed; } private set { _speed = value; } }
+    public bool IsPoisoned
+    {
+        get { return isPoisoned; }
+        set
+        {
+            if(value == isPoisoned)
+            {
+                return;
+            }
+            isPoisoned = value;
+            if(isPoisoned)
+            {
+                Speed /= _poisonedSpeedMultiplier;
+            }
+            else
+            {
+                Speed *= _poisonedSpeedMultiplier;
+            }
+        }
+    }
 
     [field: SerializeField] public Transform Point;
     [Inject] protected Target target;
@@ -35,7 +62,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.Initialize<IdleState>();
         transform.eulerAngles = new Vector3(0f, 180f, 0f);
     }
-    
+    private void OnDisable()
+    {
+        IsPoisoned = false;
+    }
+
     public void Tick()
     {
         if(IsDeath)
