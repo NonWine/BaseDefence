@@ -5,7 +5,10 @@ using UnityEngine;
 public class StaticWeaponData : WeaponInfoData
 {
     public  WeaponType WeaponType { get; protected set; }
-
     
-    
+    protected override void Awake()
+    {
+        base.Awake();
+        WeaponsGeneralType = WeaponsGeneralType.Static;
+    }
 }

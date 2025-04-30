@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771513253ce743169ce9715f6090513a, type: 3}
   m_Name: Melle
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 20
+  <Damage>k__BackingField: 2
   _health: 15
   _moveSpeed: 3
   _roateSpeed: 58
-  <TargetDistance>k__BackingField: 1.48
+  <CoinDrop>k__BackingField: 3
+  <EXPDrop>k__BackingField: 3

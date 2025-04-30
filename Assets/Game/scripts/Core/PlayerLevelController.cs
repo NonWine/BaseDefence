@@ -31,6 +31,8 @@ public class PlayerLevelController : MonoBehaviour
 
     }
 
+    public void ImproveModificator(float addValue) => modificator += addValue;
+
     [Button]
     public void AddExperience(int amount)
     {

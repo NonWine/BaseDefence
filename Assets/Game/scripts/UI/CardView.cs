@@ -40,7 +40,7 @@ public class CardView : MonoBehaviour
         transform.DOScale(0f, 0.15f).SetEase(Ease.Linear).OnComplete(() =>
         {
             Destroy(gameObject);
-        });
+        }).SetUpdate(true);;
     }
 
     private void ClickEvent()

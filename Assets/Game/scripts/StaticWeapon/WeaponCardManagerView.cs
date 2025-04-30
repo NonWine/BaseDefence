@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class WeaponManagerView : MonoBehaviour
+public class WeaponCardManagerView : MonoBehaviour
 {
     [SerializeField] private WeaponInfoData[] allWeapons;
     [SerializeField] private CardView cardViewPrefab;
@@ -20,6 +20,8 @@ public class WeaponManagerView : MonoBehaviour
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
     
+    
+    
 
     public async void CreateCards()
     {
@@ -28,6 +30,7 @@ public class WeaponManagerView : MonoBehaviour
         Ease ease = Ease.OutBack;
         xOffset = cardContainer.rect.width / 3f;
         Sequence mainSequence = DOTween.Sequence();
+        mainSequence.SetUpdate(true);
         for (int i = 0; i < 3; i++)
         {
             float newOffset;
@@ -50,6 +53,7 @@ public class WeaponManagerView : MonoBehaviour
             cardTransform.transform.localScale = Vector3.zero;
             
             Sequence sequence = DOTween.Sequence();
+            sequence.SetUpdate(true);
             sequence.Append(cardTransform.transform.DOScale(1f, 0.35f).SetEase(ease));
             sequence.AppendInterval(0.15f);
             sequence.Append(cardTransform.DOAnchorPosX(newOffset, offsetSpeed).SetEase(Ease.OutQuart));

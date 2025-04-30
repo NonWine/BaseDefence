@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaveData 1
   m_EditorClassIdentifier: 
   SpawnInterval: 1.9891522
-  waveDuration: 15
+  waveDuration: 30
   intervalCurve:
     serializedVersion: 2
     m_Curve:

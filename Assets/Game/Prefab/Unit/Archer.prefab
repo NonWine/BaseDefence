@@ -93,6 +93,7 @@ MonoBehaviour:
   _speed: 17
   Point: {fileID: 0}
   _bulletPos: {fileID: 6116911634499862243}
+  _distance: 40
 --- !u!54 &1956916457294921616
 Rigidbody:
   m_ObjectHideFlags: 0
