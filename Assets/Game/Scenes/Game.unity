@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHandlers:
-  - weaponInfoData: {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
+  - weaponInfoData: {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
     isLocked: 0
     CurrentTimer: 0
 --- !u!114 &1836437331
@@ -18430,7 +18430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6812741403086601420, guid: 1e7bfcc8684550c42a3ab2ab5c0e44a1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7162256445181209327, guid: 1e7bfcc8684550c42a3ab2ab5c0e44a1, type: 3}
       propertyPath: m_LocalPosition.x

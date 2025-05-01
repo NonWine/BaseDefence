@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
-  WeaponName: 12312
-  description: asdas
-  baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
+  WeaponName: Laser
+  description: shoots laser
+  baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
   damage: 5
-  coolDown: 1
+  coolDown: 3
