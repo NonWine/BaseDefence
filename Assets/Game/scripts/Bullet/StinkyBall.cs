@@ -44,7 +44,7 @@ public class StinkyBall : BaseBullet
 
     protected override void DestroyBullet()
     {
-        ParticlePool.Instance.PlayExplossion(transform.position, radiusExplose);
+        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, radiusExplose);
         base.DestroyBullet();
     }
 }

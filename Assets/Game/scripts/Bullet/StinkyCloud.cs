@@ -13,6 +13,7 @@ public class StinkyCloud : MonoBehaviour
     private float _existTimer;
     [SerializeField] private float _existTime;
     [SerializeField] private float _damageInterval;
+    [SerializeField] private ParticleSystem _cloudEffect;
     [Inject] private GameController gameController;
     private Transform parent;
 
@@ -20,6 +21,9 @@ public class StinkyCloud : MonoBehaviour
     {
         transform.localScale = new Vector3(radiusVenom * 2, transform.localScale.y, radiusVenom * 2);
         transform.rotation = Quaternion.Euler(0, 0, 0);
+        var main = _cloudEffect.main;
+        main.duration = _existTime;
+        _cloudEffect.Play();
     }
     private void OnDisable()
     {
