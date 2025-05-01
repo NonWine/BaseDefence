@@ -43,7 +43,7 @@ public class LaserRay : MonoBehaviour
             Destroy(gameObject);
         }
         
-        var direction = _target - _laserOrigin.transform.position; 
+        var direction = _enemy.transform.position - _laserOrigin.transform.position; 
         _ray = new Ray(transform.position, direction.normalized);
         _laserLine.SetPosition(0, _laserOrigin.transform.position);
         
