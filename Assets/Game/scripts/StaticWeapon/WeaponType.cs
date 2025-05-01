@@ -1,5 +1,7 @@
 ﻿public enum WeaponType
 {
     Tower,
-    Mine
+    Mine,
+    ZaborBuilder,
+    ExpaTower,
 }

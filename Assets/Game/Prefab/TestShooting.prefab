@@ -151,4 +151,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 30
-  _interval: 1
+  _interval: 3

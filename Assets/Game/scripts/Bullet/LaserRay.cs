@@ -2,39 +2,69 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
+using System;
 
-public class LaserRay : MonoBehaviour, ITickable
+public class LaserRay : MonoBehaviour
 {
-    [SerializeField] private Camera _playerCamera;
     [SerializeField] private Transform _laserOrigin;
     [SerializeField] private float _gunRange;
     [SerializeField] private float _laserDuration;
     [SerializeField] private LineRenderer _laserLine;
-    [SerializeField] private float _shootingInterval;
-    [SerializeField] private float _shootingTimer;
-    [Inject] GameController gameController;
-    private void Awake()
+    [SerializeField] private Transform _enemy;
+    [SerializeField] private LayerMask _layerMask;
+    [SerializeField] private float _damageInterval;
+    [Inject] private PlayerHandler playerHandler;
+    private float _damageTimer;
+    private float _shootingTimer;
+    private Vector3 _target;
+    private int _damage;
+    private Ray _ray;
+    private RaycastHit[] hits;
+
+    public void RayShoot(int damage, Transform target)
     {
-        gameController.RegisterInTick(this);
+        _laserOrigin = playerHandler.Player.bulletStartPoint;
+        _enemy = target;
+        _target = target.position;
+        
+        _damage = damage;
+
     }
-    public void Tick()
+    private void Update()
     {
-        _shootingTimer += Time.deltaTime;
-        if(_shootingTimer >= _shootingInterval)
+        if(_target == null)
         {
-            _shootingTimer = 0;
-            _laserLine.SetPosition(0, _laserOrigin.position);
-            Vector3 rayOrigin = _playerCamera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-            RaycastHit hit;
-            if(Physics.Raycast(rayOrigin, _playerCamera.transform.forward, out hit, _gunRange))
-            {
-                _laserLine.SetPosition(1, hit.point);
-                Debug.Log("laser hit " + hit.transform.name);
-            }
-            else
-            {
-                _laserLine.SetPosition(1, rayOrigin + (_playerCamera.transform.forward * _gunRange));
-            }
+            return;
         }
+        _shootingTimer += Time.deltaTime;
+        _damageTimer += Time.deltaTime;
+        if (_shootingTimer >= _laserDuration)
+        {
+            Destroy(gameObject);
+        }
+        
+        var direction = _target - _laserOrigin.transform.position; 
+        _ray = new Ray(transform.position, direction.normalized);
+        _laserLine.SetPosition(0, _laserOrigin.transform.position);
+        
+        hits = Physics.RaycastAll(_ray, _gunRange, _layerMask);
+        if (hits.Length>0)
+        {
+            _laserLine.SetPosition(1, direction.normalized * _gunRange);
+            if (_damageTimer >= _damageInterval)
+            {
+                foreach(var hit in hits)
+                {
+                    hit.transform.GetComponent<IDamageable>().GetDamage(_damage);
+                }
+                _damageTimer = 0;
+            }
+            
+        }
+        else
+        {
+            _laserLine.SetPosition(1, direction.normalized * _gunRange);
+        }
+
     }
 }

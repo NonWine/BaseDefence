@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
+  m_Name: Laser
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
+  WeaponName: 12312
+  description: asdas
+  baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
+  damage: 5
+  coolDown: 1
