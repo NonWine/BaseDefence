@@ -1021,6 +1021,37 @@ Transform:
   - {fileID: 5400858034360873611}
   m_Father: {fileID: 33359131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &861984751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 861984752}
+  m_Layer: 0
+  m_Name: TowerPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &861984752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861984751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 30.5, y: 5.03, z: -52.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1106253496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1069401004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1181,55 @@ Transform:
   - {fileID: 729099071119947991}
   m_Father: {fileID: 33359131}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1106253495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1106253496}
+  - component: {fileID: 1106253497}
+  m_Layer: 0
+  m_Name: ZaborHealerController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1106253496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106253495}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 861984752}
+  m_Father: {fileID: 1161861819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1106253497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106253495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b1569083878c73448833207bdcf48b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WeaponType: 2
+  isLocked: 1
+  towerExpaPrefab: {fileID: 280145699892341234, guid: 805830612ca8fee46ad350aa836c45ee, type: 3}
+  towerPoint: {fileID: 861984752}
 --- !u!1 &1128635372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allWeapons:
+  - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
   - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
   - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
@@ -1257,6 +1338,7 @@ Transform:
   - {fileID: 2009996175}
   - {fileID: 1761071182}
   - {fileID: 28861548}
+  - {fileID: 1106253496}
   - {fileID: 703039802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -25,7 +25,10 @@ public class Target : MonoBehaviour, IDamageable
     {
         _health.GetDamageUI(damage);
     }
-
+    public void Heal(int value)
+    {
+        _health.Heal(value);
+    }
 
     private void Die()
     {
