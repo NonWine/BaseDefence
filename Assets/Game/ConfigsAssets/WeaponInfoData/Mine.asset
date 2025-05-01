@@ -12,6 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c133dcef81ad4f72a934f60e0c6cdd4d, type: 3}
   m_Name: Mine
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   image: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
   WeaponName: Mine
   description: 

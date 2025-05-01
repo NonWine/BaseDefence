@@ -25,4 +25,11 @@ public class EnemyCollision : MonoBehaviour
             _baseEnemy.IsPoisoned = false;
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.TryGetComponent<Target>(out var target))
+        {
+            _baseEnemy.Attack();
+        }
+    }
 }

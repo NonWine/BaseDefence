@@ -9,18 +9,21 @@ using Zenject;
 public class LevelCompleteView : MonoBehaviour
 {
     [SerializeField] private CanvasGroup winPanel;
+    [SerializeField] private CanvasGroup mainCanvas;
     [SerializeField] private float fadeDuration = 0.25f;
-    [Inject] private WeaponManagerView weaponManagerView;
+    [Inject] private WeaponCardManagerView _weaponCardManagerView;
 
     private void Awake()
     {
-        weaponManagerView.OnGetWeaponEvent += Hide;
+        PlayerLevelController.OnLevelUp += Show;
+        _weaponCardManagerView.OnGetWeaponEvent += Hide;
         
     }
 
     private void OnDestroy()
     {
-        weaponManagerView.OnGetWeaponEvent -= Hide;
+        PlayerLevelController.OnLevelUp -= Show;
+        _weaponCardManagerView.OnGetWeaponEvent -= Hide;
 
     }
 
@@ -31,22 +34,30 @@ public class LevelCompleteView : MonoBehaviour
     
     private IEnumerator ShowCor()
     {
-
-        winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack);
+        mainCanvas.alpha = 0f;
+        Time.timeScale = 0f;
+        winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true);
+        ;
         winPanel.interactable = true;
         //yield return new WaitForSeconds(fadeDuration);
-        weaponManagerView.CreateCards();
+        _weaponCardManagerView.CreateCards();
         yield break;
     }
 
 
     private IEnumerator HideCor()
     {
-        yield return new WaitForSeconds(1f);
-        weaponManagerView.DestroyCards();
-        yield return new WaitForSeconds(0.2f);
-        winPanel.DOFade(0f, fadeDuration).SetEase(Ease.Linear);
+        yield return new WaitForSecondsRealtime(1f);
+        _weaponCardManagerView.DestroyCards();
+        yield return new WaitForSecondsRealtime(0.2f);
+        winPanel.DOFade(0f, fadeDuration).SetEase(Ease.Linear).OnComplete( ()=>
+        {
+            mainCanvas.alpha = 1f;
+            Time.timeScale = 1f;
+        }).SetUpdate(true);;
         winPanel.interactable = false;
+        
+        
         Debug.Log("Hide Level Complete Canvas");
     }
 }

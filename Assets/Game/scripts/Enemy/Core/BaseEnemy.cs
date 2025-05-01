@@ -20,6 +20,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     
     
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
+    [Inject] protected PlayerLevelController playerLevelController;
     protected EnemyRotation EnemyRotation;
     
     public event Action<BaseEnemy> OnDie;
@@ -47,7 +48,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         }
     }
 
-    [field: SerializeField] public Transform Point;
     [Inject] protected Target target;
     public int CurrentDamage { get;  set; }
 
@@ -95,6 +95,8 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             EnemyAnimator.SetIdle();
             EnemyAnimator.SetDie();
             EnemyAnimator.Animator.applyRootMotion = true;
+            playerLevelController.AddExperience(EnemyStatsConfig.EXPDrop);
+            Bank.Instance.AddCoins(EnemyStatsConfig.CoinDrop);
             await UniTask.Delay(2500);
             EnemyStateMachine.ChangeState<DieState>();
             OnDie?.Invoke(this);
@@ -107,7 +109,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         {
             { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
-            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target) },
+            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target, new MelleMove(this, NavMesh)) },
             { typeof(DieState), new DieState(this, EnemyStateMachine) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, NavMesh, EnemyAnimator) },
         };

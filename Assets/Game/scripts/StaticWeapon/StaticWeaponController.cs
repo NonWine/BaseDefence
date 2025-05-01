@@ -8,7 +8,7 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
     [field: SerializeField] public WeaponType WeaponType;
     [SerializeField, ReadOnly] private bool isLocked = true;
     [Inject] private GameController gameController;
-    [Inject] private WeaponManagerView weaponManagerView;
+    [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] protected DiContainer diContainer;
     protected float timer;
     
@@ -17,17 +17,17 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
     protected virtual void Awake()
     {
         gameController.RegisterInTick(this);
-        weaponManagerView.OnGetWeaponEvent += GetWeapon;
+        _weaponCardManagerView.OnGetWeaponEvent += GetWeaponCard;
     }
 
     protected virtual void OnDestroy()
     {
         UnlockCallback = null;
-        weaponManagerView.OnGetWeaponEvent -= GetWeapon;
+        _weaponCardManagerView.OnGetWeaponEvent -= GetWeaponCard;
 
     }
 
-    public virtual void GetWeapon(WeaponInfoData weaponInfoData)
+    public virtual void GetWeaponCard(WeaponInfoData weaponInfoData)
     {
         if (weaponInfoData is StaticWeaponData staticWeaponData)
         {
