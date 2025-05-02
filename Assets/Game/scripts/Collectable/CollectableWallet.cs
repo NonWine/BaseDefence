@@ -181,7 +181,7 @@ public class CollectableWallet : MonoBehaviour
             }
         }
 
-        ResetHorizontalLayout();
+     //   ResetHorizontalLayout();
         return remainingAmount >= 0;
         
     }

@@ -14,23 +14,6 @@ public class DieState : EnemyBaseState
     
     public override void EnterState(BaseEnemy enemy)
     {
-        int dropCount = enemy.EnemyStatsConfig.CoinDrop;
-        while (dropCount >= 0)
-        {
-            var coin = resourcePartObjFactory.Create(typeof(Coin));
-            coin.transform.position = BaseEnemy.transform.position + ( Random.insideUnitSphere * 1f);
-            coin.PickUp();
-            dropCount--;
-        }
-        
-        // dropCount = enemy.EnemyStatsConfig.EXPDrop;
-        //
-        // while (dropCount >= 0)
-        // {
-        //     var exp = resourcePartObjFactory.Create(typeof(Experience));
-        //     exp.PickUp();
-        //     dropCount--;
-        // }
         
         ToPool();
     }

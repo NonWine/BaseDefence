@@ -106,7 +106,7 @@ public class CollectableSender : MonoBehaviour
     {
         var collectable = _collectableVisualParts.First( x=> x.gameObject.activeSelf == false);
         Debug.Log(collectable.gameObject.activeSelf);
-        collectable.transform.SetParent(target);
+        collectable.transform.SetParent(transform.parent);
         var pos = _cam.WorldToScreenPoint(startPos.position);
         collectable.Initialize(pos);
         collectable.MoveTo(target, _wallet, 1);

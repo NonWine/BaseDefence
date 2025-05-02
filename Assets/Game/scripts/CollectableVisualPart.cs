@@ -53,7 +53,7 @@ public class CollectableVisualPart : MonoBehaviour
         _rectTransform.localScale = Vector3.one * 1f;
     }
 
-    public void MoveTo(RectTransform target, CollectableWallet wallet, int value)
+    public  void MoveTo(RectTransform target, CollectableWallet wallet, int value)
     {
         gameObject.SetActive(true);
         _animation?.Kill();
@@ -65,11 +65,15 @@ public class CollectableVisualPart : MonoBehaviour
         _animation.Append(_rectTransform.DOScale(_animData.FirstStage.ScaleFactor, 0.35f)).SetEase(Ease.OutBack);
         _animation.AppendInterval(Random.Range(0f,0.2f));
         _animation.Append(_rectTransform.DOMove(target.position, _animData.ThirdStage.Time).SetEase(Ease.OutQuad));
-        _animation.Join(_rectTransform.DOScale(0f, _animData.ThirdStage.Time + _animData.SecondStage.Time)).SetEase(Ease.Linear);
+        _animation.Join(_rectTransform.DOScale(1f, _animData.ThirdStage.Time))
+            .SetEase(Ease.Linear);
+        _animation.Append(_rectTransform.DOScale(0f, 0.25f).SetEase(Ease.Linear));
+        
 
         _animation.OnComplete(() =>
         {
             onEndSending?.Invoke();
+            wallet.Add(1);
             transform.SetParent(_parent);
             gameObject.SetActive(false);
         });
