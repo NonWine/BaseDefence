@@ -21,7 +21,6 @@ public class EnemyCollision : MonoBehaviour
     {
         if(other.CompareTag("StinkyCloud"))
         {
-            Debug.Log("exit stinky cloud");
             _baseEnemy.IsPoisoned = false;
         }
     }

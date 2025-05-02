@@ -21,6 +21,7 @@ public class ParticlePool : MonoBehaviour
     [SerializeField] private ParticleSystem[] bombFx;
     [SerializeField] private ParticleSystem[] canistraExplosionFx;
     [SerializeField] private ParticleSystem[] spawnItemFx;
+    [SerializeField] private ParticleSystem[] stinkyBallExplosionFx;
 
     
     private int _currentPoof;
@@ -39,6 +40,7 @@ public class ParticlePool : MonoBehaviour
     private int currentExplosiveBullet;
     private int currentCanistraFx;
     private int currentSpawnItemFx;
+    private int currentStinkyBallExplosionFx;
 
     public void PlaySpawnItemFx(Vector3 pos)
     {
@@ -47,6 +49,16 @@ public class ParticlePool : MonoBehaviour
         currentSpawnItemFx++;
         if (currentSpawnItemFx == spawnItemFx.Length)
             currentSpawnItemFx = 0;
+    }
+    
+    public void StinkyBallExplosionFx(Vector3 pos, float radius)
+    {
+        stinkyBallExplosionFx[currentStinkyBallExplosionFx].transform.position = pos;
+        stinkyBallExplosionFx[currentStinkyBallExplosionFx].transform.localScale = new Vector3(radius, radius, radius);
+        stinkyBallExplosionFx[currentStinkyBallExplosionFx].Play();
+        currentStinkyBallExplosionFx++;
+        if (currentStinkyBallExplosionFx == stinkyBallExplosionFx.Length)
+            currentStinkyBallExplosionFx = 0;
     }
 
     public void PlayCanistraFx(Vector3 pos)
@@ -174,5 +186,7 @@ public class ParticlePool : MonoBehaviour
         if (_currentSparkle == _sparkleFx.Length)
             _currentSparkle = 0;
     }
+
+
     
 }

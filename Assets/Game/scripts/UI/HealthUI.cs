@@ -15,7 +15,18 @@ public class HealthUI : MonoBehaviour
         _slider.maxValue = value;
         _slider.value = value;
     }
-
+    public void Heal(int value)
+    {
+        int curValue = Mathf.FloorToInt(_slider.value);
+        int finalValue = curValue + value;
+        DOVirtual.Int(curValue, finalValue, 0.05f, x =>
+        {
+            _slider.value = x;
+        }).SetEase(Ease.Linear).OnKill(() =>
+        {
+            _slider.value = finalValue;
+        });
+    }
     public void GetDamageUI(int count)
     {
         int curValue = Mathf.FloorToInt(_slider.value);

@@ -25,7 +25,7 @@ public class TestShooting : MonoBehaviour, IAttackable, ITickable
             {
                 return;
             }
-            var bullet = bulletFactory.Create(typeof(StinkyBall));
+            var bullet = bulletFactory.Create(typeof(LaserBullet));
             bullet.transform.position = transform.position;
             bullet.Init(_damage, enemy.transform);
             _timer = 0;

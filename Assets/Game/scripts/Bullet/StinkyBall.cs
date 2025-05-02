@@ -25,7 +25,7 @@ public class StinkyBall : BaseBullet
                 }
             }*/
             //damageableZone.SetActive(true);
-            Debug.Log("instantiating stinky cloud");
+
             Instantiate(damageableZone, transform.position, Quaternion.identity);
             
             DestroyBullet();
@@ -44,7 +44,7 @@ public class StinkyBall : BaseBullet
 
     protected override void DestroyBullet()
     {
-        ParticlePool.Instance.PlayExplossion(transform.position, radiusExplose);
+        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, radiusExplose);
         base.DestroyBullet();
     }
 }

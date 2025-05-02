@@ -64,7 +64,10 @@ public abstract class BaseBullet : PoolAble
 
     public virtual void Init(int damage, Transform target)
     {
-        trailRenderer.Clear();
+        if (trailRenderer != null)
+        {
+            trailRenderer.Clear();
+        }
         rigidbody = GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
         rigidbody.velocity = Vector3.zero;
@@ -77,7 +80,10 @@ public abstract class BaseBullet : PoolAble
 
     protected virtual  void DestroyBullet()
     {
-        rigidbody.isKinematic = true;
+        if (rigidbody != null)
+        {
+            rigidbody.isKinematic = true;
+        }
         gameObject.SetActive(false);
     }
 
