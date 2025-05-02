@@ -104,8 +104,9 @@ public class CollectableSender : MonoBehaviour
 
     public void SendOne(Transform startPos, RectTransform target, Action onEnd = null)
     {
-        var collectable = Instantiate(prefab, target);
+        var collectable = _collectableVisualParts.First( x=> x.gameObject.activeSelf == false);
         Debug.Log(collectable.gameObject.activeSelf);
+        collectable.transform.SetParent(target);
         var pos = _cam.WorldToScreenPoint(startPos.position);
         collectable.Initialize(pos);
         collectable.MoveTo(target, _wallet, 1);

@@ -24,7 +24,7 @@ MonoBehaviour:
     <RadiusThickness>k__BackingField: 0.4
     m_FirstStage:
       <Time>k__BackingField: 0.29
-      <ScaleFactor>k__BackingField: 1.02
+      <ScaleFactor>k__BackingField: 1.2
       <Offset>k__BackingField: {x: 0, y: 50.59}
       <ScaleEase>k__BackingField: 27
       <MoveEase>k__BackingField: 6
@@ -33,10 +33,10 @@ MonoBehaviour:
       <ScaleFactor>k__BackingField: 0.9
       <ScaleEase>k__BackingField: 2
     m_RandomRangeDalay:
-      <Min>k__BackingField: 0.19
-      <Max>k__BackingField: 0.6
+      <Min>k__BackingField: 0
+      <Max>k__BackingField: 0.3
     m_ThirdStage:
-      <Time>k__BackingField: 1.1
+      <Time>k__BackingField: 1.8
       <ScaleFactor>k__BackingField: 4.9
       <Ease>k__BackingField: 2
     m_FinalStage:
