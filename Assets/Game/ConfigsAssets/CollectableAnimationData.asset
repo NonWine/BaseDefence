@@ -29,7 +29,7 @@ MonoBehaviour:
       <ScaleEase>k__BackingField: 27
       <MoveEase>k__BackingField: 6
     m_SecondStage:
-      <Time>k__BackingField: 1.56
+      <Time>k__BackingField: 0
       <ScaleFactor>k__BackingField: 0.9
       <ScaleEase>k__BackingField: 2
     m_RandomRangeDalay:
@@ -45,10 +45,10 @@ MonoBehaviour:
       <ScaleTime>k__BackingField: 0.25
   m_WalletAnimationData:
     <AmountAnimation>k__BackingField:
-      <Scale>k__BackingField: {x: 1.21, y: 1.21, z: 1.21}
+      <Scale>k__BackingField: {x: 0.2, y: 0.2, z: 0.2}
       <Time>k__BackingField: 0.5
-      <Vibration>k__BackingField: 9
+      <Vibration>k__BackingField: 5
     <IconAnimation>k__BackingField:
-      <Scale>k__BackingField: {x: 1.21, y: 1.21, z: 1.21}
-      <Time>k__BackingField: 0.5
-      <Vibration>k__BackingField: 7
+      <Scale>k__BackingField: {x: 0.35, y: 0.35, z: 0.35}
+      <Time>k__BackingField: 0.8
+      <Vibration>k__BackingField: 2
