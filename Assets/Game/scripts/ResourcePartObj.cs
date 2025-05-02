@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
@@ -6,19 +7,20 @@ using Zenject.Asteroids;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
-public class ResourcePartObj : PoolAble , IGameTickable
+public abstract class ResourcePartObj : PoolAble , ITickable
 {
      [field: SerializeField] public eCollectable TypeE { get; private set; }
-    [Inject] private IGameСontroller _gameController;
-    [Inject] private CollectableManager _collectableWallet;
     private bool _isPicked = true;
     private bool _canPickUp;
     public bool IsPicked => _isPicked;
     
     
+    [Inject] private CollectableManager _collectableWallet;
+    [Inject] private GameController GameController;
+
     private void Awake()
     {
-        _gameController.RegisterInTick(this);
+        GameController.RegisterInTick(this);
     }
 
     protected virtual void Rotate()
@@ -37,16 +39,14 @@ public class ResourcePartObj : PoolAble , IGameTickable
     {
         gameObject.SetActive(true);
     }
-
-    public override Type Type { get; }
-
-    public void PickUp()
+    
+    public async void PickUp()
     {
-  
-        _isPicked = true;
-        _collectableWallet.GetWallet(TypeE).Add(1);
-      Debug.Log("Pick this ");
-      DestroyAnim();
+     //   await UniTask.Delay(Random.Range(0, 1000));
+     _isPicked = true;
+     _collectableWallet.GetWallet(TypeE).SendOne(transform);
+     Debug.Log("Pick this ");
+     DestroyAnim();
     }
 
     public void DestroyAnim()
@@ -60,3 +60,4 @@ public class ResourcePartObj : PoolAble , IGameTickable
     }
 
 }
+

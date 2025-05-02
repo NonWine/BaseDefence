@@ -5,6 +5,7 @@ using Extensions;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class CollectableSender : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CollectableSender : MonoBehaviour
     [SerializeField] private Vector2 _size;
 
     [SerializeField, ReadOnly] private CollectableVisualPart[] _collectableVisualParts;
-
+    public CollectableVisualPart prefab;
     private Camera _cam => Camera.main;
     private CollectableWallet _wallet;
     private Coroutine _coroutine;
@@ -67,9 +68,12 @@ public class CollectableSender : MonoBehaviour
         foreach (var visual in _collectableVisualParts)
             visual.onEndSending -= OnEndSending;
     }
-    
-    public void Initialize(CollectableWallet wallet) 
-        => _wallet = wallet;
+
+    public void Initialize(CollectableWallet wallet)
+    {
+         _wallet = wallet;
+        AddVisuals();
+    }
     #endregion
 
     #region Callbacks
@@ -100,8 +104,8 @@ public class CollectableSender : MonoBehaviour
 
     public void SendOne(Transform startPos, RectTransform target, Action onEnd = null)
     {
-        var collectable = _collectableVisualParts.First( x=> x.gameObject.activeSelf == false);
-        collectable.transform.SetParent(target);
+        var collectable = Instantiate(prefab, target);
+        Debug.Log(collectable.gameObject.activeSelf);
         var pos = _cam.WorldToScreenPoint(startPos.position);
         collectable.Initialize(pos);
         collectable.MoveTo(target, _wallet, 1);

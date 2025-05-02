@@ -1,4 +1,5 @@
-public class eCollectable
+public enum eCollectable
 {
-
+    coin,
+    xp
 }

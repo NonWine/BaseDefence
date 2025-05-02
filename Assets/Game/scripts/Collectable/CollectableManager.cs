@@ -12,8 +12,11 @@ public class CollectableManager : MonoBehaviour
     
     private List<CollectableWallet> _collectableWallets;
 
+    public static CollectableManager Instace { get; set; }
+
     private void Start()
     {
+        Instace = this;
         _collectableWallets = new List<CollectableWallet>();
         foreach (var wallet in _walletObjs)
         {
@@ -34,6 +37,12 @@ public class CollectableManager : MonoBehaviour
     
         Debug.LogError("Collectable wallet wasn't found!");
         return null;
+    }
+    
+    [Button]
+    public void Add100Coin()
+    {
+        _collectableWallets.Find(x => x.WalletType == eCollectable.coin).Add(100);
     }
     
 }
