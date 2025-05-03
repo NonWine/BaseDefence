@@ -22,12 +22,27 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     [Inject] protected PlayerLevelController playerLevelController;
     [Inject] protected ResourcePartObjFactory resourcePartObjFactory;
+    [Inject] protected Target target;
+    public int CurrentDamage { get;  set; }
     protected EnemyRotation EnemyRotation;
     
     public  Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }
-    public float Speed { get { return _speed; } private set { _speed = value; } }
+
+    public float Speed
+    {
+        get
+        {
+            return _speed;
+        }
+        private set
+        {
+            _speed = value;
+            NavMesh.speed = _speed;
+        }
+    }
+
     public bool IsPoisoned
     {
         get { return isPoisoned; }
@@ -49,9 +64,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         }
     }
 
-    [Inject] protected Target target;
-    public int CurrentDamage { get;  set; }
-
     private void Awake()
     {
         EnemyRotation = new EnemyRotation(this);
@@ -63,10 +75,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.Initialize<IdleState>();
         transform.eulerAngles = new Vector3(0f, 180f, 0f);
     }
-    private void OnDisable()
-    {
-        IsPoisoned = false;
-    }
+
 
     public void Tick()
     {
@@ -74,13 +83,12 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             return;
         EnemyStateMachine.Update();
     }
-    
-
 
     public virtual async void GetDamage(int damage)
     {
         if (IsDeath)
             return;
+        
         HealthUI.GetDamageUI(damage);
         CurrentHealth -= damage;
         ParticlePool.Instance.PlayBlood(transform.position);
@@ -117,14 +125,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         EnemyStateMachine.ChangeState<ResetingState>();
     }
-    public void Attack()
-    {
-        EnemyStateMachine.ChangeState<AttackState>();
-    }
 
     public void UnsetDeath()
     {
         collider.isTrigger = false;
         IsDeath = false;
+        IsPoisoned = false;
     } 
 }

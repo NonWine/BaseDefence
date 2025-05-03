@@ -4,7 +4,6 @@ using Random = UnityEngine.Random;
 
 public class StinkyBall : BaseBullet
 {
-    [SerializeField] private float radiusExplose = 5f;
     [SerializeField] private float torqueForce = 10f;
     [SerializeField] private LayerMask damageableMask;
     [SerializeField] private GameObject damageableZone;
@@ -44,7 +43,6 @@ public class StinkyBall : BaseBullet
 
     protected override void DestroyBullet()
     {
-        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, radiusExplose);
         base.DestroyBullet();
     }
 }
