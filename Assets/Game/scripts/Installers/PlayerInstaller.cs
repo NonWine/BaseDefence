@@ -8,6 +8,7 @@ public class PlayerInstaller : MonoInstaller
     [SerializeField] private PlayerCombatManager playerCombatManager;
     [SerializeField] private PlayerHandler playerHandler;
     [SerializeField] private PlayerLevelController playerLevelController;
+    [SerializeField] private StaticWeaponsManager staticWeaponsManager;
     private PlayerContainer _playerContainer;
         
     public override void InstallBindings()
@@ -24,6 +25,7 @@ public class PlayerInstaller : MonoInstaller
         Container.BindInstance(_joystick).AsSingle().NonLazy();
         Container.Bind<PlayerGiveDamageHandler>().FromNew().AsSingle();
         Container.BindInstance(playerHandler).AsSingle();
+        Container.BindInstance(staticWeaponsManager).AsSingle();
     }
     
 }

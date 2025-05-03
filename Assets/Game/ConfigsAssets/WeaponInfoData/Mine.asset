@@ -20,7 +20,57 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: BaseStats
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[StatName, Assembly-CSharp],[WeaponStatValue,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[StatName, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|WeaponStatValue, Assembly-CSharp
+    - Name: BaseValue
+      Entry: 4
+      Data: 1.3
+    - Name: Modificator
+      Entry: 4
+      Data: 1.05
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   image: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
   WeaponName: Mine
   description: 
+  UpgradeQueue: 00000000
+  <CurrentLevel>k__BackingField: 0
+  <WeaponType>k__BackingField: 1

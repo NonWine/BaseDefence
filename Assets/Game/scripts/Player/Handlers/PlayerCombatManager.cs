@@ -7,7 +7,7 @@ using Zenject;
 public class PlayerCombatManager : MonoBehaviour
 {
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
-    [SerializeField] private List<WeaponHandler> weaponHandlers;
+    [SerializeField] private List<DynamicWeaponHandler> weaponHandlers;
 
     private void Awake()
     {
@@ -36,5 +36,5 @@ public class PlayerCombatManager : MonoBehaviour
         weaponHandlers.Find(x => x.weaponInfoData == weaponInfoData).isLocked = false;
     }
 
-    public List<WeaponHandler> UnlockedWeapons => weaponHandlers.FindAll(x => !x.isLocked);
+    public List<DynamicWeaponHandler> UnlockedWeapons => weaponHandlers.FindAll(x => !x.isLocked);
 }

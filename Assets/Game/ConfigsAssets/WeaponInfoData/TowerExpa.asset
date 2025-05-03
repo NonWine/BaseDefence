@@ -24,3 +24,7 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: b7d7e36f0c41c4316a6ea75d0a9321a6, type: 3}
   WeaponName: Experience Tower
   description: gives more experience to player
+  WeaponUpgradeData:
+    UpgradeQueue: 
+    <CurrentLevel>k__BackingField: 0
+  <WeaponType>k__BackingField: 3

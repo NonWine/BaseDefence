@@ -24,6 +24,16 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   WeaponName: Laser
   description: shoots laser
+  WeaponUpgradeData:
+    UpgradeQueue: 00000000050000000000000001000000
+    BaseStats:
+    - BaseValue: 0.93
+      Modificator: 1.46
+      <StatName>k__BackingField: 0
+    - BaseValue: 1.2
+      Modificator: 0.82
+      <StatName>k__BackingField: 1
+    <CurrentLevel>k__BackingField: 0
   baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
   damage: 5
   coolDown: 3
