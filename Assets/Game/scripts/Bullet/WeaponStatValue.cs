@@ -1,15 +1,16 @@
-﻿using Sirenix.OdinInspector;
+﻿using Newtonsoft.Json;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [System.Serializable] [InlineProperty]
 public class WeaponStatValue
 {
-    [SerializeField] private float BaseValue;
-    [SerializeField] private float Modificator;
-    [field: SerializeField] public StatName StatName { get; private set; }
+    [JsonProperty] [SerializeField] private float BaseValue;
+    [JsonProperty] [SerializeField] private float Modificator;
+    [JsonProperty] [field: SerializeField] public StatName StatName { get; private set; }
 
     private int UpgradeLevel;
-    public float CurrentValue { get; private set; }
+    [field: SerializeField, ReadOnly] [JsonProperty]  public float CurrentValue { get; private set; }
     
     
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -12,8 +13,9 @@ public  class WeaponUpgradeData
     [TabGroup("BaseStats Configuration")] [SerializeField] 
     [ShowInInspector]  public List<WeaponStatValue> BaseStats;
     
-    [field: SerializeField]  [ReadOnly] public int CurrentLevel { get; set; }
+    [JsonProperty]  [field: SerializeField]  [ReadOnly] public int CurrentLevel { get; set; }
 
+    [Button]
     public void Upgrade()
     {
         var weaponValue = BaseStats.Find(x => x.StatName == UpgradeQueue[CurrentLevel]);
