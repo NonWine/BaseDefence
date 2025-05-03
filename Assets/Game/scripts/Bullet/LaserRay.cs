@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System;
+using System.Linq;
 
 public class LaserRay : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LaserRay : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _damageInterval;
     [Inject] private PlayerHandler playerHandler;
+    [Inject] private EnemyFactory enemyFactory;
     private float _damageTimer;
     private float _shootingTimer;
     private Vector3 _target;
@@ -30,10 +32,29 @@ public class LaserRay : MonoBehaviour
         _damage = damage;
 
     }
+    private BaseEnemy GetNearlestEnemy(Transform thisTarget)
+    {
+        var nearestEnemy = enemyFactory.Enemies
+            .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
+            .FirstOrDefault(x => x.IsDeath == false);
+
+
+        return nearestEnemy;
+    }
     private void Update()
     {
-        if(_target == null)
+        if(_enemy.GetComponent<BaseEnemy>().IsDeath)
         {
+            if(GetNearlestEnemy(transform) == null)
+            {
+                Debug.Log("nearest enemy is null");
+                Destroy(gameObject);
+            }
+            else
+            {
+                _enemy = GetNearlestEnemy(transform).transform;
+            }
+
             return;
         }
         _shootingTimer += Time.deltaTime;
