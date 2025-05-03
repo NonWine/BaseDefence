@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -17,9 +19,16 @@ public class StinkyCloud : MonoBehaviour
     [Inject] private GameController gameController;
     private Transform parent;
 
+    private void Start()
+    {
+        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, radiusVenom/ 2f);
+        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+    }
+
     private void OnEnable()
     {
-        transform.localScale = new Vector3(radiusVenom * 2, transform.localScale.y, radiusVenom * 2);
+        Vector3 startScale = new Vector3(radiusVenom * 2, transform.localScale.y, radiusVenom * 2);
+        transform.DOScale(startScale, 1f);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         var main = _cloudEffect.main;
         main.duration = _existTime;
@@ -34,7 +43,7 @@ public class StinkyCloud : MonoBehaviour
         int count = Physics.OverlapSphereNonAlloc(transform.position, radiusVenom, _overlapResults, damageableMask);
         for (int i = 0; i < count; i++)
         {
-            if (_overlapResults[i].TryGetComponent(out IDamageable targetDamageable))
+            if (_overlapResults[i].TryGetComponent(out BaseEnemy targetDamageable))
             {
                 targetDamageable.GetDamage(_periodicDamage);
             }

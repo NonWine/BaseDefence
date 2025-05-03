@@ -77,8 +77,8 @@ public class CollectableWallet : MonoBehaviour
         _image.sprite = walletObj.ItemIcon;
         Debug.Log(_storageManager.ToString());
         UpdateAmount(Amount);
+        
         _collectableSender.Initialize(this);
-
         _startAmountPosition = _amountRect.anchoredPosition;
     }
 
@@ -137,16 +137,20 @@ public class CollectableWallet : MonoBehaviour
         await UniTask.Delay(miliSec);
         Add(amount,amin);
     }
-
+    
+    [Button]
     public void SendOne(Transform startPos)
     {
         _collectableSender.SendOne(startPos, _targetTransform);
     }
+    
+    [Button]
     public void SendOne(Transform startPos, int countAdD)
     {
         _collectableSender.SendOne(startPos, _targetTransform, countAdD);
     }
     
+    [Button]
     public void AddWithAnimation(int amount, RectTransform start, Action onEnd = null)
     {
         if(_collectableSender != null)
@@ -177,7 +181,7 @@ public class CollectableWallet : MonoBehaviour
             }
         }
 
-        ResetHorizontalLayout();
+     //   ResetHorizontalLayout();
         return remainingAmount >= 0;
         
     }

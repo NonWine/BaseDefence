@@ -27,8 +27,8 @@ public class RangeMove : IMoveable
         if(Vector3.Distance(_enemy.transform.position, 
             new Vector3(_enemy.transform.position.x, _enemy.transform.position.y, _target.transform.position.z)) <= _distance)
         {
-            _enemy.Attack();
+            _enemy.EnemyStateMachine.ChangeState<AttackState>();
         }
-        _navMesh.Move(new Vector3(0, 0, -1) * 17 * Time.deltaTime);
+        _navMesh.Move(new Vector3(0, 0, -1) * (_enemy.Speed * Time.deltaTime));
     }
 }

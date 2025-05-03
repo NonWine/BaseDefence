@@ -21,12 +21,28 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     [Inject] protected PlayerLevelController playerLevelController;
+    [Inject] protected ResourcePartObjFactory resourcePartObjFactory;
+    [Inject] protected Target target;
+    public int CurrentDamage { get;  set; }
     protected EnemyRotation EnemyRotation;
     
-    public event Action<BaseEnemy> OnDie;
+    public  Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
     public bool IsDeath { get; private set; }
-    public float Speed { get { return _speed; } private set { _speed = value; } }
+
+    public float Speed
+    {
+        get
+        {
+            return _speed;
+        }
+        private set
+        {
+            _speed = value;
+            NavMesh.speed = _speed;
+        }
+    }
+
     public bool IsPoisoned
     {
         get { return isPoisoned; }
@@ -48,9 +64,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         }
     }
 
-    [Inject] protected Target target;
-    public int CurrentDamage { get;  set; }
-
     private void Awake()
     {
         EnemyRotation = new EnemyRotation(this);
@@ -62,10 +75,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.Initialize<IdleState>();
         transform.eulerAngles = new Vector3(0f, 180f, 0f);
     }
-    private void OnDisable()
-    {
-        IsPoisoned = false;
-    }
+
 
     public void Tick()
     {
@@ -73,13 +83,12 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             return;
         EnemyStateMachine.Update();
     }
-    
-
 
     public virtual async void GetDamage(int damage)
     {
         if (IsDeath)
             return;
+        
         HealthUI.GetDamageUI(damage);
         CurrentHealth -= damage;
         ParticlePool.Instance.PlayBlood(transform.position);
@@ -96,10 +105,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             EnemyAnimator.SetDie();
             EnemyAnimator.Animator.applyRootMotion = true;
             playerLevelController.AddExperience(EnemyStatsConfig.EXPDrop);
-            Bank.Instance.AddCoins(EnemyStatsConfig.CoinDrop);
-            await UniTask.Delay(2500);
             EnemyStateMachine.ChangeState<DieState>();
-            OnDie?.Invoke(this);
         }
     }
 
@@ -110,7 +116,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
             { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target, new MelleMove(this, NavMesh)) },
-            { typeof(DieState), new DieState(this, EnemyStateMachine) },
+            { typeof(DieState), new DieState(this, EnemyStateMachine, resourcePartObjFactory) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, NavMesh, EnemyAnimator) },
         };
     }
@@ -119,14 +125,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         EnemyStateMachine.ChangeState<ResetingState>();
     }
-    public void Attack()
-    {
-        EnemyStateMachine.ChangeState<AttackState>();
-    }
 
     public void UnsetDeath()
     {
         collider.isTrigger = false;
         IsDeath = false;
+        IsPoisoned = false;
     } 
 }

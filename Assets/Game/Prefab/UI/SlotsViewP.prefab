@@ -38,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -228, y: 206}
-  m_SizeDelta: {x: 351, y: 92.3}
+  m_SizeDelta: {x: 129.7, y: 318}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4429353227235318878
 CanvasRenderer:
@@ -96,6 +96,7 @@ MonoBehaviour:
   - {fileID: 8498598666811171804}
   - {fileID: 6054386694291065965}
   generalType: 0
+  weaponsData: []
 --- !u!1 &2853607435142981803
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -37.6, y: 0}
+  m_AnchoredPosition: {x: -58.4, y: 0}
   m_SizeDelta: {x: 0, y: 98.9}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &581657425291251393
@@ -316,8 +317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 32.8, y: -0.9}
-  m_SizeDelta: {x: 268.07, y: 70.71}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 119.8, y: 304.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &690837069124536591
 CanvasRenderer:
@@ -376,7 +377,7 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_StartCorner: 0
-  m_StartAxis: 0
+  m_StartAxis: 1
   m_CellSize: {x: 55, y: 55}
   m_Spacing: {x: 10.33, y: 20}
   m_Constraint: 0
@@ -484,7 +485,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3432050136170491119}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -602,7 +603,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4797889541695977783}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -715,7 +716,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7050521357853641867}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -828,7 +829,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 7161024628166022790}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

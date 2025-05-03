@@ -21,7 +21,6 @@ public class PlayerInstaller : MonoInstaller
         Container.BindInstance(playerLevelController).AsSingle();
         Container.BindInterfacesAndSelfTo<PlayerMonitor>().FromNew().AsSingle();
         Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
-        Container.Bind<StorageManager>().FromNew().AsSingle();
         Container.BindInstance(_joystick).AsSingle().NonLazy();
         Container.Bind<PlayerGiveDamageHandler>().FromNew().AsSingle();
         Container.BindInstance(playerHandler).AsSingle();

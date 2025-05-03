@@ -6,10 +6,10 @@ using Random = UnityEngine.Random;
 
 public class CollectableVisualPart : MonoBehaviour
 {
-    private CollectableAnimationData.SendingData _animData;
+    private CollectableAnimationData.SendingData _animData => CollectableAnimationData.SendingAnimationData;
     [SerializeField, ReadOnly] private RectTransform _rectTransform;
     [SerializeField, ReadOnly] private Transform _parent;
-
+    public CollectableAnimationData CollectableAnimationData;
     private Sequence _animation;
 
     public event Action onEndSending;
@@ -53,45 +53,27 @@ public class CollectableVisualPart : MonoBehaviour
         _rectTransform.localScale = Vector3.one * 1f;
     }
 
-    public void MoveTo(RectTransform target, CollectableWallet wallet, int value)
+    public  void MoveTo(RectTransform target, CollectableWallet wallet, int value)
     {
         gameObject.SetActive(true);
         _animation?.Kill();
 
         _animation = DOTween.Sequence();
-
-        _animation
-            // .AppendCallback(() =>
-            // {
-            //     _rectTransform.DOScale(Vector2.one * _animData.FirstStage.ScaleFactor, _animData.FirstStage.Time)
-            //         .SetEase(_animData.FirstStage.ScaleEase);
-            // })
-            // // .Append(_rectTransform.DOAnchorPos(GetOffset(), _animData.FirstStage.Time)
-            // //     .SetEase(_animData.FirstStage.MoveEase)
-            // //     .SetRelative(true))
-            // .Append(_rectTransform.DOScale(Vector2.one * _animData.SecondStage.ScaleFactor, _animData.SecondStage.Time))
-            //     .SetEase(_animData.SecondStage.ScaleEase)
-            .AppendCallback(() =>
-            {
-                _rectTransform.DOScale(Vector2.one * _animData.ThirdStage.ScaleFactor, _animData.ThirdStage.Time)
-                    .SetEase(_animData.ThirdStage.Ease);
-            })
-            .AppendInterval(Random.Range(_animData.RandomRange.Min, _animData.RandomRange.Max))
-            .Append(_rectTransform.DOMove(target.position, _animData.ThirdStage.Time).OnStart(() =>
-                {
-                    _rectTransform.DOScale(Vector3.zero,  _animData.ThirdStage.Time * 4f);
-                })
-                .SetEase(_animData.ThirdStage.Ease))
-            .AppendCallback(() => wallet.Add(value, false))
-            .AppendCallback(() => { target.DOScale(1.2f, 0.2f).OnComplete(() =>
-                {
-                    target.DOScale(1f, 0.2f);
-                });
-            });
+        _rectTransform.localScale = Vector3.zero;
+        
+        _animation.AppendInterval(Random.Range(_animData.RandomRange.Min,_animData.RandomRange.Max));
+        _animation.Append(_rectTransform.DOScale(_animData.FirstStage.ScaleFactor, 0.35f)).SetEase(Ease.OutBack);
+        _animation.AppendInterval(Random.Range(0f,0.2f));
+        _animation.Append(_rectTransform.DOMove(target.position, _animData.ThirdStage.Time).SetEase(Ease.OutQuad));
+        _animation.Join(_rectTransform.DOScale(1f, _animData.ThirdStage.Time))
+            .SetEase(Ease.Linear);
+        _animation.Append(_rectTransform.DOScale(0f, 0.25f).SetEase(Ease.Linear));
+        
 
         _animation.OnComplete(() =>
         {
             onEndSending?.Invoke();
+            wallet.Add(1);
             transform.SetParent(_parent);
             gameObject.SetActive(false);
         });

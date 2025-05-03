@@ -13,31 +13,31 @@ MonoBehaviour:
   m_Name: CollectableAnimationData
   m_EditorClassIdentifier: 
   m_SendingAnimationData:
-    <DelayBetween>k__BackingField: 0
+    <DelayBetween>k__BackingField: 2.07
     <DelayCurve>k__BackingField:
       serializedVersion: 2
       m_Curve: []
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    m_Radius: 0
-    <RadiusThickness>k__BackingField: 0
+    m_Radius: 6.12
+    <RadiusThickness>k__BackingField: 0.4
     m_FirstStage:
-      <Time>k__BackingField: 0.07
-      <ScaleFactor>k__BackingField: 0.2
-      <Offset>k__BackingField: {x: 0, y: 100}
+      <Time>k__BackingField: 0.29
+      <ScaleFactor>k__BackingField: 1.2
+      <Offset>k__BackingField: {x: 0, y: 50.59}
       <ScaleEase>k__BackingField: 27
       <MoveEase>k__BackingField: 6
     m_SecondStage:
-      <Time>k__BackingField: 0.1
-      <ScaleFactor>k__BackingField: 1.2
+      <Time>k__BackingField: 0
+      <ScaleFactor>k__BackingField: 0.9
       <ScaleEase>k__BackingField: 2
     m_RandomRangeDalay:
       <Min>k__BackingField: 0
-      <Max>k__BackingField: 0.2
+      <Max>k__BackingField: 0.3
     m_ThirdStage:
-      <Time>k__BackingField: 0.15
-      <ScaleFactor>k__BackingField: 1
+      <Time>k__BackingField: 1.8
+      <ScaleFactor>k__BackingField: 4.9
       <Ease>k__BackingField: 2
     m_FinalStage:
       <PunchTime>k__BackingField: 0.5
@@ -45,10 +45,10 @@ MonoBehaviour:
       <ScaleTime>k__BackingField: 0.25
   m_WalletAnimationData:
     <AmountAnimation>k__BackingField:
-      <Scale>k__BackingField: {x: 0, y: 0, z: 0}
-      <Time>k__BackingField: 0
-      <Vibration>k__BackingField: 0
+      <Scale>k__BackingField: {x: 0.2, y: 0.2, z: 0.2}
+      <Time>k__BackingField: 0.5
+      <Vibration>k__BackingField: 5
     <IconAnimation>k__BackingField:
-      <Scale>k__BackingField: {x: 0, y: 0, z: 0}
-      <Time>k__BackingField: 0
-      <Vibration>k__BackingField: 0
+      <Scale>k__BackingField: {x: 0.35, y: 0.35, z: 0.35}
+      <Time>k__BackingField: 0.8
+      <Vibration>k__BackingField: 2
