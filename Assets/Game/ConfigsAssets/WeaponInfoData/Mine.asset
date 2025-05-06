@@ -25,15 +25,12 @@ MonoBehaviour:
   WeaponName: Mine
   description: 
   WeaponUpgradeData:
-    UpgradeQueue: 000000000100000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
-    - BaseValue: 1.72
-      Modificator: 0.67
+    - BaseValue: 3.19
+      Modificator: 1.75
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 5.1772003
-    - BaseValue: 2.46
-      Modificator: 0.66
-      <StatName>k__BackingField: 1
-      <CurrentValue>k__BackingField: 0
+      <CurrentValue>k__BackingField: 5.1150002
     <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
   <WeaponType>k__BackingField: 1

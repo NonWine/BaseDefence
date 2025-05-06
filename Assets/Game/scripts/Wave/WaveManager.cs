@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,9 +12,10 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private  EnemySpawner _spawner;
    [SerializeField] private WaveSliderView waveSliderView;
    [SerializeField] private Button startWaveButton;
-   [Inject] private  IPlayerMonitor _playerMonitor;
+   [SerializeField] private TMP_Text waveText;
    [Inject] public PlayerHandler _player;
-   
+   [Inject] private GameManager gameManager;
+
    private int currentWaveIndex;
    private bool _waveActive;
    public float CurrentTime;
@@ -28,7 +30,12 @@ public class WaveManager : MonoBehaviour
     {
         startWaveButton.onClick.RemoveListener(StartWave);
     }
-    
+
+    private void Start()
+    {
+        waveText.text = (currentWaveIndex + 1).ToString() + "/" + wavesData.Count.ToString();
+    }
+
     [Button]
     public void StartWave()
     {
@@ -61,7 +68,12 @@ public class WaveManager : MonoBehaviour
     {
         currentWaveIndex++;
         if (currentWaveIndex == wavesData.Count)
+        {
+            gameManager.RestartGame();
             currentWaveIndex = 0;
+        }
+        
+        waveText.text = (currentWaveIndex + 1).ToString() + "/" + wavesData.Count.ToString();
     }
 
     private void EndWave()

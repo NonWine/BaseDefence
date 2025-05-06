@@ -4,21 +4,28 @@ using UnityEngine;
 public class WeaponUpgradeCardView : CardView
 {
     [SerializeField] private TMP_Text levelText;
-
-    public void Init()
-    {
-        
-    }
-
+    
+    
+    
     public override void SetData(WeaponInfoData weaponInfoData)
     {
-        levelText.text = "1";
+        this.weaponInfoData = weaponInfoData;
+        levelText.text = weaponInfoData.WeaponUpgradeData.CurrentLevel.ToString();
         title.text = weaponInfoData.WeaponName;
         icon.sprite = weaponInfoData.image;
     }
 
+    public void UpdateData()
+    {
+        if (weaponInfoData != null)
+        {
+            levelText.text = weaponInfoData.WeaponUpgradeData.CurrentLevel.ToString();
+
+        }
+    }
+
     protected override void ClickEvent()
     {
-        
+        OnClickedWeaponEvent?.Invoke(weaponInfoData);
     }
 }

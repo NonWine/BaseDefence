@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class WeaponCardManagerView : MonoBehaviour
 {
     [Inject] private WeaponInfoData[] allWeapons;
-    [FormerlySerializedAs("cardViewPrefab")] [SerializeField] private WeaponCardView weaponCardViewPrefab;
-    [SerializeField] private RectTransform cardContainer;
     [Inject] private DiContainer diContainer;
+    [SerializeField] private WeaponCardView weaponCardViewPrefab;
+    [SerializeField] private RectTransform cardContainer;
     [SerializeField] private float offsetSpeed;
     private float xOffset;
     
@@ -44,7 +46,7 @@ public class WeaponCardManagerView : MonoBehaviour
                 newOffset = 0f;       
             
             var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab,cardContainer.transform);
-            card.SetData(allWeapons[i]);
+            card.SetData(allWeapons[Random.Range(0,allWeapons.Length)]);
             card.OnClickedWeaponEvent += GetWeapon;
             cardViews.Add(card);
             

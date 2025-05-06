@@ -24,6 +24,15 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
   WeaponName: 12312
   description: asdas
+  WeaponUpgradeData:
+    UpgradeQueue: 00000000000000000000000000000000
+    BaseStats:
+    - BaseValue: 0.98
+      Modificator: 0.39
+      <StatName>k__BackingField: 0
+      <CurrentValue>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
   baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
   damage: 5
   coolDown: 1

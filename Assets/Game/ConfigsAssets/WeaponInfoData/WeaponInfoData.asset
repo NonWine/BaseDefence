@@ -24,3 +24,13 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 2bc701b63b63f40e0893a9fabeaa0a78, type: 3}
   WeaponName: 
   description: 
+  WeaponUpgradeData:
+    UpgradeQueue: 0000000000000000000000000000000000000000
+    BaseStats:
+    - BaseValue: 15.34
+      Modificator: 0.24
+      <StatName>k__BackingField: 0
+      <CurrentValue>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
+  <WeaponType>k__BackingField: 0

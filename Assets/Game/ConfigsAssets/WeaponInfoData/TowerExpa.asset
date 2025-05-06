@@ -25,6 +25,12 @@ MonoBehaviour:
   WeaponName: Experience Tower
   description: gives more experience to player
   WeaponUpgradeData:
-    UpgradeQueue: 
+    UpgradeQueue: 0000000000000000000000000000000000000000
+    BaseStats:
+    - BaseValue: 15.34
+      Modificator: 0.24
+      <StatName>k__BackingField: 0
+      <CurrentValue>k__BackingField: 0
     <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
   <WeaponType>k__BackingField: 3

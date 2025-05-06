@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private LevelCompleteView _winPanel;
-
+    private WeaponsSaver weaponsSaver;
     
     private bool isFinish;
 
@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        weaponsSaver = GetComponent<WeaponsSaver>();
         Application.targetFrameRate = 60;
     }
 
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour
         isFinish = false;
         _gamePanel.SetActive(true);
         _losePanel.SetActive(false);
+        weaponsSaver.ResetWeaponSaves();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 

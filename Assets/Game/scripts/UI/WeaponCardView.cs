@@ -8,11 +8,7 @@ public class WeaponCardView : CardView
     [SerializeField] private CardSelectionView cardSelectionView;
     [SerializeField] protected TMP_Text description;
 
-    public bool IsSelected { get; private set; }
 
-    public event Action<WeaponInfoData> OnClickedWeaponEvent; 
-    
-    private WeaponInfoData weaponInfoData;
 
     public override void SetData(WeaponInfoData weaponInfoData)
     {
@@ -32,8 +28,7 @@ public class WeaponCardView : CardView
 
     protected override void ClickEvent()
     {
-        IsSelected = true;
+        base.ClickEvent();
         cardSelectionView.Select();
-        OnClickedWeaponEvent?.Invoke(weaponInfoData);
     }
 }

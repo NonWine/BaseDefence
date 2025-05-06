@@ -1,19 +1,22 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
+[DefaultExecutionOrder(-2)]
 public class WeaponsSaver : MonoBehaviour
 {
-    [Inject] private WeaponInfoData[] weaponInfoDatas;
+    [SerializeField] private WeaponInfoData[] weaponInfoDatas;
     private WeaponUpgradeDataSaver weaponUpgradeData;
     
 
-    private void Start()
+    [Inject]
+    public void Init()
     {
         weaponUpgradeData = new WeaponUpgradeDataSaver("weapons");
         var container =   weaponUpgradeData.LoadData();
         
-        if(container.weaponUpgradesData.Count == 0)
+        if(container == null)
             return;
         
         for (var i = 0; i < container.weaponUpgradesData.Count; i++)
@@ -24,14 +27,38 @@ public class WeaponsSaver : MonoBehaviour
 
     private void OnDestroy()
     {
+        SaveWeaponsData();
+    }
+    
+    [Button]
+    private void SaveWeaponsData()
+    {
+        weaponUpgradeData = new WeaponUpgradeDataSaver("weapons");
+
         WeaponUpgradeDataContainer weaponUpgradeDataContainer = new WeaponUpgradeDataContainer();
 
         foreach (var weaponInfoData in weaponInfoDatas)
         {
             weaponUpgradeDataContainer.weaponUpgradesData.Add(weaponInfoData.WeaponUpgradeData);
         }
+
         weaponUpgradeData.SaveData(weaponUpgradeDataContainer);
-        
+    }
+    
+    [Button]
+    public void ResetWeaponSaves()
+    {
+        weaponUpgradeData = new WeaponUpgradeDataSaver("weapons");
+
+        WeaponUpgradeDataContainer weaponUpgradeDataContainer = new WeaponUpgradeDataContainer();
+
+        foreach (var weaponInfoData in weaponInfoDatas)
+        {
+            weaponInfoData.WeaponUpgradeData.ResetData();
+            weaponUpgradeDataContainer.weaponUpgradesData.Add(weaponInfoData.WeaponUpgradeData);
+        }
+        weaponUpgradeData.SaveData(weaponUpgradeDataContainer);
+
     }
 }
 

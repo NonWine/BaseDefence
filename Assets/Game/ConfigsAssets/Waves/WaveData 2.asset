@@ -12,34 +12,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData 2
   m_EditorClassIdentifier: 
-  SpawnInterval: 1.4932479
+  SpawnInterval: 1.0302658
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 4.029102
-      outSlope: 4.029102
+      value: 0
+      inSlope: 0.5870812
+      outSlope: 0.5870812
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.49638855
-      value: 3
-      inSlope: -0.00022941572
-      outSlope: -0.00022941572
-      tangentMode: 0
+      time: 0.343224
+      value: 0.20150036
+      inSlope: 0.13083299
+      outSlope: 0.13083299
+      tangentMode: 34
       weightedMode: 0
-      inWeight: 1
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.6301163
+      value: 0.108141236
+      inSlope: 0.09664251
+      outSlope: 0.09664251
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: -3.9713156
-      outSlope: -3.9713156
+      value: 0.3
+      inSlope: 0.51870024
+      outSlope: 0.51870024
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -49,6 +58,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   Enemies:
   - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}
-    Count: 1
-  - SelectedEnemy: {fileID: 1759431992064551929, guid: e1e1f3d952d9d054784d3ef3cb284139, type: 3}
     Count: 1

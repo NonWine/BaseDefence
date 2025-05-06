@@ -11,8 +11,8 @@ public class WeaponStatValue
 
     private int UpgradeLevel;
     [field: SerializeField, ReadOnly] [JsonProperty]  public float CurrentValue { get; private set; }
-    
-    
+
+    public void ResetLevel() => UpgradeLevel = 0;
 
     public virtual void UpgradeValue()
     {
