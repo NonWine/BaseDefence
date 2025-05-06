@@ -39,7 +39,8 @@ public class MoveState : EnemyBaseState
     {
         //_agent.Move(_targetDirection * 20 * Time.deltaTime);
         //_agent.Move(new Vector3(0, 0, -1) * 17 * Time.deltaTime);
-        _moveable.Move();
+        if(_agent.isOnNavMesh)
+            _moveable.Move();
     }
 
     public override void ExitState()

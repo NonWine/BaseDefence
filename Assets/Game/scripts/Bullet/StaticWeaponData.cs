@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/StaticWeaponData", fileName = "WeaponInfoData", order = 0)]
 public class StaticWeaponData : WeaponInfoData
 {
-    [ShowInInspector] public  WeaponType WeaponType { get; protected set; }
+    [field: SerializeField] public  WeaponType WeaponType { get; protected set; }
     
     protected override void Awake()
     {

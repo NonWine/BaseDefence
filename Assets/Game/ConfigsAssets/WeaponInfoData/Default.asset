@@ -12,9 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   image: {fileID: 0}
   WeaponName: 
   description: 
+  WeaponUpgradeData:
+    UpgradeQueue: 00000000020000000000000002000000
+    BaseStats:
+    - BaseValue: 1.96
+      Modificator: 0.32
+      <StatName>k__BackingField: 3
+    - BaseValue: 0.9
+      Modificator: 0.66
+      <StatName>k__BackingField: 2
+    - BaseValue: 0.98
+      Modificator: 0.39
+      <StatName>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
   baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
   damage: 5
   coolDown: 0.4

@@ -9,6 +9,7 @@ public class LaserBullet : BaseBullet
     public override Type Type => typeof(LaserBullet);
     [SerializeField] LaserRay _laser;
     [Inject] private DiContainer diContainer;
+    
     public override void Init(int damage, Transform target)
     {
         base.Init(damage, target);

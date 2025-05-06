@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class WeaponCardManagerView : MonoBehaviour
 {
-    [SerializeField] private WeaponInfoData[] allWeapons;
-    [SerializeField] private CardView cardViewPrefab;
-    [SerializeField] private RectTransform cardContainer;
+    [Inject] private WeaponInfoData[] allWeapons;
     [Inject] private DiContainer diContainer;
+    [SerializeField] private WeaponCardView weaponCardViewPrefab;
+    [SerializeField] private RectTransform cardContainer;
     [SerializeField] private float offsetSpeed;
     private float xOffset;
     
-    [ShowInInspector, ReadOnly]  public List<CardView> cardViews { get; private set; } = new List<CardView>() ;
+    [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
-    
-    
+    // costil
+    private int j = 0;
+    //
     
 
     public async void CreateCards()
@@ -31,6 +35,7 @@ public class WeaponCardManagerView : MonoBehaviour
         xOffset = cardContainer.rect.width / 3f;
         Sequence mainSequence = DOTween.Sequence();
         mainSequence.SetUpdate(true);
+        
         for (int i = 0; i < 3; i++)
         {
             float newOffset;
@@ -42,8 +47,12 @@ public class WeaponCardManagerView : MonoBehaviour
             else
                 newOffset = 0f;       
             
-            var card = diContainer.InstantiatePrefabForComponent<CardView>(cardViewPrefab,cardContainer.transform);
-            card.SetData(allWeapons[i]);
+            var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab,cardContainer.transform);
+            card.SetData(allWeapons[j]);
+            j++;
+            if (j == allWeapons.Length)
+                j = 0;
+            
             card.OnClickedWeaponEvent += GetWeapon;
             cardViews.Add(card);
             

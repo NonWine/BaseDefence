@@ -11,6 +11,8 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] protected DiContainer diContainer;
     protected float timer;
+    [SerializeField, ReadOnly] public WeaponInfoData WeaponInfoData;
+    public bool IsLocked => isLocked;
     
     public Action UnlockCallback;
     
@@ -33,6 +35,7 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
         {
             if (WeaponType == staticWeaponData.WeaponType)
             {
+                WeaponInfoData = staticWeaponData;
                 isLocked = false;
                 UnlockCallback?.Invoke();
             }

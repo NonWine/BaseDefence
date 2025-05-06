@@ -8,6 +8,7 @@ public class FactoryInstaller : MonoInstaller
     [SerializeField] private BaseEnemy[] _enemies;
     [SerializeField] private BaseBullet[] _baseBullets;
     [SerializeField] private ResourcePartObj[] _resourcePartObjs;
+    [SerializeField] private WeaponInfoData[] weaponsInfoData;
     [Inject] private GameController _gameController;
     private ObjectPoolTemplate<Type,BaseEnemy> _enemyPool;
     private ObjectPoolTemplate<Type,BaseBullet> _bulletPool;
@@ -22,6 +23,7 @@ public class FactoryInstaller : MonoInstaller
         RegisterEnemyFactory();
         RegisterBulletFactory();
         RegisterResourcesFactory();
+        Container.BindInstance(weaponsInfoData).AsSingle();
     }
 
     private void RegisterEnemyFactory()

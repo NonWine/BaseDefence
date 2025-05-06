@@ -1,52 +1,38 @@
-using System;
-using DG.Tweening;
+﻿using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardView : MonoBehaviour
+public abstract class CardView : MonoBehaviour
 {
-    [SerializeField] private Image icon;
-    [SerializeField] private TMP_Text title;
-    [SerializeField] private TMP_Text description;
-    [SerializeField] private Button button;
-    [SerializeField] private CardSelectionView cardSelectionView;
+    [SerializeField] protected Image icon;
+    [SerializeField] protected TMP_Text title;
+    [SerializeField] protected Button button;
+    
     public bool IsSelected { get; private set; }
 
-    public event Action<WeaponInfoData> OnClickedWeaponEvent; 
+    public  Action<WeaponInfoData> OnClickedWeaponEvent; 
     
-    private WeaponInfoData weaponInfoData;
+    protected WeaponInfoData weaponInfoData;
 
+    public WeaponInfoData WeaponInfoData => weaponInfoData;
+    
     private void Awake()
     {
         button.onClick.AddListener(ClickEvent);
     }
 
+    public abstract void SetData(WeaponInfoData weaponInfoData);
+
     private void OnDestroy()
     {
+        OnClickedWeaponEvent = null;
         button.onClick.RemoveListener(ClickEvent);
     }
-
-    public void SetData(WeaponInfoData weaponInfoData)
-    {
-        this.weaponInfoData = weaponInfoData;
-        icon.sprite = weaponInfoData.image;
-        title.text = this.weaponInfoData.WeaponName;
-        description.text = this.weaponInfoData.description;
-    }
-
-    public void DestroyCard()
-    {
-        transform.DOScale(0f, 0.15f).SetEase(Ease.Linear).OnComplete(() =>
-        {
-            Destroy(gameObject);
-        }).SetUpdate(true);;
-    }
-
-    private void ClickEvent()
+    
+    protected virtual void ClickEvent()
     {
         IsSelected = true;
-        cardSelectionView.Select();
         OnClickedWeaponEvent?.Invoke(weaponInfoData);
     }
 }
