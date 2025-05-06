@@ -25,7 +25,9 @@ public class LaserRay : MonoBehaviour
 
     public void RayShoot(int damage, Transform target)
     {
-        _laserOrigin = playerHandler.Player.bulletStartPoint;
+        
+        transform.SetParent(playerHandler.Player.transform);
+        _laserOrigin = transform;
         _enemy = target;
         _target = target.position;
         
@@ -41,18 +43,19 @@ public class LaserRay : MonoBehaviour
 
         return nearestEnemy;
     }
-    private void Update()
+    private void LateUpdate()
     {
         if(_enemy.GetComponent<BaseEnemy>().IsDeath)
         {
-            if(GetNearlestEnemy(transform) == null)
+            var nearestEnemy = GetNearlestEnemy(transform);
+            if (nearestEnemy == null)
             {
-                Debug.Log("nearest enemy is null");
+                
                 Destroy(gameObject);
             }
             else
             {
-                _enemy = GetNearlestEnemy(transform).transform;
+                _enemy = nearestEnemy.transform;
             }
 
             return;
@@ -69,9 +72,9 @@ public class LaserRay : MonoBehaviour
         _laserLine.SetPosition(0, _laserOrigin.transform.position);
         
         hits = Physics.RaycastAll(_ray, _gunRange, _layerMask);
+        _laserLine.SetPosition(1, direction.normalized * _gunRange);
         if (hits.Length>0)
         {
-            _laserLine.SetPosition(1, direction.normalized * _gunRange);
             if (_damageTimer >= _damageInterval)
             {
                 foreach(var hit in hits)
@@ -84,8 +87,11 @@ public class LaserRay : MonoBehaviour
         }
         else
         {
-            _laserLine.SetPosition(1, direction.normalized * _gunRange);
+            _enemy.transform.GetComponent<IDamageable>().GetDamage(_damage);
+            Debug.Log("raycast didn't hit anything");
+            Debug.Break();
         }
 
     }
+
 }

@@ -91,7 +91,6 @@ MonoBehaviour:
   collider: {fileID: 4889825331461937912}
   _poisonedSpeedMultiplier: 3
   _speed: 17
-  Point: {fileID: 0}
   _bulletPos: {fileID: 6116911634499862243}
   _distance: 40
 --- !u!54 &1956916457294921616
@@ -140,8 +139,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.440391, z: 1.6844252}
-  m_Center: {x: 0, y: 0.7201958, z: 0.02098471}
+  m_Size: {x: 1, y: 5.0673156, z: 1.6844252}
+  m_Center: {x: 0, y: -0.59326625, z: 0.02098471}
 --- !u!195 &2190577205141881727
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -742,6 +741,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4902851657583628922}
     m_Modifications:
+    - target: {fileID: 1237995798823245724, guid: 4c54943ed09855e4388b110c70aa0fb4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237995798823245724, guid: 4c54943ed09855e4388b110c70aa0fb4, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4596184809457238007, guid: 4c54943ed09855e4388b110c70aa0fb4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

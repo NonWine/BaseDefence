@@ -25,5 +25,5 @@ MonoBehaviour:
   WeaponName: Laser
   description: shoots laser
   baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
-  damage: 5
+  damage: 1
   coolDown: 3

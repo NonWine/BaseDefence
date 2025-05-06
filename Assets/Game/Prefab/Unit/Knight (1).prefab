@@ -59,7 +59,6 @@ MonoBehaviour:
   collider: {fileID: 8228787080730568720}
   _poisonedSpeedMultiplier: 3
   _speed: 17
-  Point: {fileID: 0}
 --- !u!65 &8228787080730568720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -680,6 +679,10 @@ PrefabInstance:
     - target: {fileID: 1869051997567445483, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168769605654738704, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6414289390274351273, guid: f49fc7dee1428aa46939c7e5730c405b, type: 3}
       propertyPath: m_LocalPosition.x
