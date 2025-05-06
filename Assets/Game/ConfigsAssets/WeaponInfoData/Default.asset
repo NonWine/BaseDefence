@@ -27,19 +27,17 @@ MonoBehaviour:
   WeaponUpgradeData:
     UpgradeQueue: 00000000020000000000000002000000
     BaseStats:
-    - BaseValue: 0.86
-      Modificator: 0.3
+    - BaseValue: 1.96
+      Modificator: 0.32
       <StatName>k__BackingField: 3
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 0.9
       Modificator: 0.66
       <StatName>k__BackingField: 2
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 0.98
       Modificator: 0.39
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 0
     <CurrentLevel>k__BackingField: 0
+    <LevelMax>k__BackingField: 0
   baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
   damage: 5
   coolDown: 0.4

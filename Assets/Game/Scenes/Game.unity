@@ -825,7 +825,7 @@ Transform:
   m_GameObject: {fileID: 487697669}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.96, y: 5.03, z: -59.32}
+  m_LocalPosition: {x: -17.92, y: 5.03, z: -59.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1140,7 +1140,7 @@ Transform:
   m_GameObject: {fileID: 861984751}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.5, y: 5.03, z: -52.4}
+  m_LocalPosition: {x: 21.72, y: 1.35, z: -63.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2026,7 +2026,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
   - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
-  - {fileID: 11400000, guid: 2272bf758334c2c4ba239802922e74de, type: 2}
   - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
 --- !u!1 &1396439250
 GameObject:
@@ -2183,7 +2182,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
   - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
-  - {fileID: 11400000, guid: 2272bf758334c2c4ba239802922e74de, type: 2}
   - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
 --- !u!114 &1446267323 stripped
 MonoBehaviour:
@@ -2758,7 +2756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHandlers:
-  - weaponInfoData: {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
+  - weaponInfoData: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
     isLocked: 0
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}

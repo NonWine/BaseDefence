@@ -35,6 +35,18 @@ public  class WeaponUpgradeData
         
     }
 
+    public WeaponStatValue GetStat(StatName statName)
+    {
+        var statValue = BaseStats.Find(x => x.StatName == statName);
+        if (statValue == null)
+        {
+            Debug.LogError(nameof(statName) + "Doe not exist");
+            return null;
+        }
+        
+        return statValue;
+    }
+
     public void ResetData()
     {
         LevelMax = false;
