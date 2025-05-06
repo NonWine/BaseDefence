@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
         weaponsSaver = GetComponent<WeaponsSaver>();
         restartWaveButton.onClick.AddListener(RestartWave);
         Application.targetFrameRate = 60;
+        Physics.autoSyncTransforms = true;
+        Physics.SyncTransforms();
     }
 
     private void Start()

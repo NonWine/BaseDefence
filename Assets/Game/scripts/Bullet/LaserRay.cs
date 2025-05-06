@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using System;
+using System.Linq;
 
 public class LaserRay : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LaserRay : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private float _damageInterval;
     [Inject] private PlayerHandler playerHandler;
+    [Inject] private EnemyFactory enemyFactory;
     private float _damageTimer;
     private float _shootingTimer;
     private Vector3 _target;
@@ -23,17 +25,39 @@ public class LaserRay : MonoBehaviour
 
     public void RayShoot(int damage, Transform target)
     {
-        _laserOrigin = playerHandler.Player.bulletStartPoint;
+        
+        transform.SetParent(playerHandler.Player.transform);
+        _laserOrigin = transform;
         _enemy = target;
         _target = target.position;
         
         _damage = damage;
 
     }
-    private void Update()
+    private BaseEnemy GetNearlestEnemy(Transform thisTarget)
     {
-        if(_target == null)
+        var nearestEnemy = enemyFactory.Enemies
+            .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
+            .FirstOrDefault(x => x.IsDeath == false);
+
+
+        return nearestEnemy;
+    }
+    private void LateUpdate()
+    {
+        if(_enemy.GetComponent<BaseEnemy>().IsDeath)
         {
+            var nearestEnemy = GetNearlestEnemy(transform);
+            if (nearestEnemy == null)
+            {
+                
+                Destroy(gameObject);
+            }
+            else
+            {
+                _enemy = nearestEnemy.transform;
+            }
+
             return;
         }
         _shootingTimer += Time.deltaTime;
@@ -48,9 +72,9 @@ public class LaserRay : MonoBehaviour
         _laserLine.SetPosition(0, _laserOrigin.transform.position);
         
         hits = Physics.RaycastAll(_ray, _gunRange, _layerMask);
+        _laserLine.SetPosition(1, direction.normalized * _gunRange);
         if (hits.Length>0)
         {
-            _laserLine.SetPosition(1, direction.normalized * _gunRange);
             if (_damageTimer >= _damageInterval)
             {
                 foreach(var hit in hits)
@@ -63,8 +87,11 @@ public class LaserRay : MonoBehaviour
         }
         else
         {
-            _laserLine.SetPosition(1, direction.normalized * _gunRange);
+            _enemy.transform.GetComponent<IDamageable>().GetDamage(_damage);
+            Debug.Log("raycast didn't hit anything");
+            Debug.Break();
         }
 
     }
+
 }
