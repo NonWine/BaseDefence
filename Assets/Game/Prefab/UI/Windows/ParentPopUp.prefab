@@ -416,6 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8615615846765599973}
   - component: {fileID: 8871697494712635766}
+  - component: {fileID: 5158324489422718605}
   m_Layer: 5
   m_Name: ParentPopUp
   m_TagString: Untagged
@@ -465,6 +466,18 @@ MonoBehaviour:
   waveButton: {fileID: 5885928405897782138}
   upgradePlayerButton: {fileID: 8192203568296892161}
   upgradeWeaponButton: {fileID: 8954795427700868450}
+--- !u!225 &5158324489422718605
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7454167511128186874}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8602048102408648918
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,15 +22,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
-  WeaponName: Mine
-  description: 
+  WeaponName: Mines
+  description: spawn mines on the ground area
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
-    - BaseValue: 3.19
+    - BaseValue: 1.86
       Modificator: 1.75
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 5.1150002
-    <CurrentLevel>k__BackingField: 0
+      <CurrentValue>k__BackingField: 14.88
+    - BaseValue: 1.92
+      Modificator: 1.54
+      <StatName>k__BackingField: 1
+      <CurrentValue>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 5
     <LevelMax>k__BackingField: 0
   <WeaponType>k__BackingField: 1

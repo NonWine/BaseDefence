@@ -22,11 +22,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
-  WeaponName: 12312
-  description: asdas
+  WeaponName: Rotten eggs
+  description: slow down enemies
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000
     BaseStats:
+    - BaseValue: 0.86
+      Modificator: 0.3
+      <StatName>k__BackingField: 3
+      <CurrentValue>k__BackingField: 0
+    - BaseValue: 0.9
+      Modificator: 0.66
+      <StatName>k__BackingField: 2
+      <CurrentValue>k__BackingField: 0
     - BaseValue: 0.98
       Modificator: 0.39
       <StatName>k__BackingField: 0

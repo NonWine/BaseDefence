@@ -3,24 +3,32 @@ using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using Zenject;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _confettiFx;
     [SerializeField] private GameObject _gamePanel;
-    [SerializeField] private GameObject _losePanel;
+    [SerializeField] private CanvasGroup _losePanel;
     [SerializeField] private LevelCompleteView _winPanel;
+    [SerializeField] private Button restartWaveButton;
     private WeaponsSaver weaponsSaver;
     
     private bool isFinish;
 
     public event Action OnLevelCompleteEvent;
+
+    public event Action OnRestartWaveEvent;
+
+    public event Action OnLooseEvent;
     
     private void Awake()
     {
         weaponsSaver = GetComponent<WeaponsSaver>();
+        restartWaveButton.onClick.AddListener(RestartWave);
         Application.targetFrameRate = 60;
     }
 
@@ -30,6 +38,12 @@ public class GameManager : MonoBehaviour
         _gamePanel.SetActive(true);
     }
 
+    private void OnDestroy()
+    {
+        restartWaveButton.onClick.RemoveListener(RestartWave);
+
+    }
+
     private void OnApplicationQuit()
     {
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
@@ -37,10 +51,16 @@ public class GameManager : MonoBehaviour
     
     public void GameLose()
     {
-        _losePanel.SetActive(true);
-        _gamePanel.SetActive(false);
-        Debug.Log(LevelManager.Instance.timerLevel);
-        LevelManager.Instance.timerLevel = 0f;
+        _losePanel.alpha =1f;
+        _losePanel.blocksRaycasts = true;
+        OnLooseEvent?.Invoke();
+    }
+
+    private void RestartWave()
+    {
+        _losePanel.alpha = 0f;
+        _losePanel.blocksRaycasts = false;
+        OnRestartWaveEvent?.Invoke();
     }
     
     [Button]
@@ -57,11 +77,11 @@ public class GameManager : MonoBehaviour
         _winPanel.Show();
     }
 
+    [Button]
     public void RestartGame()
     {
         isFinish = false;
         _gamePanel.SetActive(true);
-        _losePanel.SetActive(false);
         weaponsSaver.ResetWeaponSaves();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -21,16 +21,12 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: 4d884a85224974b57956b27413aad943, type: 3}
-  WeaponName: fence healer
+  image: {fileID: 21300000, guid: 9e36a043aeccce04bb0eacd77363355d, type: 3}
+  WeaponName: Builder
   description: restores fence's health
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
-    BaseStats:
-    - BaseValue: 15.34
-      Modificator: 0.24
-      <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 0
+    BaseStats: []
     <CurrentLevel>k__BackingField: 0
     <LevelMax>k__BackingField: 0
   <WeaponType>k__BackingField: 2
