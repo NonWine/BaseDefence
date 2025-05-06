@@ -22,8 +22,9 @@ public class WeaponCardManagerView : MonoBehaviour
     [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
-    
-    
+    // costil
+    private int j = 0;
+    //
     
 
     public async void CreateCards()
@@ -34,6 +35,7 @@ public class WeaponCardManagerView : MonoBehaviour
         xOffset = cardContainer.rect.width / 3f;
         Sequence mainSequence = DOTween.Sequence();
         mainSequence.SetUpdate(true);
+        
         for (int i = 0; i < 3; i++)
         {
             float newOffset;
@@ -46,7 +48,11 @@ public class WeaponCardManagerView : MonoBehaviour
                 newOffset = 0f;       
             
             var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab,cardContainer.transform);
-            card.SetData(allWeapons[Random.Range(0,allWeapons.Length)]);
+            card.SetData(allWeapons[j]);
+            j++;
+            if (j == allWeapons.Length)
+                j = 0;
+            
             card.OnClickedWeaponEvent += GetWeapon;
             cardViews.Add(card);
             

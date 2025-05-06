@@ -30,17 +30,14 @@ MonoBehaviour:
     - BaseValue: 1
       Modificator: 2.34
       <StatName>k__BackingField: 3
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 1
       Modificator: 2.67
       <StatName>k__BackingField: 2
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 1
       Modificator: 2.01
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 34.0252
-    <CurrentLevel>k__BackingField: 3
+    <CurrentLevel>k__BackingField: 0
     <LevelMax>k__BackingField: 0
   baseBullet: {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
   damage: 22
-  coolDown: 3
+  coolDown: 2.1

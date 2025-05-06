@@ -78,6 +78,7 @@ public class WaveManager : MonoBehaviour
         playerHealth.gameObject.SetActive(false);
         menuPopUp.alpha = 1f;
         menuPopUp.blocksRaycasts = true;
+        startWaveButton.interactable = true;
     }
 
     private void UpdateWave()
