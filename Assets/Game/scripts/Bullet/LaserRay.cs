@@ -72,12 +72,13 @@ public class LaserRay : MonoBehaviour
         Vector3 targetPoint = _enemy.position; // Можна використовувати _enemy.GetComponent<Collider>().bounds.center
     
         // Оновлюємо позиції лазера
-        Vector3 direction = targetPoint - _laserOrigin.position;
-        _laserLine.SetPosition(0, _laserOrigin.position);
-        _laserLine.SetPosition(1, targetPoint); // Просто до позиції ворога
+        Vector3 direction = targetPoint - transform.position;
+        _laserLine.SetPosition(0, transform.position);
+        _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // Просто до позиції ворога
     
         // Raycast для перевірки попадання
-        _ray = new Ray(_laserOrigin.position, direction.normalized);
+        _ray = new Ray(transform.position, direction.normalized);
+        Debug.DrawRay(transform.position, direction, Color.green, 0.01f);
         hits = Physics.RaycastAll(_ray,_gunRange , _layerMask);
     
         if (hits.Length > 0)
