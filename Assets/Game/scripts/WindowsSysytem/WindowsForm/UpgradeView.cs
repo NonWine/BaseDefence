@@ -14,13 +14,19 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private TMP_Text levelTextNext;
     [SerializeField] private TMP_Text statNameText;
     [SerializeField] private TMP_Text priceUpgrade;
+    [SerializeField] private TMP_Text pricePrintUpgrade;
+
     [SerializeField] private Button buttonClose;
     [Header("Price Config")]
     [SerializeField] private float BaseValue;
     [SerializeField] private float Modificator;
+    
+    [SerializeField] private float PrintBaseValue;
+    [SerializeField] private float PtintModificator;    
     [Inject] private CollectableManager collectableManager;
     private WeaponInfoData weaponInfoData;
     private int currentPrice;
+    private int currentPricePrint;
 
     public event Action OnUpgradedEvent;
     
@@ -65,11 +71,13 @@ public class UpgradeView : MonoBehaviour
 
     private void TryUpgrade()
     {
-        var curAmount = collectableManager.GetWallet(eCollectable.coin);
-        
-        if (curAmount.Amount >= currentPrice)
+        var curAmountCoin = collectableManager.GetWallet(eCollectable.coin);
+        var curPrints = collectableManager.GetWallet(eCollectable.print);
+        if (curAmountCoin.Amount >= currentPrice && curPrints.Amount >= currentPricePrint)
         {
-            curAmount.TryRemove(currentPrice);
+            curAmountCoin.TryRemove(currentPrice);
+            curPrints.TryRemove(currentPricePrint);
+            
             weaponInfoData.WeaponUpgradeData.Upgrade();
             OnUpgradedEvent?.Invoke();
             if (weaponInfoData.WeaponUpgradeData.LevelMax)
@@ -94,6 +102,10 @@ public class UpgradeView : MonoBehaviour
         var value = BaseValue * (1 + Modificator * level);
         currentPrice = Mathf.FloorToInt(value);
         priceUpgrade.text = currentPrice.ToString();
+        
+         value = PrintBaseValue * (1 + PtintModificator * level);
+        currentPricePrint = Mathf.FloorToInt(value);
+        pricePrintUpgrade.text = currentPrice.ToString();
     }
     
 }

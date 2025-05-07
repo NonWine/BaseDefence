@@ -7,5 +7,5 @@
     ExpModificator,
     LaserDuration,
     SpeedReduce,
-    
+    LaserRange
 }

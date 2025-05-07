@@ -30,23 +30,18 @@ MonoBehaviour:
     - BaseValue: 0.86
       Modificator: 0.3
       <StatName>k__BackingField: 3
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 0.9
       Modificator: 0.66
       <StatName>k__BackingField: 2
-      <CurrentValue>k__BackingField: 1.494
     - BaseValue: 0.98
       Modificator: 0.39
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 1.7444
     - BaseValue: 0
       Modificator: 0
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 0
     - BaseValue: 0
       Modificator: 0
       <StatName>k__BackingField: 0
-      <CurrentValue>k__BackingField: 0
     <CurrentLevel>k__BackingField: 0
     <LevelMax>k__BackingField: 0
   baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}

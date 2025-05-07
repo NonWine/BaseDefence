@@ -10,7 +10,5 @@ public class WaveDataConfig : ScriptableObject
     public int waveDuration;
     public AnimationCurve intervalCurve;
     public List<EnemySpawnInfo> Enemies;
-
     
-
 }

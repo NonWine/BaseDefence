@@ -13,6 +13,7 @@ public class TowerExpaController : StaticWeaponController
 
     private void CreateTower()
     {
+        
         diContainer.InstantiatePrefabForComponent<TowerExpa>(towerExpaPrefab, towerPoint.position, Quaternion.identity, null);
     }
     protected override void UnLockedUpdate()
