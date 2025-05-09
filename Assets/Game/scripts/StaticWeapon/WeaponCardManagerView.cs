@@ -16,6 +16,7 @@ public class WeaponCardManagerView : MonoBehaviour
     [Inject] private DiContainer diContainer;
     [SerializeField] private WeaponCardView weaponCardViewPrefab;
     [SerializeField] private RectTransform cardContainer;
+    [SerializeField] private CardsUpgradeData CardUpgradeInfo;
     [SerializeField] private float offsetSpeed;
     private float xOffset;
     
@@ -45,8 +46,9 @@ public class WeaponCardManagerView : MonoBehaviour
             else if (i == 1)
                 newOffset = xOffset;  
             else
-                newOffset = 0f;       
-            
+                newOffset = 0f;
+
+            var weapon = allWeapons[j];
             var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab,cardContainer.transform);
             card.SetData(allWeapons[j]);
             j++;

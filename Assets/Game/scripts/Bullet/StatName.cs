@@ -7,5 +7,7 @@
     ExpModificator,
     LaserDuration,
     SpeedReduce,
-    
+    ProjectileSpeed,
+    ProjectileCountPerTime,
+    ShootCountPerTime
 }
