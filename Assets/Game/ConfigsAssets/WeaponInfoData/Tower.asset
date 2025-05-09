@@ -26,7 +26,11 @@ MonoBehaviour:
   description: help you defeat enemy
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-    BaseStats: []
-    <CurrentLevel>k__BackingField: 0
+    BaseStats:
+    - BaseValue: 1.83
+      Modificator: 0.33
+      <StatName>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1
   <WeaponType>k__BackingField: 0

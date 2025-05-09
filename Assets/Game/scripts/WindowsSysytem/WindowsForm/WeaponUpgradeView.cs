@@ -28,7 +28,7 @@ public class WeaponUpgradeView : Window
         
         foreach (var weaponInfoData in allWeapons)
         {
-            if (weaponInfoData.WeaponUpgradeData.CurrentLevel > 0)
+            if (weaponInfoData.WeaponUpgradeData.IsUnLocked)
             {
                 CreateCard(weaponInfoData);
             }

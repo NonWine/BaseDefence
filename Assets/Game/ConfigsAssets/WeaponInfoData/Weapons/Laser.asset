@@ -25,25 +25,20 @@ MonoBehaviour:
   WeaponName: Laser
   description: burning through enemies
   WeaponUpgradeData:
-    UpgradeQueue: 0000000000000000000000000000000000000000000000000000000000000000
+    UpgradeQueue: 0700000005000000000000000000000000000000000000000000000000000000
     BaseStats:
-    - BaseValue: 0.86
-      Modificator: 0.3
-      <StatName>k__BackingField: 3
-    - BaseValue: 0.9
-      Modificator: 0.66
-      <StatName>k__BackingField: 2
-    - BaseValue: 0.98
-      Modificator: 0.39
+    - BaseValue: 1.41
+      Modificator: 1.2
+      <StatName>k__BackingField: 5
+    - BaseValue: 0.96
+      Modificator: 0.42
+      <StatName>k__BackingField: 7
+    - BaseValue: 5.28
+      Modificator: 1.34
       <StatName>k__BackingField: 0
-    - BaseValue: 0
-      Modificator: 0
-      <StatName>k__BackingField: 0
-    - BaseValue: 0
-      Modificator: 0
-      <StatName>k__BackingField: 0
-    <CurrentLevel>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
   damage: 5
   coolDown: 3

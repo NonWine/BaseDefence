@@ -5,14 +5,18 @@ using UnityEngine;
 [System.Serializable] [InlineProperty]
 public class WeaponStatValue
 {
-    [JsonProperty] [SerializeField] private float BaseValue;
-    [JsonProperty] [SerializeField] private float Modificator;
-    [JsonProperty] private int UpgradeLevel = 1;
-    [JsonProperty] [field: SerializeField] public StatName StatName { get; private set; }
+   [JsonIgnore]  [SerializeField] private float BaseValue;
+   [JsonIgnore]  [SerializeField] private float Modificator;
+   [JsonProperty] private int UpgradeLevel = 1;
+   [JsonIgnore]  [field: SerializeField] public StatName StatName { get; private set; }
 
-    [ShowInInspector, ReadOnly]  public float CurrentValue => BaseValue * (1 + Modificator * UpgradeLevel);
+   [ShowInInspector, ReadOnly]  public float CurrentValue => BaseValue * (1 + Modificator * UpgradeLevel);
+
+   public void SetLevel(int level) => UpgradeLevel = level;
 
     public void ResetLevel() => UpgradeLevel = 1;
+
+    public int Level => UpgradeLevel;
 
     public virtual void UpgradeValue()
     {

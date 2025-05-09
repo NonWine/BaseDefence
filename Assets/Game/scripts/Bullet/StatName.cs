@@ -7,5 +7,6 @@
     ExpModificator,
     LaserDuration,
     SpeedReduce,
-    LaserRange
+    LaserRange,
+    healBonus
 }

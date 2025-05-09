@@ -25,19 +25,20 @@ MonoBehaviour:
   WeaponName: Grenade
   description: explose enemies!
   WeaponUpgradeData:
-    UpgradeQueue: 000000000000000000000000000000000000000000000000
+    UpgradeQueue: 010000000200000001000000000000000000000000000000
     BaseStats:
-    - BaseValue: 1
-      Modificator: 2.34
-      <StatName>k__BackingField: 3
-    - BaseValue: 1
-      Modificator: 2.67
+    - BaseValue: 2.64
+      Modificator: 0.6
       <StatName>k__BackingField: 2
-    - BaseValue: 1
-      Modificator: 2.01
+    - BaseValue: 15.02
+      Modificator: 0.84
       <StatName>k__BackingField: 0
-    <CurrentLevel>k__BackingField: 0
+    - BaseValue: 2.96
+      Modificator: -0.33
+      <StatName>k__BackingField: 1
+    <CurrentLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
   damage: 22
   coolDown: 2.1

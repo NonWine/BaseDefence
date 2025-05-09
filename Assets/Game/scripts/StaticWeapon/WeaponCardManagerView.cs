@@ -89,7 +89,8 @@ public class WeaponCardManagerView : MonoBehaviour
             
             cardViews[i].OnClickedWeaponEvent -= GetWeapon; 
         }
-        
+
+        weaponInfoData.WeaponUpgradeData.IsUnLocked = true;
         OnGetWeaponEvent?.Invoke(weaponInfoData);
     }
 

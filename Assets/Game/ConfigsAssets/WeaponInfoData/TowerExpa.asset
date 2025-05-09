@@ -25,8 +25,12 @@ MonoBehaviour:
   WeaponName: Research Table
   description: gives more experience to player
   WeaponUpgradeData:
-    UpgradeQueue: 0000000000000000000000000000000000000000
-    BaseStats: []
-    <CurrentLevel>k__BackingField: 0
+    UpgradeQueue: 0400000004000000040000000400000004000000
+    BaseStats:
+    - BaseValue: 2.31
+      Modificator: 0.27
+      <StatName>k__BackingField: 4
+    <CurrentLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 0
   <WeaponType>k__BackingField: 3

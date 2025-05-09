@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -43,7 +44,7 @@ public class UpgradeView : MonoBehaviour
     private void Show()
     {
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.alpha = 1f;
+        canvasGroup.DOFade(1f, 0.35f);
     }
 
     private void Hide()
@@ -58,6 +59,7 @@ public class UpgradeView : MonoBehaviour
  
         this.weaponInfoData = weaponInfoData;
         var upgradeData = weaponInfoData.WeaponUpgradeData;
+        button.interactable = true;
         icon.sprite = weaponInfoData.image;
         title.text = weaponInfoData.WeaponName;
         button.onClick.AddListener(TryUpgrade);
@@ -65,6 +67,7 @@ public class UpgradeView : MonoBehaviour
         levelTextNext.text = "Level " + (upgradeData.CurrentLevel + 1).ToString();
         statNameText.text = upgradeData.CurrentUpgradeStat().ToString();
         UpgradeValue(upgradeData.CurrentLevel);
+        CheckEnoughMoney();
         Show();
         
     }
@@ -86,14 +89,26 @@ public class UpgradeView : MonoBehaviour
                 priceUpgrade.text = "LEVEL MAX";
             }
             else
-            {        
+            {
                 var upgradeData = weaponInfoData.WeaponUpgradeData;
                 UpgradeValue(weaponInfoData.WeaponUpgradeData.CurrentLevel);
                 levelTextCurrent.text = "Level " + upgradeData.CurrentLevel.ToString();
                 levelTextNext.text = "Level " + (upgradeData.CurrentLevel + 1).ToString();
+                
+                CheckEnoughMoney();
+
+                
             }
         }
 
+    }
+
+    private void CheckEnoughMoney()
+    {
+        var curAmountCoin = collectableManager.GetWallet(eCollectable.coin);
+        var curPrints = collectableManager.GetWallet(eCollectable.print);
+        if (curAmountCoin.Amount <= currentPrice || curPrints.Amount <= currentPricePrint)
+            button.interactable = false;
     }
     
     
@@ -105,7 +120,7 @@ public class UpgradeView : MonoBehaviour
         
          value = PrintBaseValue * (1 + PtintModificator * level);
         currentPricePrint = Mathf.FloorToInt(value);
-        pricePrintUpgrade.text = currentPrice.ToString();
+        pricePrintUpgrade.text = currentPricePrint.ToString();
     }
     
 }
