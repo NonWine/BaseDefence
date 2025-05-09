@@ -18,7 +18,7 @@ public class StinkyCloud : MonoBehaviour
     [SerializeField] private ParticleSystem _cloudEffect;
     [Inject] private GameController gameController;
     private Transform parent;
-
+    
     private void Start()
     {
         ParticlePool.Instance.StinkyBallExplosionFx(transform.position, radiusVenom/ 2f);

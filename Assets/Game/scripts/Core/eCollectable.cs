@@ -1,5 +1,6 @@
 public enum eCollectable
 {
     coin,
-    xp
+    xp,
+    print
 }

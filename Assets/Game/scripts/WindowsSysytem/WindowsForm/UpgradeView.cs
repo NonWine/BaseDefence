@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,13 +15,19 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private TMP_Text levelTextNext;
     [SerializeField] private TMP_Text statNameText;
     [SerializeField] private TMP_Text priceUpgrade;
+    [SerializeField] private TMP_Text pricePrintUpgrade;
+
     [SerializeField] private Button buttonClose;
     [Header("Price Config")]
     [SerializeField] private float BaseValue;
     [SerializeField] private float Modificator;
+    
+    [SerializeField] private float PrintBaseValue;
+    [SerializeField] private float PtintModificator;    
     [Inject] private CollectableManager collectableManager;
     private WeaponInfoData weaponInfoData;
     private int currentPrice;
+    private int currentPricePrint;
 
     public event Action OnUpgradedEvent;
     
@@ -37,7 +44,7 @@ public class UpgradeView : MonoBehaviour
     private void Show()
     {
         canvasGroup.blocksRaycasts = true;
-        canvasGroup.alpha = 1f;
+        canvasGroup.DOFade(1f, 0.35f);
     }
 
     private void Hide()
@@ -52,6 +59,7 @@ public class UpgradeView : MonoBehaviour
  
         this.weaponInfoData = weaponInfoData;
         var upgradeData = weaponInfoData.WeaponUpgradeData;
+        button.interactable = true;
         icon.sprite = weaponInfoData.image;
         title.text = weaponInfoData.WeaponName;
         button.onClick.AddListener(TryUpgrade);
@@ -59,17 +67,20 @@ public class UpgradeView : MonoBehaviour
         levelTextNext.text = "Level " + (upgradeData.CurrentLevel + 1).ToString();
         statNameText.text = upgradeData.CurrentUpgradeStat().ToString();
         UpgradeValue(upgradeData.CurrentLevel);
+        CheckEnoughMoney();
         Show();
         
     }
 
     private void TryUpgrade()
     {
-        var curAmount = collectableManager.GetWallet(eCollectable.coin);
-        
-        if (curAmount.Amount >= currentPrice)
+        var curAmountCoin = collectableManager.GetWallet(eCollectable.coin);
+        var curPrints = collectableManager.GetWallet(eCollectable.print);
+        if (curAmountCoin.Amount >= currentPrice && curPrints.Amount >= currentPricePrint)
         {
-            curAmount.TryRemove(currentPrice);
+            curAmountCoin.TryRemove(currentPrice);
+            curPrints.TryRemove(currentPricePrint);
+            
             weaponInfoData.WeaponUpgradeData.Upgrade();
             OnUpgradedEvent?.Invoke();
             if (weaponInfoData.WeaponUpgradeData.LevelMax)
@@ -78,14 +89,26 @@ public class UpgradeView : MonoBehaviour
                 priceUpgrade.text = "LEVEL MAX";
             }
             else
-            {        
+            {
                 var upgradeData = weaponInfoData.WeaponUpgradeData;
                 UpgradeValue(weaponInfoData.WeaponUpgradeData.CurrentLevel);
                 levelTextCurrent.text = "Level " + upgradeData.CurrentLevel.ToString();
                 levelTextNext.text = "Level " + (upgradeData.CurrentLevel + 1).ToString();
+                
+                CheckEnoughMoney();
+
+                
             }
         }
 
+    }
+
+    private void CheckEnoughMoney()
+    {
+        var curAmountCoin = collectableManager.GetWallet(eCollectable.coin);
+        var curPrints = collectableManager.GetWallet(eCollectable.print);
+        if (curAmountCoin.Amount <= currentPrice || curPrints.Amount <= currentPricePrint)
+            button.interactable = false;
     }
     
     
@@ -94,6 +117,10 @@ public class UpgradeView : MonoBehaviour
         var value = BaseValue * (1 + Modificator * level);
         currentPrice = Mathf.FloorToInt(value);
         priceUpgrade.text = currentPrice.ToString();
+        
+         value = PrintBaseValue * (1 + PtintModificator * level);
+        currentPricePrint = Mathf.FloorToInt(value);
+        pricePrintUpgrade.text = currentPricePrint.ToString();
     }
     
 }

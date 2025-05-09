@@ -40,9 +40,9 @@ public class CollectableManager : MonoBehaviour
     }
     
     [Button]
-    public void Add100Coin()
+    public void Add100Value(eCollectable eCollectable)
     {
-        _collectableWallets.Find(x => x.WalletType == eCollectable.coin).Add(100);
+        _collectableWallets.Find(x => x.WalletType == eCollectable).Add(100);
     }
     
 }

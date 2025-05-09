@@ -1549,10 +1549,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7079633670879921268}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.18721896, y: 0.85573614}
-  m_AnchorMax: {x: 0.8141125, y: 1}
-  m_AnchoredPosition: {x: -0.50001526, y: 0}
-  m_SizeDelta: {x: 0.2999878, y: -1.699997}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 259.1}
+  m_SizeDelta: {x: 258.7, y: 75.2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &632053231957996870
 CanvasRenderer:
@@ -1582,9 +1582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Mine
-
-'
+  m_text: Rotten eggs
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
   m_sharedMaterial: {fileID: 8690591861142563998, guid: 8d34560b6d49c4469b2174ccd34ae34b, type: 2}
@@ -1611,8 +1609,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 45
+  m_fontSizeBase: 45
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

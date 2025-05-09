@@ -9,5 +9,7 @@
     SpeedReduce,
     ProjectileSpeed,
     ProjectileCountPerTime,
-    ShootCountPerTime
+    ShootCountPerTime,
+    LaserRange,
+    healBonus
 }
