@@ -7,16 +7,14 @@ using UnityEngine.AI;
 public class RangeMove : IMoveable
 {
     BaseEnemy _enemy;
-    NavMeshAgent _navMesh;
     float _distance;
     Target _target;
 
 
 
-    public RangeMove(BaseEnemy enemy, NavMeshAgent navMesh, float distance, Target target)
+    public RangeMove(BaseEnemy enemy, float distance, Target target)
     {
         _enemy = enemy;
-        _navMesh = navMesh;
         _distance = distance;
         _target = target;
     }
@@ -29,6 +27,6 @@ public class RangeMove : IMoveable
         {
             _enemy.EnemyStateMachine.ChangeState<AttackState>();
         }
-        _navMesh.Move(new Vector3(0, 0, -1) * (_enemy.Speed * Time.deltaTime));
+        //_navMesh.Move(new Vector3(0, 0, -1) * (_enemy.Speed * Time.deltaTime));
     }
 }

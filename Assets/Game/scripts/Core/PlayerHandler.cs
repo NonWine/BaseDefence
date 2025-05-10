@@ -15,7 +15,8 @@ public class PlayerHandler : MonoBehaviour
     private void Construct()
     {
         Player = diContainer.InstantiatePrefabForComponent<Player>(playerPrefab);
-        Player.PlayerContainer.Agent.Warp(playerSpawnPoint.position);
+        //Player.PlayerContainer.Agent.Warp(playerSpawnPoint.position);
+        Player.PlayerContainer.transform.position = playerSpawnPoint.position;
         Player.Initialize();
     }
 }

@@ -72,12 +72,13 @@ public class EnemySpawner : MonoBehaviour
             {
                 var enemy = enemyFactory.Create(poolAble.Type);
                 Vector3 pos = randomPointInBoxCollider.GetRandomPointInBox();
-                NavMeshHit hit;
+                /*NavMeshHit hit;
                 if (NavMesh.SamplePosition(pos, out hit, 5f, NavMesh.AllAreas))
                 {
                     pos = hit.position;
                 }
-                enemy.GetComponent<NavMeshAgent>().Warp(pos);
+                enemy.GetComponent<NavMeshAgent>().Warp(pos);*/
+                enemy.transform.position = pos;
                 enemy.EnemyStateMachine.ChangeState<IdleState>();
                 enemy.transform.rotation = Quaternion.identity;
                 CurrentEnemies++;

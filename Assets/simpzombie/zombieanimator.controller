@@ -86,7 +86,19 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: zombieanimator
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Speed
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: State
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -111,16 +123,16 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 6029589861586491183}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_Position: {x: 230, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7627902896445803668}
-    m_Position: {x: 230, y: 60, z: 0}
+    m_Position: {x: 230, y: -110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -9029601441026903851}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_Position: {x: 230, y: -210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8393883392621625133}
-    m_Position: {x: 305, y: 195, z: 0}
+    m_Position: {x: 230, y: -40, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

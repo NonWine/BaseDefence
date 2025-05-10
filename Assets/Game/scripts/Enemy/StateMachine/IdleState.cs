@@ -10,11 +10,10 @@ public class IdleState : EnemyBaseState
     private float _timer;
 
     
-    public IdleState(BaseEnemy baseEnemy,  EnemyStateMachine enemyStateMachine, EnemyAnimator enemyAnimator,
-         NavMeshAgent meshAgent
+    public IdleState(BaseEnemy baseEnemy,  EnemyStateMachine enemyStateMachine, EnemyAnimator enemyAnimator        
     ) : base(baseEnemy,  enemyStateMachine)
     {
-        _agent = meshAgent;
+       
         _enemyAnimator = enemyAnimator;
     }
     

@@ -11,8 +11,9 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [field: SerializeField] public EnemyStatsConfig EnemyStatsConfig { get; private set; }
     [SerializeField] protected EnemyAnimator EnemyAnimator;
     [SerializeField] protected HealthUI HealthUI;
-    [SerializeField] protected NavMeshAgent NavMesh;
-    [SerializeField] protected Collider collider;
+    //[SerializeField] protected Collider collider;
+    [SerializeField] protected Collider2D collider;
+    [SerializeField] protected Rigidbody2D rigidbody;
     [SerializeField] protected float _poisonedSpeedMultiplier;
     [SerializeField] protected float _speed;
     private bool isPoisoned = false;
@@ -39,7 +40,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         private set
         {
             _speed = value;
-            NavMesh.speed = _speed;
+/*            NavMesh.speed = _speed;*/
         }
     }
 
@@ -96,10 +97,10 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         {
             IsDeath = true;
             collider.isTrigger = true;
-            if(NavMesh.isOnNavMesh)
+/*            if(NavMesh.isOnNavMesh)
                 NavMesh.isStopped = true;
             NavMesh.velocity = Vector3.zero;
-            NavMesh.enabled = false;
+            NavMesh.enabled = false;*/
             HealthUI.gameObject.SetActive(false);
             EnemyAnimator.SetIdle();
             EnemyAnimator.SetDie();
@@ -113,11 +114,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         return new Dictionary<Type, IEnemyState>
         {
-            { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator, NavMesh) },
+            { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator) },
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
-            { typeof(MoveState), new MoveState(this,EnemyStateMachine, NavMesh, EnemyAnimator, EnemyRotation, target, new MelleMove(this, NavMesh)) },
+            { typeof(MoveState), new MoveState(this,EnemyStateMachine, EnemyAnimator, EnemyRotation, target, new MelleMove(this, rigidbody)) },
             { typeof(DieState), new DieState(this, EnemyStateMachine, resourcePartObjFactory) },
-            { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, NavMesh, EnemyAnimator) },
+            { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, EnemyAnimator) },
         };
     }
     

@@ -96,7 +96,10 @@ public class Player : MonoBehaviour , ITickable
       //  _overlapSphereHandler.UpdateOverlapSphere();
         _playerController.Tick();
     }
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Player collided with " + collision.transform.name);
+    }
     private void OnDrawGizmos()
     {
         if(_overlapSphereHandler != null)
@@ -108,4 +111,5 @@ public class Player : MonoBehaviour , ITickable
     {
         _playerStateMachine.ChangeState(PlayerStateKey.Attack);
     }
+    
 }

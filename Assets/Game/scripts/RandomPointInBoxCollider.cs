@@ -2,26 +2,26 @@
 
 public class RandomPointInBoxCollider : MonoBehaviour
 {
-    [SerializeField] private BoxCollider boxCollider;
+    [SerializeField] private BoxCollider2D boxCollider;
 
     // Возвращает случайную точку внутри BoxCollider
-    public Vector3 GetRandomPointInBox()
+    public Vector2 GetRandomPointInBox()
     {
         if (boxCollider == null)
         {
             Debug.LogError("BoxCollider не назначен!");
-            return Vector3.zero;
+            return Vector2.zero;
         }
 
         // Получаем размеры коллайдера
-        Vector3 size = boxCollider.size;
-        Vector3 center = boxCollider.center;
+        Vector2 size = boxCollider.size;
+        Vector2 center = boxCollider.offset;
 
         // Получаем случайную точку в локальных координатах коллайдера
-        Vector3 localRandomPoint = new Vector3(
+        Vector2 localRandomPoint = new Vector2(
             Random.Range(-size.x / 2f, size.x / 2f),
-            Random.Range(-size.y / 2f, size.y / 2f),
-            Random.Range(-size.z / 2f, size.z / 2f)
+            Random.Range(-size.y / 2f, size.y / 2f)
+            //Random.Range(-size.z / 2f, size.z / 2f)
         );
 
         // Смещаем с учётом центра

@@ -57,5 +57,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Enemies:
-  - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}
+  - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
     Count: 1

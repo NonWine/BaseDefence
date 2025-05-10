@@ -8,7 +8,8 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _playerContainer.Agent.Warp(_point.position);
+        //_playerContainer.Agent.Warp(_point.position);
+        _playerContainer.transform.position = _point.position;
         Application.targetFrameRate = 120; // Или 120, если устройство поддерживает
         QualitySettings.vSyncCount = 0; // Отключает VSync
         //   UnityEngine.Android.Permission.RequestUserPermission("android.permission.HIGH_SAMPLING_RATE");
