@@ -13,8 +13,8 @@ public  class WeaponUpgradeData
     [TabGroup("BaseStats Configuration")] [SerializeField] [JsonProperty]
     public List<WeaponStatValue> BaseStats;
 
-    [JsonProperty] [field: SerializeField] [ReadOnly] public int CurrentLevel { get; set; } = 1;
-    [JsonProperty] [field: SerializeField] [ReadOnly] public int CardLevel { get; set; } = 1;
+    [JsonProperty] [field: SerializeField,ReadOnly]  public int CurrentLevel { get; set; } = 1;
+    [JsonProperty] [field: SerializeField,ReadOnly]  public int CardLevel { get; set; } = 1;
 
 
     [JsonProperty] [field: SerializeField, ReadOnly] public bool LevelMax { get; private set; }
@@ -58,7 +58,7 @@ public  class WeaponUpgradeData
         var statValue = BaseStats.Find(x => x.StatName == statName);
         if (statValue == null)
         {
-            Debug.LogError(nameof(statName) + "Doe not exist");
+            Debug.LogError(statName.ToString() + "Doe not exist");
             return null;
         }
         
@@ -70,7 +70,10 @@ public  class WeaponUpgradeData
     public void ResetData()
     {
         LevelMax = false;
+        CardLevelMax = false;
+        IsUnLocked = false;
         CurrentLevel = 1;
+        CardLevel = 1;
         foreach (var weaponStatValue in BaseStats)
         {
             weaponStatValue.ResetLevel();
@@ -88,7 +91,7 @@ public  class WeaponUpgradeData
             if (BaseStats.Count > i)
             {
                 
-                BaseStats[i].Init(weaponStatValues[i].Level, weaponStatValues[i].BaseValue);
+                BaseStats[i].Init(weaponStatValues[i].Level, weaponStatValues[i].BonusedValue);
             }
         }
     }

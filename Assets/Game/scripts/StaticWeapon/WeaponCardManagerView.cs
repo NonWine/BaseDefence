@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -23,21 +24,30 @@ public class WeaponCardManagerView : MonoBehaviour
     [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
-    // costil
-    private int j = 0;
-    //
-    
 
+
+    public bool CanCreateCards => allWeapons.ToList().Find(x => x.WeaponUpgradeData.CardLevelMax == false);
+
+    private int CountCards()
+    {
+        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.CardLevelMax == false);
+        if (allCount.Count >= 3)
+            return 3;
+        return allCount.Count;
+    }
+    
     public async void CreateCards()
     {
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = false;
         
         Ease ease = Ease.OutBack;
-        xOffset = cardContainer.rect.width / 3f;
+        int count = CountCards();
+        xOffset = CardCreatorAnimationConfig.GetXOffset(count, cardContainer.rect.width);
         Sequence mainSequence = DOTween.Sequence();
         mainSequence.SetUpdate(true);
         
-        for (int i = 0; i < 3; i++)
+        
+        for (int i = 0; i < count; i++)
         {
             float newOffset;
             
@@ -49,9 +59,7 @@ public class WeaponCardManagerView : MonoBehaviour
                 newOffset = 0f;
 
             var card = CreateWeaponCardView();
-            j++;
-            if (j == allWeapons.Length)
-                j = 0;
+     
      
             
             RectTransform cardTransform = card.GetComponent<RectTransform>();
@@ -81,27 +89,27 @@ public class WeaponCardManagerView : MonoBehaviour
     private WeaponCardView CreateWeaponCardView()
     {
         var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
-        cardViews.Add(card);
+        var nonMaxWeapons = allWeapons
+            .Where(x => !x.WeaponUpgradeData.CardLevelMax)  // CardLevelMax == false
+            .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
+            .ToList();
         
-        var weapon = allWeapons[j];
-        if (allWeapons[j].WeaponUpgradeData.CardLevelMax)
-        {
-            Debug.Log("CArd Level MAx");
-        }
+        var weapon = nonMaxWeapons[Random.Range(0, nonMaxWeapons.Count)];
         
         if (weapon.WeaponUpgradeData.IsUnLocked && weapon is DynamicWeapon dynamicWeapon) 
         {
             card.OnClickedWeaponEvent += GetWeaponAndUpgradeItLevel;
             var upgradeData =   cardsUpgradeHandler.GetUpgradeData(weapon);
-            card.SetData(allWeapons[j],upgradeData);
+            card.SetData(weapon,upgradeData);
 
         }
         else
         {
             card.OnClickedWeaponEvent += GetWeaponFistTime;
-            card.SetData(allWeapons[j]);
+            card.SetData(weapon);
         }
-
+        
+        cardViews.Add(card);
         return card;
     }
 
