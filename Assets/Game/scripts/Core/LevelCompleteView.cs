@@ -28,7 +28,12 @@ public class LevelCompleteView : MonoBehaviour
     }
 
     [Button]
-    public void Show() => StartCoroutine(ShowCor());
+    public void Show()
+    {
+        if(!_weaponCardManagerView.CanCreateCards) return;
+        
+        StartCoroutine(ShowCor());
+    } 
 
     public void Hide(WeaponInfoData weaponInfoData) => StartCoroutine(HideCor());
     

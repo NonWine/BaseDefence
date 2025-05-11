@@ -10,17 +10,17 @@ public class WeaponStatValue
    [JsonProperty] private int UpgradeLevel = 1;
    [JsonIgnore]  [field: SerializeField] public StatName StatName { get; private set; }
 
-   [JsonIgnore] [ShowInInspector, ReadOnly]  public float CurrentValue => BaseValue * (1 + Modificator * UpgradeLevel);
-   
-   
-   
-   public int CurrentValueInt => Mathf.FloorToInt(BaseValue * (1 + Modificator * UpgradeLevel));
+   [JsonIgnore] [ShowInInspector, ReadOnly]  public float CurrentValue => (BaseValue  + BonusedValue) * (1 + Modificator * UpgradeLevel);
 
-   public void Init(int level, float baseValue)
+   [ShowInInspector, ReadOnly] public float BonusedValue;
+   
+   public int CurrentValueInt => Mathf.FloorToInt((BaseValue  + BonusedValue) * (1 + Modificator * UpgradeLevel));
+
+   public void Init(int level, float bonuesdValue)
    {
         UpgradeLevel = level;
-        //BaseValue = baseValue;
-        
+        BonusedValue = bonuesdValue;
+
    } 
 
     public void ResetLevel() => UpgradeLevel = 1;
@@ -28,12 +28,12 @@ public class WeaponStatValue
     public void ImproveBaseValueByPercent(float value)
     {
         float improvedValue = BaseValue * (value / 100f);
-        BaseValue += improvedValue;
+        BonusedValue += improvedValue;
     }
     
     public void ImproveBaseValue(float value)
     {
-        BaseValue += value;
+        BonusedValue += value;
     }
 
     public int Level => UpgradeLevel;
