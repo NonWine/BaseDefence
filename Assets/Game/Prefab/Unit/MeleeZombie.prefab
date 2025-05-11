@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5963660415486025258}
   - component: {fileID: 8111149296409356499}
   - component: {fileID: 4595726123965136467}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MeleeZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,6 +167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: simpzombie1
       objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -206,6 +210,54 @@ PrefabInstance:
     - target: {fileID: -7552582706839291426, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6048981460788726192, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -4546919045956300991, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -2558023880040089324, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1786942242214001491, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -1125081754167440450, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 386791141387813222, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805404538631728759, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3216434733664738530, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3375170050027246920, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514277267147506254, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891915868413900037, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727091967253889458, guid: 0ff1fab4a71e6804aa06dda4df25181a, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -254,6 +306,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957413960029910725}
     m_Modifications:
+    - target: {fileID: 627376219001985205, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134033629845871146, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2689595542045330341, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -334,9 +394,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3450193751210580496, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4335710499542672277, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_Name
       value: HealthUICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4335710499542672277, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6346936464304651105, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6515456859751642097, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6831244737885182441, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_AnchorMax.x
@@ -345,6 +421,10 @@ PrefabInstance:
     - target: {fileID: 6831244737885182441, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8766861227530972458, guid: 7daf25e2cf1e8aa49bbd0297862e0ec7, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

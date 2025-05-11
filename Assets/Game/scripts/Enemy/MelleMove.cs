@@ -18,8 +18,8 @@ public class MelleMove : IMoveable
     public void Move()
     {
         //_navMesh.Move(new Vector3(0, 0, -1) * (_enemy.Speed * Time.deltaTime));
-        //_rigidbody.MovePosition(_enemy.transform.position + new Vector3(0, -1, 0) * _enemy.Speed * Time.deltaTime);
-        _rigidbody.velocity = new Vector3(0, -1, 0) * _enemy.Speed * Time.deltaTime;
+        _rigidbody.MovePosition(_enemy.transform.position + new Vector3(0, -1, 0) * _enemy.Speed * Time.deltaTime);
+        //_rigidbody.velocity = new Vector3(0, -1, 0) * _enemy.Speed * Time.deltaTime;
     }
 
 }
