@@ -30,10 +30,10 @@ MonoBehaviour:
     - <BaseValue>k__BackingField: 6.37
       Modificator: 0.34
       <StatName>k__BackingField: 2
-    - <BaseValue>k__BackingField: 0
+    - <BaseValue>k__BackingField: 5
       Modificator: 1.36
       <StatName>k__BackingField: 0
-    - <BaseValue>k__BackingField: 0
+    - <BaseValue>k__BackingField: 3
       Modificator: -0.36
       <StatName>k__BackingField: 1
     - <BaseValue>k__BackingField: 80

@@ -3017,13 +3017,13 @@ MonoBehaviour:
     isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-    isLocked: 0
+    isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
     isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
-    isLocked: 1
+    isLocked: 0
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
     isLocked: 1
