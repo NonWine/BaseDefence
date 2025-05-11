@@ -21,7 +21,6 @@ public  class WeaponUpgradeData
     [JsonProperty] [field: SerializeField, ReadOnly] public bool CardLevelMax { get; private set; }
     [JsonProperty] [field: SerializeField, ReadOnly] public bool IsUnLocked { get;  set; }
 
-   
 
     [Button]
     public void Upgrade()
@@ -77,10 +76,14 @@ public  class WeaponUpgradeData
     public void Init(List<WeaponStatValue> weaponStatValues, int level)
     {
         CurrentLevel = level;
+        
         for (var i = 0; i < weaponStatValues.Count; i++)
         {
-            if(BaseStats.Count < i)
-                BaseStats[i].SetLevel(weaponStatValues[i].Level);
+            if (BaseStats.Count > i)
+            {
+                
+                BaseStats[i].Init(weaponStatValues[i].Level, weaponStatValues[i].BaseValue);
+            }
         }
     }
     

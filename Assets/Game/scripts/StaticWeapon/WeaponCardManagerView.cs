@@ -89,7 +89,7 @@ public class WeaponCardManagerView : MonoBehaviour
             Debug.Log("CArd Level MAx");
         }
         
-        if (weapon.WeaponUpgradeData.IsUnLocked)
+        if (weapon.WeaponUpgradeData.IsUnLocked && weapon is DynamicWeapon dynamicWeapon) 
         {
             card.OnClickedWeaponEvent += GetWeaponAndUpgradeItLevel;
             var upgradeData =   cardsUpgradeHandler.GetUpgradeData(weapon);

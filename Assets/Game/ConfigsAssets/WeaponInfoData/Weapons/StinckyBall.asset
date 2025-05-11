@@ -25,20 +25,29 @@ MonoBehaviour:
   WeaponName: Rotten eggs
   description: slow down enemies
   WeaponUpgradeData:
-    UpgradeQueue: 00000000000000000200000002000000
+    UpgradeQueue: 0000000000000000020000000200000000000000
     BaseStats:
-    - BaseValue: 1.7
+    - <BaseValue>k__BackingField: 6.37
       Modificator: 0.34
       <StatName>k__BackingField: 2
-    - BaseValue: 6.21
+    - <BaseValue>k__BackingField: 0
       Modificator: 1.36
       <StatName>k__BackingField: 0
-    - BaseValue: 5.05
+    - <BaseValue>k__BackingField: 0
       Modificator: -0.36
       <StatName>k__BackingField: 1
+    - <BaseValue>k__BackingField: 80
+      Modificator: 0.4
+      <StatName>k__BackingField: 7
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 9
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 8
     <CurrentLevel>k__BackingField: 2
+    <CardLevel>k__BackingField: 3
     <LevelMax>k__BackingField: 0
+    <CardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
-  damage: 5
-  coolDown: 1
