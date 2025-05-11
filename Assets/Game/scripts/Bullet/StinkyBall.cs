@@ -11,7 +11,7 @@ public class StinkyBall : BaseBullet
 
     public override Type Type => typeof(StinkyBall);
 
-    protected override void OnCollisionEnter2D(Collision2D other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
