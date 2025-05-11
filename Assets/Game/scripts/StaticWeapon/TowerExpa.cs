@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class TowerExpa : MonoBehaviour
+public class TowerExpa : StaticWeaponObj
 {
     [Inject] private PlayerLevelController playerLevelController;
     [SerializeField] private float amplifier;

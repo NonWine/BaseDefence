@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c133dcef81ad4f72a934f60e0c6cdd4d, type: 3}
-  m_Name: Mine
+  m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
+  m_Name: Default
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,23 +21,30 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: c94ac9d283c31496a94910ba9ac982ae, type: 3}
-  WeaponName: Mines
-  description: spawn mines on the ground area
+  image: {fileID: 0}
+  WeaponName: 
+  description: 
   WeaponUpgradeData:
-    UpgradeQueue: 0100000001000000000000000000000000000000
+    UpgradeQueue: 000000000000000002000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1.73
-      Modificator: 1.75
+    - <BaseValue>k__BackingField: 0
+      Modificator: 0.39
       <StatName>k__BackingField: 0
-    - <BaseValue>k__BackingField: 1.65
-      Modificator: 1.54
-      <StatName>k__BackingField: 1
-    - <BaseValue>k__BackingField: 1.74
+    - <BaseValue>k__BackingField: 0
       Modificator: 0
-      <StatName>k__BackingField: 2
-    <CurrentLevel>k__BackingField: 1
+      <StatName>k__BackingField: 1
+    - <BaseValue>k__BackingField: 80
+      Modificator: 0
+      <StatName>k__BackingField: 7
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 8
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 9
+    <CurrentLevel>k__BackingField: 0
     <CardLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
     <CardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
+  baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}

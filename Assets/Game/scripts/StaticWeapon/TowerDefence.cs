@@ -5,15 +5,14 @@ using System.Linq;
 using UnityEngine;
 using Zenject;
 
-public class TowerDefence : MonoBehaviour , ITickable
+public class TowerDefence : StaticWeaponObj , ITickable
 {
     [Inject]  private EnemyFactory enemyFactory;
     [Inject]  private BulletFactory bulletFactory;
     [Inject] private GameController _gameСontroller;
     [SerializeField] private BaseBullet baseBulletPrefab;
     [SerializeField] private Transform startBulletPos;
-    [SerializeField] private float coolDown;
-    [SerializeField] private int damage;
+
     public Transform CurrentAgredTarget { get; private set; }
     
     private float timer;
@@ -33,7 +32,7 @@ public class TowerDefence : MonoBehaviour , ITickable
     {
         timer += Time.deltaTime;
         
-            if (timer >= coolDown)
+            if (timer >= WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
             {
                 var enemy = GetNearlestEnemy(transform);
                 if (enemy != null)
@@ -42,7 +41,7 @@ public class TowerDefence : MonoBehaviour , ITickable
                     CurrentAgredTarget = enemy.transform;
                     var bullet = bulletFactory.Create(baseBulletPrefab.GetType());
                     bullet.transform.position = startBulletPos.position;
-                    bullet.Init(damage, CurrentAgredTarget);
+                    bullet.Init(CurrentAgredTarget);
                 }
                 
             }

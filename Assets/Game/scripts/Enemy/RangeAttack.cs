@@ -23,7 +23,7 @@ public class RangeAttack : IAttackable
         //var currentTarget = new Vector3(_bulletSpawnPos.position.x, target.transform.position.y, target.transform.position.z);
         var bullet = _bulletFactory.Create(typeof(EnemyBullet));
         bullet.transform.position = _bulletSpawnPos.position;
-        bullet.Init(_enemy.CurrentDamage, _target.transform);
+        bullet.Init(_target.transform);
         //bullet.Init(_enemy.CurrentDamage, _unitAgrRadius.CurrentAgredTransform);
     }
 }

@@ -12,10 +12,6 @@ public class PlayerCombatManager : MonoBehaviour
     private void Awake()
     {
         _weaponCardManagerView.OnGetWeaponEvent += SetWeaponCard;
-        foreach (var weaponHandler in weaponHandlers)
-        {
-            weaponHandler.Init();
-        }
     }
 
     private void OnDestroy()

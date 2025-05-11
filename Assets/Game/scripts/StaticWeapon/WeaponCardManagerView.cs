@@ -16,6 +16,7 @@ public class WeaponCardManagerView : MonoBehaviour
     [Inject] private DiContainer diContainer;
     [SerializeField] private WeaponCardView weaponCardViewPrefab;
     [SerializeField] private RectTransform cardContainer;
+    [SerializeField] private CardsUpgradeHandler cardsUpgradeHandler;
     [SerializeField] private float offsetSpeed;
     private float xOffset;
     
@@ -45,16 +46,13 @@ public class WeaponCardManagerView : MonoBehaviour
             else if (i == 1)
                 newOffset = xOffset;  
             else
-                newOffset = 0f;       
-            
-            var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab,cardContainer.transform);
-            card.SetData(allWeapons[j]);
+                newOffset = 0f;
+
+            var card = CreateWeaponCardView();
             j++;
             if (j == allWeapons.Length)
                 j = 0;
-            
-            card.OnClickedWeaponEvent += GetWeapon;
-            cardViews.Add(card);
+     
             
             RectTransform cardTransform = card.GetComponent<RectTransform>();
             cardTransform.anchoredPosition = Vector3.zero;
@@ -80,18 +78,58 @@ public class WeaponCardManagerView : MonoBehaviour
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
 
-    private void GetWeapon(WeaponInfoData weaponInfoData)
+    private WeaponCardView CreateWeaponCardView()
+    {
+        var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
+        cardViews.Add(card);
+        
+        var weapon = allWeapons[j];
+        if (allWeapons[j].WeaponUpgradeData.CardLevelMax)
+        {
+            Debug.Log("CArd Level MAx");
+        }
+        
+        if (weapon.WeaponUpgradeData.IsUnLocked && weapon is DynamicWeapon dynamicWeapon) 
+        {
+            card.OnClickedWeaponEvent += GetWeaponAndUpgradeItLevel;
+            var upgradeData =   cardsUpgradeHandler.GetUpgradeData(weapon);
+            card.SetData(allWeapons[j],upgradeData);
+
+        }
+        else
+        {
+            card.OnClickedWeaponEvent += GetWeaponFistTime;
+            card.SetData(allWeapons[j]);
+        }
+
+        return card;
+    }
+
+    private void GetWeaponFistTime(WeaponInfoData weaponInfoData)
+    {
+        UnscribeFromCards();
+        weaponInfoData.WeaponUpgradeData.IsUnLocked = true;
+        OnGetWeaponEvent?.Invoke(weaponInfoData);
+    }
+
+    private void GetWeaponAndUpgradeItLevel(WeaponInfoData weaponInfoData)
+    {
+        UnscribeFromCards();
+        cardsUpgradeHandler.UpgradeCard(weaponInfoData);
+        OnGetWeaponEvent?.Invoke(weaponInfoData);
+    }
+    
+    private void UnscribeFromCards()
     {
         for (var i = cardViews.Count - 1; i >= 0; i--)
         {
-            if(cardViews[i].IsSelected == false)
+            if (cardViews[i].IsSelected == false)
                 cardViews[i].GetComponent<CardSelectionView>().Deselect();
-            
-            cardViews[i].OnClickedWeaponEvent -= GetWeapon; 
-        }
 
-        weaponInfoData.WeaponUpgradeData.IsUnLocked = true;
-        OnGetWeaponEvent?.Invoke(weaponInfoData);
+            cardViews[i].OnClickedWeaponEvent -= GetWeaponFistTime;
+            cardViews[i].OnClickedWeaponEvent -= GetWeaponAndUpgradeItLevel;
+
+        }
     }
 
     public void DestroyCards()

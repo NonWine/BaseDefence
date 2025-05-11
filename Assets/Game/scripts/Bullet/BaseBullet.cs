@@ -7,14 +7,16 @@ using UnityEngine;
 public abstract class BaseBullet : PoolAble
 {
     [SerializeField] private TrailRenderer trailRenderer;
+    [SerializeField] private WeaponInfoData WeaponInfoData;
     protected Transform _target;
     //protected Vector3 _target;
     protected Rigidbody rigidbody;
     protected IDamageable _damageable;
     protected Vector3 savedDirection;
     protected bool isAlive;
-    protected int _damage;
     protected float timer;
+
+    protected WeaponUpgradeData WeaponUpgradeData => WeaponInfoData.WeaponUpgradeData;
     
     private void Start()
     {
@@ -29,7 +31,7 @@ public abstract class BaseBullet : PoolAble
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
             
-            damageable.GetDamage(_damage);
+            damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
         }
 
         isAlive = false;
@@ -62,7 +64,7 @@ public abstract class BaseBullet : PoolAble
     }
 
 
-    public virtual void Init(int damage, Transform target)
+    public virtual void Init(Transform target)
     {
         if (trailRenderer != null)
         {
@@ -73,7 +75,6 @@ public abstract class BaseBullet : PoolAble
         rigidbody.velocity = Vector3.zero;
         timer = 0f;
         _target = target;
-        _damage = damage;
         isAlive = true;
         _damageable = target.GetComponent<IDamageable>();
     }

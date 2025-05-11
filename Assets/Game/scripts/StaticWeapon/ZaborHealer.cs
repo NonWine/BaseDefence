@@ -3,19 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public class ZaborHealer : MonoBehaviour
+public class ZaborHealer : StaticWeaponObj
 {
     [Inject] private Target target;
-    [SerializeField] private float _healColdown;
-    [SerializeField] private int _healAmount;
     private float _healTimer;
 
     private void Update()
     {
         _healTimer += Time.deltaTime;
-        if(_healTimer >= _healColdown)
+        if(_healTimer >= WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
         {
-            target.Heal(_healAmount);
+            target.Heal(WeaponUpgradeData.GetStat(StatName.healBonus).CurrentValueInt);
             _healTimer = 0;
         }
     }

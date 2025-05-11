@@ -7,6 +7,10 @@
     ExpModificator,
     LaserDuration,
     SpeedReduce,
+    ProjectileSpeed,
+    ProjectileCountPerTime,
+    ShootCountPerTime,
     LaserRange,
-    healBonus
+    healBonus,
+    DamageInterval
 }

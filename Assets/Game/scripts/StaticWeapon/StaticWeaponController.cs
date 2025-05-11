@@ -5,13 +5,13 @@ using Zenject;
 
 public abstract class StaticWeaponController : MonoBehaviour , ITickable
 {
-    [field: SerializeField] public WeaponType WeaponType;
     [SerializeField, ReadOnly] private bool isLocked = true;
+    [SerializeField] public WeaponInfoData WeaponInfoData;
     [Inject] private GameController gameController;
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] protected DiContainer diContainer;
+    
     protected float timer;
-    [SerializeField, ReadOnly] public WeaponInfoData WeaponInfoData;
     public bool IsLocked => isLocked;
     
     public Action UnlockCallback;
@@ -31,14 +31,10 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
 
     public virtual void GetWeaponCard(WeaponInfoData weaponInfoData)
     {
-        if (weaponInfoData is StaticWeaponData staticWeaponData)
+        if (weaponInfoData == WeaponInfoData)
         {
-            if (WeaponType == staticWeaponData.WeaponType)
-            {
-                WeaponInfoData = staticWeaponData;
-                isLocked = false;
-                UnlockCallback?.Invoke();
-            }
+             isLocked = false;
+             UnlockCallback?.Invoke();
         }
     }
 

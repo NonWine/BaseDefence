@@ -182,4 +182,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 0}
+  WeaponInfoData: {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
   _laser: {fileID: 2346273761447223241, guid: be548cde85aad254ca5c9523a53eca96, type: 3}

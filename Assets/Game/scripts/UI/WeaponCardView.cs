@@ -18,6 +18,13 @@ public class WeaponCardView : CardView
         description.text = this.weaponInfoData.description;
     }
 
+    public void SetData(WeaponInfoData weaponInfoData, CardUpgradeInfo cardUpgradeInfo)
+    {
+        SetData(weaponInfoData);
+        description.text = cardUpgradeInfo.Description;
+
+    }
+
     public void DestroyCard()
     {
         transform.DOScale(0f, 0.15f).SetEase(Ease.Linear).OnComplete(() =>

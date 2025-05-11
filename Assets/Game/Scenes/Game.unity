@@ -322,9 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5115e43d15fd42d469909e662a863043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 3
   isLocked: 1
-  WeaponInfoData: {fileID: 0}
+  WeaponInfoData: {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
   towerExpaPrefab: {fileID: 224740040378487136, guid: 21c7a44cea30fc04a82f826bf495933f, type: 3}
   towerPoint: {fileID: 487697670}
 --- !u!1 &32150906
@@ -1534,9 +1533,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1569083878c73448833207bdcf48b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 2
   isLocked: 1
-  WeaponInfoData: {fileID: 0}
+  WeaponInfoData: {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
   towerExpaPrefab: {fileID: 280145699892341234, guid: 805830612ca8fee46ad350aa836c45ee, type: 3}
   towerPoint: {fileID: 861984752}
 --- !u!1 &1128635372
@@ -1549,6 +1547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128635373}
   - component: {fileID: 1128635374}
+  - component: {fileID: 1128635375}
   m_Layer: 0
   m_Name: WeaponCardManagerView
   m_TagString: Untagged
@@ -1585,7 +1584,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCardViewPrefab: {fileID: 1343714998706499621, guid: d89432bdd9b43e7448ca3a7182c3f512, type: 3}
   cardContainer: {fileID: 5724941405880679929}
+  cardsUpgradeHandler: {fileID: 1128635375}
   offsetSpeed: 0.35
+--- !u!114 &1128635375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128635372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c091605bcb4e44259c5ed25e650c6158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsUpgradeData:
+  - {fileID: 11400000, guid: 35062341dffefdc4fb301a67a475cca5, type: 2}
+  - {fileID: 11400000, guid: 4d640c750b91782469bfe6fa48a92506, type: 2}
+  - {fileID: 11400000, guid: dc601ae0ba677db44b4aff17d0da2e35, type: 2}
 --- !u!1 &1161861817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,8 +2688,8 @@ Transform:
   m_Children:
   - {fileID: 2009996175}
   - {fileID: 1761071182}
-  - {fileID: 28861548}
   - {fileID: 1106253496}
+  - {fileID: 28861548}
   m_Father: {fileID: 1836437329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1658342763
@@ -2946,9 +2962,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7362c03b408441598602f8d1e18c5b8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 0
   isLocked: 1
-  WeaponInfoData: {fileID: 0}
+  WeaponInfoData: {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
   towerDefencePrefab: {fileID: 2238488278087118217, guid: c3abd5c45d394f74ca4f6fb528d26db9, type: 3}
   towerPoint: {fileID: 2013314821}
 --- !u!1 &1836437328
@@ -3339,11 +3354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a41384f82d7c4d17b60770f7a4f2cd86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: 1
   isLocked: 1
-  WeaponInfoData: {fileID: 0}
+  WeaponInfoData: {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
   minePrefab: {fileID: 88575318646684337, guid: e53094601ad65a540a206710a8ab223e, type: 3}
-  coolDown: 5
   randomPointInBoxCollider: {fileID: 1615733452}
 --- !u!1 &2013314820
 GameObject:

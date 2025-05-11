@@ -10,13 +10,13 @@ public class LaserBullet : BaseBullet
     [SerializeField] LaserRay _laser;
     [Inject] private DiContainer diContainer;
     
-    public override void Init(int damage, Transform target)
+    public override void Init(Transform target)
     {
-        base.Init(damage, target);
+        base.Init(target);
         if (target != null)
         {
             LaserRay laser = diContainer.InstantiatePrefabForComponent<LaserRay>(_laser, transform.position, Quaternion.identity, null);
-            laser.transform.GetComponent<LaserRay>().RayShoot(damage, target);
+            laser.transform.GetComponent<LaserRay>().RayShoot(target, WeaponUpgradeData);
         }
         DestroyBullet();
     }

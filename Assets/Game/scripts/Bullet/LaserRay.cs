@@ -9,29 +9,27 @@ public class LaserRay : MonoBehaviour
 {
     [SerializeField] private Transform _laserOrigin;
     [SerializeField] private float _gunRange;
-    [SerializeField] private float _laserDuration;
     [SerializeField] private LineRenderer _laserLine;
     [SerializeField] private Transform _enemy;
     [SerializeField] private LayerMask _layerMask;
-    [SerializeField] private float _damageInterval;
     [Inject] private PlayerHandler playerHandler;
     [Inject] private EnemyFactory enemyFactory;
     private float _damageTimer;
     private float _shootingTimer;
     private Vector3 _target;
-    private int _damage;
     private Ray _ray;
     private RaycastHit2D[] hits;
+    private WeaponUpgradeData WeaponUpgradeData;
 
-    public void RayShoot(int damage, Transform target)
+    public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
     {
-        
+
+        WeaponUpgradeData = weaponUpgradeData;
         transform.SetParent(playerHandler.Player.transform);
         _laserOrigin = transform;
         _enemy = target;
         _target = target.position;
         
-        _damage = damage;
 
     }
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
@@ -62,7 +60,7 @@ public class LaserRay : MonoBehaviour
         _shootingTimer += Time.deltaTime;
         _damageTimer += Time.deltaTime;
     
-        if (_shootingTimer >= _laserDuration)
+        if (_shootingTimer >= WeaponUpgradeData.GetStat(StatName.LaserDuration).CurrentValue)
         {
             Destroy(gameObject);
             return;
@@ -83,13 +81,13 @@ public class LaserRay : MonoBehaviour
     
         if (hits.Length > 0)
         {
-            if (_damageTimer >= _damageInterval)
+            if (_damageTimer >= WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue)
             {
                 foreach(var hit in hits)
                 {
                     if(hit.transform.TryGetComponent<IDamageable>(out var damageable))
                     {
-                        damageable.GetDamage(_damage);
+                        damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
                     }
                 }
                 _damageTimer = 0;

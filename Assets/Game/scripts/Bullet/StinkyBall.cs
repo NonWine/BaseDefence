@@ -34,9 +34,9 @@ public class StinkyBall : BaseBullet
 
 
 
-    public override void Init(int damage, Transform target)
+    public override void Init(Transform target)
     {
-        base.Init(damage, target);
+        base.Init(target);
         Vector3 randomTorque = Random.onUnitSphere * torqueForce;
         rigidbody.AddTorque(randomTorque, ForceMode.Impulse);
     }

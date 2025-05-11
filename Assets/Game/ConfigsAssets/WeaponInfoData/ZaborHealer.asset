@@ -27,10 +27,11 @@ MonoBehaviour:
   WeaponUpgradeData:
     UpgradeQueue: 080000000800000008000000
     BaseStats:
-    - BaseValue: 2.04
+    - <BaseValue>k__BackingField: 1.9
       Modificator: 0.63
       <StatName>k__BackingField: 8
     <CurrentLevel>k__BackingField: 1
+    <CardLevel>k__BackingField: 1
     <LevelMax>k__BackingField: 0
+    <CardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
-  <WeaponType>k__BackingField: 2
