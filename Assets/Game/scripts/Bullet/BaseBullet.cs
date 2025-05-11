@@ -3,7 +3,6 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseBullet : PoolAble
 {
     [SerializeField] private TrailRenderer trailRenderer;
@@ -46,14 +45,14 @@ public abstract class BaseBullet : PoolAble
             var dir = _target.transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             rigidbody.rotation = angle;
-            rigidbody.velocity = dir.normalized * 100f;
+            rigidbody.velocity = dir.normalized * WeaponUpgradeData.GetStat(StatName.ProjectileSpeed).CurrentValue;
             savedDirection = dir;
             
             if (_damageable.IsDeath)
             {
                 isAlive = false;
                 rigidbody.freezeRotation = true;
-                rigidbody.velocity = savedDirection.normalized * 100f;
+                rigidbody.velocity = savedDirection.normalized *  WeaponUpgradeData.GetStat(StatName.ProjectileSpeed).CurrentValue;
             }
         }
         else
