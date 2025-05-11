@@ -21,7 +21,7 @@ public class LaserRay : MonoBehaviour
     private Vector3 _target;
     private int _damage;
     private Ray _ray;
-    private RaycastHit[] hits;
+    private RaycastHit2D[] hits;
 
     public void RayShoot(int damage, Transform target)
     {
@@ -79,7 +79,7 @@ public class LaserRay : MonoBehaviour
         // Raycast для перевірки попадання
         _ray = new Ray(transform.position, direction.normalized);
         Debug.DrawRay(transform.position, direction, Color.green, 0.01f);
-        hits = Physics.RaycastAll(_ray,_gunRange , _layerMask);
+        hits = Physics2D.RaycastAll(transform.position, direction, _gunRange , _layerMask);
     
         if (hits.Length > 0)
         {
