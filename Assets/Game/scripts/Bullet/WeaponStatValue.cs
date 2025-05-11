@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable] [InlineProperty]
 public class WeaponStatValue
 {
-   [JsonProperty]  [field: SerializeField] public float BaseValue { get; private set; }
+   [JsonIgnore]  [field: SerializeField] public float BaseValue { get; private set; }
    [JsonIgnore]  [SerializeField] private float Modificator;
    [JsonProperty] private int UpgradeLevel = 1;
    [JsonIgnore]  [field: SerializeField] public StatName StatName { get; private set; }
@@ -19,7 +19,7 @@ public class WeaponStatValue
    public void Init(int level, float baseValue)
    {
         UpgradeLevel = level;
-        BaseValue = baseValue;
+        //BaseValue = baseValue;
         
    } 
 

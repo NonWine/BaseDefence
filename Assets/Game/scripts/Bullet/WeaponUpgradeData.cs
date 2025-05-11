@@ -38,6 +38,12 @@ public  class WeaponUpgradeData
         
     }
     
+    [Button]
+    public void ForceSave()
+    {
+            
+    }
+    
     public void UpgradeCardLevel()
     {
         CardLevel++;
