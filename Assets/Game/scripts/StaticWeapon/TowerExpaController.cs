@@ -6,6 +6,7 @@ public class TowerExpaController : StaticWeaponController
 {
     [SerializeField] private TowerExpa towerExpaPrefab;
     [SerializeField] private Transform towerPoint;
+    
     private void Start()
     {
         UnlockCallback += CreateTower;

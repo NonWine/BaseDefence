@@ -1509,6 +1509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128635373}
   - component: {fileID: 1128635374}
+  - component: {fileID: 1128635375}
   m_Layer: 0
   m_Name: WeaponCardManagerView
   m_TagString: Untagged
@@ -1545,7 +1546,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCardViewPrefab: {fileID: 1343714998706499621, guid: d89432bdd9b43e7448ca3a7182c3f512, type: 3}
   cardContainer: {fileID: 5724941405880679929}
+  cardsUpgradeHandler: {fileID: 1128635375}
   offsetSpeed: 0.35
+--- !u!114 &1128635375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128635372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c091605bcb4e44259c5ed25e650c6158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsUpgradeData:
+  - {fileID: 11400000, guid: 35062341dffefdc4fb301a67a475cca5, type: 2}
+  - {fileID: 11400000, guid: 4d640c750b91782469bfe6fa48a92506, type: 2}
 --- !u!1 &1161861817
 GameObject:
   m_ObjectHideFlags: 0

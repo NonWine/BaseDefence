@@ -4,11 +4,12 @@ using Random = UnityEngine.Random;
 
 public class Grenade : BaseBullet
 {
-    [SerializeField] private float radiusExplose = 5f;
     [SerializeField] private float torqueForce = 10f;
     [SerializeField] private LayerMask damageableMask;
     private Collider[] _overlapResults = new Collider[20];
 
+    private float radiusExplose => WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue;
+    
     public override Type Type => typeof(Grenade);
 
     protected override void OnCollisionEnter(Collision other)
@@ -20,7 +21,7 @@ public class Grenade : BaseBullet
             {
                 if (_overlapResults[i].TryGetComponent(out IDamageable targetDamageable))
                 {
-                    targetDamageable.GetDamage(_damage);
+                    targetDamageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
                 }
             }
             DestroyBullet();
@@ -30,9 +31,9 @@ public class Grenade : BaseBullet
     
     
 
-    public override void Init(int damage, Transform target)
+    public override void Init(Transform target)
     {
-        base.Init(damage, target);
+        base.Init(target);
         Vector3 randomTorque = Random.onUnitSphere * torqueForce;
         rigidbody.AddTorque(randomTorque, ForceMode.Impulse);
     }

@@ -18,7 +18,7 @@ public class PlayerGiveDamageHandler
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             unlockedWeapon.CurrentTimer += Time.deltaTime;
-            if (unlockedWeapon.CurrentTimer >= unlockedWeapon.CoolDown)
+            if (unlockedWeapon.CurrentTimer >= unlockedWeapon.weaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
             {
                 var enemy = GetNearlestEnemy(player.transform);
                 if (enemy != null)
@@ -27,7 +27,7 @@ public class PlayerGiveDamageHandler
                     unlockedWeapon.CurrentTimer = 0f;
                     var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
                     bullet.transform.position = player.bulletStartPoint.position;
-                    bullet.Init(unlockedWeapon.Damage, CurrentAgredTarget);
+                    bullet.Init(CurrentAgredTarget);
                 }
                 
             }

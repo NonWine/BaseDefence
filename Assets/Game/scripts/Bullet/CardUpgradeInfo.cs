@@ -11,6 +11,8 @@ public class CardUpgradeInfo
     public string Description;
     [TabGroup("Data")] [PropertyOrder(-100)]
     public List<BonusInfo> Bonuses = new List<BonusInfo>();
+    
+    
 }
 
 [InlineProperty]

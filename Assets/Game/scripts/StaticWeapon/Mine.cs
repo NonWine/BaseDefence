@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mine : MonoBehaviour
+public class Mine : StaticWeaponObj
 {
-    [SerializeField] private int damage;
     [SerializeField] private float delayActivateTime = 0.4f;
     private bool isActivated;
 
@@ -24,7 +23,7 @@ public class Mine : MonoBehaviour
         
         if (other.TryGetComponent(out IDamageable damageable) && isActivated)
         {
-            damageable.GetDamage(damage);
+            damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
             ParticlePool.Instance.PlayExplossion(transform.position,4f);
             Destroy(gameObject);
         }

@@ -11,5 +11,6 @@
     ProjectileCountPerTime,
     ShootCountPerTime,
     LaserRange,
-    healBonus
+    healBonus,
+    DamageInterval
 }

@@ -13,15 +13,15 @@ public  class WeaponUpgradeData
     [TabGroup("BaseStats Configuration")] [SerializeField] [JsonProperty]
     public List<WeaponStatValue> BaseStats;
 
-    [JsonProperty]
-    [field: SerializeField]
-    [ReadOnly] public int CurrentLevel { get; set; } = 1;
+    [JsonProperty] [field: SerializeField] [ReadOnly] public int CurrentLevel { get; set; } = 1;
+    [JsonProperty] [field: SerializeField] [ReadOnly] public int CardLevel { get; set; } = 1;
 
-   [JsonProperty] [field: SerializeField, ReadOnly] 
-   public bool LevelMax { get; private set; }
+
+    [JsonProperty] [field: SerializeField, ReadOnly] public bool LevelMax { get; private set; }
+    [JsonProperty] [field: SerializeField, ReadOnly] public bool CardLevelMax { get; private set; }
+    [JsonProperty] [field: SerializeField, ReadOnly] public bool IsUnLocked { get;  set; }
+
    
-   [JsonProperty] [field: SerializeField, ReadOnly] 
-   public bool IsUnLocked { get;  set; }
 
     [Button]
     public void Upgrade()
@@ -38,6 +38,15 @@ public  class WeaponUpgradeData
         }
         
     }
+    
+    public void UpgradeCardLevel()
+    {
+        CardLevel++;
+        if (GameManager.CardLevelMax == CardLevel)
+        {
+            CardLevelMax = true;
+        }
+    }
 
     public WeaponStatValue GetStat(StatName statName)
     {
@@ -50,6 +59,8 @@ public  class WeaponUpgradeData
         
         return statValue;
     }
+    
+    
 
     public void ResetData()
     {

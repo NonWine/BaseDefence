@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 314c973c397349d781f243829d0b1ab5, type: 3}
-  m_Name: CardsUpgradeData
+  m_Name: TilesUpgrade
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -247,3 +247,5 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  DynamicWeapons:
+  - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
