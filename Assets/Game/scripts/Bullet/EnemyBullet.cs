@@ -10,7 +10,8 @@ public class EnemyBullet : BaseBullet
         if (isAlive)
         {
             var dir = new Vector3(transform.position.x, _target.transform.position.y, _target.transform.position.z) - transform.position;
-            rigidbody.rotation = Quaternion.LookRotation(dir.normalized);
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            rigidbody.rotation = angle;
             rigidbody.velocity = dir.normalized * 100f;
             savedDirection = dir;
 

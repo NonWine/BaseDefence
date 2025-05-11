@@ -3,14 +3,15 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Rigidbody2D))]
 public abstract class BaseBullet : PoolAble
 {
     [SerializeField] private TrailRenderer trailRenderer;
     [SerializeField] private WeaponInfoData WeaponInfoData;
     protected Transform _target;
     //protected Vector3 _target;
-    protected Rigidbody rigidbody;
+    //protected Rigidbody rigidbody;
+    protected Rigidbody2D rigidbody;
     protected IDamageable _damageable;
     protected Vector3 savedDirection;
     protected bool isAlive;
@@ -23,7 +24,7 @@ public abstract class BaseBullet : PoolAble
         ResetPool();
     }
 
-    protected virtual void OnCollisionEnter(Collision other)
+    protected virtual void OnCollisionEnter2D(Collision2D other)
     {
         //Debug.Log(other.gameObject.name);
         
@@ -43,7 +44,8 @@ public abstract class BaseBullet : PoolAble
         if (isAlive)
         {
             var dir = _target.transform.position - transform.position;
-            rigidbody.rotation = Quaternion.LookRotation(dir.normalized);
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            rigidbody.rotation = angle;
             rigidbody.velocity = dir.normalized * 100f;
             savedDirection = dir;
             
@@ -70,7 +72,7 @@ public abstract class BaseBullet : PoolAble
         {
             trailRenderer.Clear();
         }
-        rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody2D>();
         rigidbody.isKinematic = false;
         rigidbody.velocity = Vector3.zero;
         timer = 0f;

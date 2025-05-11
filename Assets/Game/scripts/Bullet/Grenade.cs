@@ -12,7 +12,7 @@ public class Grenade : BaseBullet
     
     public override Type Type => typeof(Grenade);
 
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnCollisionEnter2D(Collision2D other)
     {
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
@@ -35,7 +35,7 @@ public class Grenade : BaseBullet
     {
         base.Init(target);
         Vector3 randomTorque = Random.onUnitSphere * torqueForce;
-        rigidbody.AddTorque(randomTorque, ForceMode.Impulse);
+        rigidbody.AddTorque(torqueForce, ForceMode2D.Impulse);
     }
 
     protected override void DestroyBullet()
