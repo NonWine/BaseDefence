@@ -21,7 +21,7 @@ public class WeaponsSaver : MonoBehaviour
         
         for (var i = 0; i < container.weaponUpgradesData.Count; i++)
         {
-            weaponInfoDatas[i].WeaponUpgradeData.Init(container.weaponUpgradesData[i].BaseStats, container.weaponUpgradesData[i].CurrentLevel);
+            weaponInfoDatas[i].WeaponUpgradeData.Init(container.weaponUpgradesData[i].BaseStats, container.weaponUpgradesData[i]);
         }
     }
 

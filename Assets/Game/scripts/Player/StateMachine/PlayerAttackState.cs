@@ -24,8 +24,8 @@ public class PlayerAttackState : PlayerState
     public override void LogicUpdate()
     {
         _playerGiveDamageHandler.TryGetDamage(player.Player);
-        if(_playerGiveDamageHandler.CurrentAgredTarget != null)
-            _playerRotating.SetTargetRotate(_playerGiveDamageHandler.CurrentAgredTarget);
+        // if(_playerGiveDamageHandler.CurrentAgredTarget != null)
+        //     _playerRotating.SetTargetRotate(_playerGiveDamageHandler.CurrentAgredTarget);
         _playerAnimator.SetStateBehaviour(1);
 
     }

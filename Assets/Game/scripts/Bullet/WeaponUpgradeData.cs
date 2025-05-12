@@ -82,9 +82,12 @@ public  class WeaponUpgradeData
 
     public StatName CurrentUpgradeStat() => UpgradeQueue[CurrentLevel-1];
 
-    public void Init(List<WeaponStatValue> weaponStatValues, int level)
+    public void Init(List<WeaponStatValue> weaponStatValues, WeaponUpgradeData weaponUpgradeData)
     {
-        CurrentLevel = level;
+        CurrentLevel = weaponUpgradeData.CurrentLevel;
+        LevelMax = weaponUpgradeData.LevelMax;
+        IsUnLocked = weaponUpgradeData.IsUnLocked;
+        CardLevel = weaponUpgradeData.CardLevel;
         
         for (var i = 0; i < weaponStatValues.Count; i++)
         {
