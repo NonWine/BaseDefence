@@ -277,7 +277,7 @@ MonoBehaviour:
   trailRenderer: {fileID: 1441558268036760414}
   WeaponInfoData: {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   _pellet: {fileID: 6918393502687273751, guid: 71fc4bbc73f71d94d9f8aac7e250d4d4, type: 3}
-  _maxSpreadAngle: 10
+  _maxSpreadAngle: 6
 --- !u!4 &8540358576405717378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}

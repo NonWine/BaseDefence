@@ -18,20 +18,41 @@ public class PlayerGiveDamageHandler
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             unlockedWeapon.CurrentTimer += Time.deltaTime;
-            if (unlockedWeapon.CurrentTimer >= unlockedWeapon.weaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
+            var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
+            if (upgradeData.IsHaveStat(StatName.ProjectileCountPerTime))
             {
-                var enemy = GetNearlestEnemy(player.transform);
-                if (enemy != null)
-                {
-                    CurrentAgredTarget = enemy.transform;
-                    unlockedWeapon.CurrentTimer = 0f;
-                    var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
-                    bullet.transform.position = player.bulletStartPoint.position;
-                    bullet.Init(CurrentAgredTarget);
-                }
-                
+                ShootPerCountTime(player, unlockedWeapon, upgradeData);
+            }
+            else
+            {
+                ShootToEnemy(player, unlockedWeapon);
             }
             
+        }
+    }
+
+    private void ShootPerCountTime(Player player, DynamicWeaponHandler unlockedWeapon, WeaponUpgradeData upgradeData)
+    {
+        if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
+        {
+            for (int i = 0; i < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt; i++)
+            {
+                ShootToEnemy(player, unlockedWeapon, i /2f);
+            }
+
+        }
+    }
+
+    private void ShootToEnemy(Player player, DynamicWeaponHandler unlockedWeapon, float offset = 0f)
+    {
+        var enemy = GetNearlestEnemy(player.transform);
+        if (enemy != null)
+        {
+            CurrentAgredTarget = enemy.transform;
+            unlockedWeapon.CurrentTimer = 0f;
+            var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
+            bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up* offset);
+            bullet.Init(CurrentAgredTarget);
         }
     }
 

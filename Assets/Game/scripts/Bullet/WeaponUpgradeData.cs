@@ -65,6 +65,8 @@ public  class WeaponUpgradeData
         return statValue;
     }
     
+    public bool IsHaveStat(StatName statName) => BaseStats.Find(x => x.StatName == statName) != null;
+    
     
 
     public void ResetData()
