@@ -12,5 +12,6 @@
     ShootCountPerTime,
     LaserRange,
     healBonus,
-    DamageInterval
+    DamageInterval,
+    PelletCount,
 }
