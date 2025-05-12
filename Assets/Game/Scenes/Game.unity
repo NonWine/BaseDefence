@@ -1233,12 +1233,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703039801}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.7317734, y: -0.8972287, z: 0.3378018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1161861819}
+  m_Father: {fileID: 1877071371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &703039803
 MonoBehaviour:
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startExperienceRequired: 30
-  experienceGrowthMultiplier: 2.19
+  experienceGrowthMultiplier: 1.2
   xpHandlerView: {fileID: 1753094791}
   modificator: 1
   currentLevel: 1
@@ -1717,7 +1717,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1836437329}
-  - {fileID: 703039802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1163628104
@@ -2837,7 +2836,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709021707}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3078,7 +3077,7 @@ MonoBehaviour:
     isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-    isLocked: 1
+    isLocked: 0
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
     isLocked: 1
@@ -3165,9 +3164,10 @@ Transform:
   - {fileID: 1431210757}
   - {fileID: 1939340794}
   - {fileID: 112092161}
-  - {fileID: 1709021708}
   - {fileID: 1128635373}
   - {fileID: 2040029518}
+  - {fileID: 703039802}
+  - {fileID: 1709021708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1911685929

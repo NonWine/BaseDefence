@@ -16,8 +16,9 @@ public class UpgradeView : MonoBehaviour
     [SerializeField] private TMP_Text statNameText;
     [SerializeField] private TMP_Text priceUpgrade;
     [SerializeField] private TMP_Text pricePrintUpgrade;
-
     [SerializeField] private Button buttonClose;
+    [SerializeField] private GameObject statsTitleView;
+    [SerializeField] private GameObject levelMaxView;
     [Header("Price Config")]
     [SerializeField] private float BaseValue;
     [SerializeField] private float Modificator;
@@ -86,7 +87,9 @@ public class UpgradeView : MonoBehaviour
             if (weaponInfoData.WeaponUpgradeData.LevelMax)
             {
                 button.interactable = false;
-                priceUpgrade.text = "LEVEL MAX";
+                button.gameObject.SetActive(false);
+                statsTitleView.SetActive(false);
+                levelMaxView.gameObject.SetActive(true);
             }
             else
             {

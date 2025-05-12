@@ -21,9 +21,13 @@ public class WeaponStatValue
         UpgradeLevel = level;
         BonusedValue = bonuesdValue;
 
-   } 
+   }
 
-    public void ResetLevel() => UpgradeLevel = 1;
+   public void ResetLevel()
+   {
+        BonusedValue = 0;
+        UpgradeLevel = 1;
+   } 
 
     public void ImproveBaseValueByPercent(float value)
     {
