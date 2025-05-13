@@ -180,6 +180,22 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.57
       objectReference: {fileID: 0}
+    - target: {fileID: 1939422017532757694, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5189543
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939422017532757694, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7348256
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939422017532757694, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.005681634
+      objectReference: {fileID: 0}
+    - target: {fileID: 1939422017532757694, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0037877858
+      objectReference: {fileID: 0}
     - target: {fileID: 3772014894139316689, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -328,6 +344,10 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 7704452489452514712, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 841096727904217653, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
     m_RemovedGameObjects: []
@@ -367,6 +387,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 1441558268036760414}
   WeaponInfoData: {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &8540358576405717378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}

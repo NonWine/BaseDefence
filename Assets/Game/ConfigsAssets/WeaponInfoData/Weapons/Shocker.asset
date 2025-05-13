@@ -43,6 +43,10 @@ MonoBehaviour:
       Modificator: 1
       <StatName>k__BackingField: 14
       BonusedValue: 0
+    - <BaseValue>k__BackingField: 50
+      Modificator: 0.5
+      <StatName>k__BackingField: 15
+      BonusedValue: 0
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 6
     <LevelMax>k__BackingField: 0

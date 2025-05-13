@@ -15,5 +15,5 @@
     DamageInterval,
     PelletCount,
     ShockerJumpCount,
-
+    ShockerJumpRadius,
 }
