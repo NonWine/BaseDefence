@@ -35,7 +35,8 @@ public class ShokerTile : MonoBehaviour
             if (tardetDetected != null)
             {
 
-                rd.velocity = ((new Vector3(tardetDetected.position.x, 3.5f, tardetDetected.position.z) - new Vector3(transform.position.x, 3.5f, transform.position.z))).normalized * _speed;
+                rd.velocity = ((new Vector3(tardetDetected.position.x, 3.5f, tardetDetected.position.z) -
+                    new Vector3(transform.position.x, 3.5f, transform.position.z))).normalized * _speed;
                 other.transform.GetComponent<BaseEnemy>().GetDamage(dmg);
                 currentRc++;
                 inTrigger = false;

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
-  m_Name: Shotgun
+  m_Name: Shocker
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: 759ff3efa4b1d4283ac05a2b4c084b38, type: 3}
+  image: {fileID: 21300000, guid: 2a395c4f5dd914dd2b50468e92772309, type: 3}
   WeaponName: Laser
   description: burning through enemies
   WeaponUpgradeData:
@@ -39,13 +39,13 @@ MonoBehaviour:
       Modificator: 0
       <StatName>k__BackingField: 7
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 7
-      Modificator: 0
-      <StatName>k__BackingField: 13
+    - <BaseValue>k__BackingField: 4
+      Modificator: 1
+      <StatName>k__BackingField: 14
       BonusedValue: 0
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 6
     <LevelMax>k__BackingField: 0
     <CardLevelMax>k__BackingField: 1
     <IsUnLocked>k__BackingField: 1
-  baseBullet: {fileID: 1715263016400158578, guid: c2c1a3e4d2a0a0641b7a761e14c11d64, type: 3}
+  baseBullet: {fileID: -234741778516849403, guid: 8fd77d4ec1aee99489723d7cc89bb03c, type: 3}

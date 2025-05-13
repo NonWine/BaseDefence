@@ -3089,6 +3089,9 @@ MonoBehaviour:
     isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
+    isLocked: 1
+    CurrentTimer: 0
+  - weaponInfoData: {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
     isLocked: 0
     CurrentTimer: 0
 --- !u!114 &1836437331

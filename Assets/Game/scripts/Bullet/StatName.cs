@@ -14,4 +14,6 @@
     healBonus,
     DamageInterval,
     PelletCount,
+    ShockerJumpCount,
+
 }

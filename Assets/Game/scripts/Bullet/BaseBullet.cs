@@ -25,7 +25,7 @@ public abstract class BaseBullet : PoolAble
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
+        //Debug.Log(other.gameObject.name);
         
         
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
