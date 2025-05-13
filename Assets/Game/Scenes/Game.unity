@@ -2314,11 +2314,12 @@ MonoBehaviour:
   - {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
   - {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
   - {fileID: 1715263016400158578, guid: c2c1a3e4d2a0a0641b7a761e14c11d64, type: 3}
+  - {fileID: 8155587354220900481, guid: deda82f7279bb4f48864d09d9b641a19, type: 3}
   _resourcePartObjs:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
-  - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
+  - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
@@ -2482,6 +2483,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
   - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
+  - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
 --- !u!114 &1446267323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1549864509398454055, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
@@ -3078,7 +3080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponHandlers:
-  - weaponInfoData: {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
+  - weaponInfoData: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
     isLocked: 0
     CurrentTimer: 0
     perShootTimer: 0

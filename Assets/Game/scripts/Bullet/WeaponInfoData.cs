@@ -22,8 +22,10 @@ public class WeaponInfoData : SerializedScriptableObject
     
 }
 
+
 public enum WeaponsGeneralType
 {
     Active,
-    Static
+    Static,
+    Merge
 }
