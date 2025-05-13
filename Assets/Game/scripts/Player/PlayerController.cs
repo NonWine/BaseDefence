@@ -23,8 +23,8 @@ public class PlayerController
     
     public void Tick()
     {
-        _moveable.Move();
-        _rotateable.Rotate();
+        //_moveable.Move();
+       // _rotateable.Rotate();
         _animateable.UpdateAnimator();
         _playerStateMachine.CurrentState.LogicUpdate();
     //    _playerResourceDetector.FindResources();

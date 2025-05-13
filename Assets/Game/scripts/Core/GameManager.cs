@@ -10,7 +10,7 @@ using Zenject;
 
 public class GameManager : MonoBehaviour
 {
-    public const int CardLevelMax = 3;
+    public const int CardLevelMax = 10;
     
     [SerializeField] private ParticleSystem _confettiFx;
     [SerializeField] private GameObject _gamePanel;
