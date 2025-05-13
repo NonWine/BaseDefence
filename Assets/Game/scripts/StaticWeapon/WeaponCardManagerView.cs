@@ -26,11 +26,11 @@ public class WeaponCardManagerView : MonoBehaviour
     public event Action<WeaponInfoData> OnGetWeaponEvent;
 
 
-    public bool CanCreateCards => allWeapons.ToList().Find(x => x.WeaponUpgradeData.CardLevelMax == false);
+    public bool CanCreateCards => allWeapons.ToList().Find(x => x.WeaponUpgradeData.IsCardLevelMax == false);
 
     private int CountCards()
     {
-        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.CardLevelMax == false);
+        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.IsCardLevelMax == false);
         if (allCount.Count >= 3)
             return 3;
         return allCount.Count;
@@ -90,13 +90,13 @@ public class WeaponCardManagerView : MonoBehaviour
     {
         var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
         var nonMaxWeapons = allWeapons
-            .Where(x => !x.WeaponUpgradeData.CardLevelMax)  // CardLevelMax == false
+            .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
             .ToList();
         
         var weapon = nonMaxWeapons[Random.Range(0, nonMaxWeapons.Count)];
         
-        if (weapon.WeaponUpgradeData.IsUnLocked && weapon is DynamicWeapon dynamicWeapon) 
+        if (weapon.WeaponUpgradeData.IsUnLocked) 
         {
             card.OnClickedWeaponEvent += GetWeaponAndUpgradeItLevel;
             var upgradeData =   cardsUpgradeHandler.GetUpgradeData(weapon);

@@ -84,7 +84,7 @@ public class UpgradeView : MonoBehaviour
             
             weaponInfoData.WeaponUpgradeData.Upgrade();
             OnUpgradedEvent?.Invoke();
-            if (weaponInfoData.WeaponUpgradeData.LevelMax)
+            if (weaponInfoData.WeaponUpgradeData.IsLevelMax)
             {
                 button.interactable = false;
                 button.gameObject.SetActive(false);

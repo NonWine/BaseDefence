@@ -9,13 +9,23 @@ public class CardsUpgradeHandler : MonoBehaviour
     
     public CardUpgradeInfo GetUpgradeData(WeaponInfoData weaponInfoData)
     {
-        foreach (var cardsUpgradeData in CardsUpgradeData)
+        if (weaponInfoData is DynamicWeapon dynamicWeapon)
         {
-            if (cardsUpgradeData.IsRightWeapon(weaponInfoData))
+            foreach (var cardsUpgradeData in CardsUpgradeData)
             {
-                currentUpgradeData = cardsUpgradeData.GetCardUpgradeRandom();
-                return currentUpgradeData;
+                if (cardsUpgradeData.IsRightWeapon(weaponInfoData))
+                {
+                    currentUpgradeData = cardsUpgradeData.GetCardUpgradeRandom();
+                    weaponInfoData.CardUpgradeInfo = currentUpgradeData;
+                    return currentUpgradeData;
+                }
             }
+        }
+        else if (weaponInfoData is StaticWeaponData staticWeaponData)
+        {
+            currentUpgradeData = staticWeaponData.Upgrades[staticWeaponData.WeaponUpgradeData.CardLevel];
+            weaponInfoData.CardUpgradeInfo = currentUpgradeData;
+            return currentUpgradeData;
         }
 
         Debug.LogError("There" + weaponInfoData + "doe not exist in any Upgrade template");
@@ -24,7 +34,7 @@ public class CardsUpgradeHandler : MonoBehaviour
 
     public void UpgradeCard(WeaponInfoData weaponInfoData)
     {
-        foreach (var bonusInfo in currentUpgradeData.Bonuses)
+        foreach (var bonusInfo in weaponInfoData.CardUpgradeInfo.Bonuses)
         {
             float value = bonusInfo.PercentBonus;
             if (bonusInfo.isNegative)

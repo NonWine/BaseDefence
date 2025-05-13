@@ -12,13 +12,14 @@ public  class WeaponUpgradeData
 
     [TabGroup("BaseStats Configuration")] [SerializeField] [JsonProperty]
     public List<WeaponStatValue> BaseStats;
+    
+    [field: ProgressBar(1,10)] [field: SerializeField]  public int CardLevelMax { get; set; }
 
     [JsonProperty] [field: SerializeField,ReadOnly]  public int CurrentLevel { get; set; } = 1;
-    [JsonProperty] [field: SerializeField,ReadOnly]  public int CardLevel { get; set; } = 1;
+    [JsonProperty] [field: SerializeField,ReadOnly]  public int CardLevel { get; set; } 
 
-
-    [JsonProperty] [field: SerializeField, ReadOnly] public bool LevelMax { get; private set; }
-    [JsonProperty] [field: SerializeField, ReadOnly] public bool CardLevelMax { get; private set; }
+    [JsonProperty] [field: SerializeField, ReadOnly] public bool IsLevelMax { get; private set; }
+    [JsonProperty] [field: SerializeField, ReadOnly] public bool IsCardLevelMax { get; private set; }
     [JsonProperty] [field: SerializeField, ReadOnly] public bool IsUnLocked { get;  set; }
 
 
@@ -32,7 +33,7 @@ public  class WeaponUpgradeData
             CurrentLevel++;
             if (CurrentLevel > UpgradeQueue.Count)
             {
-                LevelMax = true;
+                IsLevelMax = true;
             }
         }
         
@@ -47,9 +48,9 @@ public  class WeaponUpgradeData
     public void UpgradeCardLevel()
     {
         CardLevel++;
-        if (GameManager.CardLevelMax == CardLevel)
+        if (CardLevelMax == CardLevel)
         {
-            CardLevelMax = true;
+            IsCardLevelMax = true;
         }
     }
 
@@ -71,11 +72,11 @@ public  class WeaponUpgradeData
 
     public void ResetData()
     {
-        LevelMax = false;
-        CardLevelMax = false;
+        IsLevelMax = false;
+        IsCardLevelMax = false;
         IsUnLocked = false;
         CurrentLevel = 1;
-        CardLevel = 1;
+        CardLevel = 0;
         foreach (var weaponStatValue in BaseStats)
         {
             weaponStatValue.ResetLevel();
@@ -87,7 +88,7 @@ public  class WeaponUpgradeData
     public void Init(List<WeaponStatValue> weaponStatValues, WeaponUpgradeData weaponUpgradeData)
     {
         CurrentLevel = weaponUpgradeData.CurrentLevel;
-        LevelMax = weaponUpgradeData.LevelMax;
+        IsLevelMax = weaponUpgradeData.IsLevelMax;
         IsUnLocked = weaponUpgradeData.IsUnLocked;
         CardLevel = weaponUpgradeData.CardLevel;
         

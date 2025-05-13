@@ -20,7 +20,200 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: Upgrades
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[CardUpgradeInfo, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 1|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: +10% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 3|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 10
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: +20% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 20
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: +30% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 30
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: +40% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 40
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: +50% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 50
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   image: {fileID: 21300000, guid: 03911bb6df5894a4ca4b5543901dc0e8, type: 3}
   WeaponName: Defencer
   description: help you defeat enemy
@@ -30,8 +223,14 @@ MonoBehaviour:
     - <BaseValue>k__BackingField: 1.29
       Modificator: 0.33
       <StatName>k__BackingField: 0
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 2.05
+      Modificator: -0.12
+      <StatName>k__BackingField: 1
+      BonusedValue: 0
+    <CardLevelMax>k__BackingField: 5
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 1
-    <LevelMax>k__BackingField: 0
-    <CardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
+    <CardLevel>k__BackingField: 0
+    <IsLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 0
