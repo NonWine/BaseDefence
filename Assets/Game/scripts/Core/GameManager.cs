@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CanvasGroup _losePanel;
     [SerializeField] private LevelCompleteView _winPanel;
     [SerializeField] private Button restartWaveButton;
+    public Transform BombTarget;
     private WeaponsSaver weaponsSaver;
     
     private bool isFinish;
