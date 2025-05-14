@@ -2315,6 +2315,7 @@ MonoBehaviour:
   - {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
   - {fileID: 1715263016400158578, guid: c2c1a3e4d2a0a0641b7a761e14c11d64, type: 3}
   - {fileID: -234741778516849403, guid: 8fd77d4ec1aee99489723d7cc89bb03c, type: 3}
+  - {fileID: -4495124359570767053, guid: 7b48b402f95ae4d479bfdfc29c4244d4, type: 3}
   _resourcePartObjs:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
@@ -3094,6 +3095,9 @@ MonoBehaviour:
     isLocked: 1
     CurrentTimer: 0
   - weaponInfoData: {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
+    isLocked: 1
+    CurrentTimer: 0
+  - weaponInfoData: {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
     isLocked: 0
     CurrentTimer: 0
 --- !u!114 &1836437331

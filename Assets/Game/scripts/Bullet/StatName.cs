@@ -16,4 +16,6 @@
     PelletCount,
     ShockerJumpCount,
     ShockerJumpRadius,
+    FreezeDuration,
+
 }

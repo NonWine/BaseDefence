@@ -37,4 +37,12 @@ public class EnemyAnimator : MonoBehaviour
         _animator.SetInteger("State",3);
 
     }
+    public void Freeze()
+    {
+        _animator.speed = 0;
+    }
+    public void UnFreeze()
+    {
+        _animator.speed = 1;
+    }
 }

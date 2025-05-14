@@ -9,6 +9,7 @@ using Zenject;
 public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable 
 {
     [field: SerializeField] public EnemyStatsConfig EnemyStatsConfig { get; private set; }
+    [SerializeField] public GameObject ice;
     [SerializeField] protected EnemyAnimator EnemyAnimator;
     [SerializeField] protected HealthUI HealthUI;
     //[SerializeField] protected Collider collider;
@@ -17,7 +18,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected float _poisonedSpeedMultiplier;
     [SerializeField] protected float _speed;
     private bool isPoisoned = false;
-    
     
     
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
@@ -29,7 +29,12 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     
     public  Action<BaseEnemy> OnDie;
     public float CurrentHealth { get; set; }
+
+    public float FreezeTime { get; set; }
     public bool IsDeath { get; private set; }
+    public bool IsFreezed { get;  set; }
+
+
 
     public float Speed
     {
@@ -82,6 +87,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         if(IsDeath)
             return;
+
         EnemyStateMachine.Update();
     }
 
@@ -119,6 +125,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             { typeof(MoveState), new MoveState(this,EnemyStateMachine, EnemyAnimator, EnemyRotation, target, new MelleMove(this, rigidbody)) },
             { typeof(DieState), new DieState(this, EnemyStateMachine, resourcePartObjFactory) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, EnemyAnimator) },
+            { typeof(FreezedState), new FreezedState(this, EnemyStateMachine, EnemyAnimator) }
         };
     }
     
@@ -133,4 +140,14 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         IsDeath = false;
         IsPoisoned = false;
     } 
+    public void GetFreezed(float time)
+    {
+        if(IsFreezed)
+        {
+            return;
+        }
+        IsFreezed = true;
+        FreezeTime = time;
+        EnemyStateMachine.ChangeState<FreezedState>();
+    }
 }
