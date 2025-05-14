@@ -13,7 +13,7 @@ public class TowerController : StaticWeaponController
 
     private void CreateTower()
     {
-       diContainer.InstantiatePrefabForComponent<TowerDefence>(towerDefencePrefab, towerPoint.position, Quaternion.identity, null);
+       diContainer.InstantiatePrefabForComponent<TowerDefence>(towerDefencePrefab, towerPoint.position, Quaternion.identity, null).Init(WeaponInfoData);
     }
 
     protected override void UnLockedUpdate()

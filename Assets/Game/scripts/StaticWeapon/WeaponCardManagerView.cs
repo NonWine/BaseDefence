@@ -19,18 +19,24 @@ public class WeaponCardManagerView : MonoBehaviour
     [SerializeField] private RectTransform cardContainer;
     [SerializeField] private CardsUpgradeHandler cardsUpgradeHandler;
     [SerializeField] private float offsetSpeed;
+    [SerializeField] private WeaponMergeSystem mergeSystem;
     private float xOffset;
     
     [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
 
+    private void Start()
+    {
+        allWeapons = allWeapons.ToList().FindAll(x => x is not MergeWeaponData mergeWeaponData).ToArray();
+    }
 
-    public bool CanCreateCards => allWeapons.ToList().Find(x => x.WeaponUpgradeData.CardLevelMax == false);
+    public bool CanCreateCards => allWeapons.ToList().Any(x => x.WeaponUpgradeData.IsCardLevelMax == false) || mergeSystem.MergeWeaponsData.Count > 0;
 
     private int CountCards()
     {
-        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.CardLevelMax == false);
+        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.IsCardLevelMax == false);
+        allCount.AddRange(mergeSystem.MergeWeaponsData);
         if (allCount.Count >= 3)
             return 3;
         return allCount.Count;
@@ -90,13 +96,17 @@ public class WeaponCardManagerView : MonoBehaviour
     {
         var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
         var nonMaxWeapons = allWeapons
-            .Where(x => !x.WeaponUpgradeData.CardLevelMax)  // CardLevelMax == false
+            .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
             .ToList();
-        
+        foreach (var mergeWeaponData in mergeSystem.MergeWeaponsData)
+        {
+            if(!nonMaxWeapons.Contains(mergeWeaponData))
+                nonMaxWeapons.Add(mergeWeaponData);
+        }
         var weapon = nonMaxWeapons[Random.Range(0, nonMaxWeapons.Count)];
         
-        if (weapon.WeaponUpgradeData.IsUnLocked && weapon is DynamicWeapon dynamicWeapon) 
+        if (weapon.WeaponUpgradeData.IsUnLocked) 
         {
             card.OnClickedWeaponEvent += GetWeaponAndUpgradeItLevel;
             var upgradeData =   cardsUpgradeHandler.GetUpgradeData(weapon);
@@ -116,6 +126,7 @@ public class WeaponCardManagerView : MonoBehaviour
     private void GetWeaponFistTime(WeaponInfoData weaponInfoData)
     {
         UnscribeFromCards();
+        mergeSystem.CheckGetMergeWeapon(weaponInfoData);
         weaponInfoData.WeaponUpgradeData.IsUnLocked = true;
         OnGetWeaponEvent?.Invoke(weaponInfoData);
     }
@@ -124,6 +135,7 @@ public class WeaponCardManagerView : MonoBehaviour
     {
         UnscribeFromCards();
         cardsUpgradeHandler.UpgradeCard(weaponInfoData);
+        mergeSystem.TryUnlockMergeWeapon();
         OnGetWeaponEvent?.Invoke(weaponInfoData);
     }
     

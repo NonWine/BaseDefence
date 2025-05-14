@@ -32,7 +32,7 @@ public class PelletFlying : MonoBehaviour
 
         Destroy(gameObject);
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if(!canFly)
         {

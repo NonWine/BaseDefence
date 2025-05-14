@@ -25,6 +25,7 @@ public class ShotGunBullet : BaseBullet
 
                 Vector2 pelletDirection = rotation * baseDirection;
                 PelletFlying pellet = diContainer.InstantiatePrefabForComponent<PelletFlying>(_pellet, transform.position, Quaternion.identity, null);
+                pellet.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
                 pellet.Init(pelletDirection, WeaponUpgradeData);
             }
         }

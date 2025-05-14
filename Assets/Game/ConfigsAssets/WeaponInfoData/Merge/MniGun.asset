@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
-  m_Name: Default
+  m_Script: {fileID: 11500000, guid: c7e780637fac40029d17778a6984b87c, type: 3}
+  m_Name: MniGun
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,22 +21,22 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 0}
-  WeaponName: 
+  image: {fileID: 21300000, guid: ca1acd39f51c7bf4dbf3461cd6c70068, type: 3}
+  WeaponName: MiniGun
   description: 
   WeaponUpgradeData:
-    UpgradeQueue: 000000000000000002000000
+    UpgradeQueue: 
     BaseStats:
     - <BaseValue>k__BackingField: 5
-      Modificator: 0.39
+      Modificator: 0.09
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.67
-      Modificator: -0.16
+    - <BaseValue>k__BackingField: 0.1
+      Modificator: 0
       <StatName>k__BackingField: 1
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 12.71
-      Modificator: 0
+    - <BaseValue>k__BackingField: 61.74
+      Modificator: 0.12
       <StatName>k__BackingField: 7
       BonusedValue: 0
     - <BaseValue>k__BackingField: 1
@@ -47,9 +47,10 @@ MonoBehaviour:
       Modificator: 0
       <StatName>k__BackingField: 9
       BonusedValue: 0
-    <CurrentLevel>k__BackingField: 0
-    <CardLevel>k__BackingField: 1
-    <LevelMax>k__BackingField: 0
     <CardLevelMax>k__BackingField: 0
+    <CurrentLevel>k__BackingField: 1
+    <CardLevel>k__BackingField: 0
+    <IsLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
+  baseBullet: {fileID: 8155587354220900481, guid: deda82f7279bb4f48864d09d9b641a19, type: 3}

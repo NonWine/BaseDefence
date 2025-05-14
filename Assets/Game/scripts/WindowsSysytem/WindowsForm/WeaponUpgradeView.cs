@@ -66,7 +66,7 @@ public class WeaponUpgradeView : Window
 
     private void ShowUpgradeView(WeaponInfoData weaponInfoData)
     {
-        if(weaponInfoData.WeaponUpgradeData.LevelMax) return;
+        if(weaponInfoData.WeaponUpgradeData.IsLevelMax) return;
         
         upgradeView.Show(weaponInfoData);
     }

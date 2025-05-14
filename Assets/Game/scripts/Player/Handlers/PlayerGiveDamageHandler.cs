@@ -4,9 +4,9 @@ using Zenject;
 
 public class PlayerGiveDamageHandler
 {
-  [Inject]  private EnemyFactory enemyFactory;
-  [Inject]  private BulletFactory bulletFactory;
-  [Inject]  private PlayerCombatManager playerCombatManager;
+      [Inject]  private EnemyFactory enemyFactory;
+      [Inject]  private BulletFactory bulletFactory;
+      [Inject]  private PlayerCombatManager playerCombatManager;
     private float timer;
     
     
@@ -18,20 +18,54 @@ public class PlayerGiveDamageHandler
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             unlockedWeapon.CurrentTimer += Time.deltaTime;
-            if (unlockedWeapon.CurrentTimer >= unlockedWeapon.weaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
+            var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
+            if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
             {
-                var enemy = GetNearlestEnemy(player.transform);
-                if (enemy != null)
-                {
-                    CurrentAgredTarget = enemy.transform;
-                    unlockedWeapon.CurrentTimer = 0f;
-                    var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
-                    bullet.transform.position = player.bulletStartPoint.position;
-                    bullet.Init(CurrentAgredTarget);
-                }
-                
+                ShootPerCountTime(player, unlockedWeapon, upgradeData);
             }
             
+        }
+    }
+
+    private void ShootPerCountTime(Player player, DynamicWeaponHandler unlockedWeapon, WeaponUpgradeData upgradeData)
+    {
+        if (upgradeData.IsHaveStat(StatName.ProjectileCountPerTime))
+        {
+            // unlockedWeapon.perShootTimer = 1f;
+            for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt; j++)
+            {
+                ShootToEnemy(player, unlockedWeapon, j / 2f);
+            }
+
+            if (unlockedWeapon.CurrentShoot >= upgradeData.GetStat(StatName.ShootCountPerTime).CurrentValueInt)
+            {
+                unlockedWeapon.CurrentTimer = 0f;
+                unlockedWeapon.CurrentShoot = 0;
+
+            }
+            else
+            {
+                unlockedWeapon.CurrentTimer -= 0.15f;
+                unlockedWeapon.CurrentShoot++;
+            }
+            
+        }
+        else
+        {
+            ShootToEnemy(player, unlockedWeapon);
+            unlockedWeapon.CurrentTimer = 0f;
+        }
+    }
+
+    private void ShootToEnemy(Player player, DynamicWeaponHandler unlockedWeapon, float offset = 0f)
+    {
+        var enemy = GetNearlestEnemy(player.transform);
+        if (enemy != null)
+        {
+            CurrentAgredTarget = enemy.transform;
+            var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
+            bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up* offset);
+            bullet.Init(CurrentAgredTarget);
         }
     }
 

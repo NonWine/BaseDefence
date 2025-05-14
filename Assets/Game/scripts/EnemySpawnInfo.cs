@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemySpawnInfo
 {
     public BaseEnemy SelectedEnemy;
-    public int Count;
 
     
     #region Editor

@@ -11,7 +11,7 @@ public class ZaborHealer : StaticWeaponObj
     private void Update()
     {
         _healTimer += Time.deltaTime;
-        if(_healTimer >= WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
+       // if(_healTimer >= WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
         {
             target.Heal(WeaponUpgradeData.GetStat(StatName.healBonus).CurrentValueInt);
             _healTimer = 0;

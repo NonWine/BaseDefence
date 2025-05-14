@@ -11,7 +11,8 @@ public class MineController : StaticWeaponController
         if (timer >= WeaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
         {
             timer = 0f;
-         diContainer.InstantiatePrefabForComponent<Mine>(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity, null);
+        var mine =  diContainer.InstantiatePrefabForComponent<Mine>(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity, null);
+            mine.Init(WeaponInfoData);
         }
     }
 }

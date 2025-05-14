@@ -43,7 +43,8 @@ public class EnemySpawner : MonoBehaviour
             float evaluatedCurve = _currentWave.intervalCurve.Evaluate(1f -
                 ((float)waveManager.CurrentTime) / ((float)_currentWave.waveDuration));
 
-            _currentInterval = (float)(_currentWave.SpawnInterval / evaluatedCurve) / intervalSpeed;
+          //  _currentInterval = (float)(_currentWave.SpawnInterval / evaluatedCurve) / intervalSpeed;
+            _currentInterval = (float)( intervalSpeed  / evaluatedCurve) / _currentWave.SpawnInterval ;
 
             _currentIntervalChangeTimer = 0;
         }
@@ -66,8 +67,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnRandomGroup()
     {
         var group = _currentWave.Enemies[Random.Range(0, _currentWave.Enemies.Count)];
-        for (int i = 0; i < group.Count; i++)
-        {
+   
             if (group.SelectedEnemy is PoolAble poolAble)
             {
                 var enemy = enemyFactory.Create(poolAble.Type);
@@ -85,10 +85,8 @@ public class EnemySpawner : MonoBehaviour
                 if( waveManager.CurrentTime <= _timeWhenStopSpawning)
                 {
                     StopSpawning();
-                    break;
                 }
             }
-        }
     }
 
     public void OnEnemyKilled()

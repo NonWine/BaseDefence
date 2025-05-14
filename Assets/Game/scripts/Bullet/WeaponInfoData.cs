@@ -10,6 +10,8 @@ public class WeaponInfoData : SerializedScriptableObject
     [TabGroup("General")] [ReadOnly] [ShowInInspector] public  WeaponsGeneralType WeaponsGeneralType { get; set; }
 
     [TabGroup("Weapon Upgrade")] [SerializeField] public WeaponUpgradeData WeaponUpgradeData;
+    
+    public CardUpgradeInfo CardUpgradeInfo { get; set; }
    
     [Button(SdfIconType.Bluetooth)] [LabelText("Force Update Data")]
     protected  virtual void Awake()
@@ -20,8 +22,10 @@ public class WeaponInfoData : SerializedScriptableObject
     
 }
 
+
 public enum WeaponsGeneralType
 {
     Active,
-    Static
+    Static,
+    Merge
 }

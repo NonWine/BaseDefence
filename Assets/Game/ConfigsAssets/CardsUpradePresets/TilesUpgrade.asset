@@ -249,3 +249,4 @@ MonoBehaviour:
       Data: 
   DynamicWeapons:
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}

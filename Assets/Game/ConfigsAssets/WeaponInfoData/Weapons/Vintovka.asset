@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
+  m_Name: Vintovka
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  image: {fileID: 0}
+  WeaponName: 
+  description: 
+  WeaponUpgradeData:
+    UpgradeQueue: 000000000000000002000000
+    BaseStats:
+    - <BaseValue>k__BackingField: 5
+      Modificator: 0.39
+      <StatName>k__BackingField: 0
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 0.67
+      Modificator: -0.16
+      <StatName>k__BackingField: 1
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 12.71
+      Modificator: 0
+      <StatName>k__BackingField: 7
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 8
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 9
+      BonusedValue: 0
+    <CardLevelMax>k__BackingField: 10
+    <CurrentLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 1
+    <IsLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 0
+  baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}

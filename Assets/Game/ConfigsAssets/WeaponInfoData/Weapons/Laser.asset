@@ -43,9 +43,10 @@ MonoBehaviour:
       Modificator: 0.83
       <StatName>k__BackingField: 1
       BonusedValue: 0
+    <CardLevelMax>k__BackingField: 10
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 1
-    <LevelMax>k__BackingField: 0
-    <CardLevelMax>k__BackingField: 0
+    <IsLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
   baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}

@@ -20,35 +20,53 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.5870812
-      outSlope: 0.5870812
+      inSlope: 1.4567746
+      outSlope: 1.4567746
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.343224
-      value: 0.20150036
-      inSlope: 0.13083299
-      outSlope: 0.13083299
+      value: 0.5
+      inSlope: 0.43718445
+      outSlope: 0.43718445
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5149256
+      value: 0.4
+      inSlope: -1.1593286
+      outSlope: -1.1593286
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.6301163
-      value: 0.108141236
-      inSlope: 0.09664251
-      outSlope: 0.09664251
+      value: 0.2
+      inSlope: 0.072476566
+      outSlope: 0.072476566
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.842746
+      value: 0.6
+      inSlope: -0.64918256
+      outSlope: -0.64918256
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.3
-      inSlope: 0.51870024
-      outSlope: 0.51870024
+      value: 0.1
+      inSlope: -3.1795697
+      outSlope: -3.1795697
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -58,4 +76,3 @@ MonoBehaviour:
     m_RotationOrder: 4
   Enemies:
   - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
-    Count: 1

@@ -14,7 +14,7 @@ public class ZaborHealerController : StaticWeaponController
 
     private void CreateTower()
     {
-        diContainer.InstantiatePrefabForComponent<ZaborHealer>(towerExpaPrefab, towerPoint.position, Quaternion.identity, null);
+        diContainer.InstantiatePrefabForComponent<ZaborHealer>(towerExpaPrefab, towerPoint.position, Quaternion.identity, null).Init(WeaponInfoData);
     }
     protected override void UnLockedUpdate()
     {
