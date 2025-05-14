@@ -1612,6 +1612,7 @@ GameObject:
   - component: {fileID: 1128635373}
   - component: {fileID: 1128635374}
   - component: {fileID: 1128635375}
+  - component: {fileID: 1128635376}
   m_Layer: 0
   m_Name: WeaponCardManagerView
   m_TagString: Untagged
@@ -1650,6 +1651,7 @@ MonoBehaviour:
   cardContainer: {fileID: 5724941405880679929}
   cardsUpgradeHandler: {fileID: 1128635375}
   offsetSpeed: 0.35
+  mergeSystem: {fileID: 1128635376}
 --- !u!114 &1128635375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1666,6 +1668,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35062341dffefdc4fb301a67a475cca5, type: 2}
   - {fileID: 11400000, guid: 4d640c750b91782469bfe6fa48a92506, type: 2}
   - {fileID: 11400000, guid: dc601ae0ba677db44b4aff17d0da2e35, type: 2}
+--- !u!114 &1128635376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128635372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca4287b06254cd6b34a08dacfd94ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mergeWeaponContainers:
+  - DynamicWeapons:
+    - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
+    - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
+    MergeWeaponData: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
+    isUnLocked: 0
 --- !u!1 &1161861817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2319,13 +2339,10 @@ MonoBehaviour:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
-  - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
-  - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
-  - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
-  - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
-  - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
+  - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
+  - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -3083,7 +3100,6 @@ MonoBehaviour:
   - weaponInfoData: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
     isLocked: 0
     CurrentTimer: 0
-    perShootTimer: 0
 --- !u!114 &1836437331
 MonoBehaviour:
   m_ObjectHideFlags: 0
