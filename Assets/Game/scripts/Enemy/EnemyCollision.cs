@@ -6,7 +6,7 @@ public class EnemyCollision : MonoBehaviour
 {
     [SerializeField] BaseEnemy _baseEnemy;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.TryGetComponent<Target>(out var target))
         {
@@ -18,14 +18,14 @@ public class EnemyCollision : MonoBehaviour
             _baseEnemy.IsPoisoned = true;
         }
     }
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         if(other.CompareTag("StinkyCloud"))
         {
             _baseEnemy.IsPoisoned = false;
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.TryGetComponent<Target>(out var target))
         {

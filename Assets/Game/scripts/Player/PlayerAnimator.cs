@@ -26,7 +26,7 @@ public class PlayerAnimator : IEntityAnimateable
         }
         else
         {
-            _playerContainer.Animator.SetFloat(_MOVING_KEY, -1f);
+            //_playerContainer.Animator.SetFloat(_MOVING_KEY, -1f);
 
         }
     }
