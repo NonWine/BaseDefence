@@ -121,7 +121,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             { typeof(IdleState), new IdleState(this, EnemyStateMachine, EnemyAnimator) },
             { typeof(AttackState), new AttackState(this, EnemyStateMachine, new EnemyMelleAttack(this), EnemyAnimator,EnemyRotation, target)},
             { typeof(MoveState), new MoveState(this,EnemyStateMachine, EnemyAnimator, EnemyRotation, target, new MelleMove(this, rigidbody)) },
-            { typeof(DieState), new DieState(this, EnemyStateMachine, resourcePartObjFactory) },
+            { typeof(DieState), new DieState(this, EnemyStateMachine, resourcePartObjFactory, EnemyAnimator) },
             { typeof(ResetingState), new ResetingState(this,EnemyStateMachine, HealthUI, EnemyAnimator) },
             { typeof(FreezedState), new FreezedState(this, EnemyStateMachine, EnemyAnimator) }
         };

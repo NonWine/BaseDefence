@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class DieState : EnemyBaseState
 {
     private ResourcePartObjFactory resourcePartObjFactory;
-    
-    public DieState(BaseEnemy baseEnemy,  EnemyStateMachine enemyStateMachine, ResourcePartObjFactory resourcePartObjFactory) : base(baseEnemy,  enemyStateMachine)
+    private EnemyAnimator _enemyAnimator;
+    public DieState(BaseEnemy baseEnemy,  EnemyStateMachine enemyStateMachine, ResourcePartObjFactory resourcePartObjFactory, 
+        EnemyAnimator enemyAnimator) : base(baseEnemy,  enemyStateMachine)
     {
         this.resourcePartObjFactory = resourcePartObjFactory;
+        _enemyAnimator = enemyAnimator;
     }
     
     public override void EnterState(BaseEnemy enemy)
@@ -31,6 +33,11 @@ public class DieState : EnemyBaseState
     {
         await UniTask.Delay(2500);
         BaseEnemy.OnDie?.Invoke(BaseEnemy);
+        Animator animator = _enemyAnimator.Animator;
+        animator.CrossFade("New State", 0f);
+        animator.Update(0);
+        animator.Update(0);
+
         BaseEnemy.gameObject.SetActive(false);
     }
     
