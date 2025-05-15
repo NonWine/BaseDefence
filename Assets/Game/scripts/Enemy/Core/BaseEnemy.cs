@@ -101,14 +101,8 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         {
             IsDeath = true;
             collider.enabled = false;
-/*            if(NavMesh.isOnNavMesh)
-                NavMesh.isStopped = true;
-            NavMesh.velocity = Vector3.zero;
-            NavMesh.enabled = false;*/
             HealthUI.gameObject.SetActive(false);
-            EnemyAnimator.SetIdle();
             EnemyAnimator.SetDie();
-            EnemyAnimator.Animator.applyRootMotion = true;
             playerLevelController.AddExperience(EnemyStatsConfig.EXPDrop);
             EnemyStateMachine.ChangeState<DieState>();
         }

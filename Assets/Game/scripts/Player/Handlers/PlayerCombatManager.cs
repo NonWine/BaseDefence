@@ -11,6 +11,7 @@ public class PlayerCombatManager : MonoBehaviour
     [Inject] private WeaponInfoData[] weaponInfoDatas;
     [SerializeField, ReadOnly] private List<DynamicWeaponHandler> weaponHandlers;
     [SerializeField] private DynamicWeapon defaultWeapon;
+    public float DistanceToAgr = 50f;
     
     private void Start()
     {

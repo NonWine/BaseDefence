@@ -10,7 +10,7 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] int _maxHealth;
     [Inject] private GameManager gameManager;
     public RandomPointInBoxCollider randomPointInBoxCollider;
-
+    
     private void Awake()
     {
         _health.SetHealth(_maxHealth);

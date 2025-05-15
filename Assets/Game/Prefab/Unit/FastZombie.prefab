@@ -84,7 +84,6 @@ MonoBehaviour:
   collider: {fileID: 8111149296409356499}
   rigidbody: {fileID: 4595726123965136467}
   _poisonedSpeedMultiplier: 3
-  _speed: 2
 --- !u!61 &8111149296409356499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.47}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}

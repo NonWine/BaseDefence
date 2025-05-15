@@ -77,14 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d071b71e035da904c80ac1f3f50d7516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyStatsConfig>k__BackingField: {fileID: 11400000, guid: 7e7e3fc62403f1c439399a453c08e066, type: 2}
+  <EnemyStatsConfig>k__BackingField: {fileID: 11400000, guid: c60eb1911565ba544b781b11d02ba171, type: 2}
   ice: {fileID: 7904963393399658180}
   EnemyAnimator: {fileID: 534077470242834575}
   HealthUI: {fileID: 6059277932328617836}
   collider: {fileID: 8111149296409356499}
   rigidbody: {fileID: 4595726123965136467}
   _poisonedSpeedMultiplier: 3
-  _speed: 2
 --- !u!61 &8111149296409356499
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -117,7 +116,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05035329, y: 0.7203679}
+  m_Offset: {x: -0.10461438, y: 0.7203679}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -128,7 +127,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6042395, y: 3.3174162}
+  m_Size: {x: 2.2146761, y: 3.3174162}
   m_EdgeRadius: 0
 --- !u!50 &4595726123965136467
 Rigidbody2D:

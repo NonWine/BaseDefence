@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Gromila
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 10
-  _health: 30
+  _health: 50
   _moveSpeed: 1
   _roateSpeed: 58
   <CoinDrop>k__BackingField: 10

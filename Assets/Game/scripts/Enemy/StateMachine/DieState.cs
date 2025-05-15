@@ -31,7 +31,7 @@ public class DieState : EnemyBaseState
 
     private async void ToPool()
     {
-        await UniTask.Delay(2500);
+        await UniTask.Delay(1500);
         BaseEnemy.OnDie?.Invoke(BaseEnemy);
         Animator animator = _enemyAnimator.Animator;
         animator.CrossFade("New State", 0f);

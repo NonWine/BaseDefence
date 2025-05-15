@@ -34,6 +34,7 @@ public class EnemyAnimator : MonoBehaviour
 
     public void SetDie()
     {
+        _animator.SetFloat("Speed",-1);
         _animator.SetInteger("State",3);
 
     }

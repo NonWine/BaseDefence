@@ -59,7 +59,7 @@ public class PlayerGiveDamageHandler
 
     private void ShootToEnemy(Player player, DynamicWeaponHandler unlockedWeapon, float offset = 0f)
     {
-        var enemy = GetNearlestEnemy(player.transform);
+        var enemy = GetNearestEnemy(player.transform,playerCombatManager.DistanceToAgr);
         if (enemy != null)
         {
             CurrentAgredTarget = enemy.transform;
@@ -69,15 +69,16 @@ public class PlayerGiveDamageHandler
         }
     }
 
-    private BaseEnemy GetNearlestEnemy(Transform thisTarget)
+    private BaseEnemy GetNearestEnemy(Transform thisTarget, float maxDistance)
     {
         var nearestEnemy = enemyFactory.Enemies
-            .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
-            .FirstOrDefault(x => x.IsDeath == false);
-        
-        
+            .Where(e => !e.IsDeath && Vector3.Distance(thisTarget.position, e.transform.position) < maxDistance)
+            .OrderBy(e => Vector3.Distance(thisTarget.position, e.transform.position))
+            .FirstOrDefault();
+
         return nearestEnemy;
     }
+
     
     
 }
