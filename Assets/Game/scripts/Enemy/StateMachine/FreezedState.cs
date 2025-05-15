@@ -15,6 +15,7 @@ public class FreezedState : EnemyBaseState
     public override void EnterState(BaseEnemy enemy)
     {
         freezeTimer = 0;
+        ParticlePool.Instance.PlayFrostHit(enemy.transform.position);
         BaseEnemy.ice.SetActive(true);
         _enemyAnimator.Freeze();
     }

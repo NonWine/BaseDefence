@@ -15,6 +15,7 @@ public class Target : MonoBehaviour, IDamageable
     
     private void Awake()
     {
+        Sequence = DOTween.Sequence();
         _health.SetHealth(_maxHealth);
         gameManager.OnRestartWaveEvent += ResetZabor;
     }
@@ -36,7 +37,6 @@ public class Target : MonoBehaviour, IDamageable
             Sequence.Kill();
             transform.localScale = Vector3.one;
         }
-        Sequence = DOTween.Sequence();
         Sequence.Append(transform.DOScale(1.2f, 0.15f)).SetEase(Ease.OutQuad);
         Sequence.Append(transform.DOScale(1f, 0.15f)).SetEase(Ease.Linear);
         

@@ -22,7 +22,6 @@ public class IdleState : EnemyBaseState
         _enemyAnimator.Animator.applyRootMotion = false;
         
         _enemyAnimator.SetIdle();
-        _enemyAnimator.Animator.transform.localPosition = Vector3.zero;
         _enemyAnimator.Animator.transform.rotation = Quaternion.identity;
         enemy.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         ToMoveState();
