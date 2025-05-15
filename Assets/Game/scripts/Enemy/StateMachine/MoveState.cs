@@ -28,6 +28,10 @@ public class MoveState : EnemyBaseState
     public override void EnterState(BaseEnemy enemy)
     {
         _enemyAnimator.SetRun();
+        _enemyAnimator.Animator.CrossFade("Walk", 0f);
+        _enemyAnimator.Animator.Update(0f);
+        _enemyAnimator.Animator.Update(0f);
+
         _timer = float.MaxValue;
         _targetDirection =(_target.randomPointInBoxCollider.GetRandomPointInBox() - (Vector2)enemy.transform.position).normalized;
     }
