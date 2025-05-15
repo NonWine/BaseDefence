@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88978ef44671c584884c2d03399eaa95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <EnemyStatsConfig>k__BackingField: {fileID: 11400000, guid: 7e7e3fc62403f1c439399a453c08e066, type: 2}
+  <EnemyStatsConfig>k__BackingField: {fileID: 11400000, guid: 0d82557c20fcfdd4aabeba864f891cae, type: 2}
   ice: {fileID: 7904963393399658180}
   EnemyAnimator: {fileID: 534077470242834575}
   HealthUI: {fileID: 6059277932328617836}

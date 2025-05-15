@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class Mine : StaticWeaponObj
@@ -10,6 +11,8 @@ public class Mine : StaticWeaponObj
 
     private void Start()
     {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(1f, 0.2f).SetEase(Ease.OutBack);
         Invoke(nameof(Activate), delayActivateTime);
     }
 
@@ -18,7 +21,7 @@ public class Mine : StaticWeaponObj
         isActivated = true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         
         if (other.TryGetComponent(out IDamageable damageable) && isActivated)

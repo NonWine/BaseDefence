@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData 17
   m_EditorClassIdentifier: 
-  SpawnInterval: 1.0302658
+  SpawnInterval: 2.1685905
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2
@@ -57,5 +57,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Enemies:
-  - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}
-    Count: 1
+  - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
+  - SelectedEnemy: {fileID: 5551236498080382267, guid: c20d5069ce9b51f418c686cb130624d8, type: 3}

@@ -12,7 +12,7 @@ public class LevelCompleteView : MonoBehaviour
     [SerializeField] private CanvasGroup mainCanvas;
     [SerializeField] private float fadeDuration = 0.25f;
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
-
+    [Inject] private GameManager GameManager;
     private void Awake()
     {
         PlayerLevelController.OnLevelUp += Show;
@@ -40,7 +40,7 @@ public class LevelCompleteView : MonoBehaviour
     private IEnumerator ShowCor()
     {
         mainCanvas.alpha = 0f;
-        Time.timeScale = 0f;
+        GameManager.TimeGameSpeed = 0;
         winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true);
         ;
         winPanel.interactable = true;
@@ -58,7 +58,7 @@ public class LevelCompleteView : MonoBehaviour
         winPanel.DOFade(0f, fadeDuration).SetEase(Ease.Linear).OnComplete( ()=>
         {
             mainCanvas.alpha = 1f;
-            Time.timeScale = 1f;
+            GameManager.TimeGameSpeed = 1;
         }).SetUpdate(true);;
         winPanel.interactable = false;
         

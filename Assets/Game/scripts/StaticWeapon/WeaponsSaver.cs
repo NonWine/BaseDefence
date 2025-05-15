@@ -8,11 +8,16 @@ public class WeaponsSaver : MonoBehaviour
 {
     [SerializeField] private WeaponInfoData[] weaponInfoDatas;
     private WeaponUpgradeDataSaver weaponUpgradeData;
-    
+    public bool LoadAtStart;
 
     [Inject]
     public void Init()
     {
+        if (!LoadAtStart)
+        {
+            ResetWeaponSaves();
+            return;
+        }
         weaponUpgradeData = new WeaponUpgradeDataSaver("weapons");
         var container =   weaponUpgradeData.LoadData();
         

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData 2
   m_EditorClassIdentifier: 
-  SpawnInterval: 1.0302658
+  SpawnInterval: 1.549537
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2
@@ -20,35 +20,53 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.5870812
-      outSlope: 0.5870812
+      inSlope: 0.44141662
+      outSlope: 0.44141662
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.343224
-      value: 0.20150036
-      inSlope: 0.13083299
-      outSlope: 0.13083299
+      time: 0.29974407
+      value: 0.13231201
+      inSlope: 0.16473216
+      outSlope: 0.16473216
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.46141303
+      value: 0.1142128
+      inSlope: -0.0905137
+      outSlope: -0.0905137
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.9126768
+    - serializedVersion: 3
       time: 0.6301163
-      value: 0.108141236
-      inSlope: 0.09664251
-      outSlope: 0.09664251
+      value: 0.1999999
+      inSlope: 0.04981719
+      outSlope: 0.04981719
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.81933904
+      value: 0.12263156
+      inSlope: -0.26707265
+      outSlope: -0.26707265
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 0.3
-      inSlope: 0.51870024
-      outSlope: 0.51870024
+      value: 0.1
+      inSlope: -0.12527087
+      outSlope: -0.12527087
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -57,7 +75,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Enemies:
-  - SelectedEnemy: {fileID: 523477534140753665, guid: f03a58880cce6f14693ae27546cd8d75, type: 3}
-    Count: 1
-  - SelectedEnemy: {fileID: 1759431992064551929, guid: e1e1f3d952d9d054784d3ef3cb284139, type: 3}
-    Count: 1
+  - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
+  - SelectedEnemy: {fileID: 5551236498080382267, guid: c20d5069ce9b51f418c686cb130624d8, type: 3}

@@ -30,31 +30,31 @@ MonoBehaviour:
     - <BaseValue>k__BackingField: 1.15
       Modificator: 0.16
       <StatName>k__BackingField: 0
-      BonusedValue: -0.2875
+      BonusedValue: 0
     - <BaseValue>k__BackingField: 1.23
       Modificator: -0.08
       <StatName>k__BackingField: 1
-      BonusedValue: -0.098400004
-    - <BaseValue>k__BackingField: 25
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
       Modificator: 0
       <StatName>k__BackingField: 7
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 2
+    - <BaseValue>k__BackingField: 1
       Modificator: 0
       <StatName>k__BackingField: 8
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 4
+    - <BaseValue>k__BackingField: 19.22
       Modificator: 0
-      <StatName>k__BackingField: 9
-      BonusedValue: 1
+      <StatName>k__BackingField: 6
+      BonusedValue: 0
     - <BaseValue>k__BackingField: 3
       Modificator: 0
-      <StatName>k__BackingField: 13
+      <StatName>k__BackingField: 12
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 2
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 2
+    <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
-    <IsCardLevelMax>k__BackingField: 1
+    <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: 1715263016400158578, guid: c2c1a3e4d2a0a0641b7a761e14c11d64, type: 3}

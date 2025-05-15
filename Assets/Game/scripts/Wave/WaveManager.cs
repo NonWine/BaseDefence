@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
    [Inject] private GameManager gameManager;
 
    private int currentWaveIndex;
-   private bool _waveActive;
+   public bool _waveActive;
    public float CurrentTime;
    public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
    

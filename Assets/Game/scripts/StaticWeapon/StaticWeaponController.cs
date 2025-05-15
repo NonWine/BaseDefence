@@ -31,7 +31,7 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
 
     public virtual void GetWeaponCard(WeaponInfoData weaponInfoData)
     {
-        if (weaponInfoData == WeaponInfoData && !weaponInfoData.WeaponUpgradeData.IsUnLocked)
+        if (weaponInfoData == WeaponInfoData && isLocked)
         {
              isLocked = false;
              UnlockCallback?.Invoke();

@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class MineController : StaticWeaponController
 {
     [SerializeField] private Mine minePrefab;
     [SerializeField] private RandomPointInBoxCollider randomPointInBoxCollider;
-
+    [Inject] private WaveManager WaveManager;
     protected override void UnLockedUpdate()
     {
         timer += Time.deltaTime;
-        if (timer >= WeaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue)
+        if (timer >= WeaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue && WaveManager._waveActive)
         {
             timer = 0f;
         var mine =  diContainer.InstantiatePrefabForComponent<Mine>(minePrefab, randomPointInBoxCollider.GetRandomPointInBox(), Quaternion.identity, null);

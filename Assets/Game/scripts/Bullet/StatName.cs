@@ -3,7 +3,6 @@
     Damage,
     CoolDown,
     Radius,
-    Rickoshet,
     ExpModificator,
     LaserDuration,
     SpeedReduce,
@@ -17,5 +16,5 @@
     ShockerJumpCount,
     ShockerJumpRadius,
     FreezeDuration,
-
+    Duration
 }

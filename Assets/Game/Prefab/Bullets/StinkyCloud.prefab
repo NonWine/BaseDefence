@@ -101,11 +101,9 @@ MonoBehaviour:
   damageableMask:
     serializedVersion: 2
     m_Bits: 128
-  radiusVenom: 7.12
-  _periodicDamage: 5
-  _existTime: 3
   _damageInterval: 0.5
   _cloudEffect: {fileID: 656643878269588198}
+  DynamicWeapon: {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
 --- !u!135 &6837351493617911044
 SphereCollider:
   m_ObjectHideFlags: 0

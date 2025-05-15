@@ -7,7 +7,7 @@ public class EnemyStatsConfig : ScriptableObject
     [field: SerializeField] public int Damage { get; set; }
     
     [SerializeField] private int _health;
-    [SerializeField] private int _moveSpeed;
+    [SerializeField] public int _moveSpeed;
     [SerializeField] private int _roateSpeed;
     [field: SerializeField] public int CoinDrop { get; private set; } = 3;
     [field: SerializeField] public int EXPDrop { get; private set; } = 3;
@@ -15,7 +15,6 @@ public class EnemyStatsConfig : ScriptableObject
     private int _currentHealth;
 
     
-    public int MoveSpeed => _moveSpeed;
     
     public int RotateSpeed => _moveSpeed;
     

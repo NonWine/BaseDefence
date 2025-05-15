@@ -36,6 +36,7 @@ public class PlayerGiveDamageHandler
             {
                 ShootToEnemy(player, unlockedWeapon, j / 2f);
             }
+            unlockedWeapon.CurrentShoot++;
 
             if (unlockedWeapon.CurrentShoot >= upgradeData.GetStat(StatName.ShootCountPerTime).CurrentValueInt)
             {
@@ -46,7 +47,6 @@ public class PlayerGiveDamageHandler
             else
             {
                 unlockedWeapon.CurrentTimer -= 0.15f;
-                unlockedWeapon.CurrentShoot++;
             }
             
         }

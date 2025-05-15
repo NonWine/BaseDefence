@@ -21,9 +21,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: 2a395c4f5dd914dd2b50468e92772309, type: 3}
-  WeaponName: Laser
-  description: burning through enemies
+  image: {fileID: 21300000, guid: b7d7e36f0c41c4316a6ea75d0a9321a6, type: 3}
+  WeaponName: Shocker
+  description: Rickosher Enemies
   WeaponUpgradeData:
     UpgradeQueue: 0100000005000000000000000000000000000000
     BaseStats:
@@ -35,7 +35,7 @@ MonoBehaviour:
       Modificator: 0.83
       <StatName>k__BackingField: 1
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 80
+    - <BaseValue>k__BackingField: 1
       Modificator: 0
       <StatName>k__BackingField: 7
       BonusedValue: 0
@@ -47,9 +47,22 @@ MonoBehaviour:
       Modificator: 0.5
       <StatName>k__BackingField: 15
       BonusedValue: 0
-    <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 6
-    <LevelMax>k__BackingField: 0
+    - <BaseValue>k__BackingField: 25.19
+      Modificator: 0
+      <StatName>k__BackingField: 6
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 8
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 4
+      Modificator: 0
+      <StatName>k__BackingField: 13
+      BonusedValue: 0
     <CardLevelMax>k__BackingField: 1
+    <CurrentLevel>k__BackingField: 1
+    <CardLevel>k__BackingField: 0
+    <IsLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: -234741778516849403, guid: 8fd77d4ec1aee99489723d7cc89bb03c, type: 3}

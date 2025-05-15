@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
@@ -8,16 +9,26 @@ public class PlayerCombatManager : MonoBehaviour
 {
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] private WeaponInfoData[] weaponInfoDatas;
-    [SerializeField] private List<DynamicWeaponHandler> weaponHandlers;
-
-    private void Awake()
+    [SerializeField, ReadOnly] private List<DynamicWeaponHandler> weaponHandlers;
+    [SerializeField] private DynamicWeapon defaultWeapon;
+    
+    private void Start()
     {
         weaponHandlers = new List<DynamicWeaponHandler>();
         foreach (var weaponInfoData in weaponInfoDatas)
         {
             if (weaponInfoData is DynamicWeapon dynamicWeapon)
             {
-                weaponHandlers.Add(new DynamicWeaponHandler(dynamicWeapon));
+                var handler = new DynamicWeaponHandler(dynamicWeapon);
+                    weaponHandlers.Add(handler);
+                    if (dynamicWeapon.WeaponUpgradeData.IsUnLocked)
+                        handler.isLocked = false;
+                    if (dynamicWeapon.WeaponName == defaultWeapon.WeaponName)
+                    {
+                        handler.isLocked = false;
+                        defaultWeapon.WeaponUpgradeData.IsUnLocked = true;
+
+                    }
             }
         }
         _weaponCardManagerView.OnGetWeaponEvent += SetWeaponCard;

@@ -20,6 +20,7 @@ public class IdleState : EnemyBaseState
     public override void EnterState(BaseEnemy enemy)
     {
         _enemyAnimator.Animator.applyRootMotion = false;
+        
         _enemyAnimator.SetIdle();
         _enemyAnimator.Animator.transform.localPosition = Vector3.zero;
         _enemyAnimator.Animator.transform.rotation = Quaternion.identity;

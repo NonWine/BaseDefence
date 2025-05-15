@@ -5,14 +5,14 @@ using UnityEngine;
 [System.Serializable] [InlineProperty]
 public class WeaponStatValue
 {
-   [JsonIgnore]  [field: SerializeField] public float BaseValue { get; private set; }
+    [JsonIgnore]  [field: SerializeField] public float BaseValue { get; private set; }
    [JsonIgnore]  [SerializeField] private float Modificator;
-   [JsonProperty] private int UpgradeLevel = 1;
-   [JsonIgnore]  [field: SerializeField] public StatName StatName { get; private set; }
+    [JsonProperty] private int UpgradeLevel = 1;
+     [JsonIgnore]  [field: SerializeField] public StatName StatName { get; private set; }
 
-   [JsonIgnore] [ShowInInspector, ReadOnly]  public float CurrentValue => (BaseValue  + BonusedValue) * (1 + Modificator * UpgradeLevel);
+    [JsonIgnore] [ShowInInspector, ReadOnly]  public float CurrentValue => (BaseValue  + BonusedValue) * (1 + Modificator * UpgradeLevel);
 
-   [ShowInInspector, ReadOnly] public float BonusedValue;
+     [ShowInInspector, ReadOnly] public float BonusedValue;
    
    public int CurrentValueInt => Mathf.FloorToInt((BaseValue  + BonusedValue) * (1 + Modificator * UpgradeLevel));
 

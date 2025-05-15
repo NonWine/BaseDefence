@@ -18,6 +18,7 @@ public class FreezeRay : MonoBehaviour
     private Ray _ray;
     private RaycastHit2D[] hits;
     private WeaponUpgradeData WeaponUpgradeData;
+    public bool isShhoted;
 
     public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
     {
@@ -63,23 +64,22 @@ public class FreezeRay : MonoBehaviour
             return;
         }
 
-        // Отримуємо точку на ворозі, куди треба стріляти (наприклад, центр або спеціальну точку)
-        Vector3 targetPoint = _enemy.position; // Можна використовувати _enemy.GetComponent<Collider>().bounds.center
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)
+        Vector3 targetPoint = _enemy.position; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ _enemy.GetComponent<Collider>().bounds.center
 
-        // Оновлюємо позиції лазера
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Vector3 direction = targetPoint - transform.position;
         _laserLine.SetPosition(0, transform.position);
-        _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // Просто до позиції ворога
+        _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-        // Raycast для перевірки попадання
+        // Raycast пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         _ray = new Ray(transform.position, direction.normalized);
         Debug.DrawRay(transform.position, direction, Color.green, 0.01f);
         hits = Physics2D.RaycastAll(transform.position, direction, _gunRange, _layerMask);
 
-        if (hits.Length > 0)
+        if (hits.Length > 0 && !isShhoted)
         {
-            if (_damageTimer >= WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue)
-            {
+            isShhoted = true;
                 foreach (var hit in hits)
                 {
                     if (hit.transform.TryGetComponent<IDamageable>(out var damageable))
@@ -89,11 +89,11 @@ public class FreezeRay : MonoBehaviour
                     }
                 }
                 _damageTimer = 0;
-            }
+            
         }
         else
         {
-            // Якщо нічого не влучило, але ворог є - це може бути проблема з LayerMask
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ - пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ LayerMask
             Debug.LogWarning("Raycast didn't hit anything but enemy exists");
         }
     }

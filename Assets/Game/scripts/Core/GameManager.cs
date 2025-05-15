@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CanvasGroup _losePanel;
     [SerializeField] private LevelCompleteView _winPanel;
     [SerializeField] private Button restartWaveButton;
+    [ProgressBar(0, 10)] [SerializeField] public int TimeGameSpeed = 1;
     public Transform BombTarget;
     private WeaponsSaver weaponsSaver;
     
@@ -41,6 +42,11 @@ public class GameManager : MonoBehaviour
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         _gamePanel.SetActive(true);
+    }
+
+    private void Update()
+    {
+        Time.timeScale = TimeGameSpeed;
     }
 
     private void OnDestroy()

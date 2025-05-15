@@ -16,7 +16,6 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected Collider2D collider;
     [SerializeField] protected Rigidbody2D rigidbody;
     [SerializeField] protected float _poisonedSpeedMultiplier;
-    [SerializeField] protected float _speed;
     private bool isPoisoned = false;
     
     
@@ -40,12 +39,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     {
         get
         {
-            return _speed;
+            return EnemyStatsConfig._moveSpeed;
         }
         private set
         {
-            _speed = value;
-/*            NavMesh.speed = _speed;*/
+            EnemyStatsConfig._moveSpeed = Mathf.FloorToInt( value);
         }
     }
 
@@ -102,7 +100,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         if (CurrentHealth <= 0f)
         {
             IsDeath = true;
-            collider.isTrigger = true;
+            collider.enabled = false;
 /*            if(NavMesh.isOnNavMesh)
                 NavMesh.isStopped = true;
             NavMesh.velocity = Vector3.zero;
@@ -136,7 +134,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
 
     public void UnsetDeath()
     {
-        collider.isTrigger = false;
+        collider.enabled = true;
         IsDeath = false;
         IsPoisoned = false;
     } 

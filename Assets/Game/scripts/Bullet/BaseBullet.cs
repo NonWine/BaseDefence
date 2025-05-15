@@ -28,7 +28,7 @@ public abstract class BaseBullet : PoolAble
         //Debug.Log(other.gameObject.name);
         
         
-        if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
+        if (other.transform.TryGetComponent(out IDamageable damageable))
         {
             
             damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
