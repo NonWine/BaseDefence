@@ -43,6 +43,8 @@ public  class AttackState : EnemyBaseState
             return;
         }
         _attackable.Attack(_target);
+        ParticlePool.Instance.PlayzombieHitFx(BaseEnemy.transform.position - (Vector3.up / 0.5f));
+
         //_target.GetDamage(10);
     }
 }
