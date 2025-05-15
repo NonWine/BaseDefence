@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +11,7 @@ public class Target : MonoBehaviour, IDamageable
     [SerializeField] int _maxHealth;
     [Inject] private GameManager gameManager;
     public RandomPointInBoxCollider randomPointInBoxCollider;
+    private Sequence Sequence;
     
     private void Awake()
     {
@@ -29,6 +31,15 @@ public class Target : MonoBehaviour, IDamageable
     }
     public void GetDamage(int damage)
     {
+        if (Sequence.IsPlaying())
+        {
+            Sequence.Kill();
+            transform.localScale = Vector3.one;
+        }
+        Sequence = DOTween.Sequence();
+        Sequence.Append(transform.DOScale(1.2f, 0.15f)).SetEase(Ease.OutQuad);
+        Sequence.Append(transform.DOScale(1f, 0.15f)).SetEase(Ease.Linear);
+        
         _health.GetDamageUI(damage);
     }
     public void Heal(int value)

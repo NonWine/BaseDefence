@@ -88,6 +88,7 @@ public class FreezeRay : MonoBehaviour
                         hit.transform.GetComponent<BaseEnemy>().GetFreezed(WeaponUpgradeData.GetStat(StatName.FreezeDuration).CurrentValue);
                     }
                 }
+                ParticlePool.Instance.PlayFrostHit(transform.position);
                 _damageTimer = 0;
             
         }

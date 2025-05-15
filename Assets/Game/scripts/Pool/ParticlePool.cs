@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ParticlePool : MonoBehaviour
 {
     public static ParticlePool Instance;
 
-    [SerializeField] private ParticleSystem[] _poofFx;
+    [FormerlySerializedAs("_poofFx")] [SerializeField] private ParticleSystem[] _zombieHitFx;
     [SerializeField] private ParticleSystem[] _bloodfFx;
     [SerializeField] private ParticleSystem[] _sparkleFx;
     [SerializeField] private ParticleSystem[] fireArrow;
@@ -14,7 +15,7 @@ public class ParticlePool : MonoBehaviour
     [SerializeField] private ParticleSystem[] frozenExplosiveFx;
     [SerializeField] private ParticleSystem[] deadZombieFx;
     [SerializeField] private ParticleSystem[] polzunBloodHitFx;
-    [SerializeField] private ParticleSystem[] polzunDeadZombieFx;
+    [FormerlySerializedAs("polzunDeadZombieFx")] [SerializeField] private ParticleSystem[] frostHitFx;
     [SerializeField] private ParticleSystem[] mimicDeadFx;
     [SerializeField] private ParticleSystem[] explosiveSmolaFx;
     [SerializeField] private ParticleSystem[] explosiveBulletFx;
@@ -24,7 +25,7 @@ public class ParticlePool : MonoBehaviour
     [SerializeField] private ParticleSystem[] stinkyBallExplosionFx;
 
     
-    private int _currentPoof;
+    private int _currentZombieHit;
     private int _currentBlood;
     private int _currentSparkle;
     private int currentBlood;
@@ -34,7 +35,7 @@ public class ParticlePool : MonoBehaviour
     private int currentExplossion;
     private int currentfrozen;
     private int currentZombie;
-    private int currentZombiePolzun;
+    private int currentFrostHitFx;
     private int currentBloodPolzun;
     private int currentMimicDead;
     private int currentExplosiveBullet;
@@ -115,13 +116,13 @@ public class ParticlePool : MonoBehaviour
             currentBloodPolzun = 0;
     }
 
-    public void PlayDeadPolzun(Vector3 pos)
+    public void PlayFrostHit(Vector3 pos)
     {
-        polzunDeadZombieFx[currentZombiePolzun].transform.position = pos;
-        polzunDeadZombieFx[currentZombiePolzun].Play();
-        currentZombiePolzun++;
-        if (currentZombiePolzun == polzunDeadZombieFx.Length)
-            currentZombiePolzun = 0;
+        frostHitFx[currentFrostHitFx].transform.position = pos;
+        frostHitFx[currentFrostHitFx].Play();
+        currentFrostHitFx++;
+        if (currentFrostHitFx == frostHitFx.Length)
+            currentFrostHitFx = 0;
     }
 
     public void PlayDeadZombie(Vector3 pos)
@@ -167,13 +168,13 @@ public class ParticlePool : MonoBehaviour
         Instance = this;
     }
 
-    public void PlayPoof(Vector3 pos)
+    public void PlayzombieHitFx(Vector3 pos)
     {
-        _poofFx[_currentPoof].transform.position = pos;
-        _poofFx[_currentPoof].Play();
-        _currentPoof++;
-        if (_currentPoof == _poofFx.Length)
-            _currentPoof = 0;
+        _zombieHitFx[_currentZombieHit].transform.position = pos;
+        _zombieHitFx[_currentZombieHit].Play();
+        _currentZombieHit++;
+        if (_currentZombieHit == _zombieHitFx.Length)
+            _currentZombieHit = 0;
     }
 
 
