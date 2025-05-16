@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour
         foreach (var tickable in _tickables)
         {
             tickable.Tick();
+            
         }
     }
     

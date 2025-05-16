@@ -2,19 +2,23 @@
 using UnityEngine;
 using Zenject;
 
-public class PlayerGiveDamageHandler
+public class PlayerGiveDamageHandler : MonoBehaviour
 {
       [Inject]  private EnemyFactory enemyFactory;
       [Inject]  private BulletFactory bulletFactory;
-      [Inject]  private PlayerCombatManager playerCombatManager;
+     [SerializeField] private PlayerCombatManager playerCombatManager;
     private float timer;
-    
+
+
+ 
     
     public Transform CurrentAgredTarget { get; private set; }
     
     public void TryGetDamage(Player player)
-    {
+    {   
+
         timer += Time.deltaTime;
+        Debug.Log(playerCombatManager);
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             unlockedWeapon.CurrentTimer += Time.deltaTime;

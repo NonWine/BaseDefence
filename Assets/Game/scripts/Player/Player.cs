@@ -10,7 +10,8 @@ public class Player : MonoBehaviour , ITickable
     [SerializeField] private HealthUI _healthUI;
     [SerializeField] public Transform bulletStartPoint;
     [Inject] private GameController _gameСontroller;
-    [ShowInInspector,ReadOnly] [Inject] private PlayerGiveDamageHandler _playerGiveDamageHandler;
+    [SerializeField] private PlayerGiveDamageHandler _playerGiveDamageHandler;
+   [SerializeField] public PlayerCombatManager PlayerCombatManager;
     private PlayerHandlersService _playerHandlersService;
     private OverlapSphereHandler _overlapSphereHandler;
     private PlayerController _playerController;
@@ -32,7 +33,8 @@ public class Player : MonoBehaviour , ITickable
         _gameСontroller.RegisterInTick(this);
         InitializeHandler();
         InitializePlayerStateMachine();
-        
+        Debug.Log(PlayerCombatManager);
+
         PlayerInitialize();
         _playerContainer.PlayerStats.CurrentHealth = _playerContainer.PlayerStats.MaxHealth;
         _healthUI.SetHealth(_playerContainer.PlayerStats.MaxHealth);

@@ -5,7 +5,6 @@ using Zenject;
 public class PlayerInstaller : MonoInstaller
 {
     [SerializeField] private Joystick _joystick;
-    [SerializeField] private PlayerCombatManager playerCombatManager;
     [SerializeField] private PlayerHandler playerHandler;
     [SerializeField] private PlayerLevelController playerLevelController;
     [SerializeField] private StaticWeaponsManager staticWeaponsManager;
@@ -18,12 +17,10 @@ public class PlayerInstaller : MonoInstaller
 
     private void BindHandlers()
     {
-        Container.BindInstance(playerCombatManager).AsSingle();
         Container.BindInstance(playerLevelController).AsSingle();
         Container.BindInterfacesAndSelfTo<PlayerMonitor>().FromNew().AsSingle();
         Container.Bind<OverlapSphereHandler>().FromNew().AsSingle();
         Container.BindInstance(_joystick).AsSingle().NonLazy();
-        Container.Bind<PlayerGiveDamageHandler>().FromNew().AsSingle();
         Container.BindInstance(playerHandler).AsSingle();
         Container.BindInstance(staticWeaponsManager).AsSingle();
     }

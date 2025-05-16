@@ -13,7 +13,9 @@ public class PlayerCombatManager : MonoBehaviour
     [SerializeField] private DynamicWeapon defaultWeapon;
     public float DistanceToAgr = 50f;
     
-    private void Start()
+
+ 
+    private void Awake()
     {
         weaponHandlers = new List<DynamicWeaponHandler>();
         foreach (var weaponInfoData in weaponInfoDatas)
@@ -33,6 +35,11 @@ public class PlayerCombatManager : MonoBehaviour
             }
         }
         _weaponCardManagerView.OnGetWeaponEvent += SetWeaponCard;
+    }
+
+    private void Update()
+    {
+        Debug.Log(this);
     }
 
     private void OnDestroy()

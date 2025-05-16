@@ -1,4 +1,6 @@
 
+using UnityEngine;
+
 public class PlayerController 
 { 
     private IMoveable _moveable;
@@ -25,6 +27,7 @@ public class PlayerController
     {
         //_moveable.Move();
        // _rotateable.Rotate();
+       Debug.Log("PlayerTick");
         _animateable.UpdateAnimator();
         _playerStateMachine.CurrentState.LogicUpdate();
     //    _playerResourceDetector.FindResources();

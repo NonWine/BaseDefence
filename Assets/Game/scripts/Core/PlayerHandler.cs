@@ -1,22 +1,17 @@
 ﻿using UnityEngine;
 using Zenject;
 
-[DefaultExecutionOrder(-1)]
 public class PlayerHandler : MonoBehaviour
 {
     [SerializeField] private Player playerPrefab;
     [SerializeField] private Transform playerSpawnPoint;
 
-    [Inject] private DiContainer diContainer;
 
-    public Player Player { get; private set; }
+    public Player Player => playerPrefab;
     
-    [Inject]
-    private void Construct()
+    private void Start()
     {
-        Player = diContainer.InstantiatePrefabForComponent<Player>(playerPrefab);
         //Player.PlayerContainer.Agent.Warp(playerSpawnPoint.position);
-        Player.PlayerContainer.transform.position = playerSpawnPoint.position;
-        Player.Initialize();
+        playerPrefab.Initialize();
     }
 }
