@@ -21,6 +21,10 @@ public class HealthUI : MonoBehaviour
     public void Heal(float value)
     {
         //float curValue = Mathf.FloorToInt(_slider.value);
+       if(IsDamaged)
+        {
+            return;
+        }
         float curValue = _slider.value; 
         float finalValue = curValue + value;
         _slider.value = finalValue;
