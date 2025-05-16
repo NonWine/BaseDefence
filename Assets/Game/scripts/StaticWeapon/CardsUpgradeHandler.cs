@@ -43,7 +43,7 @@ public class CardsUpgradeHandler : MonoBehaviour
             weaponInfoData.WeaponUpgradeData.GetStat(bonusInfo.StatName).ImproveBaseValueByPercent(value);
         }
         
-        if (currentUpgradeData is AdvantageUpgrade advantageUpgrade)
+        if (weaponInfoData.CardUpgradeInfo is AdvantageUpgrade advantageUpgrade)
         {
             weaponInfoData.WeaponUpgradeData.GetStat(advantageUpgrade.StatName).ImproveBaseValue(advantageUpgrade.Value);
         }
