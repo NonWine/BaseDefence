@@ -188,6 +188,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShotgunBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 6036116213096083483, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

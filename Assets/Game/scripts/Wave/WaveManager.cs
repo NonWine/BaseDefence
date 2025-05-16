@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
@@ -15,11 +16,12 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private TMP_Text waveText;
    [SerializeField] private HealthUI playerHealth;
    [SerializeField] private CanvasGroup menuPopUp;
+   [Inject] private EnemyFactory EnemyFactory;
    [Inject] public PlayerHandler _player;
    [Inject] private GameManager gameManager;
 
    private int currentWaveIndex;
-   public bool _waveActive;
+   public bool _waveActive, endWave;
    public float CurrentTime;
    public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
    
@@ -48,11 +50,14 @@ public class WaveManager : MonoBehaviour
         menuPopUp.blocksRaycasts = false;
         CurrentTime = CurrentWave.waveDuration;
         _waveActive = true;
+        endWave = false;
         startWaveButton.interactable = false;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(CurrentWave);
         waveSliderView.SetWaveData(CurrentWave.waveDuration);
     }
+
+    private float timer;
 
     public void Update()
     {
@@ -62,24 +67,39 @@ public class WaveManager : MonoBehaviour
         _spawner.UpdateSpawner(Time.deltaTime);
         if (CurrentTime <= 0f)
         {
-            EndWave();
+            endWave = true;
+            _spawner.StopSpawning();
         }
         else
         {
             CurrentTime -= Time.deltaTime;
         }
 
+        if (endWave)
+        {
+            timer += Time.deltaTime;
+            if (timer > 3f)
+            {
+                timer = 0f;
+                var enemy = EnemyFactory.Enemies.Find(x => x.IsDeath == false);
+                if (enemy == null)
+                {
+                    StopWave();
+                }
+            }
+        }
+        
     }
 
     public void StopWave()
     {
-        _waveActive = false;
-        _spawner.StopSpawning();
         playerHealth.gameObject.SetActive(false);
         menuPopUp.alpha = 1f;
         menuPopUp.blocksRaycasts = true;
         startWaveButton.interactable = true;
+        endWave = false;
     }
+    
 
     private void UpdateWave()
     {

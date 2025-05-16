@@ -140,6 +140,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         }
         IsFreezed = true;
         FreezeTime = time;
+        
         EnemyStateMachine.ChangeState<FreezedState>();
     }
 }
