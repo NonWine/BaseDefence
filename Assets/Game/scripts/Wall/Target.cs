@@ -51,6 +51,8 @@ public class Target : MonoBehaviour, IDamageable
     {
         IsDeath = false;
         gameObject.SetActive(true);
+        Sequence.Kill();
+        transform.localScale = Vector3.one;
         _health.SetHealth(_maxHealth);
 
     }

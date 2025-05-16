@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawnInfo
 {
     public BaseEnemy SelectedEnemy;
-
+    [ProgressBar(1, 100)] public int ChanceToSpawn;
     
     #region Editor
 

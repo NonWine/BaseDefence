@@ -2494,7 +2494,7 @@ MonoBehaviour:
   _losePanel: {fileID: 4834536043681781763}
   _winPanel: {fileID: 2252330524172809295}
   restartWaveButton: {fileID: 4834536043681781764}
-  TimeGameSpeed: 1
+  TimeGameSpeed: 2
   BombTarget: {fileID: 0}
 --- !u!114 &1431210759
 MonoBehaviour:
@@ -2960,6 +2960,7 @@ MonoBehaviour:
   menuPopUp: {fileID: 1411184058}
   _player: {fileID: 2040029519}
   _waveActive: 0
+  endWave: 0
   CurrentTime: 0
 --- !u!114 &1709021710
 MonoBehaviour:
@@ -5473,25 +5474,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1396439251}
     m_Modifications:
-    - target: {fileID: 108055790607930385, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.26
-      objectReference: {fileID: 0}
     - target: {fileID: 140794301765272088, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: _health
       value: 
       objectReference: {fileID: 8728988953167695668}
-    - target: {fileID: 1882883239311925326, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.03
-      objectReference: {fileID: 0}
     - target: {fileID: 2260722771809576846, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: m_Name
       value: Zabor
-      objectReference: {fileID: 0}
-    - target: {fileID: 4643368286643432875, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.77
       objectReference: {fileID: 0}
     - target: {fileID: 5357168224711816620, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5532,18 +5521,6 @@ PrefabInstance:
     - target: {fileID: 5357168224711816620, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5747931080700916710, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.5200005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6319235468332103266, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100862263583222413, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.5399995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

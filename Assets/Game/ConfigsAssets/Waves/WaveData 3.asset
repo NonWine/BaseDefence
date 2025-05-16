@@ -76,4 +76,6 @@ MonoBehaviour:
     m_RotationOrder: 4
   Enemies:
   - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
+    ChanceToSpawn: 100
   - SelectedEnemy: {fileID: 5551236498080382267, guid: c20d5069ce9b51f418c686cb130624d8, type: 3}
+    ChanceToSpawn: 51
