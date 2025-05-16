@@ -1273,14 +1273,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1709190326176024482, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
-      propertyPath: playerCombatManager
-      value: 
-      objectReference: {fileID: 1836437330}
-    - target: {fileID: 3503238119258563732, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
-      propertyPath: PlayerCombatManager
-      value: 
-      objectReference: {fileID: 1836437330}
     - target: {fileID: 4778437316126056085, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
       propertyPath: m_Name
       value: Player2D
@@ -3120,7 +3112,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1836437329}
-  - component: {fileID: 1836437330}
   - component: {fileID: 1836437331}
   m_Layer: 0
   m_Name: playerCombatController
@@ -3145,33 +3136,6 @@ Transform:
   - {fileID: 1658342762}
   m_Father: {fileID: 1161861819}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1836437330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836437328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c208594b353743f0940f99cb5a6f880b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponHandlers:
-  - weaponInfoData: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
-    isLocked: 1
-    CurrentTimer: 0
-  - weaponInfoData: {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
-    isLocked: 1
-    CurrentTimer: 0
-  - weaponInfoData: {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
-    isLocked: 1
-    CurrentTimer: 0
-  - weaponInfoData: {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
-    isLocked: 0
-    CurrentTimer: 0
-  defaultWeapon: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  DistanceToAgr: 25
 --- !u!114 &1836437331
 MonoBehaviour:
   m_ObjectHideFlags: 0

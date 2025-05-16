@@ -80,6 +80,7 @@ public  class WeaponUpgradeData
         foreach (var weaponStatValue in BaseStats)
         {
             weaponStatValue.ResetLevel();
+            weaponStatValue.BonusedValue = 0f;
         }
     }
 

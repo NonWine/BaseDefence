@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 754546941203926906}
   - component: {fileID: 3503238119258563732}
   - component: {fileID: 1709190326176024482}
+  - component: {fileID: 6940290521484539287}
   m_Layer: 0
   m_Name: Player2D
   m_TagString: Untagged
@@ -102,7 +103,7 @@ MonoBehaviour:
   _healthUI: {fileID: 2643628323638214876}
   bulletStartPoint: {fileID: 1009459676067695206}
   _playerGiveDamageHandler: {fileID: 1709190326176024482}
-  PlayerCombatManager: {fileID: 0}
+  PlayerCombatManager: {fileID: 6940290521484539287}
   ResourceStartPoint: {fileID: 1009459676067695206}
 --- !u!114 &1709190326176024482
 MonoBehaviour:
@@ -116,7 +117,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41386f8ee7af44d99db50eef8178c90d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCombatManager: {fileID: 0}
+  playerCombatManager: {fileID: 6940290521484539287}
+--- !u!114 &6940290521484539287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4778437316126056085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c208594b353743f0940f99cb5a6f880b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHandlers: []
+  defaultWeapon: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  DistanceToAgr: 50
 --- !u!1 &7041204419503545294
 GameObject:
   m_ObjectHideFlags: 0
