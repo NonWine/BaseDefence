@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.SystemSetting;
     }
     
+    [Button]
     public void GameLose()
     {
         _losePanel.alpha =1f;
         _losePanel.blocksRaycasts = true;
         OnLooseEvent?.Invoke();
     }
-
     private void RestartWave()
     {
         _losePanel.alpha = 0f;

@@ -19,7 +19,7 @@ public class WaveManager : MonoBehaviour
    [Inject] private EnemyFactory EnemyFactory;
    [Inject] public PlayerHandler _player;
    [Inject] private GameManager gameManager;
-
+   [ReadOnly] public WaveDataConfig CurentWave;
    private int currentWaveIndex;
    public bool _waveActive, endWave;
    public float CurrentTime;
@@ -55,6 +55,7 @@ public class WaveManager : MonoBehaviour
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
         _spawner.StartSpawning(CurrentWave);
         waveSliderView.SetWaveData(CurrentWave.waveDuration);
+        CurentWave = CurrentWave;
     }
 
     private float timer;
@@ -84,7 +85,7 @@ public class WaveManager : MonoBehaviour
                 var enemy = EnemyFactory.Enemies.Find(x => x.IsDeath == false);
                 if (enemy == null)
                 {
-                    StopWave();
+                   EndWave();
                 }
             }
         }
@@ -98,6 +99,8 @@ public class WaveManager : MonoBehaviour
         menuPopUp.blocksRaycasts = true;
         startWaveButton.interactable = true;
         endWave = false;
+        _waveActive = false;
+        _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
     }
     
 

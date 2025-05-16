@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.1054, y: 0.6064, z: 0.17288418}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.50503, y: 0.50503, z: 0.50503}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3587093119821800544}
@@ -132,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.5149875, y: 1.8992846}
+  m_Size: {x: 0.72, y: 0.45}
   m_EdgeRadius: 0
 --- !u!50 &6204302478685693723
 Rigidbody2D:

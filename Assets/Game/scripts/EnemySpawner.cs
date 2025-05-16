@@ -1,6 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int _timeWhenStopSpawning;
     [Inject] private EnemyFactory enemyFactory;
     [Inject] WaveManager waveManager;
+    [Inject] private GameManager gameManager;
     [SerializeField] private float intervalSpeed = 7f; 
     private WaveDataConfig _currentWave;
     private float _spawnTimer;
@@ -15,9 +19,26 @@ public class EnemySpawner : MonoBehaviour
     private float _currentIntervalChangeTimer;
     private bool _spawningEnabled;
 
+    private void Awake()
+    {
+        gameManager.OnRestartWaveEvent += KillAllEnemies;
+    }
 
+    private void OnDestroy()
+    {
+        gameManager.OnRestartWaveEvent -= KillAllEnemies;
+
+    }
 
     public int CurrentEnemies { get; private set; }
+
+    private void KillAllEnemies()
+    {
+        foreach (var enemyFactoryEnemy in enemyFactory.Enemies)
+        {
+            enemyFactoryEnemy.GetDamage(100000);
+        }
+    }
 
     public void StartSpawning(WaveDataConfig wave)
     {
@@ -63,12 +84,34 @@ public class EnemySpawner : MonoBehaviour
     {
         SpawnRandomGroup();
     }
+    
+    public BaseEnemy GetRandomEnemy()
+    {
+        // Підраховуємо загальну суму шансів
+        int totalWeight = _currentWave.Enemies.Sum(e => e.ChanceToSpawn);
+
+        // Генеруємо випадкове число від 0 до totalWeight
+        int randomWeight = Random.Range(0, totalWeight);
+
+        // Ітеруємо список і шукаємо, куди потрапляє випадкове число
+        foreach (var enemy in _currentWave.Enemies)
+        {
+            if (randomWeight < enemy.ChanceToSpawn)
+                return enemy.SelectedEnemy;
+
+            randomWeight -= enemy.ChanceToSpawn;
+        }
+
+        // Якщо щось пішло не так, повертаємо null (хоча це не повинно статись)
+        return null;
+    }
 
     private void SpawnRandomGroup()
     {
-        var group = _currentWave.Enemies[Random.Range(0, _currentWave.Enemies.Count)];
+
+        var group = GetRandomEnemy();
    
-            if (group.SelectedEnemy is PoolAble poolAble)
+            if (group is PoolAble poolAble)
             {
                 var enemy = enemyFactory.Create(poolAble.Type);
                 Vector3 pos = randomPointInBoxCollider.GetRandomPointInBox();

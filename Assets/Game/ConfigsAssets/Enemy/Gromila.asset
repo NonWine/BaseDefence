@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771513253ce743169ce9715f6090513a, type: 3}
   m_Name: Gromila
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 10
-  _health: 50
+  <Damage>k__BackingField: 12
+  _health: 60
   _moveSpeed: 1
-  _roateSpeed: 58
+  _roateSpeed: 84
   <CoinDrop>k__BackingField: 10
   <EXPDrop>k__BackingField: 10
