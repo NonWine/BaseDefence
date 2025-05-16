@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerAnimator : IEntityAnimateable
 {
     private const  string _MOVING_KEY = "Speed";
-    private const  string _STATE_KEY = "State";
+    private const  string _STATE_KEY = "state";
     private const  string _STATE_LAYER_KEY = "StateBehavior";
 
     public PlayerAnimator(PlayerContainer playerContainer)
@@ -39,7 +39,7 @@ public class PlayerAnimator : IEntityAnimateable
             _playerContainer.Animator.SetLayerWeight(1,0);
         }
         else
-            _playerContainer.Animator.SetLayerWeight(1,1);
+            _playerContainer.Animator.SetInteger(_STATE_KEY,1);
     }
     
     public void Lumbering() =>         _playerContainer.Animator.SetInteger(_STATE_KEY,1);

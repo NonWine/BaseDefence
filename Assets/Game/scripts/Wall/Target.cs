@@ -18,17 +18,16 @@ public class Target : MonoBehaviour, IDamageable
         Sequence = DOTween.Sequence();
         _health.SetHealth(_maxHealth);
         gameManager.OnRestartWaveEvent += ResetZabor;
+        _health.OnHPZero += Die;
+
     }
     
-    private void OnEnable()
-    {
-        _health.OnHPZero += Die;
-        gameManager.OnRestartWaveEvent -= ResetZabor;
-        
-    }
-    private void OnDisable()
+
+    private void OnDestroy()
     {
         _health.OnHPZero -= Die;
+        gameManager.OnRestartWaveEvent -= ResetZabor;
+
     }
     public void GetDamage(int damage)
     {
