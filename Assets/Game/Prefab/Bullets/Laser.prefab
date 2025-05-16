@@ -75,13 +75,13 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 3
+    widthMultiplier: 1.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -170,13 +170,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _laserOrigin: {fileID: 355777132359617881}
   _gunRange: 200
-  _laserDuration: 2
   _laserLine: {fileID: 3829319480757668635}
   _enemy: {fileID: 0}
   _layerMask:
     serializedVersion: 2
     m_Bits: 128
-  _damageInterval: 0.3
 --- !u!1 &8623464239550395874
 GameObject:
   m_ObjectHideFlags: 0

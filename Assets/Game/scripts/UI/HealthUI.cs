@@ -15,11 +15,11 @@ public class HealthUI : MonoBehaviour
         _slider.maxValue = value;
         _slider.value = value;
     }
-    public void Heal(int value)
+    public void Heal(float value)
     {
-        int curValue = Mathf.FloorToInt(_slider.value);
-        int finalValue = curValue + value;
-        DOVirtual.Int(curValue, finalValue, 0.05f, x =>
+        float curValue = Mathf.FloorToInt(_slider.value);
+        float finalValue = curValue + value;
+        DOVirtual.Float(curValue, finalValue, 0.05f, x =>
         {
             _slider.value = x;
         }).SetEase(Ease.Linear).OnKill(() =>
@@ -27,11 +27,11 @@ public class HealthUI : MonoBehaviour
             _slider.value = finalValue;
         });
     }
-    public void GetDamageUI(int count)
+    public void GetDamageUI(float count)
     {
-        int curValue = Mathf.FloorToInt(_slider.value);
-        int finalValue = curValue - count;
-        DOVirtual.Int(curValue, finalValue, 0.05f, x =>
+        float curValue = Mathf.FloorToInt(_slider.value);
+        float finalValue = curValue - count;
+        DOVirtual.Float(curValue, finalValue, 0.05f, x =>
             {
                 _slider.value = x;
             }).SetEase(Ease.Linear).OnKill(() =>
