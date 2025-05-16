@@ -37,10 +37,7 @@ public class PlayerCombatManager : MonoBehaviour
         _weaponCardManagerView.OnGetWeaponEvent += SetWeaponCard;
     }
 
-    private void Update()
-    {
-        Debug.Log(this);
-    }
+ 
 
     private void OnDestroy()
     {

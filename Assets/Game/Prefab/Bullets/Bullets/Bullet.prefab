@@ -378,6 +378,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletSmallFire
       objectReference: {fileID: 0}
+    - target: {fileID: 7194549980694812964, guid: ac508b10a75d071439736120371337c8, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194549980694812964, guid: ac508b10a75d071439736120371337c8, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8037726143100669234, guid: ac508b10a75d071439736120371337c8, type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
       value: 3
@@ -386,7 +394,8 @@ PrefabInstance:
       propertyPath: InitialModule.startSizeZ.minMaxState
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8704764447100366492, guid: ac508b10a75d071439736120371337c8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
