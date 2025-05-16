@@ -8,6 +8,9 @@ using UnityEngine.UI;
 public class HealthUI : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
+    [SerializeField] private float timer;
+    [SerializeField] private float timeBeforeStartHeal;
+    public bool IsDamaged { get; private set; }
 
     public event Action OnHPZero;
     public void SetHealth(float value)
@@ -17,19 +20,27 @@ public class HealthUI : MonoBehaviour
     }
     public void Heal(float value)
     {
-        float curValue = Mathf.FloorToInt(_slider.value);
+        //float curValue = Mathf.FloorToInt(_slider.value);
+        float curValue = _slider.value; 
         float finalValue = curValue + value;
-        DOVirtual.Float(curValue, finalValue, 0.05f, x =>
+        _slider.value = finalValue;
+        /*DOVirtual.Float(curValue, finalValue, 0.05f, x =>
         {
+            if(IsDamaged)
+            {
+
+            }
             _slider.value = x;
         }).SetEase(Ease.Linear).OnKill(() =>
         {
-            _slider.value = finalValue;
-        });
+           
+        });*/
     }
     public void GetDamageUI(float count)
     {
-        float curValue = Mathf.FloorToInt(_slider.value);
+        //float curValue = Mathf.FloorToInt(_slider.value);
+        IsDamaged = true;
+        float curValue = _slider.value;
         float finalValue = curValue - count;
         DOVirtual.Float(curValue, finalValue, 0.05f, x =>
             {
@@ -37,6 +48,7 @@ public class HealthUI : MonoBehaviour
             }).SetEase(Ease.Linear).OnKill(() =>
         {
             _slider.value = finalValue;
+            IsDamaged = false;
         });
         if(finalValue <= 0)
         {

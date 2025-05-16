@@ -12,7 +12,7 @@ public class Target : MonoBehaviour, IDamageable
     [Inject] private GameManager gameManager;
     public RandomPointInBoxCollider randomPointInBoxCollider;
     private Sequence Sequence;
-    
+    public bool IsDamaged => _health.IsDamaged;
     private void Awake()
     {
         Sequence = DOTween.Sequence();
