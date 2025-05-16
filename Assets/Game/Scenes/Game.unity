@@ -2356,6 +2356,8 @@ MonoBehaviour:
   weaponsInfoData:
   - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
+  - {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -13969,6 +13971,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6583844235040948183, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6780041316877865119, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14059,6 +14065,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7559744697156763745, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7628230041999527464, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8213689692297205308, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
