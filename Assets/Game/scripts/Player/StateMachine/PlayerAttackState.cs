@@ -18,6 +18,8 @@ public class PlayerAttackState : PlayerState
     public override void Enter()
     {
         _playerAnimator.SetStateBehaviour(1);
+        player.PlayerAnimatorEvent.GetComponent<Animator>().SetInteger("state", 1);
+
         
     }
 

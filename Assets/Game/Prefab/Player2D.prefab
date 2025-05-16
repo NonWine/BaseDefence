@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _body: {fileID: 6319064511028787927}
-  _player: {fileID: 3086438421958037419}
-  _playerAnimatorEvent: {fileID: 1842955459709225187}
+  _player: {fileID: 3395645652109686637}
+  _playerAnimatorEvent: {fileID: 4584066073149882442}
   <Player>k__BackingField: {fileID: 3503238119258563732}
   <Rigidbody>k__BackingField: {fileID: 0}
 --- !u!114 &3503238119258563732
