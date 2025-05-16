@@ -42,7 +42,7 @@ public class Target : MonoBehaviour, IDamageable
         
         _health.GetDamageUI(damage);
     }
-    public void Heal(int value)
+    public void Heal(float value)
     {
         _health.Heal(value);
     }
