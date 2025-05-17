@@ -829,7 +829,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -971,7 +972,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1046,7 +1048,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1188,7 +1191,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1593,7 +1597,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (7)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1998,7 +2003,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2462,7 +2468,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2591,7 +2598,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2733,7 +2741,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2934,7 +2943,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3001,7 +3011,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3143,7 +3154,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3218,7 +3230,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (8)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3285,7 +3298,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3419,7 +3433,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GasExplosionGreen (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 406577219694734929, guid: 5806d04b0f50382409940c4b983b8663, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3690,7 +3705,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExplosionFireballFire (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4638859187966427714, guid: 493b4dff4c8fa1d488688fa48d580165, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

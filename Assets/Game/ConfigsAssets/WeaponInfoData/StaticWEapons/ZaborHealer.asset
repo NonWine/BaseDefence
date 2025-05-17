@@ -48,7 +48,7 @@ MonoBehaviour:
       Data: 2
     - Name: StatName
       Entry: 3
-      Data: 11
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
@@ -84,7 +84,7 @@ MonoBehaviour:
       Data: 3
     - Name: StatName
       Entry: 3
-      Data: 11
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
@@ -120,7 +120,7 @@ MonoBehaviour:
       Data: 4
     - Name: StatName
       Entry: 3
-      Data: 11
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
