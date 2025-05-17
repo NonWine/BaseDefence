@@ -27,7 +27,7 @@ MonoBehaviour:
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 0
+    - <BaseValue>k__BackingField: 5
       Modificator: 0.39
       <StatName>k__BackingField: 0
       BonusedValue: 0

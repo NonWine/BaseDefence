@@ -18,7 +18,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
     {   
 
         timer += Time.deltaTime;
-        Debug.Log(playerCombatManager);
+        //Debug.Log(playerCombatManager);
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             unlockedWeapon.CurrentTimer += Time.deltaTime;

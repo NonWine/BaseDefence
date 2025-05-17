@@ -15,13 +15,17 @@ public class StinkyCloud : MonoBehaviour
     [Inject] private GameController gameController;
     private Transform parent;
     public DynamicWeapon DynamicWeapon;
+    [SerializeField] GameObject testSphere;
 
     public WeaponUpgradeData WeaponUpgradeData => DynamicWeapon.WeaponUpgradeData;
     
     private void Start()
     {
+        
         ParticlePool.Instance.StinkyBallExplosionFx(transform.position, WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue/ 2f);
-        transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
+        var sphere = Instantiate(testSphere, transform.position, Quaternion.identity);
+        sphere.transform.localScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue,
+            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, 1f);
     }
 
     private void OnEnable()
@@ -43,11 +47,14 @@ public class StinkyCloud : MonoBehaviour
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, 
             WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
+        Debug.Log("stinky cloud caught " + count + " enemies" + "\nRadius of this shit is " + 
+            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue);
+        Debug.Log("\nits position is " + transform.position);
         for (int i = 0; i < count; i++)
         {
             if (_overlapResults[i].TryGetComponent(out BaseEnemy targetDamageable))
             {
-                targetDamageable.GetDamage(WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValueInt);
+                targetDamageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
             }
         }
     }
