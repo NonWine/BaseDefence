@@ -1,5 +1,7 @@
 ﻿using System;
+using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(menuName = "Enemy/EnemyConfig", fileName = "Enemy", order = 0)]
 public class EnemyStatsConfig : ScriptableObject
@@ -12,6 +14,8 @@ public class EnemyStatsConfig : ScriptableObject
     [field: SerializeField] public int CoinDrop { get; private set; } = 3;
     [field: SerializeField] public int EXPDrop { get; private set; } = 3;
 
+    [FormerlySerializedAs("coeffiecntInprease")] [ProgressBar(0,100)] public int HealthCoeffiecntIncrease;
+    
     private int _currentHealth;
 
     

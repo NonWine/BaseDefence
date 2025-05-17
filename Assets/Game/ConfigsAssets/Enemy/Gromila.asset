@@ -18,3 +18,4 @@ MonoBehaviour:
   _roateSpeed: 84
   <CoinDrop>k__BackingField: 10
   <EXPDrop>k__BackingField: 10
+  coeffiecntInprease: 12

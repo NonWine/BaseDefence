@@ -21,10 +21,10 @@ public class ResetingState : EnemyBaseState
         enemyAnimator.Animator.enabled = true;
         enemy.transform.localScale = Vector3.zero;
         enemy.transform.DOScale(1f, 0.15f).SetEase(Ease.OutBack);
-        enemy.CurrentHealth = enemy.EnemyStatsConfig.MaxHealth;
+        enemy.CurrentHealth = enemy.MaxHealth;
         enemy.CurrentDamage = enemy.EnemyStatsConfig.Damage;
         _healthUI.gameObject.SetActive(true);
-        _healthUI.SetHealth(enemy.EnemyStatsConfig.MaxHealth);
+        _healthUI.SetHealth(enemy.MaxHealth);
         enemy.UnsetDeath();
         _enemyStateMachine.ChangeState<IdleState>();
     }

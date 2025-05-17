@@ -26,11 +26,15 @@ public class WaveManager : MonoBehaviour
    private int currentWaveIndex;
    public bool _waveActive, endWave;
    public float CurrentTime;
+
+   public int CurrentLevel => currentLevelIndex;
    
    public WaveDataConfig CurrentWave => levelsData[currentLevelIndex].wavesData[currentWaveIndex];
-   
-   
-    private void OnEnable()
+
+
+   public static WaveManager Instance { get; private set; }
+
+   private void OnEnable()
     {
         gameManager.OnLooseEvent += StopWave;
         startWaveButton.onClick.AddListener(StartWave);
@@ -43,6 +47,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        Instance = this;
         waveText.text = (currentWaveIndex ).ToString() + "/" + levelsData[currentLevelIndex].wavesData.Count.ToString();
     }
 

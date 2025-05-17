@@ -16,22 +16,22 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected Collider2D collider;
     [SerializeField] protected Rigidbody2D rigidbody;
     [SerializeField] protected float _poisonedSpeedMultiplier;
-    private bool isPoisoned = false;
-    
-    
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     [Inject] protected PlayerLevelController playerLevelController;
     [Inject] protected ResourcePartObjFactory resourcePartObjFactory;
     [Inject] protected Target target;
-    public int CurrentDamage { get;  set; }
     protected EnemyRotation EnemyRotation;
-    
     public  Action<BaseEnemy> OnDie;
-    public float CurrentHealth { get; set; }
+    private bool isPoisoned = false;
 
+    public float CurrentHealth { get; set; }
+    public int CurrentDamage { get;  set; }
     public float FreezeTime { get; set; }
     public bool IsDeath { get; private set; }
     public bool IsFreezed { get;  set; }
+
+    public int MaxHealth => EnemyStatsConfig.MaxHealth +
+                          (  WaveManager.Instance.CurrentLevel * EnemyStatsConfig.HealthCoeffiecntIncrease);
 
 
 
@@ -71,7 +71,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     private void Awake()
     {
         EnemyRotation = new EnemyRotation(this);
-        CurrentHealth = EnemyStatsConfig.MaxHealth;
+        CurrentHealth = MaxHealth;
         CurrentDamage = EnemyStatsConfig.Damage;
         HealthUI.SetHealth(CurrentHealth);
         EnemyStateMachine = new EnemyStateMachine(this);
