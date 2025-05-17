@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583147132364169373}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.47293064, y: 0.66960955, z: 0.36909357}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8540358576405717378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &4965506322880283252
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b7d7e36f0c41c4316a6ea75d0a9321a6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3066038, g: 0.938009, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,7 +100,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6106212653082880314
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4709441691263423970, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -234741778516849403}
+      addedObject: {fileID: 7760935424772015282}
   m_SourcePrefab: {fileID: 100100000, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
 --- !u!96 &1441558268036760414 stripped
 TrailRenderer:
@@ -385,7 +385,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4709441691263423970, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
   m_PrefabInstance: {fileID: 2561771391691810649}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &-234741778516849403
+--- !u!114 &7760935424772015282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,14 +394,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7122004957018436283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7432a14ab8af0c489d0c112023c5fd7, type: 3}
+  m_Script: {fileID: 11500000, guid: 68c152d3f51441cdab919b3e8827912d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 1441558268036760414}
-  WeaponInfoData: {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
-  _enemyLayer:
+  WeaponInfoData: {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
+  damageableMask:
     serializedVersion: 2
     m_Bits: 128
+  ShockerBullet: {fileID: -234741778516849403, guid: 8fd77d4ec1aee99489723d7cc89bb03c, type: 3}
 --- !u!4 &8540358576405717378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}

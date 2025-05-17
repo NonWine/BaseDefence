@@ -1712,6 +1712,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
     MergeWeaponData: {fileID: 11400000, guid: 8929601d5663b5b48adfb18180083102, type: 2}
     isUnLocked: 0
+  - DynamicWeapons:
+    - {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
+    MergeWeaponData: {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
+    isUnLocked: 0
 --- !u!1 &1161861817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2370,7 @@ MonoBehaviour:
   - {fileID: -4495124359570767053, guid: 7b48b402f95ae4d479bfdfc29c4244d4, type: 3}
   - {fileID: -4495124359570767053, guid: 31f7f3d324f596544b9b283729e4304e, type: 3}
   - {fileID: 1644692590343867144, guid: d08657a2fcd6806468f3b9d23c0e16a3, type: 3}
+  - {fileID: 7760935424772015282, guid: 050db2d20f670a14ba5b192c8b9274b5, type: 3}
   _resourcePartObjs:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
@@ -2383,6 +2388,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 951c0241bbb72a145bc0048c39a56dd2, type: 2}
   - {fileID: 11400000, guid: 8929601d5663b5b48adfb18180083102, type: 2}
+  - {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
