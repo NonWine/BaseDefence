@@ -27,7 +27,6 @@ public class PlayerController
     {
         //_moveable.Move();
        // _rotateable.Rotate();
-       Debug.Log("PlayerTick");
         _animateable.UpdateAnimator();
         _playerStateMachine.CurrentState.LogicUpdate();
     //    _playerResourceDetector.FindResources();

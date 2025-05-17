@@ -38,7 +38,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
             // unlockedWeapon.perShootTimer = 1f;
             for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt; j++)
             {
-                ShootToEnemy(player, unlockedWeapon, j / 2f);
+                ShootToEnemy(player, unlockedWeapon, j / 3f);
             }
             unlockedWeapon.CurrentShoot++;
 

@@ -19,13 +19,15 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private CanvasGroup menuPopUp;
    [SerializeField] private ParticleSystem waveWinPs;
    [Inject] private EnemyFactory EnemyFactory;
-   [Inject] public PlayerHandler _player;
+   [Inject] private PlayerHandler _player;
    [Inject] private GameManager gameManager;
    [ReadOnly] public WaveDataConfig CurentWave;
    private int currentLevelIndex;
    private int currentWaveIndex;
-   public bool _waveActive, endWave;
-   public float CurrentTime;
+   private bool endWave;
+   
+   public float CurrentTime { get; private set; }
+   public bool IsWaveActive { get; private set; }
 
    public int CurrentLevel => currentLevelIndex;
    
@@ -38,16 +40,21 @@ public class WaveManager : MonoBehaviour
     {
         gameManager.OnLooseEvent += StopWave;
         startWaveButton.onClick.AddListener(StartWave);
+        currentLevelIndex = PlayerPrefs.GetInt(nameof(currentLevelIndex), currentLevelIndex);
+        currentWaveIndex = PlayerPrefs.GetInt(nameof(currentWaveIndex), currentWaveIndex);
     }
     private void OnDisable()
     {
         gameManager.OnLooseEvent -= StopWave;
         startWaveButton.onClick.RemoveListener(StartWave);
+        PlayerPrefs.SetInt(nameof(currentLevelIndex), currentLevelIndex);
+        PlayerPrefs.SetInt(nameof(currentWaveIndex), currentWaveIndex);
     }
 
     private void Start()
     {
         Instance = this;
+     
         waveText.text = (currentWaveIndex ).ToString() + "/" + levelsData[currentLevelIndex].wavesData.Count.ToString();
     }
 
@@ -58,7 +65,7 @@ public class WaveManager : MonoBehaviour
         menuPopUp.alpha = 0f;
         menuPopUp.blocksRaycasts = false;
         CurrentTime = CurrentWave.waveDuration;
-        _waveActive = true;
+        IsWaveActive = true;
         endWave = false;
         startWaveButton.interactable = false;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
@@ -71,7 +78,7 @@ public class WaveManager : MonoBehaviour
 
     public void Update()
     {
-        if (!_waveActive) return;
+        if (!IsWaveActive) return;
 
         waveSliderView.UpdateSlider(CurrentWave.waveDuration - CurrentTime);
         _spawner.UpdateSpawner(Time.deltaTime);
@@ -108,7 +115,7 @@ public class WaveManager : MonoBehaviour
         menuPopUp.blocksRaycasts = true;
         startWaveButton.interactable = true;
         endWave = false;
-        _waveActive = false;
+        IsWaveActive = false;
         _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
     }
     
@@ -127,7 +134,7 @@ public class WaveManager : MonoBehaviour
                 gameManager.RestartGame();
         }
         
-        waveText.text = (currentWaveIndex).ToString() + "/" + levelsData.Count.ToString();
+        waveText.text = (currentWaveIndex ).ToString() + "/" + levelsData[currentLevelIndex].wavesData.Count.ToString();
     }
 
     private void EndWave()

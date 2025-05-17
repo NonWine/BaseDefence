@@ -25,8 +25,8 @@ public class XPHandlerView : MonoBehaviour
 
   public void SetLevelData(float value, float maxValue)
   {
-      slider.value = value;
       slider.maxValue = maxValue;
+      slider.value = value;
   }
 
   public void AnimateSlider(int currentExperience, int currentExperienceRequired, System.Action LevelUpCallback)

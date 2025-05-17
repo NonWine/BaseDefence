@@ -17,17 +17,29 @@ public class PlayerLevelController : MonoBehaviour
 
     public static event Action OnLevelUp;
 
+    private void Awake()
+    {
+        modificator = PlayerPrefs.GetFloat(nameof(modificator), modificator);
+        currentLevel = PlayerPrefs.GetInt(nameof(currentLevel), currentLevel);
+        currentExperience =  PlayerPrefs.GetInt(nameof(currentExperience), currentExperience);
+        currentExperienceRequired = PlayerPrefs.GetInt(nameof(currentExperienceRequired), startExperienceRequired);
+        UpdateLevelData();
+
+    }
 
     private void Start()
     {
-        currentExperienceRequired = startExperienceRequired;
-        UpdateLevelData();
         xpHandlerView.OnUpdateEvent += UpdateLevelData;
     }
 
     private void OnDestroy()
     {
-        xpHandlerView.OnUpdateEvent -= UpdateLevelData;
+        
+         PlayerPrefs.SetFloat(nameof(modificator), modificator);
+         PlayerPrefs.SetInt(nameof(currentLevel), currentLevel);
+         PlayerPrefs.SetInt(nameof(currentExperience), currentExperience);
+         PlayerPrefs.SetInt(nameof(currentExperienceRequired), currentExperienceRequired);
+         xpHandlerView.OnUpdateEvent -= UpdateLevelData;
 
     }
 

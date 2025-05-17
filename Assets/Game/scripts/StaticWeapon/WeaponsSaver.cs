@@ -63,7 +63,7 @@ public class WeaponsSaver : MonoBehaviour
             weaponUpgradeDataContainer.weaponUpgradesData.Add(weaponInfoData.WeaponUpgradeData);
         }
         weaponUpgradeData.SaveData(weaponUpgradeDataContainer);
-
+        PlayerPrefs.DeleteAll();
     }
 }
 
