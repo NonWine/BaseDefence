@@ -20,6 +20,17 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
     {
         gameController.RegisterInTick(this);
         _weaponCardManagerView.OnGetWeaponEvent += GetWeaponCard;
+        Invoke(nameof(TryLoad),0.2f);
+    }
+
+    private void TryLoad()
+    {
+        if (WeaponInfoData.WeaponUpgradeData.IsUnLocked)
+        {
+            isLocked = false;
+            UnlockCallback?.Invoke();
+            
+        }
     }
 
     protected virtual void OnDestroy()

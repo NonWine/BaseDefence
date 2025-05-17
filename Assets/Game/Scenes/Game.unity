@@ -2534,6 +2534,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
   - {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
   LoadAtStart: 1
 --- !u!114 &1446267323 stripped
 MonoBehaviour:

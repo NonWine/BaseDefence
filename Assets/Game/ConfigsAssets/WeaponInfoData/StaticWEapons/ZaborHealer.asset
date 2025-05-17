@@ -45,7 +45,7 @@ MonoBehaviour:
       Data: 3|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 2
+      Data: 30
     - Name: StatName
       Entry: 3
       Data: 10
@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: 6|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 3
+      Data: 40
     - Name: StatName
       Entry: 3
       Data: 10
@@ -117,7 +117,7 @@ MonoBehaviour:
       Data: 9|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 4
+      Data: 50
     - Name: StatName
       Entry: 3
       Data: 10
@@ -148,13 +148,9 @@ MonoBehaviour:
   WeaponUpgradeData:
     UpgradeQueue: 0a0000000a0000000a000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 2.5
       Modificator: 0
       <StatName>k__BackingField: 10
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 5
-      Modificator: 0
-      <StatName>k__BackingField: 1
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 3
     <CurrentLevel>k__BackingField: 1
