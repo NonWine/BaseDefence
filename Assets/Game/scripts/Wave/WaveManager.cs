@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private WaveSliderView waveSliderView;
    [SerializeField] private Button startWaveButton;
    [SerializeField] private TMP_Text waveText;
-   [SerializeField] private HealthUI playerHealth;
+   [SerializeField] private HealthUIPlayer playerHealth;
    [SerializeField] private CanvasGroup menuPopUp;
    [SerializeField] private ParticleSystem waveWinPs;
    [Inject] private EnemyFactory EnemyFactory;

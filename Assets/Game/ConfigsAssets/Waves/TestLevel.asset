@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab8406f7ad24d0592ae84a509fe8f02, type: 3}
+  m_Name: TestLevel
+  m_EditorClassIdentifier: 
+  wavesData:
+  - {fileID: 11400000, guid: e21b163b499c0b840a833aef841ad184, type: 2}
+  - {fileID: 11400000, guid: f8a4ab394497bda4688356b6db486cee, type: 2}
+  - {fileID: 11400000, guid: bd9271cb00bb2ad45a526de7720e170a, type: 2}
+  - {fileID: 11400000, guid: 1963b7ffdd88dde4b85a1633f1dba5b9, type: 2}
+  - {fileID: 11400000, guid: 74a125a79c69f37479b7d197ce11f1e3, type: 2}
+  - {fileID: 11400000, guid: 6d6fcf0e5f5d4bf4ead1a23f604fa4ac, type: 2}
+  - {fileID: 11400000, guid: ca8ae03dd0dab0041b16b1ca6e94a825, type: 2}
+  - {fileID: 11400000, guid: 56fb541125510184ab0d0d332e6e81ce, type: 2}
+  - {fileID: 11400000, guid: f872d1d229bc03a448c8b8f693d822b7, type: 2}
+  - {fileID: 11400000, guid: a236bb72a46dce847a05a3cf908b2a88, type: 2}
+  - {fileID: 11400000, guid: b4bfe918ae38fab43a7fc79c97dc1c85, type: 2}
+  - {fileID: 11400000, guid: 8e9fe6892afaa93488ef308a4a6028f5, type: 2}
+  - {fileID: 11400000, guid: 1b47d2a6cbe2500479cec012d7ef8e29, type: 2}
+  - {fileID: 11400000, guid: 29ca96071385627469060c124452b8bf, type: 2}
+  - {fileID: 11400000, guid: 8c93dc3a4a98ad544899f82f2fbb42c4, type: 2}
+  - {fileID: 11400000, guid: 8a512de15c9795d41a1750bed35a2e95, type: 2}
+  - {fileID: 11400000, guid: 3cab6cde7f2dd8747a47ae5d8773067c, type: 2}
+  - {fileID: 11400000, guid: d7929766b62a18d4d846770ac6173d0c, type: 2}
+  - {fileID: 11400000, guid: b75ee2534a1a2e6449da43a52f580080, type: 2}
+  - {fileID: 11400000, guid: d84edb7301ab70047b09e8a56a4b718e, type: 2}
+  RewardsContainer:
+  - Type: {fileID: 11400000, guid: 2af819e7e58063e44a9c9e04dea04c40, type: 2}
+    Count: 299
+  - Type: {fileID: 11400000, guid: f0eb2964d1eecb04db4f711d423a3874, type: 2}
+    Count: 103

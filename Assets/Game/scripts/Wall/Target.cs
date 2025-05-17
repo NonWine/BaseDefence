@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
 public class Target : MonoBehaviour, IDamageable
 {
     public bool IsDeath { get; private set; }
-    [SerializeField] HealthUI _health;
+    [SerializeField] HealthUIPlayer _health;
     [SerializeField] int _maxHealth;
     [Inject] private GameManager gameManager;
     public RandomPointInBoxCollider randomPointInBoxCollider;
@@ -29,6 +30,7 @@ public class Target : MonoBehaviour, IDamageable
         gameManager.OnRestartWaveEvent -= ResetZabor;
 
     }
+    [Button]
     public void GetDamage(int damage)
     {
         if (Sequence.IsPlaying())

@@ -1434,6 +1434,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee475ded8ec34b71b943d99250839e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1053466641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8058164083727790743, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+  m_PrefabInstance: {fileID: 4834536043681781760}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1069401004
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,13 +2957,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsData:
+  - {fileID: 11400000, guid: 0f4e3806f059aec44800b554f70c59e7, type: 2}
   - {fileID: 11400000, guid: 4ecfb555e44c01e4aa0ec2937f90f233, type: 2}
   - {fileID: 11400000, guid: 3d50de42c06a8544fab23e6fb38d15dc, type: 2}
   _spawner: {fileID: 1709021710}
   waveSliderView: {fileID: 5906166176658075891}
   startWaveButton: {fileID: 1446267323}
   waveText: {fileID: 4834536043681781761}
-  playerHealth: {fileID: 8728988953167695668}
+  playerHealth: {fileID: 8728988953167695671}
   menuPopUp: {fileID: 1411184058}
   waveWinPs: {fileID: 8725546174202216121}
   CurentWave: {fileID: 0}
@@ -5621,7 +5627,7 @@ PrefabInstance:
     - target: {fileID: 140794301765272088, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: _health
       value: 
-      objectReference: {fileID: 8728988953167695668}
+      objectReference: {fileID: 8728988953167695671}
     - target: {fileID: 2260722771809576846, guid: 252a62c923b364a44ba791ab07abc820, type: 3}
       propertyPath: m_Name
       value: Zabor
@@ -14131,10 +14137,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8487562876630177693, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8058164083727790743, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8728988953167695671}
   m_SourcePrefab: {fileID: 100100000, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
 --- !u!114 &4834536043681781761 stripped
 MonoBehaviour:
@@ -22827,17 +22837,35 @@ ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 19831234, guid: 6bc8c7b8a20b3574080cc6fa394ec725, type: 3}
   m_PrefabInstance: {fileID: 8725546174202216118}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8728988953167695668 stripped
+--- !u!114 &8728988953167695669 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8487562876630177693, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7628230041999527464, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
   m_PrefabInstance: {fileID: 4834536043681781760}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1053466641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca03c2d9f1d725e4491280bcd5133bde, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8728988953167695671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053466641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d144e4479a334a27ab1b862ec02fa200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _slider: {fileID: 8728988953167695669}
+  _regenSpeedPerSecond: 1
+  _damageAnimationTime: 0.05
+  _regenAnimationTime: 0.1
+  ZaborHealer: {fileID: 1106253497}
+  WaveManager: {fileID: 1709021709}
 --- !u!1001 &8733172933958569571
 PrefabInstance:
   m_ObjectHideFlags: 0
