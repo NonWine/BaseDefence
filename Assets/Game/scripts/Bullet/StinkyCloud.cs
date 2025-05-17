@@ -8,7 +8,7 @@ using Zenject;
 public class StinkyCloud : MonoBehaviour
 { 
     [SerializeField] private LayerMask damageableMask;
-    private Collider[] _overlapResults = new Collider[20];
+    private Collider2D[] _overlapResults = new Collider2D[20];
      private float _timer;
     private float _existTimer;
     [SerializeField] private ParticleSystem _cloudEffect;
@@ -26,7 +26,9 @@ public class StinkyCloud : MonoBehaviour
 
     private void OnEnable()
     {
-        Vector3 startScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2, transform.localScale.y, WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2);
+        Vector3 startScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
+             WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
+            1f);
         transform.DOScale(startScale, 1f);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         var main = _cloudEffect.main;
@@ -39,7 +41,8 @@ public class StinkyCloud : MonoBehaviour
     }
     private void Damaging()
     {
-        int count = Physics.OverlapSphereNonAlloc(transform.position, WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position, 
+            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
         for (int i = 0; i < count; i++)
         {
             if (_overlapResults[i].TryGetComponent(out BaseEnemy targetDamageable))
