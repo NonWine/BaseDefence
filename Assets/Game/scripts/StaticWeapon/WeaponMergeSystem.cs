@@ -38,7 +38,7 @@ public class WeaponMergeSystem : MonoBehaviour
 [System.Serializable]
 public class MergeWeaponContainer
 {
-    public DynamicWeapon[] DynamicWeapons;
+    public WeaponInfoData[] DynamicWeapons;
     public MergeWeaponData MergeWeaponData;
     public bool isUnLocked;
     
