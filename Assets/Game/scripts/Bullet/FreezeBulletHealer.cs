@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
-using System;
 using Zenject;
 
-public class FreezeBullet : BaseBullet
+public class FreezeBulletHealer : BaseBullet
 {
-    public override Type Type => typeof(FreezeBullet);
+    public override Type Type => typeof(FreezeBulletHealer);
 
     [SerializeField] FreezeRay _laser;
     [Inject] private DiContainer diContainer;
@@ -21,6 +19,5 @@ public class FreezeBullet : BaseBullet
         }
         DestroyBullet();
     }
-
 
 }
