@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData 14
   m_EditorClassIdentifier: 
-  SpawnInterval: 2.0083292
+  SpawnInterval: 1.1975862
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2

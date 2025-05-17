@@ -15,7 +15,7 @@ public class PlayerLevelController : MonoBehaviour
     [SerializeField,ReadOnly]  private int currentExperience = 0;
     [SerializeField,ReadOnly]  private int currentExperienceRequired;
 
-    public static event Action OnLevelUp;
+    public Action OnLevelUp;
 
     private void Awake()
     {
@@ -40,6 +40,7 @@ public class PlayerLevelController : MonoBehaviour
          PlayerPrefs.SetInt(nameof(currentExperience), currentExperience);
          PlayerPrefs.SetInt(nameof(currentExperienceRequired), currentExperienceRequired);
          xpHandlerView.OnUpdateEvent -= UpdateLevelData;
+         OnLevelUp = null;
 
     }
 

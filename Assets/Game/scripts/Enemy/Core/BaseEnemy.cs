@@ -24,7 +24,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public  Action<BaseEnemy> OnDie;
     private bool isPoisoned = false;
 
-    public float CurrentHealth { get; set; }
+  [ShowInInspector]  public float CurrentHealth { get; set; }
     public int CurrentDamage { get;  set; }
     public float FreezeTime { get; set; }
     public bool IsDeath { get; private set; }
