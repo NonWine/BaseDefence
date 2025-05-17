@@ -25,7 +25,7 @@ MonoBehaviour:
   WeaponName: Vintovka
   description: 
   WeaponUpgradeData:
-    UpgradeQueue: 000000000000000002000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 5
       Modificator: 0.39

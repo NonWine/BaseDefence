@@ -99,6 +99,8 @@ public class WeaponCardManagerView : MonoBehaviour
             .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
             .ToList();
+        
+        
         foreach (var mergeWeaponData in mergeSystem.MergeWeaponsData)
         {
             if(!nonMaxWeapons.Contains(mergeWeaponData))

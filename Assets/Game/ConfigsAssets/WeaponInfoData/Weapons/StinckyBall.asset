@@ -25,7 +25,7 @@ MonoBehaviour:
   WeaponName: Rotten eggs
   description: slow down enemies
   WeaponUpgradeData:
-    UpgradeQueue: 0000000000000000020000000200000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 0.77
       Modificator: 0.31

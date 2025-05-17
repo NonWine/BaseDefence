@@ -67,6 +67,10 @@ public class UpgradeView : MonoBehaviour
         levelTextCurrent.text = "Level " + upgradeData.CurrentLevel.ToString();
         levelTextNext.text = "Level " + (upgradeData.CurrentLevel + 1).ToString();
         statNameText.text = upgradeData.CurrentUpgradeStat().ToString();
+        button.interactable = true;
+        button.gameObject.SetActive(true);
+        statsTitleView.SetActive(true);
+        levelMaxView.gameObject.SetActive(false);
         UpgradeValue(upgradeData.CurrentLevel);
         CheckEnoughMoney();
         Show();

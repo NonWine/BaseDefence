@@ -41,7 +41,7 @@ public class WaveLevelCompleteView : MonoBehaviour
     {
         mainCanvas.alpha = 0f;
         mainCanvas.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true);
-        mainCanvas.interactable = true;
+        mainCanvas.blocksRaycasts = true;
         yield break;
     }
 
@@ -56,7 +56,7 @@ public class WaveLevelCompleteView : MonoBehaviour
         mainCanvas.DOFade(0f, fadeDuration).SetEase(Ease.Linear).OnComplete( ()=>
         {
         }).SetUpdate(true);;
-        mainCanvas.interactable = false;
+        mainCanvas.blocksRaycasts = false;
         
         
         Debug.Log("Hide Level Complete Canvas");

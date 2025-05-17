@@ -146,15 +146,15 @@ MonoBehaviour:
   WeaponName: Research Table
   description: gives more experience to player
   WeaponUpgradeData:
-    UpgradeQueue: 0400000004000000040000000400000004000000
+    UpgradeQueue: 0300000003000000030000000300000003000000
     BaseStats:
     - <BaseValue>k__BackingField: 0.1
-      Modificator: 0
+      Modificator: 0.12
       <StatName>k__BackingField: 3
-      BonusedValue: 0.01
+      BonusedValue: 0
     <CardLevelMax>k__BackingField: 3
-    <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 1
+    <CurrentLevel>k__BackingField: 5
+    <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 1

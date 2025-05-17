@@ -25,7 +25,7 @@ MonoBehaviour:
   WeaponName: Shot Gun
   description: Kill enemy faster
   WeaponUpgradeData:
-    UpgradeQueue: 00000000000000000000000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 1.15
       Modificator: 0.16

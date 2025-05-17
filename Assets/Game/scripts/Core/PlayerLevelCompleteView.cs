@@ -41,7 +41,7 @@ public class PlayerLevelCompleteView : MonoBehaviour
         GameManager.TimeGameSpeed = 0;
         winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true);
         ;
-        winPanel.interactable = true;
+        winPanel.blocksRaycasts = true;
         //yield return new WaitForSeconds(fadeDuration);
         _weaponCardManagerView.CreateCards();
         yield break;
@@ -57,7 +57,7 @@ public class PlayerLevelCompleteView : MonoBehaviour
         {
             GameManager.TimeGameSpeed = 1;
         }).SetUpdate(true);;
-        winPanel.interactable = false;
+        winPanel.blocksRaycasts = false;
         
         
         Debug.Log("Hide Level Complete Canvas");

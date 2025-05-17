@@ -25,7 +25,7 @@ MonoBehaviour:
   WeaponName: Frozen Ray
   description: Froze enemies
   WeaponUpgradeData:
-    UpgradeQueue: 0100000005000000000000000000000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 0.2
       Modificator: 0

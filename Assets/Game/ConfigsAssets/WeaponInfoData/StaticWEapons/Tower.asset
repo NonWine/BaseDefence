@@ -218,19 +218,19 @@ MonoBehaviour:
   WeaponName: Defencer
   description: help you defeat enemy
   WeaponUpgradeData:
-    UpgradeQueue: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 1.66
       Modificator: 0.33
       <StatName>k__BackingField: 0
-      BonusedValue: 0
+      BonusedValue: 2.4899998
     - <BaseValue>k__BackingField: 2.05
       Modificator: -0.12
       <StatName>k__BackingField: 1
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 5
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 5
     <IsLevelMax>k__BackingField: 0
-    <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 1
+    <IsUnLocked>k__BackingField: 1

@@ -146,7 +146,7 @@ MonoBehaviour:
   WeaponName: Builder
   description: restores fence's health
   WeaponUpgradeData:
-    UpgradeQueue: 080000000800000008000000
+    UpgradeQueue: 0a0000000a0000000a000000
     BaseStats:
     - <BaseValue>k__BackingField: 0
       Modificator: 0

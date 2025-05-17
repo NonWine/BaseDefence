@@ -194,7 +194,7 @@ MonoBehaviour:
   WeaponName: Mines
   description: spawn mines on the ground area
   WeaponUpgradeData:
-    UpgradeQueue: 0100000001000000000000000000000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 1.73
       Modificator: 1.75
@@ -217,4 +217,4 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1

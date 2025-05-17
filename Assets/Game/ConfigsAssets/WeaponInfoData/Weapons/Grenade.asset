@@ -25,7 +25,7 @@ MonoBehaviour:
   WeaponName: Grenade
   description: explose enemies!
   WeaponUpgradeData:
-    UpgradeQueue: 0000000001000000020000000100000000000000
+    UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
     - <BaseValue>k__BackingField: 0.99
       Modificator: 0.6
@@ -56,5 +56,5 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1
   baseBullet: {fileID: 49195548527677328, guid: 53bb8ab6e4026f54e95a6c8373ba2c4f, type: 3}
