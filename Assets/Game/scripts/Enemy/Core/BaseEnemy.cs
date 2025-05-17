@@ -108,6 +108,16 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         }
     }
 
+    public void ForceDeath()
+    {
+        
+        IsDeath = true;
+        collider.enabled = false;
+        HealthUI.gameObject.SetActive(false);
+        EnemyAnimator.SetDie();
+        EnemyStateMachine.ChangeState<DieState>();
+    }
+
     protected virtual Dictionary<Type, IEnemyState> CreateStates()
     {
         return new Dictionary<Type, IEnemyState>
