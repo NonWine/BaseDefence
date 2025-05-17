@@ -15,7 +15,7 @@ public class StinkyCloud : MonoBehaviour
     [Inject] private GameController gameController;
     private Transform parent;
     public DynamicWeapon DynamicWeapon;
-    [SerializeField] GameObject testSphere;
+    public GameObject testCircle;
 
     public WeaponUpgradeData WeaponUpgradeData => DynamicWeapon.WeaponUpgradeData;
     
@@ -23,9 +23,9 @@ public class StinkyCloud : MonoBehaviour
     {
         
         ParticlePool.Instance.StinkyBallExplosionFx(transform.position, WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue/ 2f);
-        var sphere = Instantiate(testSphere, transform.position, Quaternion.identity);
-        sphere.transform.localScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue,
-            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, 1f);
+        /*var circle = Instantiate(testCircle, transform.position, Quaternion.identity);
+        circle.transform.localScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
+            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2, 1f);*/
     }
 
     private void OnEnable()
