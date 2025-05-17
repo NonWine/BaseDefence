@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7e780637fac40029d17778a6984b87c, type: 3}
-  m_Name: MniGun
+  m_Name: FreezeHealer
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,9 +21,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: ca1acd39f51c7bf4dbf3461cd6c70068, type: 3}
-  WeaponName: MiniGun
-  description: 
+  image: {fileID: 21300000, guid: 2674ddd0bdc1c3b45a95bc81fd67b591, type: 3}
+  WeaponName: Freeze Healer
+  description: Frost and vaporize
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
@@ -31,21 +31,21 @@ MonoBehaviour:
       Modificator: 0.09
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.1
+    - <BaseValue>k__BackingField: 2
       Modificator: 0
       <StatName>k__BackingField: 1
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 61.74
-      Modificator: 0.12
-      <StatName>k__BackingField: 7
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 0.2
       Modificator: 0
-      <StatName>k__BackingField: 8
+      <StatName>k__BackingField: 4
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 2
       Modificator: 0
-      <StatName>k__BackingField: 9
+      <StatName>k__BackingField: 15
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 3
+      Modificator: 0
+      <StatName>k__BackingField: 10
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 0
     <CurrentLevel>k__BackingField: 1

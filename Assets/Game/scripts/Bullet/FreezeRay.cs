@@ -6,18 +6,18 @@ using System.Linq;
 
 public class FreezeRay : MonoBehaviour
 {
-    [SerializeField] private float _gunRange;
-    [SerializeField] private LineRenderer _laserLine;
-    [SerializeField] private Transform _enemy;
-    [SerializeField] private LayerMask _layerMask;
-    [Inject] private PlayerHandler playerHandler;
-    [Inject] private EnemyFactory enemyFactory;
-    private float _damageTimer;
-    private float _shootingTimer;
-    private Vector3 _target;
-    private Ray _ray;
-    private RaycastHit2D[] hits;
-    private WeaponUpgradeData WeaponUpgradeData;
+    [SerializeField] protected float _gunRange;
+    [SerializeField] protected LineRenderer _laserLine;
+    [SerializeField] protected Transform _enemy;
+    [SerializeField] protected LayerMask _layerMask;
+    [Inject] protected PlayerHandler playerHandler;
+    [Inject] protected EnemyFactory enemyFactory;
+    protected float _damageTimer;
+    protected float _shootingTimer;
+    protected Vector3 _target;
+    protected Ray _ray;
+    protected RaycastHit2D[] hits;
+    protected WeaponUpgradeData WeaponUpgradeData;
     public bool isShhoted;
 
     public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
@@ -72,6 +72,11 @@ public class FreezeRay : MonoBehaviour
         _laserLine.SetPosition(0, transform.position);
         _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // ������ �� ������� ������
 
+        RaycastShoot(direction);
+    }
+
+    protected virtual void RaycastShoot(Vector3 direction)
+    {
         // Raycast ��� �������� ���������
         _ray = new Ray(transform.position, direction.normalized);
         Debug.DrawRay(transform.position, direction, Color.green, 0.01f);
@@ -80,16 +85,17 @@ public class FreezeRay : MonoBehaviour
         if (hits.Length > 0 && !isShhoted)
         {
             isShhoted = true;
-                foreach (var hit in hits)
+            foreach (var hit in hits)
+            {
+                if (hit.transform.TryGetComponent<IDamageable>(out var damageable))
                 {
-                    if (hit.transform.TryGetComponent<IDamageable>(out var damageable))
-                    {
-                        damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
-                        hit.transform.GetComponent<BaseEnemy>().GetFreezed(WeaponUpgradeData.GetStat(StatName.FreezeDuration).CurrentValue);
-                    }
+                    damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
+                    hit.transform.GetComponent<BaseEnemy>()
+                        .GetFreezed(WeaponUpgradeData.GetStat(StatName.FreezeDuration).CurrentValue);
                 }
-                _damageTimer = 0;
-            
+            }
+
+            _damageTimer = 0;
         }
         else
         {
