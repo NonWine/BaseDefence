@@ -101,7 +101,7 @@ MonoBehaviour:
       Data: 15
     - Name: StatName
       Entry: 3
-      Data: 7
+      Data: 6
     - Name: isNegative
       Entry: 5
       Data: false
@@ -237,7 +237,7 @@ MonoBehaviour:
       Data: 1
     - Name: StatName
       Entry: 3
-      Data: 9
+      Data: 8
     - Name: 
       Entry: 8
       Data: 

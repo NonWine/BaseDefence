@@ -492,8 +492,8 @@ Transform:
   m_GameObject: {fileID: 70807075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0455, y: 25.32, z: 0}
-  m_LocalScale: {x: 13.527494, y: 3.6398, z: 20.009802}
+  m_LocalPosition: {x: -0.1853, y: 25.32, z: 0}
+  m_LocalScale: {x: 10.731729, y: 3.6398, z: 20.009802}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1709021708}
@@ -2358,7 +2358,6 @@ MonoBehaviour:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
-  - {fileID: 11400000, guid: 09a0accd7945bb14f9298463eaa37c6f, type: 2}
   - {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
   - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
   - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
@@ -2945,27 +2944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974a7499a43b4ddfaf9e9440d922fe62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavesData:
-  - {fileID: 11400000, guid: 99ba52a96190973438c3b088b0e77989, type: 2}
-  - {fileID: 11400000, guid: e76447514f9cdaf4f9e262843d1789aa, type: 2}
-  - {fileID: 11400000, guid: 074af351d2490ec41ad6fe02e43f8ae3, type: 2}
-  - {fileID: 11400000, guid: e4307b06b0ddcdd49923eedc37e1679b, type: 2}
-  - {fileID: 11400000, guid: 9c4fb118a0fdfdf48b8a4a22ceab80ee, type: 2}
-  - {fileID: 11400000, guid: 6820cd1ac1f8a934ab81a5347bc071ea, type: 2}
-  - {fileID: 11400000, guid: 9d078f2b99e180a428fbbf209ba50903, type: 2}
-  - {fileID: 11400000, guid: 661518080ee00de40849998a270ee389, type: 2}
-  - {fileID: 11400000, guid: 996d84234c8f83d4fb32c9f76d993f23, type: 2}
-  - {fileID: 11400000, guid: 7f3a8ac6a701c4444bd68b61ed9f9a9b, type: 2}
-  - {fileID: 11400000, guid: 4d5c379a1b9bef34fae68a5517b68a65, type: 2}
-  - {fileID: 11400000, guid: e9ae3e157de3d424084ad5ad94cc8ba9, type: 2}
-  - {fileID: 11400000, guid: 54cf747c97c9abd4e9f895bef17d685f, type: 2}
-  - {fileID: 11400000, guid: 7f33205f93d300045b4cc90a154085e1, type: 2}
-  - {fileID: 11400000, guid: 1bc142e51a610cf40b089171b8def962, type: 2}
-  - {fileID: 11400000, guid: 24d850e54cd6bbf46918c4149a614f0c, type: 2}
-  - {fileID: 11400000, guid: 00128aa2a466574429910242ef1f6ed9, type: 2}
-  - {fileID: 11400000, guid: d32220b67effe9b4382c05e944dfe16d, type: 2}
-  - {fileID: 11400000, guid: d451067f5fff64a469abceef3f7e8f05, type: 2}
-  - {fileID: 11400000, guid: 6753602aa75c2d74a90f5a20b0f894ce, type: 2}
+  levelsData:
+  - {fileID: 11400000, guid: 4ecfb555e44c01e4aa0ec2937f90f233, type: 2}
+  - {fileID: 11400000, guid: 3d50de42c06a8544fab23e6fb38d15dc, type: 2}
   _spawner: {fileID: 1709021710}
   waveSliderView: {fileID: 5906166176658075891}
   startWaveButton: {fileID: 1446267323}

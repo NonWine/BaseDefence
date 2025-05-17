@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
-  m_Name: WaveData 13
+  m_Name: WaveData 5
   m_EditorClassIdentifier: 
-  SpawnInterval: 1.9929523
+  SpawnInterval: 1.9047316
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2
@@ -60,6 +60,6 @@ MonoBehaviour:
   - SelectedEnemy: {fileID: 5963660415486025258, guid: ba1a25f9b107914408dc57ef38d1b7f7, type: 3}
     ChanceToSpawn: 100
   - SelectedEnemy: {fileID: 5551236498080382267, guid: c20d5069ce9b51f418c686cb130624d8, type: 3}
-    ChanceToSpawn: 51
+    ChanceToSpawn: 70
   - SelectedEnemy: {fileID: 6754591648018464554, guid: 20450c9df7d32524697f2bec1893e329, type: 3}
-    ChanceToSpawn: 30
+    ChanceToSpawn: 10

@@ -48,7 +48,7 @@ MonoBehaviour:
       Data: 10
     - Name: StatName
       Entry: 3
-      Data: 4
+      Data: 3
     - Name: isNegative
       Entry: 5
       Data: false
@@ -84,7 +84,7 @@ MonoBehaviour:
       Data: 20
     - Name: StatName
       Entry: 3
-      Data: 4
+      Data: 3
     - Name: isNegative
       Entry: 5
       Data: false
@@ -120,7 +120,7 @@ MonoBehaviour:
       Data: 30
     - Name: StatName
       Entry: 3
-      Data: 4
+      Data: 3
     - Name: isNegative
       Entry: 5
       Data: false
@@ -151,10 +151,10 @@ MonoBehaviour:
     - <BaseValue>k__BackingField: 0.1
       Modificator: 0
       <StatName>k__BackingField: 3
-      BonusedValue: 0
+      BonusedValue: 0.01
     <CardLevelMax>k__BackingField: 3
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 1
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
-  m_Name: WaveData 16
+  m_Name: WaveData 12
   m_EditorClassIdentifier: 
-  SpawnInterval: 3.084797
+  SpawnInterval: 1.2053922
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2

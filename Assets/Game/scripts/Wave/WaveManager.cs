@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
 public class WaveManager : MonoBehaviour
-{
-   [SerializeField] private  List<WaveDataConfig> wavesData;
+{ 
+   [SerializeField] private  List<LevelData> levelsData;
    [SerializeField] private  EnemySpawner _spawner;
    [SerializeField] private WaveSliderView waveSliderView;
    [SerializeField] private Button startWaveButton;
@@ -20,10 +21,12 @@ public class WaveManager : MonoBehaviour
    [Inject] public PlayerHandler _player;
    [Inject] private GameManager gameManager;
    [ReadOnly] public WaveDataConfig CurentWave;
+   private int currentLevelIndex;
    private int currentWaveIndex;
    public bool _waveActive, endWave;
    public float CurrentTime;
-   public WaveDataConfig CurrentWave => wavesData[currentWaveIndex];
+   
+   public WaveDataConfig CurrentWave => levelsData[currentLevelIndex].wavesData[currentWaveIndex];
    
    
     private void OnEnable()
@@ -39,7 +42,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        waveText.text = (currentWaveIndex + 1).ToString() + "/" + wavesData.Count.ToString();
+        waveText.text = (currentWaveIndex + 1).ToString() + "/" + levelsData.Count.ToString();
     }
 
     [Button]
@@ -107,13 +110,16 @@ public class WaveManager : MonoBehaviour
     private void UpdateWave()
     {
         currentWaveIndex++;
-        if (currentWaveIndex == wavesData.Count)
+        if (currentWaveIndex == levelsData[currentLevelIndex].wavesData.Count)
         {
-            gameManager.RestartGame();
+            currentLevelIndex++;
             currentWaveIndex = 0;
+            
+            if(currentLevelIndex == levelsData.Count)
+                gameManager.RestartGame();
         }
         
-        waveText.text = (currentWaveIndex + 1).ToString() + "/" + wavesData.Count.ToString();
+        waveText.text = (currentWaveIndex).ToString() + "/" + levelsData.Count.ToString();
     }
 
     private void EndWave()
