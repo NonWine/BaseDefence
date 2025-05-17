@@ -15,7 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem _confettiFx;
     [SerializeField] private GameObject _gamePanel;
     [SerializeField] private CanvasGroup _losePanel;
-    [SerializeField] private LevelCompleteView _winPanel;
+    [SerializeField] private PlayerLevelCompleteView _winPanel;
+    [SerializeField] private WaveLevelCompleteView waveLevelCompleteView;
     [SerializeField] private Button restartWaveButton;
     [ProgressBar(0, 10)] [SerializeField] public int TimeGameSpeed = 1;
     public Transform BombTarget;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public event Action OnRestartWaveEvent;
 
     public event Action OnLooseEvent;
+    
     
     private void Awake()
     {
@@ -95,6 +97,12 @@ public class GameManager : MonoBehaviour
         _gamePanel.SetActive(true);
         weaponsSaver.ResetWeaponSaves();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    
+    [Button]
+    public void LevelComplete(LevelData levelData)
+    {
+        waveLevelCompleteView.Show(levelData);
     }
 
     private void PlayConfetti()

@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class LevelData : ScriptableObject
 {
-    [SerializeField] public List<WaveDataConfig> wavesData;
+   [SerializeField] public List<WaveDataConfig> wavesData;
 
+   [SerializeField] public List<RewardContainer> RewardsContainer = new List<RewardContainer>();
+}
+
+[System.Serializable]
+public struct RewardContainer
+{
+    public WalletObj Type;
+    public int Count;
 }

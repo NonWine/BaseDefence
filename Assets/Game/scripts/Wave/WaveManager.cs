@@ -17,6 +17,7 @@ public class WaveManager : MonoBehaviour
    [SerializeField] private TMP_Text waveText;
    [SerializeField] private HealthUI playerHealth;
    [SerializeField] private CanvasGroup menuPopUp;
+   [SerializeField] private ParticleSystem waveWinPs;
    [Inject] private EnemyFactory EnemyFactory;
    [Inject] public PlayerHandler _player;
    [Inject] private GameManager gameManager;
@@ -42,7 +43,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        waveText.text = (currentWaveIndex + 1).ToString() + "/" + levelsData.Count.ToString();
+        waveText.text = (currentWaveIndex ).ToString() + "/" + levelsData[currentLevelIndex].wavesData.Count.ToString();
     }
 
     [Button]
@@ -110,8 +111,10 @@ public class WaveManager : MonoBehaviour
     private void UpdateWave()
     {
         currentWaveIndex++;
+        waveWinPs.Play();
         if (currentWaveIndex == levelsData[currentLevelIndex].wavesData.Count)
         {
+            gameManager.LevelComplete(levelsData[currentLevelIndex]);
             currentLevelIndex++;
             currentWaveIndex = 0;
             

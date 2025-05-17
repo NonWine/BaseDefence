@@ -33,3 +33,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d32220b67effe9b4382c05e944dfe16d, type: 2}
   - {fileID: 11400000, guid: d451067f5fff64a469abceef3f7e8f05, type: 2}
   - {fileID: 11400000, guid: 6753602aa75c2d74a90f5a20b0f894ce, type: 2}
+  RewardsContainer:
+  - Type: {fileID: 11400000, guid: 2af819e7e58063e44a9c9e04dea04c40, type: 2}
+    Count: 100
+  - Type: {fileID: 11400000, guid: f0eb2964d1eecb04db4f711d423a3874, type: 2}
+    Count: 3
