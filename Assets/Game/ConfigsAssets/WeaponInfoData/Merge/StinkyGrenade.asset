@@ -56,5 +56,5 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: 0}
+    <IsUnLocked>k__BackingField: 1
+  baseBullet: {fileID: -5874570631166029023, guid: 366dffb2691e0d548a811e937e0d96f3, type: 3}

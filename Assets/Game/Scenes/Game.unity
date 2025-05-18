@@ -1425,7 +1425,7 @@ PrefabInstance:
     - target: {fileID: 6940290521484539287, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
+      objectReference: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2516,6 +2516,7 @@ MonoBehaviour:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
+  - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
 --- !u!1 &1396439250
 GameObject:
