@@ -7,10 +7,11 @@ public class PlayerGiveDamageHandler : MonoBehaviour
       [Inject]  private EnemyFactory enemyFactory;
       [Inject]  private BulletFactory bulletFactory;
      [SerializeField] private PlayerCombatManager playerCombatManager;
-    private float timer;
+     [SerializeField] private StaticWeaponData staticWeaponDataAmmo;
+     private float timer;
+     
 
-
- 
+    
     
     public Transform CurrentAgredTarget { get; private set; }
     
@@ -33,10 +34,15 @@ public class PlayerGiveDamageHandler : MonoBehaviour
 
     private void ShootPerCountTime(Player player, DynamicWeaponHandler unlockedWeapon, WeaponUpgradeData upgradeData)
     {
+        int additionalAmmo = 0;
+        if (staticWeaponDataAmmo.WeaponUpgradeData.IsUnLocked)
+            additionalAmmo = staticWeaponDataAmmo.WeaponUpgradeData.GetStat(StatName.ProjectileCountPerTime)
+                .CurrentValueInt;
+        
         if (upgradeData.IsHaveStat(StatName.ProjectileCountPerTime))
         {
             // unlockedWeapon.perShootTimer = 1f;
-            for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt; j++)
+            for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt + additionalAmmo; j++)
             {
                 ShootToEnemy(player, unlockedWeapon, j / 3f);
             }

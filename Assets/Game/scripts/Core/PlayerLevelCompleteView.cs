@@ -12,16 +12,17 @@ public class PlayerLevelCompleteView : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.25f;
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] private GameManager GameManager;
+    [Inject] private PlayerLevelController playerLevelController;
     private void Awake()
     {
-        PlayerLevelController.OnLevelUp += Show;
+        playerLevelController.OnLevelUp += Show;
         _weaponCardManagerView.OnGetWeaponEvent += Hide;
         
     }
 
     private void OnDestroy()
     {
-        PlayerLevelController.OnLevelUp -= Show;
+        playerLevelController.OnLevelUp = null;
         _weaponCardManagerView.OnGetWeaponEvent -= Hide;
 
     }
@@ -30,22 +31,18 @@ public class PlayerLevelCompleteView : MonoBehaviour
     public void Show()
     {
         if(!_weaponCardManagerView.CanCreateCards) return;
-        
-        StartCoroutine(ShowCor());
+        Debug.Log("12123");
+        winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true).OnComplete(() =>
+        {
+            GameManager.TimeGameSpeed = 0;
+            winPanel.blocksRaycasts = true;
+            _weaponCardManagerView.CreateCards();
+
+        });
     } 
 
     public void Hide(WeaponInfoData weaponInfoData) => StartCoroutine(HideCor());
     
-    private IEnumerator ShowCor()
-    {
-        GameManager.TimeGameSpeed = 0;
-        winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true);
-        ;
-        winPanel.blocksRaycasts = true;
-        //yield return new WaitForSeconds(fadeDuration);
-        _weaponCardManagerView.CreateCards();
-        yield break;
-    }
 
 
     private IEnumerator HideCor()

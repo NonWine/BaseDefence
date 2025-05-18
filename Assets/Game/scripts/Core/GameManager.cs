@@ -87,7 +87,6 @@ public class GameManager : MonoBehaviour
         PlayConfetti();
         OnLevelCompleteEvent?.Invoke();
         await UniTask.Delay(2500);
-        _winPanel.Show();
     }
 
     [Button]

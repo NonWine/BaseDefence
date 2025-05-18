@@ -24,7 +24,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public  Action<BaseEnemy> OnDie;
     private bool isPoisoned = false;
 
-    public float CurrentHealth { get; set; }
+  [ShowInInspector]  public float CurrentHealth { get; set; }
     public int CurrentDamage { get;  set; }
     public float FreezeTime { get; set; }
     public bool IsDeath { get; private set; }
@@ -106,6 +106,16 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             playerLevelController.AddExperience(EnemyStatsConfig.EXPDrop);
             EnemyStateMachine.ChangeState<DieState>();
         }
+    }
+
+    public void ForceDeath()
+    {
+        
+        IsDeath = true;
+        collider.enabled = false;
+        HealthUI.gameObject.SetActive(false);
+        EnemyAnimator.SetDie();
+        EnemyStateMachine.ChangeState<DieState>();
     }
 
     protected virtual Dictionary<Type, IEnemyState> CreateStates()

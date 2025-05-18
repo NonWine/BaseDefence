@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     {
         foreach (var enemyFactoryEnemy in enemyFactory.Enemies)
         {
-            enemyFactoryEnemy.GetDamage(100000);
+            enemyFactoryEnemy.ForceDeath();
         }
     }
 
