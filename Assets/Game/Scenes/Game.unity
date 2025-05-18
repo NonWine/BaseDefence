@@ -2614,7 +2614,6 @@ MonoBehaviour:
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
-  - {fileID: 11400000, guid: 350448406a5306940becd5a4ad793ba2, type: 2}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,7 +2756,7 @@ MonoBehaviour:
   waveLevelCompleteView: {fileID: 1626492775}
   restartWaveButton: {fileID: 4834536043681781764}
   TimeGameSpeed: 1
-  BombTarget: {fileID: 0}
+  BombTarget: {fileID: 1542823901}
 --- !u!114 &1431210759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,6 +5439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5194067d8df6a9f4ba3411e7d092fe06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLocked: 1
+  WeaponInfoData: {fileID: 0}
   unlockedWeapon:
     weaponInfoData: {fileID: 11400000, guid: 350448406a5306940becd5a4ad793ba2, type: 2}
     isLocked: 0
@@ -5454,6 +5455,7 @@ MonoBehaviour:
     <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
   bombStartPos: {fileID: 1610433974}
+  bombTargetPos: {fileID: 1542823901}
   bombButton: {fileID: 568184246766071907}
 --- !u!1001 &582667994994683675
 PrefabInstance:
