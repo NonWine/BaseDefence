@@ -7,8 +7,7 @@ using Zenject;
 public class BombShooting : StaticWeaponController
 {
     [Inject] private BulletFactory bulletFactory;
-    [SerializeField] DynamicWeaponHandler unlockedWeapon;
-    [SerializeField] WeaponUpgradeData weaponUpgradeData;
+    [SerializeField] private BombBullet BombBullet;
     [SerializeField] Transform bombStartPos;
     [SerializeField] Transform bombTargetPos;
     [SerializeField] Button bombButton;
@@ -17,40 +16,37 @@ public class BombShooting : StaticWeaponController
 
     private void Start()
     {
-        if(weaponUpgradeData != null)
-            colDown = weaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue;
-        else
-            colDown = 5f;
+        colDown = WeaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue;
         timer = colDown;
     }
+    
     private void OnEnable()
     {
         bombButton.onClick.AddListener(BombShoot);
     }
+    
     private void OnDisable()
     {
         bombButton.onClick.RemoveAllListeners();
     }
+    
     private void BombShoot()
     {
-        var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
-        bullet.Init(bombTargetPos);
+        isLocked = false;
+        var bullet = bulletFactory.Create(BombBullet.GetType());
         bullet.transform.position = bombStartPos.position;
+        bullet.Init(bombTargetPos);
         timer = colDown;
         bombButton.interactable = false;
+        Invoke(nameof(TurnOnButton), colDown);
     }
-    private void Update()
+
+    private void TurnOnButton()
     {
-        if(timer == 0)
-        {
-            if(bombButton.interactable == false)
-            {
-                bombButton.interactable = true;
-            }
-            return;
-        }
-        timer -= Time.deltaTime;
+        bombButton.interactable = true;
+
     }
+    
     protected override void UnLockedUpdate()
     {
 

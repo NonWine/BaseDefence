@@ -2608,7 +2608,6 @@ MonoBehaviour:
   - {fileID: 4198461186628192580, guid: 31f7f3d324f596544b9b283729e4304e, type: 3}
   - {fileID: 1644692590343867144, guid: d08657a2fcd6806468f3b9d23c0e16a3, type: 3}
   - {fileID: 7760935424772015282, guid: 050db2d20f670a14ba5b192c8b9274b5, type: 3}
-  - {fileID: 8050053179294248699, guid: e6360b69579fc5a479e0536bf8079054, type: 3}
   _resourcePartObjs:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
@@ -5416,17 +5415,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6330328001608720512, guid: 5ddf4f2653fab7849b5caf4154b3adcc, type: 3}
   m_PrefabInstance: {fileID: 568184246766071905}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &568184246766071907 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1787487636589903857, guid: 5ddf4f2653fab7849b5caf4154b3adcc, type: 3}
-  m_PrefabInstance: {fileID: 568184246766071905}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568184246766071906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &568184246766071908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,23 +5428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  WeaponInfoData: {fileID: 0}
-  unlockedWeapon:
-    weaponInfoData: {fileID: 11400000, guid: 350448406a5306940becd5a4ad793ba2, type: 2}
-    isLocked: 0
-    CurrentTimer: 0
-  weaponUpgradeData:
-    UpgradeQueue: 
-    BaseStats: []
-    <CardLevelMax>k__BackingField: 0
-    <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
-    <IsLevelMax>k__BackingField: 0
-    <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+  WeaponInfoData: {fileID: 11400000, guid: 350448406a5306940becd5a4ad793ba2, type: 2}
+  BombBullet: {fileID: 0}
   bombStartPos: {fileID: 1610433974}
   bombTargetPos: {fileID: 1542823901}
-  bombButton: {fileID: 568184246766071907}
+  bombButton: {fileID: 0}
 --- !u!1001 &582667994994683675
 PrefabInstance:
   m_ObjectHideFlags: 0

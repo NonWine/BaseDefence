@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 1441558268036760414}
-  WeaponInfoData: {fileID: 11400000, guid: 350448406a5306940becd5a4ad793ba2, type: 2}
+  WeaponInfoData: {fileID: 11400000, guid: 93f863cf4a966044db2640acf1c0b240, type: 2}
 --- !u!4 &8540358576405717378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
