@@ -47,9 +47,6 @@ public class StinkyCloud : MonoBehaviour
     {
         int count = Physics2D.OverlapCircleNonAlloc(transform.position, 
             WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
-        Debug.Log("stinky cloud caught " + count + " enemies" + "\nRadius of this shit is " + 
-            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue);
-        Debug.Log("\nits position is " + transform.position);
         for (int i = 0; i < count; i++)
         {
             if (_overlapResults[i].TryGetComponent(out BaseEnemy targetDamageable))
