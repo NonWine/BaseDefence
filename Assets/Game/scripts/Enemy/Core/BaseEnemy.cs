@@ -89,7 +89,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.Update();
     }
 
-    public virtual async void GetDamage(int damage)
+    public virtual async void GetDamage(float damage)
     {
         if (IsDeath)
             return;

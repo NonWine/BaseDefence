@@ -9,7 +9,7 @@ public class Target : MonoBehaviour, IDamageable
 {
     public bool IsDeath { get; private set; }
     [SerializeField] HealthUIPlayer _health;
-    [SerializeField] int _maxHealth;
+    [SerializeField] float _maxHealth;
     [Inject] private GameManager gameManager;
     public RandomPointInBoxCollider randomPointInBoxCollider;
     private Sequence Sequence;
@@ -31,7 +31,7 @@ public class Target : MonoBehaviour, IDamageable
 
     }
     [Button]
-    public void GetDamage(int damage)
+    public void GetDamage(float damage)
     {
         if (Sequence.IsPlaying())
         {

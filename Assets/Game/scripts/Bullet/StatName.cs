@@ -16,5 +16,7 @@
     ShockerJumpCount,
     ShockerJumpRadius,
     FreezeDuration,
-    Duration
+    Duration,
+    ExplosiveDamage,
+
 }

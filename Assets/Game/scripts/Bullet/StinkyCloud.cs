@@ -14,44 +14,45 @@ public class StinkyCloud : MonoBehaviour
     [SerializeField] private ParticleSystem _cloudEffect;
     [Inject] private GameController gameController;
     private Transform parent;
-    public DynamicWeapon DynamicWeapon;
+    public WeaponUpgradeData weaponUpgradeData;
     public GameObject testCircle;
 
-    public WeaponUpgradeData WeaponUpgradeData => DynamicWeapon.WeaponUpgradeData;
+    //public WeaponUpgradeData WeaponUpgradeData => DynamicWeapon.WeaponUpgradeData;
     
     private void Start()
     {
         
-        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue/ 2f);
-        /*var circle = Instantiate(testCircle, transform.position, Quaternion.identity);
-        circle.transform.localScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
-            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2, 1f);*/
+        ParticlePool.Instance.StinkyBallExplosionFx(transform.position, weaponUpgradeData.GetStat(StatName.Radius).CurrentValue/ 2f);
     }
 
     private void OnEnable()
     {
-        Vector3 startScale = new Vector3(WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
-             WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
+        Vector3 startScale = new Vector3(weaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
+             weaponUpgradeData.GetStat(StatName.Radius).CurrentValue * 2,
             1f);
         transform.DOScale(startScale, 1f);
         transform.rotation = Quaternion.Euler(0, 0, 0);
         var main = _cloudEffect.main;
-        main.duration = WeaponUpgradeData.GetStat(StatName.Duration).CurrentValue;
+        main.duration = weaponUpgradeData.GetStat(StatName.Duration).CurrentValue;
         _cloudEffect.Play();
     }
     private void OnDisable()
     {
 
     }
+    public void Init(WeaponUpgradeData weapon)
+    {
+        weaponUpgradeData = weapon;
+    }
     private void Damaging()
     {
-        int count = Physics2D.OverlapCircleNonAlloc(transform.position, 
-            WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
+        int count = Physics2D.OverlapCircleNonAlloc(transform.position,
+            weaponUpgradeData.GetStat(StatName.Radius).CurrentValue, _overlapResults, damageableMask);
         for (int i = 0; i < count; i++)
         {
             if (_overlapResults[i].TryGetComponent(out BaseEnemy targetDamageable))
             {
-                targetDamageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
+                targetDamageable.GetDamage(weaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
             }
         }
     }
@@ -59,12 +60,12 @@ public class StinkyCloud : MonoBehaviour
     {
         _timer += Time.deltaTime;
         _existTimer += Time.deltaTime;
-        if(_timer >= WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue)
+        if(_timer >= weaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue)
         {
             Damaging();
             _timer = 0;
         }
-        if(_existTimer >= WeaponUpgradeData.GetStat(StatName.Duration).CurrentValue)
+        if(_existTimer >= weaponUpgradeData.GetStat(StatName.Duration).CurrentValue)
         {
             Destroy(gameObject);
         }

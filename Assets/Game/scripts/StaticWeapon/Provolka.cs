@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Provolka : MonoBehaviour
+public class Provolka : StaticWeaponObj
 {
     private List<BaseEnemy> enemiesInCollider;
     [SerializeField] float damageInterval;
@@ -11,6 +11,7 @@ public class Provolka : MonoBehaviour
     private void Start()
     {
         enemiesInCollider = new List<BaseEnemy>();
+        damageInterval = WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -50,7 +51,7 @@ public class Provolka : MonoBehaviour
                     {
                         enemiesInCollider.RemoveAt(i);
                     }
-                    enemiesInCollider[i].GetDamage(10);
+                    enemiesInCollider[i].GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValue);
                 }
             }
             

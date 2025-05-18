@@ -12,12 +12,12 @@ public class BombShooting : StaticWeaponController
     [SerializeField] Transform bombTargetPos;
     [SerializeField] Button bombButton;
     private float colDown;
-    private float timer;
+    private float timerColDown;
 
     private void Start()
     {
         colDown = WeaponInfoData.WeaponUpgradeData.GetStat(StatName.CoolDown).CurrentValue;
-        timer = colDown;
+        timerColDown = colDown;
     }
     
     private void OnEnable()
@@ -36,7 +36,7 @@ public class BombShooting : StaticWeaponController
         var bullet = bulletFactory.Create(BombBullet.GetType());
         bullet.transform.position = bombStartPos.position;
         bullet.Init(bombTargetPos);
-        timer = colDown;
+        timerColDown = colDown;
         bombButton.interactable = false;
         Invoke(nameof(TurnOnButton), colDown);
     }

@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 public class StinkyBall : BaseBullet
 {
     [SerializeField] private float torqueForce = 10f;
-    [SerializeField] private GameObject damageableZone;
+    [SerializeField] protected GameObject damageableZone;
 
     public override Type Type => typeof(StinkyBall);
 
@@ -13,17 +13,8 @@ public class StinkyBall : BaseBullet
     {
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
-            /*int count = Physics.OverlapSphereNonAlloc(transform.position, radiusExplose, _overlapResults, damageableMask);
-            for (int i = 0; i < count; i++)
-            {
-                if (_overlapResults[i].TryGetComponent(out IDamageable targetDamageable))
-                {
-                    targetDamageable.GetDamage(_damage);
-                }
-            }*/
-            //damageableZone.SetActive(true);
-            Debug.Log("creating perdunets");
-            Instantiate(damageableZone, transform.position, Quaternion.identity);
+            var cloud= Instantiate(damageableZone, transform.position, Quaternion.identity);
+            cloud.GetComponent<StinkyCloud>().Init(WeaponUpgradeData);
             
             DestroyBullet();
         }
@@ -39,8 +30,5 @@ public class StinkyBall : BaseBullet
         rigidbody.AddTorque(torqueForce, ForceMode2D.Impulse);
     }
 
-    protected override void DestroyBullet()
-    {
-        base.DestroyBullet();
-    }
+    
 }
