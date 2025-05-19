@@ -14,7 +14,7 @@ public class StinkyBall : BaseBullet
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
             var cloud= Instantiate(damageableZone, transform.position, Quaternion.identity);
-            cloud.GetComponent<StinkyCloud>().Init(WeaponUpgradeData);
+            cloud.GetComponent<StinkyCloud>().Init(WeaponInfoData);
             
             DestroyBullet();
         }

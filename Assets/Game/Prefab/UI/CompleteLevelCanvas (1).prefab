@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winPanel: {fileID: 888901263927585567}
-  fadeDuration: 0.5
+  fadeDuration: 0.3
 --- !u!1001 &4039033807747410403
 PrefabInstance:
   m_ObjectHideFlags: 0
