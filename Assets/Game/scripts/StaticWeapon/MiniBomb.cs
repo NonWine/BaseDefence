@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniBomb : StaticWeaponObj
+public class MiniBomb : MonoBehaviour
 {
     [SerializeField] GameObject bombObj;
     [SerializeField] float time;
-    private float timer;
+    [SerializeField]private WeaponInfoData weaponInfoData;
+
+    protected WeaponUpgradeData WeaponUpgradeData => weaponInfoData.WeaponUpgradeData;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(!bombObj.activeInHierarchy)
+        {
+            return;
+        }
         if (collision.transform.TryGetComponent(out IDamageable damageable))
         {
 
             damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
         }
-
+        bombObj.SetActive(false);
+        Invoke("EnablingBomb", time);
     }
+    private void EnablingBomb()
+    {
+        bombObj.SetActive(true);
+    }
+
 }
