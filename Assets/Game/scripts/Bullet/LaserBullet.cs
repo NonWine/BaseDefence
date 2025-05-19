@@ -7,8 +7,8 @@ using Zenject;
 public class LaserBullet : BaseBullet
 {
     public override Type Type => typeof(LaserBullet);
-    [SerializeField] LaserRay _laser;
-    [Inject] private DiContainer diContainer;
+    [SerializeField] private LaserRay _laser;
+    [Inject] protected DiContainer diContainer;
     
     public override void Init(Transform target)
     {

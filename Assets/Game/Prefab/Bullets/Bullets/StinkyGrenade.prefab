@@ -211,11 +211,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trailRenderer: {fileID: 1441558268036760414}
   WeaponInfoData: {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
-  torqueForce: 120
-  damageableZone: {fileID: 4559100654664946961, guid: 5fcef2a359e5d3c45bd8152c3d948ff4, type: 3}
   damageableMask:
     serializedVersion: 2
     m_Bits: 128
+  stinkyCloud: {fileID: 3941655610838573338, guid: 5fcef2a359e5d3c45bd8152c3d948ff4, type: 3}
 --- !u!4 &8540358576405717378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6127234577050355419, guid: c1f307e4a33263a4a9992b1531e6b5ff, type: 3}
