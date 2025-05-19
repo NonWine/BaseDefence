@@ -1456,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 6940290521484539287, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: fa9099e5b439a844bb30954d6ae56504, type: 2}
+      objectReference: {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
