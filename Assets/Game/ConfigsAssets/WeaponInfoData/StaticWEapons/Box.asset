@@ -32,8 +32,8 @@ MonoBehaviour:
       Entry: 7
       Data: 1|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: '+add more shoot '
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -51,7 +51,7 @@ MonoBehaviour:
       Data: 1
     - Name: StatName
       Entry: 3
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -59,8 +59,8 @@ MonoBehaviour:
       Entry: 7
       Data: 3|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: '+add more shoot '
     - Name: Bonuses
       Entry: 7
       Data: 4|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -78,7 +78,7 @@ MonoBehaviour:
       Data: 1
     - Name: StatName
       Entry: 3
-      Data: 7
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -96,7 +96,7 @@ MonoBehaviour:
     BaseStats:
     - <BaseValue>k__BackingField: 1
       Modificator: 0
-      <StatName>k__BackingField: 7
+      <StatName>k__BackingField: 8
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 2
     <CurrentLevel>k__BackingField: 1

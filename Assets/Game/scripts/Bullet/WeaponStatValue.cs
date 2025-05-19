@@ -31,7 +31,9 @@ public class WeaponStatValue
 
     public void ImproveBaseValueByPercent(float value)
     {
+        Debug.Log(value);
         float improvedValue = BaseValue * (value / 100f);
+        Debug.Log(improvedValue);
         BonusedValue += improvedValue;
     }
     

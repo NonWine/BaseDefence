@@ -17,5 +17,5 @@ MonoBehaviour:
   _moveSpeed: 10
   _roateSpeed: 58
   <CoinDrop>k__BackingField: 3
-  <EXPDrop>k__BackingField: 2
+  <EXPDrop>k__BackingField: 5
   HealthCoeffiecntIncrease: 20
