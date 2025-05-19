@@ -20,23 +20,52 @@ public class WeaponCardManagerView : MonoBehaviour
     [SerializeField] private CardsUpgradeHandler cardsUpgradeHandler;
     [SerializeField] private float offsetSpeed;
     [SerializeField] private WeaponMergeSystem mergeSystem;
+    [SerializeField,ReadOnly] private List<WeaponInfoData> filtredWeapons = new List<WeaponInfoData>();
     private float xOffset;
-    
+
     [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
 
-    private void Start()
+    private void Awake()
     {
         allWeapons = allWeapons.ToList().FindAll(x => x is not MergeWeaponData mergeWeaponData).ToArray();
+        filtredWeapons = allWeapons.ToList();
     }
 
-    public bool CanCreateCards => allWeapons.ToList().Any(x => x.WeaponUpgradeData.IsCardLevelMax == false) || mergeSystem.MergeWeaponsData.Count > 0;
+    public bool CanCreateCards => filtredWeapons.ToList().Any(x => x.WeaponUpgradeData.IsCardLevelMax == false) || mergeSystem.MergeWeaponsData.Count > 0;
+
+    public void FilterDynamicWeapon()
+    {
+        var selectedDynamicWeapons = filtredWeapons
+            .Where(x => x is DynamicWeapon && x.WeaponUpgradeData.IsUnLocked)
+            .ToList();
+
+        filtredWeapons = filtredWeapons
+            .Where(x => x is not DynamicWeapon)
+            .ToList();
+
+        filtredWeapons.AddRange(selectedDynamicWeapons);
+    }
+
+    public void FilterStaticWeapon()
+    {
+        var selectedDynamicWeapons = filtredWeapons
+            .Where(x => x is StaticWeaponData && x.WeaponUpgradeData.IsUnLocked)
+            .ToList();
+
+        filtredWeapons = filtredWeapons
+            .Where(x =>  x is not StaticWeaponData)
+            .ToList();
+
+        filtredWeapons.AddRange(selectedDynamicWeapons);
+    }
 
     private int CountCards()
     {
-        var allCount = allWeapons.ToList().FindAll(x => x.WeaponUpgradeData.IsCardLevelMax == false);
+        var allCount = filtredWeapons.ToList().FindAll(x => x.WeaponUpgradeData.IsCardLevelMax == false);
         allCount.AddRange(mergeSystem.MergeWeaponsData);
+        
         if (allCount.Count >= 3)
             return 3;
         return allCount.Count;
@@ -95,7 +124,7 @@ public class WeaponCardManagerView : MonoBehaviour
     private WeaponCardView CreateWeaponCardView()
     {
         var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
-        var nonMaxWeapons = allWeapons
+        var nonMaxWeapons = filtredWeapons
             .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
             .ToList();
