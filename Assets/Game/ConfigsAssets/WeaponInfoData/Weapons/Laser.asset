@@ -43,7 +43,7 @@ MonoBehaviour:
       Modificator: 0
       <StatName>k__BackingField: 11
       BonusedValue: 0
-    <CardLevelMax>k__BackingField: 10
+    <CardLevelMax>k__BackingField: 6
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0

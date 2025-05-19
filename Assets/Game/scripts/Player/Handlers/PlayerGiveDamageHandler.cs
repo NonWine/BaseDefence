@@ -36,19 +36,19 @@ public class PlayerGiveDamageHandler : MonoBehaviour
     {
         int additionalAmmo = 0;
         if (staticWeaponDataAmmo.WeaponUpgradeData.IsUnLocked)
-            additionalAmmo = staticWeaponDataAmmo.WeaponUpgradeData.GetStat(StatName.ProjectileCountPerTime)
+            additionalAmmo = staticWeaponDataAmmo.WeaponUpgradeData.GetStat(StatName.ShootCountPerTime)
                 .CurrentValueInt;
         
         if (upgradeData.IsHaveStat(StatName.ProjectileCountPerTime))
         {
             // unlockedWeapon.perShootTimer = 1f;
-            for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt + additionalAmmo; j++)
+            for (int j = 0; j < upgradeData.GetStat(StatName.ProjectileCountPerTime).CurrentValueInt; j++)
             {
-                ShootToEnemy(player, unlockedWeapon, j / 3f);
+                ShootToEnemy(player, unlockedWeapon, j);
             }
             unlockedWeapon.CurrentShoot++;
 
-            if (unlockedWeapon.CurrentShoot >= upgradeData.GetStat(StatName.ShootCountPerTime).CurrentValueInt)
+            if (unlockedWeapon.CurrentShoot >= upgradeData.GetStat(StatName.ShootCountPerTime).CurrentValueInt + additionalAmmo)
             {
                 unlockedWeapon.CurrentTimer = 0f;
                 unlockedWeapon.CurrentShoot = 0;
@@ -74,7 +74,8 @@ public class PlayerGiveDamageHandler : MonoBehaviour
         {
             CurrentAgredTarget = enemy.transform;
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
-            bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up* offset);
+            bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +
+                                        (Vector2.right * Random.Range(-offset, offset));
             bullet.Init(CurrentAgredTarget);
         }
     }

@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCombatManager: {fileID: 6940290521484539287}
+  staticWeaponDataAmmo: {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
 --- !u!114 &6940290521484539287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponHandlers: []
   defaultWeapon: {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  DistanceToAgr: 50
+  DistanceToAgr: 25
 --- !u!1 &7041204419503545294
 GameObject:
   m_ObjectHideFlags: 0
