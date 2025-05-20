@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bombObj: {fileID: 8766433658151303263}
   time: 10
-  weaponInfoData: {fileID: 11400000, guid: 3cf898e0235a478429365b2663697bbc, type: 2}
+  damage: 10
 --- !u!61 &4257965428334383947
 BoxCollider2D:
   m_ObjectHideFlags: 0

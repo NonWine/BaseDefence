@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2811727220338385161}
@@ -174,7 +174,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 30, y: 1}
+  m_Size: {x: 30, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &2942556647300978887
 Rigidbody2D:
@@ -215,7 +215,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cdd69c1688901d47be4d4bd05ec985f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageInterval: 0.5
 --- !u!1001 &425352079003166372
 PrefabInstance:
   m_ObjectHideFlags: 0

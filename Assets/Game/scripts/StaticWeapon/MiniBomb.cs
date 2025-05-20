@@ -6,9 +6,7 @@ public class MiniBomb : MonoBehaviour
 {
     [SerializeField] GameObject bombObj;
     [SerializeField] float time;
-    [SerializeField]private WeaponInfoData weaponInfoData;
-
-    protected WeaponUpgradeData WeaponUpgradeData => weaponInfoData.WeaponUpgradeData;
+    [SerializeField]private float damage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!bombObj.activeInHierarchy)
@@ -18,7 +16,7 @@ public class MiniBomb : MonoBehaviour
         if (collision.transform.TryGetComponent(out IDamageable damageable))
         {
 
-            damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
+            damageable.GetDamage(damage);
         }
         bombObj.SetActive(false);
         Invoke("EnablingBomb", time);

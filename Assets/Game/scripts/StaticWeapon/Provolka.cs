@@ -5,13 +5,14 @@ using UnityEngine;
 public class Provolka : StaticWeaponObj
 {
     private List<BaseEnemy> enemiesInCollider;
-    [SerializeField] float damageInterval;
+    private float damageInterval;
     private float timer;
 
     private void Start()
     {
         enemiesInCollider = new List<BaseEnemy>();
         damageInterval = WeaponUpgradeData.GetStat(StatName.DamageInterval).CurrentValue;
+        Debug.Log("damage interval is " + damageInterval);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,17 +35,8 @@ public class Provolka : StaticWeaponObj
         timer += Time.deltaTime;
         if(timer > damageInterval)
         {
-            if (enemiesInCollider != null)
-            {
-                /*foreach (var enemy in enemiesInCollider)
-                {
-                    if (!enemy.gameObject.activeInHierarchy)
-                    {
-                        enemiesInCollider.Remove(enemy);
-                    }
-                    enemy.GetDamage(10);
-
-                }*/
+            if (enemiesInCollider.Count>0)
+            {          
                 for(int i = 0; i < enemiesInCollider.Count; i++)
                 {
                     if (!enemiesInCollider[i].gameObject.activeInHierarchy)
@@ -53,8 +45,9 @@ public class Provolka : StaticWeaponObj
                     }
                     enemiesInCollider[i].GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValue);
                 }
+                Debug.Log("enemy is damaged");
             }
-            
+            timer = 0;
         }
     }
 }

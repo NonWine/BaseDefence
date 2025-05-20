@@ -42,8 +42,9 @@ public class WeaponCardManagerView : MonoBehaviour
         return allCount.Count;
     }
     
-    public async void CreateCards()
+    public async void CreateCards(WeaponInfoData[] weaponInfoData = null)
     {
+        weaponInfoData = weaponInfoData ?? allWeapons;
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = false;
         
         Ease ease = Ease.OutBack;
@@ -64,8 +65,8 @@ public class WeaponCardManagerView : MonoBehaviour
             else
                 newOffset = 0f;
 
-            var card = CreateWeaponCardView();
-     
+            var card = CreateWeaponCardView(weaponInfoData);
+            
      
             
             RectTransform cardTransform = card.GetComponent<RectTransform>();
@@ -92,13 +93,14 @@ public class WeaponCardManagerView : MonoBehaviour
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
 
-    private WeaponCardView CreateWeaponCardView()
+    private WeaponCardView CreateWeaponCardView(WeaponInfoData[] weaponInfoData = null)
     {
-        var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
-        var nonMaxWeapons = allWeapons
+        weaponInfoData = weaponInfoData ?? allWeapons
             .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
-            .ToList();
+            .ToArray();
+        var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
+        var nonMaxWeapons = weaponInfoData.ToList();
         
         
         foreach (var mergeWeaponData in mergeSystem.MergeWeaponsData)
@@ -124,6 +126,8 @@ public class WeaponCardManagerView : MonoBehaviour
         cardViews.Add(card);
         return card;
     }
+
+    
 
     private void GetWeaponFistTime(WeaponInfoData weaponInfoData)
     {
