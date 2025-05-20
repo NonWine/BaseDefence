@@ -40,9 +40,11 @@ public  class SlotsView : MonoBehaviour
     protected virtual void AddSlotView(WeaponInfoData weaponInfoData)
     {
         if(weaponInfoData.WeaponsGeneralType != generalType) return;
-        
+
         if(weaponsData.Find(x => x.image.name == weaponInfoData.image.name))
             return;
+
+   
         
         if (currentSlotIndex < slots.Length)
         {

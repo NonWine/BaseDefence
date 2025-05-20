@@ -1770,6 +1770,7 @@ MonoBehaviour:
   cardsUpgradeHandler: {fileID: 1128635375}
   offsetSpeed: 0.35
   mergeSystem: {fileID: 1128635376}
+  filtredWeapons: []
 --- !u!114 &1128635375
 MonoBehaviour:
   m_ObjectHideFlags: 0
