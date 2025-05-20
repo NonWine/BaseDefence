@@ -41,18 +41,23 @@ public class WeaponCardManagerView : MonoBehaviour
             return 3;
         return allCount.Count;
     }
-    
-    public async void CreateCards(WeaponInfoData[] weaponInfoData = null)
+
+    public async void CreateCards(WeaponInfoData[] weaponInfoData = null, bool useStartWeapon = false)
     {
+        int count = CountCards();
+        WeaponCardView weaponCardView;
+        Sequence mainSequence = DOTween.Sequence();
+        Ease ease = Ease.OutBack;
+        
+        if (weaponInfoData != null)
+            count = weaponInfoData.Length;
+        
+        
         weaponInfoData = weaponInfoData ?? allWeapons;
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = false;
-        
-        Ease ease = Ease.OutBack;
-        int count = CountCards();
         xOffset = CardCreatorAnimationConfig.GetXOffset(count, cardContainer.rect.width);
-        Sequence mainSequence = DOTween.Sequence();
         mainSequence.SetUpdate(true);
-        
+        Debug.Log(count);
         
         for (int i = 0; i < count; i++)
         {
@@ -65,11 +70,25 @@ public class WeaponCardManagerView : MonoBehaviour
             else
                 newOffset = 0f;
 
-            var card = CreateWeaponCardView(weaponInfoData);
+            
+            if (useStartWeapon)
+            {
+                weaponCardView = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
+                var weapon = weaponInfoData[i];
+                weaponCardView.OnClickedWeaponEvent += GetWeaponFistTime;
+                weaponCardView.SetData(weapon);
+                cardViews.Add(weaponCardView);
+
+            }
+            else
+            {
+                
+                weaponCardView = CreateWeaponCardView();
+            }
             
      
             
-            RectTransform cardTransform = card.GetComponent<RectTransform>();
+            RectTransform cardTransform = weaponCardView.GetComponent<RectTransform>();
             cardTransform.anchoredPosition = Vector3.zero;
             cardTransform.pivot = new Vector2(0.5f, 0.5f);
             cardTransform.transform.localScale = Vector3.zero;
@@ -93,14 +112,14 @@ public class WeaponCardManagerView : MonoBehaviour
         cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = true;
     }
 
-    private WeaponCardView CreateWeaponCardView(WeaponInfoData[] weaponInfoData = null)
+    private WeaponCardView CreateWeaponCardView()
     {
-        weaponInfoData = weaponInfoData ?? allWeapons
+        var nonMaxWeapons = allWeapons
             .Where(x => !x.WeaponUpgradeData.IsCardLevelMax)  // CardLevelMax == false
             .Where(x => !cardViews.Any(j => j.WeaponInfoData.WeaponName == x.WeaponName))  // Не міститься в cardViews
-            .ToArray();
+            .ToList();
+        
         var card = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
-        var nonMaxWeapons = weaponInfoData.ToList();
         
         
         foreach (var mergeWeaponData in mergeSystem.MergeWeaponsData)

@@ -2549,6 +2549,9 @@ MonoBehaviour:
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
   weaponsInfoData:
   - {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
+  - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
+  - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -24501,6 +24504,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 462
       objectReference: {fileID: 0}
+    - target: {fileID: 4736969764916295282, guid: 8dd1bc5f16b31f646a266b76ec38dcd2, type: 3}
+      propertyPath: GiveStartWeapon
+      value: 
+      objectReference: {fileID: 2122061450}
     - target: {fileID: 6218055813874600718, guid: 8dd1bc5f16b31f646a266b76ec38dcd2, type: 3}
       propertyPath: m_Camera
       value: 

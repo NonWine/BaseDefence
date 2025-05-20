@@ -7,16 +7,19 @@ public class GiveStartWeapon : MonoBehaviour
     [SerializeField] WeaponCardManagerView weaponCardManagerView;
     [SerializeField] WeaponInfoData[] pushki;
     [SerializeField] PlayerCombatManager playerCombatManger;
-    private void Start()
+    
+    public void CreateStartWeapon()
     {
         Debug.Log("start");
         weaponCardManagerView.OnGetWeaponEvent += GivePushki;
-        weaponCardManagerView.CreateCards(pushki);
+        weaponCardManagerView.CreateCards(pushki,true);
     }
+    
     private void OnDisable()
     {
         weaponCardManagerView.OnGetWeaponEvent -= GivePushki;
     }
+    
     private void GivePushki(WeaponInfoData weaponInfoData)
     {
         playerCombatManger.defaultWeapon = (DynamicWeapon)weaponInfoData;
