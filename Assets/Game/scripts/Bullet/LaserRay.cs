@@ -14,12 +14,14 @@ public class LaserRay : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [Inject] private PlayerHandler playerHandler;
     [Inject] private EnemyFactory enemyFactory;
+    [SerializeField] private float _rotationSpeed;
     private float _damageTimer;
     private float _shootingTimer;
     private Vector3 _target;
     private Ray _ray;
     private RaycastHit2D[] hits;
     private WeaponUpgradeData WeaponUpgradeData;
+    private Vector3 _currentDirection;
 
     public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
     {
@@ -29,7 +31,7 @@ public class LaserRay : MonoBehaviour
         _laserOrigin = transform;
         _enemy = target;
         _target = target.position;
-        
+        _currentDirection = (_target - transform.position).normalized;
 
     }
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
@@ -66,18 +68,19 @@ public class LaserRay : MonoBehaviour
             return;
         }
     
-        // Отримуємо точку на ворозі, куди треба стріляти (наприклад, центр або спеціальну точку)
-        Vector3 targetPoint = _enemy.position; // Можна використовувати _enemy.GetComponent<Collider>().bounds.center
+        
+        Vector3 targetPoint = _enemy.position; 
     
-        // Оновлюємо позиції лазера
+        
         Vector3 direction = targetPoint - transform.position;
+        _currentDirection = Vector3.Lerp(_currentDirection, direction,
+            _rotationSpeed * Time.deltaTime);
         _laserLine.SetPosition(0, transform.position);
-        _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // Просто до позиції ворога
+        _laserLine.SetPosition(1, transform.position + _currentDirection.normalized * _gunRange); 
     
-        // Raycast для перевірки попадання
-        _ray = new Ray(transform.position, direction.normalized);
-        Debug.DrawRay(transform.position, direction, Color.green, 0.01f);
-        hits = Physics2D.RaycastAll(transform.position, direction, _gunRange , _layerMask);
+        _ray = new Ray(transform.position, _currentDirection.normalized);
+        Debug.DrawRay(transform.position, _currentDirection, Color.green, 0.01f);
+        hits = Physics2D.RaycastAll(transform.position, _currentDirection, _gunRange , _layerMask);
     
         if (hits.Length > 0)
         {

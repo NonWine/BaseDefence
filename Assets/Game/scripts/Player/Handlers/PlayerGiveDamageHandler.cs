@@ -76,6 +76,9 @@ public class PlayerGiveDamageHandler : MonoBehaviour
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
             bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +
                                         (Vector2.right * Random.Range(-offset, offset));
+            Vector3 direction = CurrentAgredTarget.position - transform.position;
+/*            Quaternion LookDirection = Quaternion.LookRotation(direction);
+            transform.rotation = LookDirection;*/
             bullet.Init(CurrentAgredTarget);
         }
     }

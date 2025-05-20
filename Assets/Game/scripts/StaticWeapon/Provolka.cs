@@ -46,7 +46,6 @@ public class Provolka : StaticWeaponObj
                     }
                     enemiesInCollider[i].GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValue);
                 }
-                Debug.Log("enemy is damaged");
             }
             timer = 0;
         }
