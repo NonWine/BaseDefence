@@ -42,6 +42,7 @@ public class Provolka : StaticWeaponObj
                     if (!enemiesInCollider[i].gameObject.activeInHierarchy)
                     {
                         enemiesInCollider.RemoveAt(i);
+                        continue;
                     }
                     enemiesInCollider[i].GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValue);
                 }
