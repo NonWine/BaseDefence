@@ -1884,7 +1884,9 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
     MergeWeaponData: {fileID: 11400000, guid: 8929601d5663b5b48adfb18180083102, type: 2}
     isUnLocked: 0
-  - DynamicWeapons: []
+  - DynamicWeapons:
+    - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
+    - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
     MergeWeaponData: {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
     isUnLocked: 0
 --- !u!1 &1161861817
@@ -24503,6 +24505,10 @@ PrefabInstance:
     - target: {fileID: 129776333057153341, guid: 8dd1bc5f16b31f646a266b76ec38dcd2, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 462
+      objectReference: {fileID: 0}
+    - target: {fileID: 888901263927585567, guid: 8dd1bc5f16b31f646a266b76ec38dcd2, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4736969764916295282, guid: 8dd1bc5f16b31f646a266b76ec38dcd2, type: 3}
       propertyPath: GiveStartWeapon
