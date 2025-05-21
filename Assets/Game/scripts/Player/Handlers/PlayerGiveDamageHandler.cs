@@ -8,6 +8,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
       [Inject]  private BulletFactory bulletFactory;
      [SerializeField] private PlayerCombatManager playerCombatManager;
      [SerializeField] private StaticWeaponData staticWeaponDataAmmo;
+    [SerializeField] private PlayerContainer _playerContainer;
      private float timer;
      
 
@@ -77,8 +78,9 @@ public class PlayerGiveDamageHandler : MonoBehaviour
             bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +
                                         (Vector2.right * Random.Range(-offset, offset));
             Vector3 direction = CurrentAgredTarget.position - transform.position;
-/*            Quaternion LookDirection = Quaternion.LookRotation(direction);
-            transform.rotation = LookDirection;*/
+            /*            Quaternion LookDirection = Quaternion.LookRotation(direction);
+                        transform.rotation = LookDirection;*/
+            _playerContainer.Direction = direction;
             bullet.Init(CurrentAgredTarget);
         }
     }

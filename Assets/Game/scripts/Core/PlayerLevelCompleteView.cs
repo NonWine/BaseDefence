@@ -14,9 +14,15 @@ public class PlayerLevelCompleteView : MonoBehaviour
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] private GameManager GameManager;
     [Inject] private PlayerLevelController playerLevelController;
+    private string playerChoseWeaponPlayerPref;
     
     private void Awake()
     {
+        /*if(PlayerPrefs.GetInt(playerChoseWeaponPlayerPref, 0) == 1)
+        {
+            return;
+        }
+        PlayerPrefs.SetInt(playerChoseWeaponPlayerPref, 1);*/
         playerLevelController.OnLevelUp += Show;
         _weaponCardManagerView.OnGetWeaponEvent += Hide;
         //

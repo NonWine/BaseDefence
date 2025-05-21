@@ -19,7 +19,6 @@ public class PlayerAttackState : PlayerState
     {
         _playerAnimator.SetStateBehaviour(1);
         player.PlayerAnimatorEvent.GetComponent<Animator>().SetInteger("state", 1);
-
         
     }
 
@@ -28,7 +27,7 @@ public class PlayerAttackState : PlayerState
         //Debug.Log(_playerGiveDamageHandler);
         _playerGiveDamageHandler.TryGetDamage(player.Player);
         // if(_playerGiveDamageHandler.CurrentAgredTarget != null)
-        //     _playerRotating.SetTargetRotate(_playerGiveDamageHandler.CurrentAgredTarget);
+            _playerRotating.SetTargetRotate(_playerGiveDamageHandler.CurrentAgredTarget);
         _playerAnimator.SetStateBehaviour(1);
 
     }

@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faec2f139ea4f3c82331acd51644656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _body: {fileID: 6319064511028787927}
+  _body: {fileID: 986189695259536792}
   _player: {fileID: 3395645652109686637}
   _playerAnimatorEvent: {fileID: 4584066073149882442}
   <Player>k__BackingField: {fileID: 3503238119258563732}
@@ -119,6 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCombatManager: {fileID: 6940290521484539287}
   staticWeaponDataAmmo: {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
+  _playerContainer: {fileID: 754546941203926906}
 --- !u!114 &6940290521484539287
 MonoBehaviour:
   m_ObjectHideFlags: 0
