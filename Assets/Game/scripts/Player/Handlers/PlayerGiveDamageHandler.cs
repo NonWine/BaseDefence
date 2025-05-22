@@ -14,7 +14,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
 
     
     
-    public Transform CurrentAgredTarget { get; private set; }
+    public Transform CurrentAgredTarget { get;  set; }
     
     public void TryGetDamage(Player player)
     {   
@@ -75,8 +75,10 @@ public class PlayerGiveDamageHandler : MonoBehaviour
         {
             CurrentAgredTarget = enemy.transform;
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
+            bullet.transform.SetParent(player.bulletStartPoint);
             bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +
                                         (Vector2.right * Random.Range(-offset, offset));
+            
             Vector3 direction = CurrentAgredTarget.position - transform.position;
             /*            Quaternion LookDirection = Quaternion.LookRotation(direction);
                         transform.rotation = LookDirection;*/
@@ -85,7 +87,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
         }
     }
 
-    private BaseEnemy GetNearestEnemy(Transform thisTarget, float maxDistance)
+    public BaseEnemy GetNearestEnemy(Transform thisTarget, float maxDistance)
     {
         var nearestEnemy = enemyFactory.Enemies
             .Where(e => !e.IsDeath && Vector3.Distance(thisTarget.position, e.transform.position) < maxDistance)
