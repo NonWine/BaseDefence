@@ -4,11 +4,11 @@ using Zenject;
 
 public class PlayerGiveDamageHandler : MonoBehaviour
 {
-      [Inject]  private EnemyFactory enemyFactory;
-      [Inject]  private BulletFactory bulletFactory;
+     [Inject]  private EnemyFactory enemyFactory;
+     [Inject]  private BulletFactory bulletFactory;
      [SerializeField] private PlayerCombatManager playerCombatManager;
      [SerializeField] private StaticWeaponData staticWeaponDataAmmo;
-    [SerializeField] private PlayerContainer _playerContainer;
+     [SerializeField] private PlayerContainer _playerContainer;
      private float timer;
      
 
@@ -23,6 +23,9 @@ public class PlayerGiveDamageHandler : MonoBehaviour
         //Debug.Log(playerCombatManager);
         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
+            if(unlockedWeapon.weaponInfoData.WeaponUpgradeData.IsUnLocked == false)
+                return;
+            
             unlockedWeapon.CurrentTimer += Time.deltaTime;
             var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
             if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)

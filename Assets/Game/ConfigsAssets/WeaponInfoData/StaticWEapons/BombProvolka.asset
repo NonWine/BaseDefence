@@ -142,8 +142,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: e0e016cba56b4e24188b856bb2661c74, type: 3}
-  WeaponName: Research Table
+  image: {fileID: 21300000, guid: 05661abc1924045c89b0e56f76854e4d, type: 3}
+  WeaponName: Bomb Provolka
   description: gives more experience to player
   WeaponUpgradeData:
     UpgradeQueue: 0300000003000000030000000300000003000000
@@ -157,8 +157,8 @@ MonoBehaviour:
       <StatName>k__BackingField: 11
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 3
-    <CurrentLevel>k__BackingField: 5
+    <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
+    <IsUnLocked>k__BackingField: 0

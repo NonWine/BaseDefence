@@ -15,15 +15,13 @@ public class GiveStartWeapon : MonoBehaviour
         weaponCardManagerView.CreateCards(pushki,true);
     }
     
-    private void OnDisable()
-    {
-        weaponCardManagerView.OnGetWeaponEvent -= GivePushki;
-    }
-    
+
     private void GivePushki(WeaponInfoData weaponInfoData)
     {
         playerCombatManger.defaultWeapon = (DynamicWeapon)weaponInfoData;
         playerCombatManger.Init();
+        weaponCardManagerView.OnGetWeaponEvent -= GivePushki;
+
     }
 
 

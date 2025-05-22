@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -67,4 +68,42 @@ public  class SlotsView : MonoBehaviour
        
             
     }
+
+
+    public void RemoveSlot(WeaponInfoData weaponInfoData)
+    {
+        if (weaponInfoData.WeaponsGeneralType != generalType) return;
+
+        var data = weaponsData.Find(x => x.image.name == weaponInfoData.image.name);
+        if (data == null)
+        {
+            Debug.LogError(weaponInfoData.WeaponName + "can not find in weapons slots");
+            return;
+        }
+
+        weaponsData.Remove(data);
+        IsMaxSlots = false;
+        currentSlotIndex = 0;
+
+        // Очищення всіх слотів
+        foreach (var slot in slots)
+        {
+            slot.enabled = false;
+            slot.sprite = null;
+        }
+
+        // Перерозставлення спрайтів з оновленого списку
+        foreach (var weapon in weaponsData)
+        {
+            if (currentSlotIndex < slots.Length)
+            {
+                slots[currentSlotIndex].enabled = true;
+                slots[currentSlotIndex].sprite = weapon.image;
+                currentSlotIndex++;
+            }
+        }
+        
+        weaponCardManagerView.UnFilterWeapons(generalType);
+    }
+
 }

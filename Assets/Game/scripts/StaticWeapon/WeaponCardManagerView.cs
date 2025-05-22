@@ -26,6 +26,8 @@ public class WeaponCardManagerView : MonoBehaviour
     [ShowInInspector, ReadOnly]  public List<WeaponCardView> cardViews { get; private set; } = new List<WeaponCardView>() ;
 
     public event Action<WeaponInfoData> OnGetWeaponEvent;
+    
+    
 
     private void Awake()
     {
@@ -58,6 +60,15 @@ public class WeaponCardManagerView : MonoBehaviour
             .Where(x =>  x is not StaticWeaponData)
             .ToList();
 
+        filtredWeapons.AddRange(selectedDynamicWeapons);
+    }
+
+    public void UnFilterWeapons(WeaponsGeneralType weaponType)
+    {
+        var selectedDynamicWeapons = allWeapons
+            .Where(x => x.WeaponsGeneralType == weaponType)
+            .ToList();
+        
         filtredWeapons.AddRange(selectedDynamicWeapons);
     }
 
