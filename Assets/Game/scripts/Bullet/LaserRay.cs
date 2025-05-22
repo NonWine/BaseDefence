@@ -14,6 +14,7 @@ public class LaserRay : MonoBehaviour
     [SerializeField] private LayerMask _layerMask;
     [Inject] private PlayerHandler playerHandler;
     [Inject] private EnemyFactory enemyFactory;
+    [Inject] private GameManager gameManager;
     [SerializeField] private float _rotationSpeed;
     private float _damageTimer;
     private float _shootingTimer;
@@ -32,7 +33,20 @@ public class LaserRay : MonoBehaviour
         _enemy = target;
         _target = target.position;
         _currentDirection = (_target - transform.position).normalized;
+        _laserOrigin.SetParent(playerHandler.Player.bulletStartPoint);
 
+    }
+    private void OnEnable()
+    {
+        gameManager.OnLooseEvent += Destroying;
+    }
+    private void OnDisable()
+    {
+        gameManager.OnLooseEvent -= Destroying;
+    }
+    private void Destroying()
+    {
+        Destroy(gameObject);
     }
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
     {
@@ -51,18 +65,19 @@ public class LaserRay : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if(_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
+        /*if(_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
         {
-            var nearestEnemy = GetNearlestEnemy(transform);
-            if (nearestEnemy == null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-            else
-            {
-                _enemy = nearestEnemy.transform;
-            }
+        }*/
+
+        var nearestEnemy = GetNearlestEnemy(transform);
+        if (nearestEnemy == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            _enemy = nearestEnemy.transform;
         }
 
         _shootingTimer += Time.deltaTime;
