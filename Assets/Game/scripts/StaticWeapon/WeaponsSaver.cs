@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
@@ -14,17 +15,17 @@ public class WeaponsSaver : MonoBehaviour
     [Inject]
     public void Init()
     {
+        weaponInfoDatas = injectedWeapons;
         if (!LoadAtStart)
         {
             ResetWeaponSaves();
             return;
         }
 
-        weaponInfoDatas = injectedWeapons;
         weaponUpgradeData = new WeaponUpgradeDataSaver("weapons");
         var container =   weaponUpgradeData.LoadData();
         
-        if(container == null)
+        if(container == null && container.weaponUpgradesData.Count == 0)
             return;
         
         for (var i = 0; i < container.weaponUpgradesData.Count; i++)
@@ -50,6 +51,8 @@ public class WeaponsSaver : MonoBehaviour
             weaponUpgradeDataContainer.weaponUpgradesData.Add(weaponInfoData.WeaponUpgradeData);
         }
 
+        weaponUpgradeDataContainer.weaponUpgradesData = new List<WeaponUpgradeData>();
+        weaponUpgradeDataContainer.weaponUpgradesData.Clear();
         weaponUpgradeData.SaveData(weaponUpgradeDataContainer);
     }
     
@@ -63,10 +66,10 @@ public class WeaponsSaver : MonoBehaviour
         foreach (var weaponInfoData in weaponInfoDatas)
         {
             weaponInfoData.WeaponUpgradeData.ResetData();
-            weaponUpgradeDataContainer.weaponUpgradesData.Add(weaponInfoData.WeaponUpgradeData);
         }
         weaponUpgradeData.SaveData(weaponUpgradeDataContainer);
         PlayerPrefs.DeleteAll();
+        SaveWeaponsData();
     }
 }
 
