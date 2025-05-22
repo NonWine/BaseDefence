@@ -9,6 +9,7 @@ public class Player : MonoBehaviour , ITickable
     [SerializeField] private PlayerContainer _playerContainer;
     [SerializeField] private HealthUI _healthUI;
     [SerializeField] public Transform bulletStartPoint;
+    [SerializeField] private Transform bulletStartParent;
     [Inject] private GameController _gameСontroller;
     [SerializeField] private PlayerGiveDamageHandler _playerGiveDamageHandler;
    [SerializeField] public PlayerCombatManager PlayerCombatManager;
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour , ITickable
 
     public void Initialize()
     {
+        bulletStartPoint.SetParent(bulletStartParent);
         _gameСontroller.RegisterInTick(this);
         InitializeHandler();
         InitializePlayerStateMachine();

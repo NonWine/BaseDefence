@@ -38,7 +38,6 @@ public class PlayerRotating : IRotateable
         _isTargeting = true;
         if(target ==null)
         {
-            Debug.Log("target for rotating is null");
             return;
         }
         /*Vector3 direction = (target.position - _playerContainer.Body.position).normalized; // Отримуємо напрямок

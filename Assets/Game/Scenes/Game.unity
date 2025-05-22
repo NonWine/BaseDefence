@@ -3296,9 +3296,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelsData:
+  - {fileID: 11400000, guid: 0f4e3806f059aec44800b554f70c59e7, type: 2}
   - {fileID: 11400000, guid: 4ecfb555e44c01e4aa0ec2937f90f233, type: 2}
   - {fileID: 11400000, guid: 3d50de42c06a8544fab23e6fb38d15dc, type: 2}
-  - {fileID: 11400000, guid: 0f4e3806f059aec44800b554f70c59e7, type: 2}
   _spawner: {fileID: 1709021710}
   waveSliderView: {fileID: 5906166176658075891}
   startWaveButton: {fileID: 1446267323}

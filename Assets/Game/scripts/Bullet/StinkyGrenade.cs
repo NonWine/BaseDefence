@@ -14,7 +14,6 @@ public class StinkyGrenade : BaseBullet
     {
         if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
         {
-            Debug.Log("radius is " + WeaponUpgradeData.GetStat(StatName.Radius).CurrentValue);
             var cloud = Instantiate(stinkyCloud, transform.position, Quaternion.identity);
             cloud.GetComponent<StinkyCloud>().Init(WeaponInfoData);
             int count = Physics2D.OverlapCircleNonAlloc(transform.position, radiusExplose, _overlapResults, damageableMask);
