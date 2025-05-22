@@ -9,6 +9,6 @@ public class MergeWeaponData : DynamicWeapon
     [Button(SdfIconType.Bluetooth)] [LabelText("Force Update Data")]
     protected  override void Awake()
     {
-        WeaponsGeneralType = WeaponsGeneralType.Merge;
+        WeaponsGeneralType = WeaponsGeneralType.Active;
     }
 }
