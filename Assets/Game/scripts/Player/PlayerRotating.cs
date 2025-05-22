@@ -12,13 +12,18 @@ public class PlayerRotating : IRotateable
 
     public void  Rotate()
     {
-       if(_isTargeting)
+       if(!_isTargeting)
            return;
         
-            if (_playerContainer.Direction != Vector3.zero)
-                _playerContainer.Body.rotation = Quaternion.Slerp(_playerContainer.Body.rotation,
-                    Quaternion.LookRotation(_playerContainer.Direction),
-                    20f * Time.deltaTime);
+        if (_playerContainer.Direction != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(_playerContainer.Direction.y, _playerContainer.Direction.x) * Mathf.Rad2Deg - 90;
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            _playerContainer.Body.rotation = Quaternion.Slerp(_playerContainer.Body.rotation,
+                targetRotation,
+                7f * Time.deltaTime);
+        }
+
 
        
 
@@ -27,14 +32,19 @@ public class PlayerRotating : IRotateable
     public void SetTargetRotate(Transform target)
     {
         _isTargeting = true;
-        Vector3 direction = (target.position - _playerContainer.Body.position).normalized; // Отримуємо напрямок
+        if(target ==null)
+        {
+            Debug.Log("target for rotating is null");
+            return;
+        }
+        /*Vector3 direction = (target.position - _playerContainer.Body.position).normalized; // Отримуємо напрямок
         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up); // Обчислюємо правильний поворот
 
         _playerContainer.Body.rotation = Quaternion.Slerp(
             _playerContainer.Body.rotation,
             targetRotation,
             20 * Time.deltaTime
-        );
+        );*/
     }
 
 

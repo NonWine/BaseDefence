@@ -70,17 +70,23 @@ public class WeaponCardManagerView : MonoBehaviour
             return 3;
         return allCount.Count;
     }
-    
-    public async void CreateCards()
+
+    public async void CreateCards(WeaponInfoData[] weaponInfoData = null, bool useStartWeapon = false)
     {
-        cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = false;
-        
-        Ease ease = Ease.OutBack;
         int count = CountCards();
-        xOffset = CardCreatorAnimationConfig.GetXOffset(count, cardContainer.rect.width);
+        WeaponCardView weaponCardView;
         Sequence mainSequence = DOTween.Sequence();
-        mainSequence.SetUpdate(true);
+        Ease ease = Ease.OutBack;
         
+        if (weaponInfoData != null)
+            count = weaponInfoData.Length;
+        
+        
+        weaponInfoData = weaponInfoData ?? allWeapons;
+        cardContainer.GetComponent<HorizontalLayoutGroup>().enabled = false;
+        xOffset = CardCreatorAnimationConfig.GetXOffset(count, cardContainer.rect.width);
+        mainSequence.SetUpdate(true);
+        Debug.Log(count);
         
         for (int i = 0; i < count; i++)
         {
@@ -93,11 +99,25 @@ public class WeaponCardManagerView : MonoBehaviour
             else
                 newOffset = 0f;
 
-            var card = CreateWeaponCardView();
-     
+            
+            if (useStartWeapon)
+            {
+                weaponCardView = diContainer.InstantiatePrefabForComponent<WeaponCardView>(weaponCardViewPrefab, cardContainer.transform);
+                var weapon = weaponInfoData[i];
+                weaponCardView.OnClickedWeaponEvent += GetWeaponFistTime;
+                weaponCardView.SetData(weapon);
+                cardViews.Add(weaponCardView);
+
+            }
+            else
+            {
+                
+                weaponCardView = CreateWeaponCardView();
+            }
+            
      
             
-            RectTransform cardTransform = card.GetComponent<RectTransform>();
+            RectTransform cardTransform = weaponCardView.GetComponent<RectTransform>();
             cardTransform.anchoredPosition = Vector3.zero;
             cardTransform.pivot = new Vector2(0.5f, 0.5f);
             cardTransform.transform.localScale = Vector3.zero;
@@ -153,6 +173,8 @@ public class WeaponCardManagerView : MonoBehaviour
         cardViews.Add(card);
         return card;
     }
+
+    
 
     private void GetWeaponFistTime(WeaponInfoData weaponInfoData)
     {

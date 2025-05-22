@@ -7,14 +7,13 @@ using System.Linq;
 
 public class BombBullet : BaseBullet
 {
-    [Inject] private GameManager gameManager;
     [Inject] private EnemyFactory enemyFactory;
+    [Inject] private BulletFactory bulletFactory;
     public override Type Type => typeof(BombBullet);
 
     public override void Init(Transform target)
     {
         base.Init(target);
-        _target = gameManager.BombTarget;
     }
     protected override void OnTriggerEnter2D(Collider2D other)
     {
@@ -22,14 +21,20 @@ public class BombBullet : BaseBullet
     }
     protected override void Update()
     {
+        if(_target == null)
+        {
+            return;
+        }
         var dir = _target.transform.position - transform.position;
+        Debug.Log("target for bombBullet is " + _target.transform.name);
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rigidbody.rotation = angle;
         rigidbody.velocity = dir.normalized * WeaponUpgradeData.GetStat(StatName.ProjectileSpeed).CurrentValue;
-        if(_target.transform.position.z < transform.position.z)
+        if(_target.transform.position.y > transform.position.y)
         {
             Explosion();
             DestroyBullet();
+            //Destroy(gameObject);
         }
     }
     private void Explosion()

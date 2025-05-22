@@ -10,14 +10,23 @@ public class PlayerLevelCompleteView : MonoBehaviour
 {
     [SerializeField] private CanvasGroup winPanel;
     [SerializeField] private float fadeDuration = 0.25f;
+    [SerializeField] private GiveStartWeapon GiveStartWeapon;
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] private GameManager GameManager;
     [Inject] private PlayerLevelController playerLevelController;
+    private string playerChoseWeaponPlayerPref;
+    
     private void Awake()
     {
+        /*if(PlayerPrefs.GetInt(playerChoseWeaponPlayerPref, 0) == 1)
+        {
+            return;
+        }
+        PlayerPrefs.SetInt(playerChoseWeaponPlayerPref, 1);*/
         playerLevelController.OnLevelUp += Show;
         _weaponCardManagerView.OnGetWeaponEvent += Hide;
-        
+        //
+        ShowStatView();
     }
 
     private void OnDestroy()
@@ -39,7 +48,18 @@ public class PlayerLevelCompleteView : MonoBehaviour
             _weaponCardManagerView.CreateCards();
 
         });
-    } 
+    }
+
+    public void ShowStatView()
+    {
+        Debug.Log("12123");
+        winPanel.DOFade(1f, fadeDuration).SetEase(Ease.OutBack).SetUpdate(true).OnComplete(() =>
+        {
+            GameManager.TimeGameSpeed = 0;
+            winPanel.blocksRaycasts = true;
+            GiveStartWeapon.CreateStartWeapon();
+        });
+    }
 
     public void Hide(WeaponInfoData weaponInfoData) => StartCoroutine(HideCor());
     

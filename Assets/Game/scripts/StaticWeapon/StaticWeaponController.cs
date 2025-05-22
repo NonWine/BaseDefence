@@ -5,7 +5,7 @@ using Zenject;
 
 public abstract class StaticWeaponController : MonoBehaviour , ITickable
 {
-    [SerializeField, ReadOnly] private bool isLocked = true;
+    [SerializeField, ReadOnly] protected bool isLocked = true;
     [SerializeField] public WeaponInfoData WeaponInfoData;
     [Inject] private GameController gameController;
     [Inject] private WeaponCardManagerView _weaponCardManagerView;

@@ -10,12 +10,12 @@ public class PlayerCombatManager : MonoBehaviour
     [Inject] private WeaponCardManagerView _weaponCardManagerView;
     [Inject] private WeaponInfoData[] weaponInfoDatas;
     [SerializeField, ReadOnly] private List<DynamicWeaponHandler> weaponHandlers;
-    [SerializeField] private DynamicWeapon defaultWeapon;
+    [SerializeField] public DynamicWeapon defaultWeapon;
     public float DistanceToAgr = 50f;
     
 
  
-    private void Awake()
+    public void Init()
     {
         weaponHandlers = new List<DynamicWeaponHandler>();
         foreach (var weaponInfoData in weaponInfoDatas)

@@ -15,32 +15,7 @@ public class ShockerBullet : BaseBullet
     {
         base.Init(target);
         currentJumpCount = 0;
-    }
-    protected override void OnTriggerEnter2D(Collider2D other)
-    {
-        //base.OnTriggerEnter2D(other);
-        if(currentJumpCount < (int)WeaponUpgradeData.GetStat(StatName.ShockerJumpCount).CurrentValue)
-        {
-            if (other.transform.TryGetComponent(out IDamageable damageable) && isAlive)
-            {
-
-                damageable.GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
-            }
-            _target = FindNearestEnemyInRadius();
-            if (_target == null)
-            {
-                Debug.Log("target after seeking new target is null");
-                DestroyBullet();
-                return;
-            }
-            _damageable = _target.GetComponent<IDamageable>();
-            currentJumpCount++;
-        }
-        else
-        {
-            Debug.Log("shocker jumped maximum jumps");
-            DestroyBullet();
-        }
+        Physics2D.queriesHitTriggers = true;
     }
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
     {
@@ -50,6 +25,30 @@ public class ShockerBullet : BaseBullet
 
 
         return nearestEnemy;
+    }
+    protected override void Update()
+    {
+        var dir = _target.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        rigidbody.rotation = angle;
+        rigidbody.velocity = dir.normalized * WeaponUpgradeData.GetStat(StatName.ProjectileSpeed).CurrentValue;
+        savedDirection = dir;
+        if (Vector3.Distance(_target.transform.position, transform.position) < 0.6f)
+        {
+            _target.GetComponent<IDamageable>().GetDamage(WeaponUpgradeData.GetStat(StatName.Damage).CurrentValueInt);
+            _target = FindNearestEnemyInRadius();
+            if (_target == null)
+            {
+                DestroyBullet();
+                return;
+            }
+            _damageable = _target.GetComponent<IDamageable>();
+            currentJumpCount++;
+            if (currentJumpCount >= (int)WeaponUpgradeData.GetStat(StatName.ShockerJumpCount).CurrentValue)
+            {
+                DestroyBullet();
+            }
+        }
     }
     private Transform FindNearestEnemyInRadius()
     {

@@ -6,7 +6,7 @@ using UnityEngine;
 public abstract class BaseBullet : PoolAble
 {
     [SerializeField] private TrailRenderer trailRenderer;
-    [SerializeField] private WeaponInfoData WeaponInfoData;
+    [SerializeField] protected WeaponInfoData WeaponInfoData;
     protected Transform _target;
     //protected Vector3 _target;
     //protected Rigidbody rigidbody;

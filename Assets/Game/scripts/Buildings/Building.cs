@@ -13,7 +13,7 @@ where TConfig : BuildingData
 
     [field: SerializeField]   public Team Team { get; private set; }
 
-    private int _CurrentHealth;
+    private float _CurrentHealth;
 
 
     public event Action OnDeath;
@@ -25,7 +25,7 @@ where TConfig : BuildingData
     }
     
 
-    public virtual void GetDamage(int damage)
+    public virtual void GetDamage(float damage)
     {
         _CurrentHealth -= damage;
         HealthUI.GetDamageUI(damage);
