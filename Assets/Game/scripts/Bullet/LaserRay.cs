@@ -23,12 +23,12 @@ public class LaserRay : MonoBehaviour
     private WeaponUpgradeData WeaponUpgradeData;
     private Vector3 _currentDirection;
 
-    public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
+    public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData, Transform startPos)
     {
 
         WeaponUpgradeData = weaponUpgradeData;
         transform.SetParent(playerHandler.Player.transform);
-        _laserOrigin = transform;
+        _laserOrigin = startPos;
         _enemy = target;
         _target = target.position;
         _currentDirection = (_target - transform.position).normalized;
@@ -39,8 +39,14 @@ public class LaserRay : MonoBehaviour
         var nearestEnemy = enemyFactory.Enemies
             .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
             .FirstOrDefault(x => x.IsDeath == false);
-
-
+        if(nearestEnemy == null)
+        {
+            return null;
+        }
+        if(Vector3.Distance(transform.position, nearestEnemy.transform.position) >= 25)
+        {
+            return null;
+        }
         return nearestEnemy;
     }
     private void LateUpdate()
@@ -72,15 +78,15 @@ public class LaserRay : MonoBehaviour
         Vector3 targetPoint = _enemy.position; 
     
         
-        Vector3 direction = targetPoint - transform.position;
+        Vector3 direction = targetPoint - _laserOrigin.position;
         _currentDirection = Vector3.Lerp(_currentDirection, direction,
             _rotationSpeed * Time.deltaTime);
-        _laserLine.SetPosition(0, transform.position);
-        _laserLine.SetPosition(1, transform.position + _currentDirection.normalized * _gunRange); 
+        _laserLine.SetPosition(0, _laserOrigin.position);
+        _laserLine.SetPosition(1, _laserOrigin.position + _currentDirection.normalized * _gunRange); 
     
-        _ray = new Ray(transform.position, _currentDirection.normalized);
-        Debug.DrawRay(transform.position, _currentDirection, Color.green, 0.01f);
-        hits = Physics2D.RaycastAll(transform.position, _currentDirection, _gunRange , _layerMask);
+        _ray = new Ray(_laserOrigin.position, _currentDirection.normalized);
+        Debug.DrawRay(_laserOrigin.position, _currentDirection, Color.green, 0.01f);
+        hits = Physics2D.RaycastAll(_laserOrigin.position, _currentDirection, _gunRange , _layerMask);
     
         if (hits.Length > 0)
         {

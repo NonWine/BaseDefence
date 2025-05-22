@@ -82,7 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7faec2f139ea4f3c82331acd51644656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _body: {fileID: 986189695259536792}
+  _body:
+  - {fileID: 7528644039146744428}
   _player: {fileID: 3395645652109686637}
   _playerAnimatorEvent: {fileID: 4584066073149882442}
   <Player>k__BackingField: {fileID: 3503238119258563732}
@@ -102,6 +103,7 @@ MonoBehaviour:
   _playerContainer: {fileID: 754546941203926906}
   _healthUI: {fileID: 2643628323638214876}
   bulletStartPoint: {fileID: 1009459676067695206}
+  bulletStartParent: {fileID: 6047965514259633416}
   _playerGiveDamageHandler: {fileID: 1709190326176024482}
   PlayerCombatManager: {fileID: 6940290521484539287}
   ResourceStartPoint: {fileID: 1009459676067695206}
@@ -268,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8250169266279454816, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 55
+      value: 255
       objectReference: {fileID: 0}
     - target: {fileID: -7552582706839291426, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_LocalScale.x
@@ -320,23 +322,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5065029501940484402, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 51
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: -2774133690274143023, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 52
+      value: 252
       objectReference: {fileID: 0}
     - target: {fileID: -391922561451035413, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 54
+      value: 254
       objectReference: {fileID: 0}
     - target: {fileID: 1224096965864626479, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 53
+      value: 253
       objectReference: {fileID: 0}
     - target: {fileID: 1609719090194301641, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
       propertyPath: m_SortingOrder
-      value: 56
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -392,6 +394,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38e878a387ea34e4991eeff4d583f66e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &6047965514259633416 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5291378619951579470, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
+  m_PrefabInstance: {fileID: 1909649690590024774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7528644039146744428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8285336455802895914, guid: f8fad727a3e04d644bc571d799bd4c41, type: 3}
+  m_PrefabInstance: {fileID: 1909649690590024774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6322156645675567308
 PrefabInstance:
   m_ObjectHideFlags: 0

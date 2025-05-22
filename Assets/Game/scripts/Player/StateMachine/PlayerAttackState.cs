@@ -24,6 +24,16 @@ public class PlayerAttackState : PlayerState
 
     public override void LogicUpdate()
     {
+        var enemy = _playerGiveDamageHandler.GetNearestEnemy(player.transform, 25);
+        if (enemy != null)
+        {
+            _playerGiveDamageHandler.CurrentAgredTarget = enemy.transform;
+
+            Vector3 direction = _playerGiveDamageHandler.CurrentAgredTarget.position - _playerGiveDamageHandler.transform.position;
+            /*            Quaternion LookDirection = Quaternion.LookRotation(direction);
+                        transform.rotation = LookDirection;*/
+            player.Direction = direction;
+        }
         //Debug.Log(_playerGiveDamageHandler);
         _playerGiveDamageHandler.TryGetDamage(player.Player);
         // if(_playerGiveDamageHandler.CurrentAgredTarget != null)

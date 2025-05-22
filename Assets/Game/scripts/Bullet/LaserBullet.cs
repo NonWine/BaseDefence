@@ -16,7 +16,7 @@ public class LaserBullet : BaseBullet
         if (target != null)
         {
             LaserRay laser = diContainer.InstantiatePrefabForComponent<LaserRay>(_laser, transform.position, Quaternion.identity, null);
-            laser.transform.GetComponent<LaserRay>().RayShoot(target, WeaponUpgradeData);
+            laser.transform.GetComponent<LaserRay>().RayShoot(target, WeaponUpgradeData, transform);
         }
         DestroyBullet();
     }
