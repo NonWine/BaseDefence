@@ -1462,6 +1462,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1396439251}
     m_Modifications:
+    - target: {fileID: 1009459676067695206, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.27
+      objectReference: {fileID: 0}
     - target: {fileID: 4778437316126056085, guid: 12666659da08f7746a7e4bd2a4bdbfd1, type: 3}
       propertyPath: m_Name
       value: Player2D
@@ -2865,7 +2869,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  - {fileID: 11400000, guid: 93f863cf4a966044db2640acf1c0b240, type: 2}
   - {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
   - {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
@@ -5730,6 +5733,10 @@ PrefabInstance:
     - target: {fileID: 2494733460055969049, guid: 5ddf4f2653fab7849b5caf4154b3adcc, type: 3}
       propertyPath: m_Name
       value: BombCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494733460055969049, guid: 5ddf4f2653fab7849b5caf4154b3adcc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3651382100090289313, guid: 5ddf4f2653fab7849b5caf4154b3adcc, type: 3}
       propertyPath: bombStartPos

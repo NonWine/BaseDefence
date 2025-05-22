@@ -78,7 +78,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
         {
             CurrentAgredTarget = enemy.transform;
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
-            bullet.transform.SetParent(player.bulletStartPoint);
+            //bullet.transform.SetParent(player.bulletStartPoint);
             bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +
                                         (Vector2.right * Random.Range(-offset, offset));
             
