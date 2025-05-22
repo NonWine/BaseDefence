@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
-  m_Name: StinckyBall
+  m_Script: {fileID: 11500000, guid: c7e780637fac40029d17778a6984b87c, type: 3}
+  m_Name: Stink Bombs
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,52 +21,44 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
-  WeaponName: Rotten eggs
-  description: slow down enemies
+  image: {fileID: 21300000, guid: d6f2cb48e10724bfea4116c456799a2c, type: 3}
+  WeaponName: Stink Bombs
+  description: Area stink bombs that explode and slow
   WeaponUpgradeData:
-    UpgradeQueue: 0000000000000000000000000000000000000000
+    UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 3
-      Modificator: 0.31
-      <StatName>k__BackingField: 2
-      BonusedValue: 0.45
-    - <BaseValue>k__BackingField: 3
-      Modificator: 1
+    - <BaseValue>k__BackingField: 2
+      Modificator: 0.09
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 4.49
-      Modificator: -0.36
+    - <BaseValue>k__BackingField: 4
+      Modificator: 0
       <StatName>k__BackingField: 1
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 3
       Modificator: 0
-      <StatName>k__BackingField: 7
+      <StatName>k__BackingField: 2
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 35
+      Modificator: 0
+      <StatName>k__BackingField: 6
       BonusedValue: 0
     - <BaseValue>k__BackingField: 0.5
       Modificator: 0
       <StatName>k__BackingField: 11
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 7
       Modificator: 0
-      <StatName>k__BackingField: 8
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 1
-      Modificator: 0.15
-      <StatName>k__BackingField: 5
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 15.29
-      Modificator: 0.35
-      <StatName>k__BackingField: 6
+      <StatName>k__BackingField: 17
       BonusedValue: 0
     - <BaseValue>k__BackingField: 4
       Modificator: 0
       <StatName>k__BackingField: 16
       BonusedValue: 0
-    <CardLevelMax>k__BackingField: 6
+    <CardLevelMax>k__BackingField: 0
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 1
+    <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
+    <IsUnLocked>k__BackingField: 1
+  baseBullet: {fileID: -5874570631166029023, guid: 366dffb2691e0d548a811e937e0d96f3, type: 3}

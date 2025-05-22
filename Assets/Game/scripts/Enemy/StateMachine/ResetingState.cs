@@ -22,6 +22,8 @@ public class ResetingState : EnemyBaseState
         enemy.transform.localScale = Vector3.zero;
         enemy.transform.DOScale(1f, 0.15f).SetEase(Ease.OutBack);
         enemy.CurrentHealth = enemy.MaxHealth;
+        enemy.Speed = enemy.EnemyStatsConfig._moveSpeed;
+
         enemy.CurrentDamage = enemy.EnemyStatsConfig.Damage;
         _healthUI.gameObject.SetActive(true);
         _healthUI.SetHealth(enemy.MaxHealth);

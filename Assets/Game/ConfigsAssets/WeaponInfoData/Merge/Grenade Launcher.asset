@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7e780637fac40029d17778a6984b87c, type: 3}
-  m_Name: StinkyGrenade
+  m_Name: Grenade Launcher
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,16 +22,16 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 3c01d33a58d79a4438d24886c3e8a391, type: 3}
-  WeaponName: Stinky Grenade
-  description: explosively stinky
+  WeaponName: Grenade Shooter
+  description: ' Fires grenades instead of regular bullets'
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 2
+    - <BaseValue>k__BackingField: 10
       Modificator: 0.09
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 4
+    - <BaseValue>k__BackingField: 0.5
       Modificator: 0
       <StatName>k__BackingField: 1
       BonusedValue: 0
@@ -43,22 +43,10 @@ MonoBehaviour:
       Modificator: 0
       <StatName>k__BackingField: 6
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.5
-      Modificator: 0
-      <StatName>k__BackingField: 11
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 7
-      Modificator: 0
-      <StatName>k__BackingField: 17
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 4
-      Modificator: 0
-      <StatName>k__BackingField: 16
-      BonusedValue: 0
     <CardLevelMax>k__BackingField: 0
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
-  baseBullet: {fileID: -5874570631166029023, guid: 366dffb2691e0d548a811e937e0d96f3, type: 3}
+    <IsUnLocked>k__BackingField: 0
+  baseBullet: {fileID: 1644692590343867144, guid: d08657a2fcd6806468f3b9d23c0e16a3, type: 3}

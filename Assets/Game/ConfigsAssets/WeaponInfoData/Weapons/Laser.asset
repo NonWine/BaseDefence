@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: d6ff7247f8feac544bcec8a905053b06, type: 3}
-  WeaponName: Laser
-  description: burning through enemies
+  WeaponName: Laser Beam
+  description: Fires a plasma ray that vaporizes enemies
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:

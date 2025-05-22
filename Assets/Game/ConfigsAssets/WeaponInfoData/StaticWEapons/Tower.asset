@@ -215,22 +215,22 @@ MonoBehaviour:
       Entry: 8
       Data: 
   image: {fileID: 21300000, guid: 03911bb6df5894a4ca4b5543901dc0e8, type: 3}
-  WeaponName: Defencer
-  description: help you defeat enemy
+  WeaponName: Watchtower
+  description: Slightly boosts damage and shoots weak bullets
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1.66
+    - <BaseValue>k__BackingField: 1.51
       Modificator: 0.33
       <StatName>k__BackingField: 0
-      BonusedValue: 2.4899998
+      BonusedValue: 0
     - <BaseValue>k__BackingField: 2.05
       Modificator: -0.12
       <StatName>k__BackingField: 1
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 5
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 5
+    <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
-    <IsCardLevelMax>k__BackingField: 1
-    <IsUnLocked>k__BackingField: 1
+    <IsCardLevelMax>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 0

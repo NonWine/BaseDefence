@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes: []
   image: {fileID: 21300000, guid: ba54bd0fde489c5479fb541f2243f176, type: 3}
   WeaponName: Grenade
-  description: explose enemies!
+  description: Thrown explosive dealing area damage.
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:

@@ -89,8 +89,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
   image: {fileID: 21300000, guid: 4c24f1e6be4dc4049b77b2fd3e2fd014, type: 3}
-  WeaponName: Military Box
-  description: add more projectile
+  WeaponName: Supply Crates
+  description: ' Adds extra projectiles to your attacks'
   WeaponUpgradeData:
     UpgradeQueue: 
     BaseStats:

@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: ca1acd39f51c7bf4dbf3461cd6c70068, type: 3}
-  WeaponName: MiniGun
-  description: 
+  WeaponName: Minigun
+  description: Rapid-fire gun with high bullet output
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
@@ -52,5 +52,5 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
+    <IsUnLocked>k__BackingField: 0
   baseBullet: {fileID: 8155587354220900481, guid: deda82f7279bb4f48864d09d9b641a19, type: 3}

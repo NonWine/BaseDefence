@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
-  m_Name: Vintovka
+  m_Name: Rotten Eggs
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,36 +21,52 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: 03128ad38fd0e4b9aa024763b0d8a3cc, type: 3}
-  WeaponName: Rifle
-  description: Basic rapid-fire weapon
+  image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
+  WeaponName: Rotten eggs
+  description: Nasty area bomb that slows and damages
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 5.03
-      Modificator: 0.39
+    - <BaseValue>k__BackingField: 3
+      Modificator: 0.31
+      <StatName>k__BackingField: 2
+      BonusedValue: 0.45
+    - <BaseValue>k__BackingField: 3
+      Modificator: 1
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.85
-      Modificator: -0.16
+    - <BaseValue>k__BackingField: 4.49
+      Modificator: -0.36
       <StatName>k__BackingField: 1
       BonusedValue: 0
     - <BaseValue>k__BackingField: 1
       Modificator: 0
       <StatName>k__BackingField: 7
       BonusedValue: 0
+    - <BaseValue>k__BackingField: 0.5
+      Modificator: 0
+      <StatName>k__BackingField: 11
+      BonusedValue: 0
     - <BaseValue>k__BackingField: 1
       Modificator: 0
       <StatName>k__BackingField: 8
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 14.55
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0.15
+      <StatName>k__BackingField: 5
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 15.29
       Modificator: 0.35
       <StatName>k__BackingField: 6
       BonusedValue: 0
+    - <BaseValue>k__BackingField: 4
+      Modificator: 0
+      <StatName>k__BackingField: 16
+      BonusedValue: 0
     <CardLevelMax>k__BackingField: 6
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 1
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: 2232750987546500038, guid: 07e5c22dddd015a4aaca02d95839c754, type: 3}
+  baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}
