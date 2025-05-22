@@ -56,6 +56,7 @@ public class PlayerCombatManager : MonoBehaviour
     {
         weaponHandlers.Find(x => x.weaponInfoData == weaponInfoData).isLocked = false;
     }
+    
 
     public List<DynamicWeaponHandler> UnlockedWeapons => weaponHandlers.FindAll(x => !x.isLocked);
 }
