@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 3c01d33a58d79a4438d24886c3e8a391, type: 3}
-  WeaponName: Stinky Grenade
-  description: explosively stinky
+  WeaponName: Laser Splitter
+  description: Shoots double lasers, burns multiple enemies
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
@@ -48,5 +48,5 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
+    <IsUnLocked>k__BackingField: 0
   baseBullet: {fileID: -1202306231407251305, guid: 97b61b773f53f0c47ab8dd06c9280930, type: 3}

@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 2674ddd0bdc1c3b45a95bc81fd67b591, type: 3}
-  WeaponName: Freeze Healer
-  description: Frost and vaporize
+  WeaponName: Cryo-Healer
+  description: Freezing shots that also heal your HP
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
@@ -57,4 +57,4 @@ MonoBehaviour:
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: -4495124359570767053, guid: 31f7f3d324f596544b9b283729e4304e, type: 3}
+  baseBullet: {fileID: 4198461186628192580, guid: 31f7f3d324f596544b9b283729e4304e, type: 3}

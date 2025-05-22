@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 857b42c25b474d7aac55b32f73a63c12, type: 3}
-  m_Name: Laser
+  m_Name: Rotten Eggs
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,32 +21,52 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  image: {fileID: 21300000, guid: d6ff7247f8feac544bcec8a905053b06, type: 3}
-  WeaponName: Laser Beam
-  description: Fires a plasma ray that vaporizes enemies
+  image: {fileID: 21300000, guid: 84487d73ca4b791498332d8f6858417f, type: 3}
+  WeaponName: Rotten eggs
+  description: Nasty area bomb that slows and damages
   WeaponUpgradeData:
     UpgradeQueue: 0000000000000000000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1
-      Modificator: 1.2
-      <StatName>k__BackingField: 4
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 2.5
-      Modificator: 0.2
+    - <BaseValue>k__BackingField: 3
+      Modificator: 0.31
+      <StatName>k__BackingField: 2
+      BonusedValue: 0.45
+    - <BaseValue>k__BackingField: 3
+      Modificator: 1
       <StatName>k__BackingField: 0
       BonusedValue: 0
-    - <BaseValue>k__BackingField: 5
-      Modificator: 0
+    - <BaseValue>k__BackingField: 4.49
+      Modificator: -0.36
       <StatName>k__BackingField: 1
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 7
       BonusedValue: 0
     - <BaseValue>k__BackingField: 0.5
       Modificator: 0
       <StatName>k__BackingField: 11
       BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0
+      <StatName>k__BackingField: 8
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 1
+      Modificator: 0.15
+      <StatName>k__BackingField: 5
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 15.29
+      Modificator: 0.35
+      <StatName>k__BackingField: 6
+      BonusedValue: 0
+    - <BaseValue>k__BackingField: 4
+      Modificator: 0
+      <StatName>k__BackingField: 16
+      BonusedValue: 0
     <CardLevelMax>k__BackingField: 6
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 1
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
     <IsUnLocked>k__BackingField: 0
-  baseBullet: {fileID: 1682613241956366038, guid: 12cdf1340c5679d448303fd5bc7569d3, type: 3}
+  baseBullet: {fileID: 1363562852923114114, guid: a798b91619b22764ea4763d0a9b316c0, type: 3}

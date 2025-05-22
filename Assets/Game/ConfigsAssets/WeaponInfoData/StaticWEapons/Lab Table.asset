@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c133dcef81ad4f72a934f60e0c6cdd4d, type: 3}
-  m_Name: BombProvolka
+  m_Name: Lab Table
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -142,23 +142,19 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: 05661abc1924045c89b0e56f76854e4d, type: 3}
-  WeaponName: Bomb Provolka
-  description: gives more experience to player
+  image: {fileID: 21300000, guid: e0e016cba56b4e24188b856bb2661c74, type: 3}
+  WeaponName: Lab Table
+  description: Boosts XP gain from all actions
   WeaponUpgradeData:
     UpgradeQueue: 0300000003000000030000000300000003000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1
+    - <BaseValue>k__BackingField: 0.1
       Modificator: 0.12
-      <StatName>k__BackingField: 0
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.3
-      Modificator: 0
-      <StatName>k__BackingField: 11
+      <StatName>k__BackingField: 3
       BonusedValue: 0
     <CardLevelMax>k__BackingField: 3
-    <CurrentLevel>k__BackingField: 1
+    <CurrentLevel>k__BackingField: 5
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 0
+    <IsUnLocked>k__BackingField: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c133dcef81ad4f72a934f60e0c6cdd4d, type: 3}
-  m_Name: TowerExpa
+  m_Name: Barbed Wire
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -27,13 +27,13 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 5
     - Name: 
       Entry: 7
       Data: 1|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +10% Extra Experience
+      Data: 20% Damage
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -45,10 +45,10 @@ MonoBehaviour:
       Data: 3|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 10
+      Data: 20
     - Name: StatName
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: isNegative
       Entry: 5
       Data: false
@@ -69,7 +69,7 @@ MonoBehaviour:
       Data: 4|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +20% Extra Experience
+      Data: 20% Damage
     - Name: Bonuses
       Entry: 7
       Data: 5|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -84,7 +84,7 @@ MonoBehaviour:
       Data: 20
     - Name: StatName
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: isNegative
       Entry: 5
       Data: false
@@ -105,7 +105,7 @@ MonoBehaviour:
       Data: 7|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +30% Extra Experience
+      Data: 30% Damage
     - Name: Bonuses
       Entry: 7
       Data: 8|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -120,7 +120,79 @@ MonoBehaviour:
       Data: 30
     - Name: StatName
       Entry: 3
-      Data: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 10|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: 40% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 11|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 12|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 40
+    - Name: StatName
+      Entry: 3
+      Data: 0
+    - Name: isNegative
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|CardUpgradeInfo, Assembly-CSharp
+    - Name: Description
+      Entry: 1
+      Data: 50% Damage
+    - Name: Bonuses
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 15|BonusInfo, Assembly-CSharp
+    - Name: PercentBonus
+      Entry: 3
+      Data: 50
+    - Name: StatName
+      Entry: 3
+      Data: 0
     - Name: isNegative
       Entry: 5
       Data: false
@@ -142,18 +214,22 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: e0e016cba56b4e24188b856bb2661c74, type: 3}
-  WeaponName: Research Table
-  description: gives more experience to player
+  image: {fileID: 21300000, guid: e04e6c970b950d946a782ea08e5f971d, type: 3}
+  WeaponName: 'Barbed Wire '
+  description: Slows enemies standing near it
   WeaponUpgradeData:
     UpgradeQueue: 0300000003000000030000000300000003000000
     BaseStats:
-    - <BaseValue>k__BackingField: 0.1
+    - <BaseValue>k__BackingField: 1
       Modificator: 0.12
-      <StatName>k__BackingField: 3
+      <StatName>k__BackingField: 0
       BonusedValue: 0
-    <CardLevelMax>k__BackingField: 3
-    <CurrentLevel>k__BackingField: 5
+    - <BaseValue>k__BackingField: 0.3
+      Modificator: 0
+      <StatName>k__BackingField: 11
+      BonusedValue: 0
+    <CardLevelMax>k__BackingField: 5
+    <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0

@@ -1670,17 +1670,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &868842298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3760271326842943820, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
-  m_PrefabInstance: {fileID: 4834536043681781760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ccada9f216a4ffdb41cd0c28ab1b71c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &914123715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,39 +1976,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mergeWeaponContainers:
-  - Weapons:
-    - {fileID: 11400000, guid: b6188c57f3741a745aaae6af186525d3, type: 2}
-    - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
     isUnLocked: 0
-  - Weapons:
-    - {fileID: 11400000, guid: 7569183460a0a4d4caae2b0f7e87c8f4, type: 2}
-    - {fileID: 11400000, guid: f43f3e4b435185c4bba71616b85ee282, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: 951c0241bbb72a145bc0048c39a56dd2, type: 2}
     isUnLocked: 0
-  - Weapons:
-    - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
-    - {fileID: 11400000, guid: e4a9867b018447344a45bb019df13437, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: 8929601d5663b5b48adfb18180083102, type: 2}
     isUnLocked: 0
-  - Weapons:
-    - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
-    - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
     isUnLocked: 0
-  - Weapons:
-    - {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
-    - {fileID: 11400000, guid: 8d7d8b7a9cb63d249af6a0c493a3a476, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: fa9099e5b439a844bb30954d6ae56504, type: 2}
     isUnLocked: 0
-  - Weapons:
-    - {fileID: 11400000, guid: dd5de42efd6ae4744bbb584df6d566ee, type: 2}
-    - {fileID: 11400000, guid: 0394c51f1b97787488c6d3fcfd8e5097, type: 2}
+  - Weapons: []
     MergeWeaponData: {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
     isUnLocked: 0
-  SlotsViews:
-  - {fileID: 1891176052}
-  - {fileID: 868842298}
+  SlotsViews: []
 --- !u!1 &1161861817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2677,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
   - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
+  testsWeapons:
+  - {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
+  - {fileID: 11400000, guid: e58fcd79152289c4f8c4c5f2674d6a3b, type: 2}
+  test: 1
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,7 +2844,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  - {fileID: 11400000, guid: 93f863cf4a966044db2640acf1c0b240, type: 2}
   - {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
   - {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
@@ -3688,17 +3666,6 @@ Transform:
   - {fileID: 1709021708}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1891176052 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8742347482286862299, guid: facf2c19d25838a40a43c28bf9563238, type: 3}
-  m_PrefabInstance: {fileID: 4834536043681781760}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ccada9f216a4ffdb41cd0c28ab1b71c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1911685929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,7 +4282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  WeaponInfoData: {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
+  WeaponInfoData: {fileID: 11400000, guid: 3a4629af9b06a4f47be58e940527f4f2, type: 2}
   provolka: {fileID: 2835558551974170071, guid: 31afc63bb75788b4f96de3734dc4850e, type: 3}
   provolkaPoint: {fileID: 95690691}
 --- !u!4 &2079720913

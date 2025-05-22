@@ -22,8 +22,8 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   image: {fileID: 21300000, guid: 2a395c4f5dd914dd2b50468e92772309, type: 3}
-  WeaponName: Shoker Launcher
-  description: 
+  WeaponName: Storm Turret
+  description: Deploys turret that zaps enemies with lightning
   WeaponUpgradeData:
     UpgradeQueue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
     BaseStats:
@@ -44,5 +44,5 @@ MonoBehaviour:
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
     <IsCardLevelMax>k__BackingField: 0
-    <IsUnLocked>k__BackingField: 1
+    <IsUnLocked>k__BackingField: 0
   baseBullet: {fileID: 7760935424772015282, guid: 050db2d20f670a14ba5b192c8b9274b5, type: 3}

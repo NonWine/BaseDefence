@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c133dcef81ad4f72a934f60e0c6cdd4d, type: 3}
-  m_Name: Provolka
+  m_Name: Builder
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -27,13 +27,13 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 5
+      Data: 3
     - Name: 
       Entry: 7
       Data: 1|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: 20% Damage
+      Data: +0.2% Regeneration
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -45,10 +45,10 @@ MonoBehaviour:
       Data: 3|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 20
+      Data: 30
     - Name: StatName
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
@@ -69,7 +69,7 @@ MonoBehaviour:
       Data: 4|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: 20% Damage
+      Data: +0.3% Regeneration
     - Name: Bonuses
       Entry: 7
       Data: 5|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -81,10 +81,10 @@ MonoBehaviour:
       Data: 6|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 20
+      Data: 40
     - Name: StatName
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
@@ -105,7 +105,7 @@ MonoBehaviour:
       Data: 7|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: 30% Damage
+      Data: +0.4% Regeneration
     - Name: Bonuses
       Entry: 7
       Data: 8|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -117,82 +117,10 @@ MonoBehaviour:
       Data: 9|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 30
-    - Name: StatName
-      Entry: 3
-      Data: 0
-    - Name: isNegative
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 10|CardUpgradeInfo, Assembly-CSharp
-    - Name: Description
-      Entry: 1
-      Data: 40% Damage
-    - Name: Bonuses
-      Entry: 7
-      Data: 11|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 12|BonusInfo, Assembly-CSharp
-    - Name: PercentBonus
-      Entry: 3
-      Data: 40
-    - Name: StatName
-      Entry: 3
-      Data: 0
-    - Name: isNegative
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 13|CardUpgradeInfo, Assembly-CSharp
-    - Name: Description
-      Entry: 1
-      Data: 50% Damage
-    - Name: Bonuses
-      Entry: 7
-      Data: 14|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 15|BonusInfo, Assembly-CSharp
-    - Name: PercentBonus
-      Entry: 3
       Data: 50
     - Name: StatName
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: isNegative
       Entry: 5
       Data: false
@@ -214,21 +142,17 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: e04e6c970b950d946a782ea08e5f971d, type: 3}
-  WeaponName: Provolka
-  description: gives more experience to player
+  image: {fileID: 21300000, guid: 9e36a043aeccce04bb0eacd77363355d, type: 3}
+  WeaponName: Builder
+  description: Slowly regenerates your health over time
   WeaponUpgradeData:
-    UpgradeQueue: 0300000003000000030000000300000003000000
+    UpgradeQueue: 0a0000000a0000000a000000
     BaseStats:
-    - <BaseValue>k__BackingField: 1
-      Modificator: 0.12
-      <StatName>k__BackingField: 0
-      BonusedValue: 0
-    - <BaseValue>k__BackingField: 0.3
+    - <BaseValue>k__BackingField: 0.5
       Modificator: 0
-      <StatName>k__BackingField: 11
+      <StatName>k__BackingField: 10
       BonusedValue: 0
-    <CardLevelMax>k__BackingField: 5
+    <CardLevelMax>k__BackingField: 3
     <CurrentLevel>k__BackingField: 1
     <CardLevel>k__BackingField: 0
     <IsLevelMax>k__BackingField: 0
