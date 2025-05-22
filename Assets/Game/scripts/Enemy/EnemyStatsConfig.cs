@@ -15,7 +15,7 @@ public class EnemyStatsConfig : ScriptableObject
     [field: SerializeField] public int EXPDrop { get; private set; } = 3;
 
     [FormerlySerializedAs("coeffiecntInprease")] [ProgressBar(0,100)] public int HealthCoeffiecntIncrease;
-    
+    [SerializeField] public float provolkaSpeedReduce;
     private int _currentHealth;
 
     

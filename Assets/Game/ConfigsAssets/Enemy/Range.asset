@@ -18,4 +18,5 @@ MonoBehaviour:
   _roateSpeed: 58
   <CoinDrop>k__BackingField: 5
   <EXPDrop>k__BackingField: 5
-  coeffiecntInprease: 4
+  HealthCoeffiecntIncrease: 4
+  provolkaSpeedReduce: 40

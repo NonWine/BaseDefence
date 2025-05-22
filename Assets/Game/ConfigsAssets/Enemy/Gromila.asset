@@ -19,3 +19,4 @@ MonoBehaviour:
   <CoinDrop>k__BackingField: 10
   <EXPDrop>k__BackingField: 20
   HealthCoeffiecntIncrease: 40
+  provolkaSpeedReduce: 40

@@ -24,10 +24,9 @@ public class Provolka : StaticWeaponObj
     {
         if(collision.transform.TryGetComponent<BaseEnemy>(out var enemy))
         {
-            if (currentTween != null && currentTween.IsActive())
-                currentTween.Kill();
-            
-            AnimateHit();
+        
+            enemy.IsReduceSpeed = true;
+
             enemiesInCollider.Add(enemy);
             
         }
@@ -36,12 +35,9 @@ public class Provolka : StaticWeaponObj
     {
         if (collision.transform.TryGetComponent<BaseEnemy>(out var enemy))
         {
+            enemy.IsReduceSpeed = false;
+
             enemiesInCollider.Remove(enemy);
-            if (currentTween != null && currentTween.IsActive())
-            {
-                currentTween.Kill();
-                body.localScale = Vector3.one;
-            }
         }
     }
     
@@ -50,7 +46,7 @@ public class Provolka : StaticWeaponObj
         body.localScale = new Vector3(1, 1, 1); // Сбросим на всякий случай
 
         currentTween = body
-            .DOScaleY(animationScaleY, damageInterval)
+            .DOScaleY(animationScaleY, damageInterval/2f)
             .SetLoops(2, LoopType.Yoyo)
             .SetEase(Ease.OutCubic);
     }
@@ -61,7 +57,9 @@ public class Provolka : StaticWeaponObj
         if(timer > damageInterval)
         {
             if (enemiesInCollider.Count>0)
-            {          
+            {   
+                currentTween?.Kill();
+                AnimateHit();
                 for(int i = 0; i < enemiesInCollider.Count; i++)
                 {
                     if (!enemiesInCollider[i].gameObject.activeInHierarchy)

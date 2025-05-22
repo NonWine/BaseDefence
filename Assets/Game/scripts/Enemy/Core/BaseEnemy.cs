@@ -23,6 +23,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     protected EnemyRotation EnemyRotation;
     public  Action<BaseEnemy> OnDie;
     private bool isPoisoned = false;
+    private bool isReduceSpeed = false;
 
   [ShowInInspector]  public float CurrentHealth { get; set; }
     public int CurrentDamage { get;  set; }
@@ -33,18 +34,16 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public int MaxHealth => EnemyStatsConfig.MaxHealth +
                           (  WaveManager.Instance.CurrentLevel * EnemyStatsConfig.HealthCoeffiecntIncrease);
 
+    public float currentSpeed;
 
 
     public float Speed
     {
         get
         {
-            return EnemyStatsConfig._moveSpeed;
+            return currentSpeed;
         }
-        private set
-        {
-            EnemyStatsConfig._moveSpeed = Mathf.FloorToInt( value);
-        }
+         set => currentSpeed = Mathf.FloorToInt( value);
     }
 
     public bool IsPoisoned
@@ -67,11 +66,35 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             }
         }
     }
+    
+    public bool IsReduceSpeed
+    {
+        get { return isReduceSpeed; }
+        set
+        {
+            if(value == isReduceSpeed)
+            {
+                return;
+            }
+            isReduceSpeed = value;
+            if(isReduceSpeed)
+            {
+                var percentValue = EnemyStatsConfig._moveSpeed * (EnemyStatsConfig.provolkaSpeedReduce / 100f);
+                Speed -= percentValue;
+            }
+            else
+            {   
+                var percentValue = EnemyStatsConfig._moveSpeed  * (EnemyStatsConfig.provolkaSpeedReduce / 100f);
+                Speed += percentValue;
+            }
+        }
+    }
 
     private void Awake()
     {
         EnemyRotation = new EnemyRotation(this);
         CurrentHealth = MaxHealth;
+        currentSpeed = EnemyStatsConfig._moveSpeed;
         CurrentDamage = EnemyStatsConfig.Damage;
         HealthUI.SetHealth(CurrentHealth);
         EnemyStateMachine = new EnemyStateMachine(this);
@@ -141,6 +164,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         collider.enabled = true;
         IsDeath = false;
         IsPoisoned = false;
+        isReduceSpeed = false;
     } 
     public void GetFreezed(float time)
     {
