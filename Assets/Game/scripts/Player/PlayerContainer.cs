@@ -6,7 +6,7 @@ using Zenject;
 public class PlayerContainer : MonoBehaviour
 {
     //[SerializeField] private NavMeshAgent _navMeshAgent;
-    [SerializeField] private Transform _body;
+    [SerializeField] private Transform[] _body;
     [SerializeField] private Animator _player;
     private PlayerStats _playerStats;
     [SerializeField] private PlayerAnimatorEvent _playerAnimatorEvent;
@@ -45,7 +45,7 @@ public class PlayerContainer : MonoBehaviour
     
     //public NavMeshAgent Agent => _navMeshAgent;
  
-    public Transform Body => _body;
+    public Transform[] Body => _body;
 
     public Joystick Joystick => _joystick;
 

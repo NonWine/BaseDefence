@@ -17,11 +17,15 @@ public class PlayerRotating : IRotateable
         
         if (_playerContainer.Direction != Vector3.zero)
         {
-            float angle = Mathf.Atan2(_playerContainer.Direction.y, _playerContainer.Direction.x) * Mathf.Rad2Deg - 90;
+            float angle = Mathf.Atan2(_playerContainer.Direction.y, _playerContainer.Direction.x) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            _playerContainer.Body.rotation = Quaternion.Slerp(_playerContainer.Body.rotation,
+            foreach(var bone in _playerContainer.Body)
+            {
+
+                bone.rotation = Quaternion.Slerp(bone.rotation,
                 targetRotation,
                 7f * Time.deltaTime);
+            }
         }
 
 
