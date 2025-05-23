@@ -43,7 +43,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         {
             return currentSpeed;
         }
-         set => currentSpeed = Mathf.FloorToInt( value);
+         set => currentSpeed =  value;
     }
 
     public bool IsPoisoned
