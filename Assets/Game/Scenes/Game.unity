@@ -2692,7 +2692,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  - {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
   - {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
   - {fileID: 11400000, guid: 3cf898e0235a478429365b2663697bbc, type: 2}
@@ -2706,6 +2705,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 54249e7c765f36d409bbf4b42ca58f11, type: 2}
   - {fileID: 11400000, guid: 32722a27314f95d4c9d505d2d3e1a2f1, type: 2}
   - {fileID: 11400000, guid: 05b9d1665faeaa241ae7e13b43690436, type: 2}
+  testsWeapons: []
+  test: 0
 --- !u!1 &1396439250
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,7 +2870,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
-  - {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
   - {fileID: 11400000, guid: 6419cec56851f974ab45b07c80a59519, type: 2}
   - {fileID: 11400000, guid: a5f01b8805cdb8d40804760ac836ff49, type: 2}
   - {fileID: 11400000, guid: 3cf898e0235a478429365b2663697bbc, type: 2}
@@ -3253,7 +3253,6 @@ MonoBehaviour:
   - {fileID: 28861549}
   - {fileID: 1106253497}
   - {fileID: 161225755}
-  - {fileID: 2079720912}
 --- !u!1 &1690522723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLocked: 1
-  WeaponInfoData: {fileID: 11400000, guid: ad4a780456144e044b9d522321f4f885, type: 2}
+  WeaponInfoData: {fileID: 11400000, guid: 3a4629af9b06a4f47be58e940527f4f2, type: 2}
   provolka: {fileID: 2835558551974170071, guid: 31afc63bb75788b4f96de3734dc4850e, type: 3}
   provolkaPoint: {fileID: 95690691}
 --- !u!4 &2079720913
