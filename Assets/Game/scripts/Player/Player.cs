@@ -20,8 +20,8 @@ public class Player : MonoBehaviour , ITickable
     private PlayerAnimator _playerAnimator;
     private PlayerRotating _playerRotating;
     public Transform ResourceStartPoint;
-    
-    
+
+    public PlayerGiveDamageHandler PlayerGiveDamageHandler => _playerGiveDamageHandler;
     public PlayerStateMachine PlayerStateMachine => _playerStateMachine;
     
 

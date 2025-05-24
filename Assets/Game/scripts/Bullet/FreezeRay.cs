@@ -10,8 +10,8 @@ public class FreezeRay : MonoBehaviour
     [SerializeField] protected LineRenderer _laserLine;
     [SerializeField] protected Transform _enemy;
     [SerializeField] protected LayerMask _layerMask;
-    [Inject] protected PlayerHandler playerHandler;
     [Inject] protected EnemyFactory enemyFactory;
+    [Inject] protected PlayerHandler _playerHandler;
     protected float _damageTimer;
     protected float _shootingTimer;
     protected Vector3 _target;
@@ -19,15 +19,26 @@ public class FreezeRay : MonoBehaviour
     protected RaycastHit2D[] hits;
     protected WeaponUpgradeData WeaponUpgradeData;
     public bool isShhoted;
+    private Vector3 _laserOrigin;
+    private Vector3 _currentDirection;
+    [SerializeField] private float _rotationSpeed = 5;
+    private Vector3 previousPos;
+    private float _currentLength;
+    private float _currentLengthStart;
+    [SerializeField] float _extensionSpeed = 5f;
+    [SerializeField] float _currentLengthStartDivider = 3;
+    private float _extensionTimer; 
+    [SerializeField] private float _extensionDuration = 0.5f; 
 
-    public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData)
+    public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData, Transform startPos)
     {
 
         WeaponUpgradeData = weaponUpgradeData;
-        transform.SetParent(playerHandler.Player.transform);
         _enemy = target;
         _target = target.position;
-
+        _laserOrigin = startPos.position;
+        //_laserOrigin.SetParent(_playerHandler.Player.bulletStartPoint);
+        previousPos = _enemy.position;
 
     }
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
@@ -41,7 +52,7 @@ public class FreezeRay : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
+        /*if (_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
         {
             var nearestEnemy = GetNearlestEnemy(transform);
             if (nearestEnemy == null)
@@ -53,24 +64,45 @@ public class FreezeRay : MonoBehaviour
             {
                 _enemy = nearestEnemy.transform;
             }
-        }
-
+        }*/
+        
         _shootingTimer += Time.deltaTime;
-        _damageTimer += Time.deltaTime;
 
         if (_shootingTimer >= WeaponUpgradeData.GetStat(StatName.LaserDuration).CurrentValue)
         {
             Destroy(gameObject);
             return;
         }
+        /*if (_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
+        {
+
+        }
+        else
+        {
+
+            previousPos = _enemy.position;
+        }*/
+
+
 
         // �������� ����� �� �����, ���� ����� ������� (���������, ����� ��� ���������� �����)
-        Vector3 targetPoint = _enemy.position; // ����� ��������������� _enemy.GetComponent<Collider>().bounds.center
+        Vector3 targetPoint = previousPos; // ����� ��������������� _enemy.GetComponent<Collider>().bounds.center
 
         // ��������� ������� ������
-        Vector3 direction = targetPoint - transform.position;
-        _laserLine.SetPosition(0, transform.position);
-        _laserLine.SetPosition(1, transform.position + direction.normalized * _gunRange); // ������ �� ������� ������
+        
+        Vector3 direction = targetPoint - _laserOrigin;
+        _currentLength = Mathf.Lerp(_currentLength, _gunRange,
+       _extensionSpeed * Time.deltaTime);
+        /*_currentLengthStart = Mathf.Lerp(0, _gunRange,
+       _extensionSpeed/_currentLengthStartDivider * Time.deltaTime);*/
+        _extensionTimer += Time.deltaTime;
+        _currentLengthStart = Mathf.Clamp(_extensionTimer / _extensionDuration, 0f, 1f) * _gunRange;
+        /*_currentDirection = Vector3.Lerp(_currentDirection, direction,
+            _rotationSpeed * Time.deltaTime);*/
+        _laserLine.SetPosition(0, _laserOrigin + direction.normalized * _currentLengthStart);
+        //_laserLine.SetPosition(0, _laserOrigin.position);
+
+       _laserLine.SetPosition(1, _laserOrigin + direction.normalized * _currentLength); // ������ �� ������� ������
 
         RaycastShoot(direction);
     }

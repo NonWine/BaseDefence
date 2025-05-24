@@ -15,7 +15,7 @@ public class FreezeBulletHealer : BaseBullet
         if (target != null)
         {
             FreezeRay laser = diContainer.InstantiatePrefabForComponent<FreezeRay>(_laser, transform.position, Quaternion.identity, null);
-            laser.transform.GetComponent<FreezeRay>().RayShoot(target, WeaponUpgradeData);
+            laser.transform.GetComponent<FreezeRay>().RayShoot(target, WeaponUpgradeData, transform);
         }
         DestroyBullet();
     }

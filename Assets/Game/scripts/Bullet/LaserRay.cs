@@ -12,7 +12,7 @@ public class LaserRay : MonoBehaviour
     [SerializeField] private LineRenderer _laserLine;
     [SerializeField] private Transform _enemy;
     [SerializeField] private LayerMask _layerMask;
-    [Inject] private PlayerHandler playerHandler;
+    [Inject] private PlayerHandler _playerHandler;
     [Inject] private EnemyFactory enemyFactory;
     [Inject] private GameManager gameManager;
     [SerializeField] private float _rotationSpeed;
@@ -23,17 +23,18 @@ public class LaserRay : MonoBehaviour
     private RaycastHit2D[] hits;
     private WeaponUpgradeData WeaponUpgradeData;
     private Vector3 _currentDirection;
+    private float _currentLength; 
+    [SerializeField] private float _extensionSpeed = 0.3f; 
 
     public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData, Transform startPos)
     {
 
         WeaponUpgradeData = weaponUpgradeData;
-        transform.SetParent(playerHandler.Player.transform);
         _laserOrigin = startPos;
         _enemy = target;
         _target = target.position;
         _currentDirection = (_target - transform.position).normalized;
-        _laserOrigin.SetParent(playerHandler.Player.bulletStartPoint);
+        _laserOrigin.SetParent(_playerHandler.Player.bulletStartPoint);
 
     }
     private void OnEnable()
@@ -65,12 +66,10 @@ public class LaserRay : MonoBehaviour
     }
     private void LateUpdate()
     {
-        /*if(_enemy == null || _enemy.GetComponent<BaseEnemy>().IsDeath)
-        {
-        }*/
+        
 
-        var nearestEnemy = GetNearlestEnemy(transform);
-        if (nearestEnemy == null)
+        var nearestEnemy = _playerHandler.Player.PlayerGiveDamageHandler.CurrentAgredTarget;
+        if (nearestEnemy == null || nearestEnemy.GetComponent<BaseEnemy>().IsDeath)
         {
             Destroy(gameObject);
             return;
@@ -96,8 +95,10 @@ public class LaserRay : MonoBehaviour
         Vector3 direction = targetPoint - _laserOrigin.position;
         _currentDirection = Vector3.Lerp(_currentDirection, direction,
             _rotationSpeed * Time.deltaTime);
+        _currentLength = Mathf.Lerp(_currentLength, _gunRange,
+        _extensionSpeed * Time.deltaTime);
         _laserLine.SetPosition(0, _laserOrigin.position);
-        _laserLine.SetPosition(1, _laserOrigin.position + _currentDirection.normalized * _gunRange); 
+        _laserLine.SetPosition(1, _laserOrigin.position + _currentDirection.normalized * _currentLength); 
     
         _ray = new Ray(_laserOrigin.position, _currentDirection.normalized);
         Debug.DrawRay(_laserOrigin.position, _currentDirection, Color.green, 0.01f);
