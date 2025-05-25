@@ -11,8 +11,12 @@ public class WeaponsSaver : MonoBehaviour
     private WeaponUpgradeDataSaver weaponUpgradeData;
     public bool LoadAtStart;
     [Inject] private WeaponInfoData[] injectedWeapons;
-    
-    [Inject]
+
+    private void Awake()
+    {
+        Init();
+    }
+
     public void Init()
     {
         weaponInfoDatas = injectedWeapons;
