@@ -4,7 +4,6 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-[DefaultExecutionOrder(-2)]
 public class WeaponsSaver : MonoBehaviour
 {
     [SerializeField] private WeaponInfoData[] weaponInfoDatas;
