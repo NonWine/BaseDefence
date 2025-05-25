@@ -28,7 +28,8 @@ public class FreezeRay : MonoBehaviour
     [SerializeField] float _extensionSpeed = 5f;
     [SerializeField] float _currentLengthStartDivider = 3;
     private float _extensionTimer; 
-    [SerializeField] private float _extensionDuration = 0.5f; 
+    [SerializeField] private float _extensionDuration = 0.5f;
+    protected Vector3 direction;
 
     public void RayShoot(Transform target, WeaponUpgradeData weaponUpgradeData, Transform startPos)
     {
@@ -90,7 +91,7 @@ public class FreezeRay : MonoBehaviour
 
         // ��������� ������� ������
         
-        Vector3 direction = targetPoint - _laserOrigin;
+        direction = targetPoint - _laserOrigin;
         _currentLength = Mathf.Lerp(_currentLength, _gunRange,
        _extensionSpeed * Time.deltaTime);
         /*_currentLengthStart = Mathf.Lerp(0, _gunRange,
@@ -103,11 +104,14 @@ public class FreezeRay : MonoBehaviour
         //_laserLine.SetPosition(0, _laserOrigin.position);
 
        _laserLine.SetPosition(1, _laserOrigin + direction.normalized * _currentLength); // ������ �� ������� ������
-
-        RaycastShoot(direction);
+        if(isShhoted)
+        {
+            return;
+        }
+        Invoke("RaycastShoot", 0.3f);
     }
 
-    protected virtual void RaycastShoot(Vector3 direction)
+    protected virtual void RaycastShoot()
     {
         // Raycast ��� �������� ���������
         _ray = new Ray(transform.position, direction.normalized);

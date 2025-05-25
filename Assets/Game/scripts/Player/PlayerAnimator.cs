@@ -21,7 +21,7 @@ public class PlayerAnimator : IEntityAnimateable
     {
         if (_playerContainer.Direction != Vector3.zero)
         {
-            _playerContainer.Animator.SetFloat(_MOVING_KEY, 1f);
+            //_playerContainer.Animator.SetFloat(_MOVING_KEY, 1f);
 
         }
         else

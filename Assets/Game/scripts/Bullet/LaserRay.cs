@@ -49,20 +49,20 @@ public class LaserRay : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private BaseEnemy GetNearlestEnemy(Transform thisTarget)
+    private bool IsEnemyAround(Transform thisTarget)
     {
         var nearestEnemy = enemyFactory.Enemies
             .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
             .FirstOrDefault(x => x.IsDeath == false);
         if(nearestEnemy == null)
         {
-            return null;
+            return false;
         }
         if(Vector3.Distance(transform.position, nearestEnemy.transform.position) >= 25)
         {
-            return null;
+            return false;
         }
-        return nearestEnemy;
+        return true;
     }
     private void LateUpdate()
     {
@@ -71,6 +71,10 @@ public class LaserRay : MonoBehaviour
         var nearestEnemy = _playerHandler.Player.PlayerGiveDamageHandler.CurrentAgredTarget;
         if (nearestEnemy == null || nearestEnemy.GetComponent<BaseEnemy>().IsDeath)
         {
+            if(enemyFactory.Enemies.Count() > 0 && IsEnemyAround(transform))
+            {
+                return;
+            }
             Destroy(gameObject);
             return;
         }
@@ -117,11 +121,6 @@ public class LaserRay : MonoBehaviour
                 }
                 _damageTimer = 0;
             }
-        }
-        else
-        {
-            // Якщо нічого не влучило, але ворог є - це може бути проблема з LayerMask
-            Debug.LogWarning("Raycast didn't hit anything but enemy exists");
         }
     }
 

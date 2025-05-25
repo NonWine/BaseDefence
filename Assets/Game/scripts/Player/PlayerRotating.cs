@@ -12,8 +12,19 @@ public class PlayerRotating : IRotateable
 
     public void  Rotate()
     {
-       if(!_isTargeting)
-           return;
+        if (!_isTargeting)
+        {
+            float angle = Mathf.Atan2(-(_playerContainer.Body[0].transform.position + new Vector3(0, 1)).y, 0) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            foreach (var bone in _playerContainer.Body)
+            {
+
+                bone.rotation = Quaternion.Slerp(bone.rotation,
+                targetRotation,
+                7f * Time.deltaTime);
+            }
+            return;
+        }
         
         if (_playerContainer.Direction != Vector3.zero)
         {
@@ -26,6 +37,19 @@ public class PlayerRotating : IRotateable
                 targetRotation,
                 7f * Time.deltaTime);
             }
+        }
+        else
+        {
+            float angle = Mathf.Atan2(-(_playerContainer.Body[0].transform.position + new Vector3(0, 1)).y, 0) * Mathf.Rad2Deg;
+            Quaternion targetRotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            foreach (var bone in _playerContainer.Body)
+            {
+
+                bone.rotation = Quaternion.Slerp(bone.rotation,
+                targetRotation,
+                7f * Time.deltaTime);
+            }
+            return;
         }
 
 
@@ -54,5 +78,6 @@ public class PlayerRotating : IRotateable
     public void UnLockTarget()
     {
         _isTargeting = false;
+
     }
 }

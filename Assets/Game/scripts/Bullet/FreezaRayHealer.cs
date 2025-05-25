@@ -4,7 +4,7 @@ using Zenject;
 public class FreezaRayHealer : FreezeRay
 {
     [Inject] private Target Target;
-    protected override void RaycastShoot(Vector3 direction)
+    protected override void RaycastShoot()
     {
         // Raycast ��� �������� ���������
         _ray = new Ray(transform.position, direction.normalized);

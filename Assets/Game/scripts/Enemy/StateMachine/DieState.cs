@@ -34,11 +34,14 @@ public class DieState : EnemyBaseState
         await UniTask.Delay(1500);
         BaseEnemy.OnDie?.Invoke(BaseEnemy);
         Animator animator = _enemyAnimator.Animator;
-        animator.CrossFade("New State", 0f);
+        int stateHash = Animator.StringToHash("New State");
+        if (_enemyAnimator.Animator.HasState(0, stateHash))
+        {
+            animator.CrossFade("New State", 0f);
+        }
         animator.Update(0);
         animator.Update(0);
 
         BaseEnemy.gameObject.SetActive(false);
     }
-    
 }
