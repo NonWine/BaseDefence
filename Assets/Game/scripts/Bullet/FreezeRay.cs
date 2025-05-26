@@ -133,10 +133,5 @@ public class FreezeRay : MonoBehaviour
 
             _damageTimer = 0;
         }
-        else
-        {
-            // ���� ����� �� �������, ��� ����� � - �� ���� ���� �������� � LayerMask
-            Debug.LogWarning("Raycast didn't hit anything but enemy exists");
-        }
     }
 }

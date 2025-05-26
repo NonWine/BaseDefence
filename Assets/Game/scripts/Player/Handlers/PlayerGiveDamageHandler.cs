@@ -74,9 +74,10 @@ public class PlayerGiveDamageHandler : MonoBehaviour
     private void ShootToEnemy(Player player, DynamicWeaponHandler unlockedWeapon, float offset = 0f)
     {
         var enemy = GetNearestEnemy(player.transform,playerCombatManager.DistanceToAgr);
-        if (enemy != null)
+        if (enemy != null && !enemy.IsDeath)
         {
             CurrentAgredTarget = enemy.transform;
+            Debug.Log("CurrentAgredTarget is " + CurrentAgredTarget);
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
             //bullet.transform.SetParent(player.bulletStartPoint);
             bullet.transform.position = (Vector2)player.bulletStartPoint.position + (Vector2.up * offset) +

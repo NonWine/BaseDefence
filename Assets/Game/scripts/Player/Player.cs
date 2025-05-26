@@ -61,7 +61,7 @@ public class Player : MonoBehaviour , ITickable
         
         var playerStates = new Dictionary<PlayerStateKey, PlayerState>
         {
-            { PlayerStateKey.Idle, new PlayerIdleState(_playerStateMachine, _playerContainer) },
+            { PlayerStateKey.Idle, new PlayerIdleState(_playerStateMachine, _playerContainer, _playerGiveDamageHandler) },
             // {
             //     PlayerStateKey.Farming, new FarmingState(_playerStateMachine, _playerContainer,_playerAnimator, _playerHandlersService.DefaultRadiusDamageHandler)
             // },
