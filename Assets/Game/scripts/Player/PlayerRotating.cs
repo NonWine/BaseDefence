@@ -12,6 +12,7 @@ public class PlayerRotating : IRotateable
 
     public void  Rotate()
     {
+        
         if (!_isTargeting)
         {
             float angle = Mathf.Atan2(-(_playerContainer.Body[0].transform.position + new Vector3(0, 1)).y, 0) * Mathf.Rad2Deg;

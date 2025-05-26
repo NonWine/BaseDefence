@@ -9,6 +9,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
      [SerializeField] private PlayerCombatManager playerCombatManager;
      [SerializeField] private StaticWeaponData staticWeaponDataAmmo;
      [SerializeField] private PlayerContainer _playerContainer;
+    [Inject] PlayerHandler playerHandler;
      private float timer;
      
 
@@ -73,9 +74,15 @@ public class PlayerGiveDamageHandler : MonoBehaviour
 
     private void ShootToEnemy(Player player, DynamicWeaponHandler unlockedWeapon, float offset = 0f)
     {
+        
+        
         var enemy = GetNearestEnemy(player.transform,playerCombatManager.DistanceToAgr);
         if (enemy != null)
         {
+            if (playerHandler.Player.PlayerStateMachine.CurrentStateKey != PlayerStateKey.Attack)
+            {
+                playerHandler.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
+            }
             CurrentAgredTarget = enemy.transform;
             var bullet = bulletFactory.Create(unlockedWeapon.weaponInfoData.baseBullet.GetType());
             //bullet.transform.SetParent(player.bulletStartPoint);
@@ -87,6 +94,10 @@ public class PlayerGiveDamageHandler : MonoBehaviour
                         transform.rotation = LookDirection;*/
             _playerContainer.Direction = direction;
             bullet.Init(CurrentAgredTarget);
+        }
+        else if (playerHandler.Player.PlayerStateMachine.CurrentStateKey != PlayerStateKey.Idle)
+        {
+            playerHandler.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
         }
     }
 

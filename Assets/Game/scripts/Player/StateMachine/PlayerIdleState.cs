@@ -9,11 +9,13 @@ public class PlayerIdleState : PlayerState
 
     public override void Enter()
     {
+        player.Direction = Vector3.zero;
         player.PlayerAnimatorEvent.GetComponent<Animator>().SetInteger("state", 0);
     }
 
     public override void LogicUpdate()
     {
+        player.Player.PlayerGiveDamageHandler.TryGetDamage(player.Player);
     }
 
     public override void Exit()

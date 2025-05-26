@@ -21,12 +21,6 @@ public class PlayerContainer : MonoBehaviour
     {
         _playerStats = new PlayerStats();
     }
-
-    public PlayerStateMachine PlayerStateMachine
-    {
-        get;
-        private set;
-    }
     
     private Vector3 _direction;
 

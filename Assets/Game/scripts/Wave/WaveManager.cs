@@ -72,7 +72,8 @@ public class WaveManager : MonoBehaviour
         IsWaveActive = true;
         endWave = false;
         startWaveButton.interactable = false;
-        _player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
+        //_player.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Attack);
+        
         _spawner.StartSpawning(CurrentWave);
         waveSliderView.SetWaveData(CurrentWave.waveDuration);
         CurentWave = CurrentWave;
