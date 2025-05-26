@@ -32,12 +32,16 @@ public class WaveManager : MonoBehaviour
    public int CurrentLevel => currentLevelIndex;
    
    public WaveDataConfig CurrentWave => levelsData[currentLevelIndex].wavesData[currentWaveIndex];
-
+   
+   public event Action OnEndWave;
+   
+   public event Action OnLevelFinished;
 
    public static WaveManager Instance { get; private set; }
 
    private void OnEnable()
     {
+        
         gameManager.OnLooseEvent += StopWave;
         startWaveButton.onClick.AddListener(StartWave);
         currentLevelIndex = PlayerPrefs.GetInt(nameof(currentLevelIndex), currentLevelIndex);
@@ -123,13 +127,14 @@ public class WaveManager : MonoBehaviour
     private void UpdateWave()
     {
         currentWaveIndex++;
+        OnEndWave?.Invoke();
         waveWinPs.Play();
         if (currentWaveIndex == levelsData[currentLevelIndex].wavesData.Count)
         {
             gameManager.LevelComplete(levelsData[currentLevelIndex]);
             currentLevelIndex++;
             currentWaveIndex = 0;
-            
+            OnLevelFinished?.Invoke();
             if(currentLevelIndex == levelsData.Count)
                 gameManager.RestartGame();
         }

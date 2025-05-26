@@ -18,5 +18,5 @@
     FreezeDuration,
     Duration,
     ExplosiveDamage,
-
+    ZaryadCount
 }

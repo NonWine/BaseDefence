@@ -27,112 +27,58 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 7
-      Data: 1|CardUpgradeInfo, Assembly-CSharp
+      Data: 1|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +0.2% Regeneration
+      Data: add bomb count
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 3|BonusInfo, Assembly-CSharp
-    - Name: PercentBonus
-      Entry: 3
-      Data: 30
-    - Name: StatName
-      Entry: 3
-      Data: 10
-    - Name: isNegative
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
+    - Name: Value
+      Entry: 3
+      Data: 1
+    - Name: StatName
+      Entry: 3
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|CardUpgradeInfo, Assembly-CSharp
+      Data: 3|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +0.3% Regeneration
+      Data: add bomb count
     - Name: Bonuses
       Entry: 7
-      Data: 5|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
+      Data: 4|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 6|BonusInfo, Assembly-CSharp
-    - Name: PercentBonus
-      Entry: 3
-      Data: 40
-    - Name: StatName
-      Entry: 3
-      Data: 10
-    - Name: isNegative
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 0
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 7|CardUpgradeInfo, Assembly-CSharp
-    - Name: Description
-      Entry: 1
-      Data: +0.4% Regeneration
-    - Name: Bonuses
-      Entry: 7
-      Data: 8|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 9|BonusInfo, Assembly-CSharp
-    - Name: PercentBonus
+    - Name: Value
       Entry: 3
-      Data: 50
+      Data: 1
     - Name: StatName
       Entry: 3
-      Data: 10
-    - Name: isNegative
-      Entry: 5
-      Data: false
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+      Data: 18
     - Name: 
       Entry: 8
       Data: 
@@ -146,9 +92,9 @@ MonoBehaviour:
   WeaponName: Bomb
   description: Bomb
   WeaponUpgradeData:
-    UpgradeQueue: 0a0000000a0000000a000000
+    UpgradeQueue: 000000000000000000000000
     BaseStats:
-    - <BaseValue>k__BackingField: 2.5
+    - <BaseValue>k__BackingField: 45
       Modificator: 0
       <StatName>k__BackingField: 1
       BonusedValue: 0
@@ -156,9 +102,13 @@ MonoBehaviour:
       Modificator: 0
       <StatName>k__BackingField: 6
       BonusedValue: 0
-    <CardLevelMax>k__BackingField: 3
+    - <BaseValue>k__BackingField: 2
+      Modificator: 0
+      <StatName>k__BackingField: 18
+      BonusedValue: 2
+    <CardLevelMax>k__BackingField: 2
     <CurrentLevel>k__BackingField: 1
-    <CardLevel>k__BackingField: 0
+    <CardLevel>k__BackingField: 2
     <IsLevelMax>k__BackingField: 0
-    <IsCardLevelMax>k__BackingField: 0
+    <IsCardLevelMax>k__BackingField: 1
     <IsUnLocked>k__BackingField: 1
