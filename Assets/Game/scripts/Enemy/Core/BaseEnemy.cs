@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
+using DG.Tweening;
 
 public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable 
 {
@@ -16,6 +17,9 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     [SerializeField] protected Collider2D collider;
     [SerializeField] protected Rigidbody2D rigidbody;
     [SerializeField] protected float _poisonedSpeedMultiplier;
+    [SerializeField] protected Material tintMat;
+    [SerializeField] protected Material currentTintMat;
+    [SerializeField] protected SpriteRenderer[] sprites;
     [ShowInInspector, ReadOnly] public EnemyStateMachine EnemyStateMachine { get; private set; }
     [Inject] protected PlayerLevelController playerLevelController;
     [Inject] protected ResourcePartObjFactory resourcePartObjFactory;
@@ -24,6 +28,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
     public  Action<BaseEnemy> OnDie;
     private bool isPoisoned = false;
     private bool isReduceSpeed = false;
+    private Sequence tintSequence;
 
   [ShowInInspector]  public float CurrentHealth { get; set; }
     public int CurrentDamage { get;  set; }
@@ -101,6 +106,11 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         EnemyStateMachine.RegisterStates(CreateStates());
         EnemyStateMachine.Initialize<IdleState>();
         transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        currentTintMat = new Material(tintMat);
+        foreach(var sprite in sprites)
+        {
+            sprite.material = currentTintMat;
+        }
     }
 
 
@@ -120,6 +130,7 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
         HealthUI.GetDamageUI(damage);
         CurrentHealth -= damage;
         ParticlePool.Instance.PlayBlood(transform.position);
+        Tint();
         if (CurrentHealth <= 0f)
         {
             IsDeath = true;
@@ -129,6 +140,25 @@ public abstract class BaseEnemy : PoolAble , IUnitDamagable , ITickable
             playerLevelController.AddExperience(EnemyStatsConfig.EXPDrop);
             EnemyStateMachine.ChangeState<DieState>();
         }
+    }
+    public void Tint()
+    {
+        if(tintSequence != null)
+        {
+            tintSequence.Kill();
+        }
+        tintSequence = DOTween.Sequence();
+        tintSequence.Append(DOTween.To(
+        () => currentTintMat.GetFloat("_Opacity"),
+        x => currentTintMat.SetFloat("_Opacity", x),
+        0.6f, 0.1f)
+            );
+        tintSequence.Append(DOTween.To(
+        () => currentTintMat.GetFloat("_Opacity"),
+        x => currentTintMat.SetFloat("_Opacity", x),
+        0f, 0.2f)
+            );
+        tintSequence.Play();
     }
 
     public void ForceDeath()
