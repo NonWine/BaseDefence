@@ -104,7 +104,7 @@ public class BombShooting : StaticWeaponController
         {
             bombButton.interactable = true;
 
-        });
+        }).SetEase(Ease.Linear);
     }
     
     protected override void UnLockedUpdate()

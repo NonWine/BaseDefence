@@ -3132,6 +3132,7 @@ MonoBehaviour:
   - {fileID: 7760935424772015282, guid: 050db2d20f670a14ba5b192c8b9274b5, type: 3}
   - {fileID: -5874570631166029023, guid: 366dffb2691e0d548a811e937e0d96f3, type: 3}
   - {fileID: -1202306231407251305, guid: 97b61b773f53f0c47ab8dd06c9280930, type: 3}
+  - {fileID: 8050053179294248699, guid: e6360b69579fc5a479e0536bf8079054, type: 3}
   _resourcePartObjs:
   - {fileID: 1133098336201270029, guid: 1f41f95676402e14daf24795f8257a1f, type: 3}
   - {fileID: 5150099845389695261, guid: 5980b3ef1068a3349a84f87bbb72d96c, type: 3}
@@ -3157,6 +3158,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63a3fcbe29ac23c408262c82f2b21567, type: 2}
   - {fileID: 11400000, guid: 4c9817ff7b458f44ea40ec452d3fe7ba, type: 2}
   - {fileID: 11400000, guid: fe9ea4af4a71fac42bbf1dd836586b3e, type: 2}
+  - {fileID: 11400000, guid: 93f863cf4a966044db2640acf1c0b240, type: 2}
   testsWeapons:
   - {fileID: 11400000, guid: 3a4629af9b06a4f47be58e940527f4f2, type: 2}
   - {fileID: 11400000, guid: fa9099e5b439a844bb30954d6ae56504, type: 2}

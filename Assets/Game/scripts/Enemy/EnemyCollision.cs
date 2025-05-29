@@ -11,7 +11,7 @@ public class EnemyCollision : MonoBehaviour
         if(other.TryGetComponent<Target>(out var target))
         {
             _baseEnemy.EnemyStateMachine.ChangeState<AttackState>();
-
+            _baseEnemy.Speed = 0;
         }
         if(other.CompareTag("StinkyCloud"))
         {
@@ -30,6 +30,7 @@ public class EnemyCollision : MonoBehaviour
         if (collision.transform.TryGetComponent<Target>(out var target))
         {
             _baseEnemy.EnemyStateMachine.ChangeState<AttackState>();
+            _baseEnemy.Speed = 0;
         }
     }
 }

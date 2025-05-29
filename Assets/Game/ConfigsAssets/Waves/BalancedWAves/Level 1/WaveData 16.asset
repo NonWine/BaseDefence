@@ -12,20 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a8a8857b6f54493a45d79a2d53e0896, type: 3}
   m_Name: WaveData 16
   m_EditorClassIdentifier: 
-  SpawnInterval: 3.9978595
+  SpawnInterval: 1.5327888
   waveDuration: 30
   intervalCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.2
       inSlope: 0
       outSlope: 0
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.49589068
+      value: 0.041219264
+      inSlope: -0.24483155
+      outSlope: -0.24483155
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.09594766
     - serializedVersion: 3
       time: 1
       value: 1
