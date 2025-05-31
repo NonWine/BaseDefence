@@ -25,7 +25,7 @@ public abstract class StaticWeaponController : MonoBehaviour , ITickable
 
     private void TryLoad()
     {
-        if (WeaponInfoData.WeaponUpgradeData.IsUnLocked)
+        if (WeaponInfoData.WeaponUpgradeData.IsUnLocked && isLocked)
         {
             isLocked = false;
             UnlockCallback?.Invoke();

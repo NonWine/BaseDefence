@@ -86,6 +86,8 @@ public class BombShooting : StaticWeaponController
         var bullet = bulletFactory.Create(BombBullet.GetType());
         bullet.transform.position = bombStartPos.position;
         bullet.Init(bombTargetPos);
+        ParticlePool.Instance.PlayExplossion(transform.position, 20);
+
         timerColDown = colDown;
         bombButton.interactable = false;
         TurnOnButton();
@@ -93,6 +95,7 @@ public class BombShooting : StaticWeaponController
 
     private void TurnOnButton()
     {
+        Sequence seq = DOTween.Sequence();
         if (count >= WeaponInfoData.WeaponUpgradeData.GetStat(StatName.ZaryadCount).CurrentValue)
         {
             Debug.Log(count);
@@ -100,11 +103,14 @@ public class BombShooting : StaticWeaponController
             return;
         }
         filledImage.fillAmount = 0f;
-        filledImage.DOFillAmount(1f, colDown).OnComplete(() =>
+        seq.Append(filledImage.DOFillAmount(1f, colDown).OnComplete(() =>
         {
+
             bombButton.interactable = true;
 
-        }).SetEase(Ease.Linear);
+        }).SetEase(Ease.Linear));
+        seq.Append(filledImage.transform.DOScale(1.25f, 1f).SetEase(Ease.OutBack));
+        seq.Append(filledImage.transform.DOScale(1f, 0.5f).SetEase(Ease.Linear));
     }
     
     protected override void UnLockedUpdate()
