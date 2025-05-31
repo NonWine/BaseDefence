@@ -50,10 +50,10 @@ public class TowerDefence : StaticWeaponObj , ITickable
     private BaseEnemy GetNearlestEnemy(Transform thisTarget)
     {
         var nearestEnemy = enemyFactory.Enemies
-            .OrderBy<BaseEnemy, float>(e => Vector3.Distance(thisTarget.transform.position, e.transform.position))
-            .FirstOrDefault(x => x.IsDeath == false);
-        
-        
+            .Where(e => !e.IsDeath && Vector3.Distance(thisTarget.position, e.transform.position) < 25)
+            .OrderBy(e => Vector3.Distance(thisTarget.position, e.transform.position))
+            .FirstOrDefault();
+
         return nearestEnemy;
     }
     
