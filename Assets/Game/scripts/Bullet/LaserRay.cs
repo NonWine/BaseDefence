@@ -58,7 +58,8 @@ public class LaserRay : MonoBehaviour
         {
             return false;
         }
-        if(Vector3.Distance(transform.position, nearestEnemy.transform.position) >= 25)
+        if(Vector3.Distance(thisTarget.position, nearestEnemy.transform.position) >=
+            _playerHandler.Player.PlayerCombatManager.DistanceToAgr)
         {
             return false;
         }
@@ -71,7 +72,7 @@ public class LaserRay : MonoBehaviour
         var nearestEnemy = _playerHandler.Player.PlayerGiveDamageHandler.CurrentAgredTarget;
         if (nearestEnemy == null || nearestEnemy.GetComponent<BaseEnemy>().IsDeath)
         {
-            if(enemyFactory.Enemies.Count() > 0 && IsEnemyAround(transform))
+            if(enemyFactory.Enemies.Count() > 0 && IsEnemyAround(_playerHandler.Player.transform))
             {
                 return;
             }
