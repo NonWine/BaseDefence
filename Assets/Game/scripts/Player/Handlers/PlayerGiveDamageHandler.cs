@@ -1,7 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using Zenject;
+using Random = UnityEngine.Random;
 
+[DefaultExecutionOrder(100)]
 public class PlayerGiveDamageHandler : MonoBehaviour
 {
      [Inject]  private EnemyFactory enemyFactory;
@@ -11,29 +16,105 @@ public class PlayerGiveDamageHandler : MonoBehaviour
      [SerializeField] private PlayerContainer _playerContainer;
     [Inject] PlayerHandler playerHandler;
      private float timer;
-     
 
-    
-    
-    public Transform CurrentAgredTarget { get;  set; }
+     private void OnEnable()
+     {
+         WaveManager.Instance.OnStartWave += ResetFirstShot;
+     }
+
+     private void OnDisable()
+     {
+         WaveManager.Instance.OnStartWave -= ResetFirstShot;
+     }
+
+     public Transform CurrentAgredTarget { get;  set; }
+
+     public void TryToShootByTimer(Player player)
+     {
+         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
+         {
+             if(unlockedWeapon.weaponInfoData.WeaponUpgradeData.IsUnLocked == false)
+                 return;
+             var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
+             if (!unlockedWeapon.ShootOnce)
+             {
+                 unlockedWeapon.ShootOnce = true;
+                 ShootPerCountTime(player, unlockedWeapon, upgradeData);
+             }
+             unlockedWeapon.CurrentTimer += Time.deltaTime;
+             if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
+             {
+                 //ShootPerCountTime(player, unlockedWeapon, upgradeData);
+                 unlockedWeapon.ShootOnce = false;
+             }
+            
+         }
+     }
+
+     private void CountTimerForWeapons(Player player)
+     {
+         foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
+         {
+             if(unlockedWeapon.weaponInfoData.WeaponUpgradeData.IsUnLocked == false)
+                 return;
+             var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
+             if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
+             {
+                 //ShootPerCountTime(player, unlockedWeapon, upgradeData);
+                 unlockedWeapon.ShootOnce = false;
+                 return;
+             }
+             unlockedWeapon.CurrentTimer += Time.deltaTime;
+            
+         }
+     }
     
     public void TryGetDamage(Player player)
     {   
-
         timer += Time.deltaTime;
         //Debug.Log(playerCombatManager);
-        foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
+        var enemy = GetNearestEnemy(player.transform,playerCombatManager.DistanceToAgr);
+
+        /*foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
         {
             if(unlockedWeapon.weaponInfoData.WeaponUpgradeData.IsUnLocked == false)
                 return;
-            
-            unlockedWeapon.CurrentTimer += Time.deltaTime;
             var upgradeData = unlockedWeapon.weaponInfoData.WeaponUpgradeData;
-            if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
+            if (!unlockedWeapon.ShootOnce)
             {
+                unlockedWeapon.ShootOnce = true;
                 ShootPerCountTime(player, unlockedWeapon, upgradeData);
             }
+            unlockedWeapon.CurrentTimer += Time.deltaTime;
+            if (unlockedWeapon.CurrentTimer >= upgradeData.GetStat(StatName.CoolDown).CurrentValue)
+            {
+                //ShootPerCountTime(player, unlockedWeapon, upgradeData);
+                unlockedWeapon.ShootOnce = false;
+            }
             
+        }*/
+        
+        if (enemy == null)
+        {
+            CountTimerForWeapons(player);
+            if (playerHandler.Player.PlayerStateMachine.CurrentStateKey != PlayerStateKey.Idle)
+            {
+                playerHandler.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
+            }
+        }
+        else
+        {
+            TryToShootByTimer(player);
+        }
+        
+    }
+
+    public void ResetFirstShot()
+    {
+        Debug.Log("reset first shoot");
+        foreach (var unlockedWeapon in playerCombatManager.UnlockedWeapons)
+        {
+            unlockedWeapon.ShootOnce = false;
         }
     }
 
@@ -95,10 +176,7 @@ public class PlayerGiveDamageHandler : MonoBehaviour
             _playerContainer.Direction = direction;
             bullet.Init(CurrentAgredTarget);
         }
-        else if (playerHandler.Player.PlayerStateMachine.CurrentStateKey != PlayerStateKey.Idle)
-        {
-            playerHandler.Player.PlayerStateMachine.ChangeState(PlayerStateKey.Idle);
-        }
+
     }
 
     public BaseEnemy GetNearestEnemy(Transform thisTarget, float maxDistance)

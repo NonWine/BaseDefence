@@ -36,8 +36,14 @@ public class WaveManager : MonoBehaviour
    public event Action OnEndWave;
    
    public event Action OnLevelFinished;
+   public event Action OnStartWave;
 
    public static WaveManager Instance { get; private set; }
+
+   private void Awake()
+   {
+       Instance = this;
+   }
 
    private void OnEnable()
     {
@@ -57,8 +63,7 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        Instance = this;
-     
+
         waveText.text = (currentWaveIndex ).ToString() + "/" + levelsData[currentLevelIndex].wavesData.Count.ToString();
     }
 
@@ -66,6 +71,7 @@ public class WaveManager : MonoBehaviour
     public void StartWave()
     {
         playerHealth.gameObject.SetActive(true);
+        OnStartWave?.Invoke();
         menuPopUp.alpha = 0f;
         menuPopUp.blocksRaycasts = false;
         CurrentTime = CurrentWave.waveDuration;
