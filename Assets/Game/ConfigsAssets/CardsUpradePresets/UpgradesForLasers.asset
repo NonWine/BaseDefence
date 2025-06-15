@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 1|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +50% Damage Bonus
+      Data: +15% Damage Bonus
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -45,7 +45,7 @@ MonoBehaviour:
       Data: 3|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 50
+      Data: 15
     - Name: StatName
       Entry: 3
       Data: 0

@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: 1|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: +50% Damage Bonus
+      Data: +15% Damage Bonus
     - Name: Bonuses
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[BonusInfo, Assembly-CSharp]], mscorlib
@@ -45,7 +45,7 @@ MonoBehaviour:
       Data: 3|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 50
+      Data: 15
     - Name: StatName
       Entry: 3
       Data: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
       Data: 4|CardUpgradeInfo, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: '+30% Bonus Damage
+      Data: '+10% Bonus Damage
 
         +15% Fire Speed'
     - Name: Bonuses
@@ -83,7 +83,7 @@ MonoBehaviour:
       Data: 6|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 30
+      Data: 10
     - Name: StatName
       Entry: 3
       Data: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
       Data: 11|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: '-15% Damage
+      Data: '-30% Damage
 
         +1 Projectile'
     - Name: Bonuses
@@ -172,7 +172,7 @@ MonoBehaviour:
       Data: 13|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 15
+      Data: 30
     - Name: StatName
       Entry: 3
       Data: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
       Data: 14|AdvantageUpgrade, Assembly-CSharp
     - Name: Description
       Entry: 1
-      Data: '-25% Damage
+      Data: '-35% Damage
 
         +1 Shoot'
     - Name: Bonuses
@@ -216,7 +216,7 @@ MonoBehaviour:
       Data: 16|BonusInfo, Assembly-CSharp
     - Name: PercentBonus
       Entry: 3
-      Data: 25
+      Data: 35
     - Name: StatName
       Entry: 3
       Data: 0
