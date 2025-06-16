@@ -86,7 +86,7 @@ public class BombShooting : StaticWeaponController
         var bullet = bulletFactory.Create(BombBullet.GetType());
         bullet.transform.position = bombStartPos.position;
         bullet.Init(bombTargetPos);
-        ParticlePool.Instance.PlayExplossion(transform.position, 20);
+        
 
         timerColDown = colDown;
         bombButton.interactable = false;

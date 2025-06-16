@@ -39,6 +39,7 @@ public class BombBullet : BaseBullet
     }
     private void Explosion()
     {
+        ParticlePool.Instance.PlayExplossion(transform.position, 20);
         var activeEnemies = enemyFactory.Enemies.Where(x => x.IsDeath == false).ToList();
         foreach(var enemy in activeEnemies)
         {
